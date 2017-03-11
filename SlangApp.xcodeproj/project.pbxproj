@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91099B381E744FDF007F6A36 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91099B371E744FDF007F6A36 /* WordViewController.swift */; };
 		9140F8961E7430A600F32580 /* parse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9140F8951E7430A600F32580 /* parse.txt */; };
 		9140F8981E74360100F32580 /* viewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140F8971E74360100F32580 /* viewController.swift */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91099B371E744FDF007F6A36 /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		9140F8951E7430A600F32580 /* parse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parse.txt; sourceTree = "<group>"; };
 		9140F8971E74360100F32580 /* viewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewController.swift; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -63,15 +65,16 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
+				91E959581E430F540055F5B2 /* wordsTableViewController.swift */,
+				91099B371E744FDF007F6A36 /* WordViewController.swift */,
+				9140F8971E74360100F32580 /* viewController.swift */,
 				91E9595A1E4314780055F5B2 /* dict.csv */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91F97B061E37BF1900796C1F /* Assets.xcassets */,
 				91F97B081E37BF1900796C1F /* LaunchScreen.storyboard */,
 				91F97B0B1E37BF1900796C1F /* Info.plist */,
-				91E959581E430F540055F5B2 /* wordsTableViewController.swift */,
 				9140F8951E7430A600F32580 /* parse.txt */,
-				9140F8971E74360100F32580 /* viewController.swift */,
 			);
 			path = SlangApp;
 			sourceTree = "<group>";
@@ -103,7 +106,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Kam Lotfull";
 				TargetAttributes = {
 					91F97AF91E37BF1800796C1F = {
@@ -153,6 +156,7 @@
 			files = (
 				91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */,
 				91E959591E430F540055F5B2 /* wordsTableViewController.swift in Sources */,
+				91099B381E744FDF007F6A36 /* WordViewController.swift in Sources */,
 				9140F8981E74360100F32580 /* viewController.swift in Sources */,
 				91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */,
 			);
@@ -198,6 +202,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -248,6 +253,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

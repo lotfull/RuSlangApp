@@ -11,23 +11,17 @@ class wordsTableViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
     }
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return dataArray.count
     }
     
@@ -37,10 +31,28 @@ class wordsTableViewController: UITableViewController  {
         if indexPath.section == 0 {
             cell.textLabel?.text = dataArray[indexPath.row]
         } else {
-            cell.textLabel?.text = 2 + dataArray[indexPath.row]
+            cell.textLabel?.text = "2" + dataArray[indexPath.row]
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "tableToWordSegue", sender: dataArray[indexPath.row])
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let guest = segue.destination as! WordViewController
+        //guest - это мы так даем управление тем классом, в который двигаемся благодаря seque. Теперь мы можем управлять свойствами secondviewcontroller, будто это guest
+        guest.wordName = sender as! String
+        // мы меняем свойство mickey на sender as string. Sender - это тот объект, с которого мы заходим на segue, то есть в данном случае это Cell, and so we can interpret Cell as string(celltext)
+
+    }
+    
+    
+    
+    
 }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
