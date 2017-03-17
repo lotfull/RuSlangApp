@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		91099B381E744FDF007F6A36 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91099B371E744FDF007F6A36 /* WordViewController.swift */; };
 		9140F8961E7430A600F32580 /* parse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9140F8951E7430A600F32580 /* parse.txt */; };
-		9140F8981E74360100F32580 /* viewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140F8971E74360100F32580 /* viewController.swift */; };
+		915B91891E7C72C5005E0898 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B91851E7C72C5005E0898 /* Word+CoreDataClass.swift */; };
+		915B918A1E7C72C5005E0898 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B91861E7C72C5005E0898 /* Word+CoreDataProperties.swift */; };
+		915B918B1E7C72C5005E0898 /* Group+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B91871E7C72C5005E0898 /* Group+CoreDataClass.swift */; };
+		915B918C1E7C72C5005E0898 /* Group+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B91881E7C72C5005E0898 /* Group+CoreDataProperties.swift */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
 		91E959591E430F540055F5B2 /* wordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E959581E430F540055F5B2 /* wordsTableViewController.swift */; };
 		91E9595B1E4314780055F5B2 /* dict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91E9595A1E4314780055F5B2 /* dict.csv */; };
@@ -22,7 +25,10 @@
 /* Begin PBXFileReference section */
 		91099B371E744FDF007F6A36 /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		9140F8951E7430A600F32580 /* parse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parse.txt; sourceTree = "<group>"; };
-		9140F8971E74360100F32580 /* viewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewController.swift; sourceTree = "<group>"; };
+		915B91851E7C72C5005E0898 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "../Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		915B91861E7C72C5005E0898 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "../Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		915B91871E7C72C5005E0898 /* Group+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Group+CoreDataClass.swift"; path = "../Group+CoreDataClass.swift"; sourceTree = "<group>"; };
+		915B91881E7C72C5005E0898 /* Group+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Group+CoreDataProperties.swift"; path = "../Group+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		91E959581E430F540055F5B2 /* wordsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordsTableViewController.swift; sourceTree = "<group>"; };
 		91E9595A1E4314780055F5B2 /* dict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dict.csv; path = ../../../dict.csv; sourceTree = "<group>"; };
@@ -45,10 +51,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		915B918D1E7C72CF005E0898 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				915B91851E7C72C5005E0898 /* Word+CoreDataClass.swift */,
+				915B91861E7C72C5005E0898 /* Word+CoreDataProperties.swift */,
+				915B91871E7C72C5005E0898 /* Group+CoreDataClass.swift */,
+				915B91881E7C72C5005E0898 /* Group+CoreDataProperties.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		91F97AF11E37BF1800796C1F = {
 			isa = PBXGroup;
 			children = (
-				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
 				91F97AFC1E37BF1900796C1F /* SlangApp */,
 				91F97AFB1E37BF1900796C1F /* Products */,
 			);
@@ -67,14 +83,15 @@
 			children = (
 				91E959581E430F540055F5B2 /* wordsTableViewController.swift */,
 				91099B371E744FDF007F6A36 /* WordViewController.swift */,
-				9140F8971E74360100F32580 /* viewController.swift */,
-				91E9595A1E4314780055F5B2 /* dict.csv */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
+				915B918D1E7C72CF005E0898 /* Models */,
+				91E9595A1E4314780055F5B2 /* dict.csv */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91F97B061E37BF1900796C1F /* Assets.xcassets */,
 				91F97B081E37BF1900796C1F /* LaunchScreen.storyboard */,
 				91F97B0B1E37BF1900796C1F /* Info.plist */,
 				9140F8951E7430A600F32580 /* parse.txt */,
+				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
 			);
 			path = SlangApp;
 			sourceTree = "<group>";
@@ -157,8 +174,11 @@
 				91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */,
 				91E959591E430F540055F5B2 /* wordsTableViewController.swift in Sources */,
 				91099B381E744FDF007F6A36 /* WordViewController.swift in Sources */,
-				9140F8981E74360100F32580 /* viewController.swift in Sources */,
+				915B918A1E7C72C5005E0898 /* Word+CoreDataProperties.swift in Sources */,
+				915B918B1E7C72C5005E0898 /* Group+CoreDataClass.swift in Sources */,
 				91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */,
+				915B918C1E7C72C5005E0898 /* Group+CoreDataProperties.swift in Sources */,
+				915B91891E7C72C5005E0898 /* Word+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,8 +355,7 @@
 				91E959351E4309930055F5B2 /* Model.xcdatamodel */,
 			);
 			currentVersion = 91E959351E4309930055F5B2 /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = SlangApp/Model.xcdatamodeld;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

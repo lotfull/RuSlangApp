@@ -1,5 +1,6 @@
 
 import UIKit
+import CoreData
 
 class wordsTableViewController: UITableViewController  {
 
@@ -8,12 +9,31 @@ class wordsTableViewController: UITableViewController  {
     
     let dataArray = ["A", "B", "C", "Z"]
     
+    var testWord = Word()
+    
+    var wordsDictionary: [String:Any] = [:]
+    
+    var words : [Word] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate = self
         
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let word = Word(context: context)
+        
+        word.name = "Абапер"
+        word.definition = "Человек, который программирует на ABAP"
+        word.group = "Сущ. м. р."
+        word.examples = "Ах ты-ж абапер зассанный"
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        let fetchRequest:NSFetchRequest<Word> = Word.fetchRequest()
     }
     
 
@@ -22,17 +42,14 @@ class wordsTableViewController: UITableViewController  {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
+        return words.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        if indexPath.section == 0 {
-            cell.textLabel?.text = dataArray[indexPath.row]
-        } else {
-            cell.textLabel?.text = "2" + dataArray[indexPath.row]
-        }
+        cell.textLabel?.text = words[indexPath.row].name
+        
         return cell
     }
     
