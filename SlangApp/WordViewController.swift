@@ -11,18 +11,28 @@ import UIKit
 class WordViewController: UIViewController {
 
     
+    @IBOutlet weak var wordDefinitionLabel: UILabel!
     
-    @IBOutlet weak var wordLabel: UILabel!
+    var wordName = "Слово Х"
     
-    var wordName = "The Name"
+    @IBOutlet weak var WordNameInBar: UINavigationItem!
+    
+    var wordDefinition = "Описание слова\nДовольно длинное значение\nДаже очень"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wordLabel.text = wordName
-        // Do any additional setup after loading the view.
+        WordNameInBar.title = wordName
+        wordDefinitionLabel.text = wordDefinition
+    }
+    
+    @IBAction func cancel() {
+        dismiss(animated: true, completion: nil)
     }
     
     
-
+    
+    
+    //name,type,group,definition,examples,hashtags,story
+    
 }

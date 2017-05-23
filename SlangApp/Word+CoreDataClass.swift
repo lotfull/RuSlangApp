@@ -2,7 +2,7 @@
 //  Word+CoreDataClass.swift
 //  SlangApp
 //
-//  Created by Kam Lotfull on 17.03.17.
+//  Created by Kam Lotfull on 21.05.17.
 //  Copyright © 2017 Kam Lotfull. All rights reserved.
 //
 
@@ -11,5 +11,6 @@ import CoreData
 
 @objc(Word)
 public class Word: NSManagedObject {
+
 
 }

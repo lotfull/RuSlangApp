@@ -1,32 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dma-0F-Smm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dma-0F-Smm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Words Table View Controller-->
+        <!--RuSlang Dictionary-->
         <scene sceneID="cxQ-3f-SLf">
             <objects>
-                <tableViewController id="mPO-jZ-NT8" customClass="wordsTableViewController" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr3-Vw-6OL">
+                <tableViewController id="mPO-jZ-NT8" customClass="WordsTableVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr3-Vw-6OL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.9980061267" green="1" blue="0.61961615940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.9980061267" green="1" blue="0.61961615940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Поиск слова" showsCancelButton="YES" id="J8K-i1-bT9">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="cfG-Th-Hzz">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Word" rowHeight="162" id="cfG-Th-Hzz" customClass="WordTableViewCell" customModule="SlangApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfG-Th-Hzz" id="RMo-mV-6g6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eDv-Ah-GBc">
+                                            <rect key="frame" x="18" y="13" width="269" height="130"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="400" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDx-g7-APK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="33.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Значение слова, его определение" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-38-grY">
+                                                    <rect key="frame" x="0.0" y="33.5" width="269" height="96.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u1t-Md-yKP">
+                                            <rect key="frame" x="287" y="18" width="80" height="125"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3DQ-F8-Ikx">
+                                                    <rect key="frame" x="15.5" y="0.0" width="51" height="31"/>
+                                                </switch>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfZ-6o-Hwj">
+                                                    <rect key="frame" x="29" y="31" width="22" height="94"/>
+                                                    <connections>
+                                                        <action selector="readMoreButton:" destination="cfG-Th-Hzz" eventType="touchUpInside" id="giy-BY-9pY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="u1t-Md-yKP" firstAttribute="top" secondItem="RMo-mV-6g6" secondAttribute="topMargin" constant="10" id="0rM-FV-sxm"/>
+                                        <constraint firstItem="eDv-Ah-GBc" firstAttribute="top" secondItem="RMo-mV-6g6" secondAttribute="topMargin" constant="5" id="52E-Zk-p2D"/>
+                                        <constraint firstItem="eDv-Ah-GBc" firstAttribute="leading" secondItem="RMo-mV-6g6" secondAttribute="leadingMargin" constant="10" id="Lsf-ye-4se"/>
+                                        <constraint firstItem="u1t-Md-yKP" firstAttribute="leading" secondItem="eDv-Ah-GBc" secondAttribute="trailing" id="Zn0-Nf-Use"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eDv-Ah-GBc" secondAttribute="bottom" constant="10" id="cGJ-77-BYz"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="u1t-Md-yKP" secondAttribute="bottom" constant="10" id="enX-O5-bYh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="u1t-Md-yKP" secondAttribute="trailing" id="fwx-7O-CHL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eDv-Ah-GBc" secondAttribute="trailing" constant="80" id="nq6-b1-cI9"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isFavoriteWordSwitch" destination="3DQ-F8-Ikx" id="nXi-ua-OoO"/>
+                                    <outlet property="wordDefinitionLabel" destination="WWh-38-grY" id="QxW-zn-0MF"/>
+                                    <outlet property="wordNameLabel" destination="vDx-g7-APK" id="4Fg-t6-u7z"/>
+                                    <segue destination="wg3-we-q2F" kind="presentation" identifier="ShowWordDetail" id="TUG-Ki-UH0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,16 +92,72 @@
                             <outlet property="delegate" destination="mPO-jZ-NT8" id="VLh-M6-Sw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fm6-bQ-Tt8"/>
-                    <connections>
-                        <segue destination="fYP-TH-Qa2" kind="show" identifier="tableToWordSegue" id="ca2-ty-WlW"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="RuSlang Dictionary" id="fm6-bQ-Tt8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag2-Q2-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1416.8" y="-21.139430284857571"/>
+            <point key="canvasLocation" x="1703" y="-22"/>
         </scene>
-        <!--Word View Controller-->
+        <!--Word-->
+        <scene sceneID="Gjt-Rc-L7f">
+            <objects>
+                <tableViewController id="1C6-aZ-MHr" customClass="WordDetailVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OIh-59-vmN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="DNw-f3-QZu">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordDetailCell" rowHeight="198" id="nBR-Ft-9hw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nBR-Ft-9hw" id="Z4n-B7-Qh5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B1g-Nf-cYu">
+                                                    <rect key="frame" x="8" y="8" width="359" height="181.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="B1g-Nf-cYu" firstAttribute="top" secondItem="Z4n-B7-Qh5" secondAttribute="topMargin" id="7wT-JO-kPM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="B1g-Nf-cYu" secondAttribute="bottom" id="E7K-6w-wCh"/>
+                                                <constraint firstItem="B1g-Nf-cYu" firstAttribute="leading" secondItem="Z4n-B7-Qh5" secondAttribute="leadingMargin" id="cKF-9t-QQw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="B1g-Nf-cYu" secondAttribute="trailing" id="lqU-tQ-gvB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="1C6-aZ-MHr" id="W0w-Zk-JSM"/>
+                            <outlet property="delegate" destination="1C6-aZ-MHr" id="ctj-o6-km4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Word" id="aen-Uj-hxZ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="2oY-un-qCJ">
+                            <connections>
+                                <action selector="cancel:" destination="1C6-aZ-MHr" id="kvK-UU-4Kb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="SIt-cl-U9e"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblView" destination="OIh-59-vmN" id="aHx-yh-jr5"/>
+                        <outlet property="wordTextView" destination="B1g-Nf-cYu" id="oCe-Dq-0xa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3340" y="-22"/>
+        </scene>
+        <!--Word-->
         <scene sceneID="X7N-Ac-5Bw">
             <objects>
                 <viewController id="fYP-TH-Qa2" customClass="WordViewController" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,36 +169,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORD NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHl-yR-BIt">
-                                <rect key="frame" x="16" y="164" width="343" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-ql-uJI">
-                                <rect key="frame" x="16" y="246" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="75W-1T-Di7">
+                                <rect key="frame" x="26" y="74" width="318" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-AB-2Rt">
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="72"/>
+                                        <string key="text">Значение слова
+Довольно длинное значение
+Даже очень</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Тут еще примеры использования слова" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4f-TG-ARr">
+                                        <rect key="frame" x="0.0" y="72" width="318" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="hcu-2e-QOk">
+                                        <rect key="frame" x="0.0" y="144" width="276" height="72"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QHz-Ik-db5">
+                                                <rect key="frame" x="0.0" y="15.5" width="149" height="41"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Тут его часть речи" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-qP-wF4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="149" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Тут еще приколы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-bU-6Er">
+                                                        <rect key="frame" x="0.0" y="20.5" width="149" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qrF-mA-uoo">
+                                                <rect key="frame" x="189" y="0.0" width="87" height="72"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GZ-Fh-Ptn">
+                                                        <rect key="frame" x="19" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlV-ZR-coy">
+                                                        <rect key="frame" x="0.5" y="31" width="86.5" height="41"/>
+                                                        <string key="text">это свитч
+избранное</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97242755889999999" blue="0.73925835039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="IHl-yR-BIt" secondAttribute="trailing" id="3W2-Ok-sfg"/>
-                            <constraint firstItem="vwI-ql-uJI" firstAttribute="leading" secondItem="bfG-il-VPl" secondAttribute="leadingMargin" id="HSG-zq-oqu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vwI-ql-uJI" secondAttribute="trailing" id="N4H-Uv-wdY"/>
-                            <constraint firstItem="IHl-yR-BIt" firstAttribute="top" secondItem="SRn-p6-fs2" secondAttribute="bottom" constant="100" id="mIM-Ke-oiR"/>
-                            <constraint firstItem="IHl-yR-BIt" firstAttribute="leading" secondItem="bfG-il-VPl" secondAttribute="leadingMargin" id="mfr-fa-MIf"/>
-                            <constraint firstItem="vwI-ql-uJI" firstAttribute="top" secondItem="IHl-yR-BIt" secondAttribute="bottom" constant="55" id="qth-1p-Fjc"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Word" id="qaQ-nG-3iP">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="CMz-os-fbG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="YjO-PB-uoT"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="wordLabel" destination="IHl-yR-BIt" id="Tlq-9C-gFY"/>
+                        <outlet property="WordNameInBar" destination="qaQ-nG-3iP" id="D5a-lr-9jb"/>
+                        <outlet property="wordDefinitionLabel" destination="dKb-AB-2Rt" id="LHE-rl-jLf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UA7-lV-feO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="-37.331334332833585"/>
+            <point key="canvasLocation" x="2116" y="891"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
@@ -102,7 +260,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkC-hT-DkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477.60000000000002" y="-21.139430284857571"/>
+            <point key="canvasLocation" x="1026" y="-22"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hxw-uH-IF6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="93y-PA-H6i" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vhk-JY-PWh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fYP-TH-Qa2" kind="relationship" relationship="rootViewController" id="eVj-QQ-itw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k7z-bp-70h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="876"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zSw-6h-z13">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wg3-we-q2F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nly-SD-Kqr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1C6-aZ-MHr" kind="relationship" relationship="rootViewController" id="Cgj-On-WHf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="viR-N9-DLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="-22"/>
         </scene>
     </scenes>
 </document>

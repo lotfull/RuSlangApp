@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Group" representedClassName="Group" syncable="YES">
-        <attribute name="groupName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="groups" inverseEntity="Word" syncable="YES"/>
-    </entity>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Word" representedClassName="Word" syncable="YES">
-        <attribute name="definition" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
-        <attribute name="examples" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
-        <attribute name="group" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
-        <attribute name="hashtags" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" defaultValueString="name" syncable="YES"/>
-        <attribute name="story" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" defaultValueString="none" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="words" inverseEntity="Group" syncable="YES"/>
+        <attribute name="definition" attributeType="String" syncable="YES"/>
+        <attribute name="examples" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hashtags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="story" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synonims" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Word" positionX="-63" positionY="-18" width="135" height="163"/>
-        <element name="Group" positionX="160" positionY="71" width="128" height="73"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>
