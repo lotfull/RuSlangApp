@@ -14,18 +14,18 @@ class WordsTableVC: UITableViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
         clearAllData()
         addWord("слово 1")
         addWord("слово 2")
         addWord("слово 3")
-        
+ 
         do {
             try managedObjectContext.save()
         } catch {
             fatalCoreDataError(error)
         }
-        
+        */
         let fetchRequest = NSFetchRequest<Word>()
         let entity = Word.entity()
         fetchRequest.entity = entity

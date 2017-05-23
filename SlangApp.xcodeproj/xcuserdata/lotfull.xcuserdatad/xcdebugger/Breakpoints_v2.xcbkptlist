@@ -42,23 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517227505.283618"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "viewControllerForShowingAlert()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517227509.828003"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -74,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517227517.971484"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "parseCSV(contentsOfURL:encoding:error:)"
+            landmarkName = "viewControllerForShowingAlert()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517227518.737034"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "parseCSV(contentsOfURL:encoding:error:)"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "viewControllerForShowingAlert()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,91 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517227980.971817"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "parseCSV(contentsOfURL:encoding:error:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.AppDelegate.parseCSV (contentsOfURL : Foundation.URL, encoding : (extension in Foundation):Swift.String.Encoding, error : Swift.Optional&lt;Swift.AutoreleasingUnsafeMutablePointer&lt;Swift.Optional&lt;__ObjC.NSError&gt;&gt;&gt;) -&gt; Swift.Optional&lt;Swift.Array&lt;(name : Swift.String, definition : Swift.String, type : Swift.String, group : Swift.String, examples : Swift.String, hashtags : Swift.String, story : Swift.String, synonims : Swift.String)&gt;&gt;"
-                  moduleName = "SlangApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/AppDelegate.swift"
-                  timestampString = "517230273.650562"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.AppDelegate.parseCSV (contentsOfURL : Foundation.URL, encoding : (extension in Foundation):Swift.String.Encoding, error : Swift.Optional&lt;Swift.AutoreleasingUnsafeMutablePointer&lt;Swift.Optional&lt;__ObjC.NSError&gt;&gt;&gt;) -&gt; Swift.Optional&lt;Swift.Array&lt;(name : Swift.String, definition : Swift.String, type : Swift.String, group : Swift.String, examples : Swift.String, hashtags : Swift.String, story : Swift.String, synonims : Swift.String)&gt;&gt;"
-                  moduleName = "SlangApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/AppDelegate.swift"
-                  timestampString = "517230273.652605"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "276">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229486.225058"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "returnNilIfNonNone(str:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229487.339974"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "returnNilIfNonNone(str:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229488.516351"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "preloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,59 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229489.961014"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "preloadData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.AppDelegate.preloadData () -&gt; ()"
-                  moduleName = "SlangApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/AppDelegate.swift"
-                  timestampString = "517230273.667136"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "4472">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.AppDelegate.preloadData () -&gt; ()"
-                  moduleName = "SlangApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/AppDelegate.swift"
-                  timestampString = "517230273.668762"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "189"
-                  endingLineNumber = "189"
-                  offsetFromSymbolStart = "5108">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229490.981816"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "preloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,59 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229492.454088"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229493.431005"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "preloadData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229496.514118"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "preloadData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229652.07428"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,28 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517229653.208415"
+            timestampString = "517232572.104837"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/AppDelegate.swift"
-            timestampString = "517230157.312263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "parseCSV(contentsOfURL:encoding:error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

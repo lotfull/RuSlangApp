@@ -1,7 +1,8 @@
 import Foundation
 
 extension String {
-    func csvRows() -> [[String]] {
+    func csvRows(firstRowIgnored ignored: Bool) -> [[String]] {
+        var firstRowIgnored = ignored
         var rows : [[String]] = []
         
         let newlineCharacterSet = CharacterSet.newlines
@@ -57,7 +58,11 @@ extension String {
                 }
             }
             if columns.count > 0 {
-                rows.append(columns)
+                if !firstRowIgnored {
+                    rows.append(columns)
+                } else {
+                    firstRowIgnored = false
+                }
             }
         }
         return rows

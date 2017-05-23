@@ -24,7 +24,7 @@ extension Word {
     @NSManaged public var hashtags: String?
     @NSManaged public var story: String?
     @NSManaged public var favorite: Bool
-    @NSManaged public var synonims: String?
+    @NSManaged public var synonyms: String?
 
     
 }
