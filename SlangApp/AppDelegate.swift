@@ -105,28 +105,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    let dict = "dict"
+    
     func preloadData () {
-        if let contentsOfURL = Bundle.main.url(forResource: test_dict, withExtension: "csv") {
-            removeData()
-            if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
-                let items_arrays = content.csvRows(firstRowIgnored: true)
-                for item_array in items_arrays {
-                    let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                    word.name = item_array[0]
-                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1])
-                    word.type = returnNilIfNonNone(str: item_array[2])
-                    word.group = returnNilIfNonNone(str: item_array[3])
-                    word.examples = returnNilIfNonNone(str: item_array[4])
-                    word.hashtags = returnNilIfNonNone(str: item_array[5])
-                    word.story = returnNilIfNonNone(str: item_array[6])
-                    word.synonyms = returnNilIfNonNone(str: item_array[7])
-                    do {
-                        try managedObjectContext.save()
-                    } catch {
-                        print("**********insert error: \(error.localizedDescription)\n********")
+        removeData()
+        var i = 0;
+        while i <= 31 {
+            if let contentsOfURL = Bundle.main.url(forResource: dict + "\(i)", withExtension: "csv") {
+                if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
+                    let items_arrays = content.csvRows(firstRowIgnored: true)
+                    for item_array in items_arrays {
+                        let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
+                        word.name = item_array[0]
+                        word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1])
+                        word.type = returnNilIfNonNone(str: item_array[2])
+                        word.group = returnNilIfNonNone(str: item_array[3])
+                        word.examples = returnNilIfNonNone(str: item_array[4])
+                        word.hashtags = returnNilIfNonNone(str: item_array[5])
+                        word.story = returnNilIfNonNone(str: item_array[6])
+                        word.synonyms = returnNilIfNonNone(str: item_array[7])
+                        do {
+                            try managedObjectContext.save()
+                        } catch {
+                            print("**********insert error: \(error.localizedDescription)\n********")
+                        }
                     }
                 }
             }
+            i += 1
+            print("Парсинг \(i + 1) из \(32)")
         }
     }
     

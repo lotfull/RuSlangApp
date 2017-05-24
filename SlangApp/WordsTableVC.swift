@@ -2,101 +2,75 @@
 import UIKit
 import CoreData
 
-class WordsTableVC: UITableViewController  {
+class WordsTableVC: UITableViewController, UITextFieldDelegate  {
 
-    var dictWords = [String:String]()
-    var arrayWords = NSMutableArray()
-    var managedObjectContext: NSManagedObjectContext!
-    var words = [Word]()
-    var selectedWord: Word!
-    
-    //var wordsArray = [Word]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        clearAllData()
-        addWord("слово 1")
-        addWord("слово 2")
-        addWord("слово 3")
- 
-        do {
-            try managedObjectContext.save()
-        } catch {
-            fatalCoreDataError(error)
-        }
-        */
-        let fetchRequest = NSFetchRequest<Word>()
-        let entity = Word.entity()
-        fetchRequest.entity = entity
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        do {
-            words = try managedObjectContext.fetch(fetchRequest)
-        } catch {
-            fatalCoreDataError(error)
-        }
-        selectedWord = words[0]
+        searching("")
         tableView.dataSource = self
         tableView.delegate = self
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedWord = words[indexPath.row]
-    }
-    
-    @IBOutlet weak var isFavoriteSwitch: UISwitch!
-    /*@IBAction func isFavoriteChanged(_ sender: UISwitch) {
-        if let smth = sender.superview as? UITableViewCell {
-            print("smth == UITableViewCell")
-        } else if let smth = sender.superview as? UITableViewController {
-            print("smth == UITableViewController")
-        } else if let smth = sender.superview as? UIStackView {
-            print("smth == UIStackView")
-        } else if let smth = sender.superview as? UIContentContainer {
-            print("smth == UIContentContainer")
-        } else {
-            print("I DONT KNOW")
-        }
-        
-     }@IBAction func isFavoriteChanged(_ sender: UISwitch) {
-     if let smth = sender.superview as? UIStackView {
-     print("smth == UIStackView")
-     }
-     
-     }*/
-    
-    
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        
-        let word = words[indexPath.row]
-        
-        cell.configure(with: word)
-        
-        return cell
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowWordDetail" {
+        if segue.identifier == showWordDetailID {
+            print("prepare(for segue")
             if let navigationVC = segue.destination as? UINavigationController,
-                let wordDetailVC = navigationVC.topViewController as? WordDetailVC {
+                let wordDetailVC = navigationVC.topViewController as? WordDetailVC,
+                let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                 wordDetailVC.managedObjectContext = managedObjectContext
+                selectedWord = words[indexPath.row]
                 wordDetailVC.word = selectedWord
             }
         }
     }
     
+    // MARK: - tableView funcs
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt")
+    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return words.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
+        let word = words[indexPath.row]
+        cell.configure(with: word)
+        return cell
+    }
+
+    // MARK: - searching funcs
+    func searching(_ text: String?) {
+        let searchFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        if searchText != "" { searchFetch.predicate =  NSPredicate(format: "name BEGINSWITH %@", text!) }
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        searchFetch.sortDescriptors = [sortDescriptor]
+        do {
+            words = try managedObjectContext.fetch(searchFetch) as! [Word]
+        } catch {
+            fatalError("Failed to fetch words: \(error)")
+        }
+        tableView.reloadData()
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text! as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string)
+        print("***shouldChangeCharactersIn")
+        searchText = newText
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("***textFieldShouldReturn")
+        searchText = textField.text
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        searchText = ""
+        return true
+    }
     func clearAllData() {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
@@ -112,7 +86,25 @@ class WordsTableVC: UITableViewController  {
         word.name = wordName
         word.definition = "Значение слова \(wordName)"
         word.examples = "Сегодня я выучила \(wordName) на уроке английского"
-
     }
+    
+    // MARK: - @IBO and @IBA
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet { searchTextField.delegate = self }
+    }
+    
+    // MARK: - VARS and LETS
+    var dictWords = [String:String]()
+    var arrayWords = NSMutableArray()
+    var managedObjectContext: NSManagedObjectContext!
+    var words = [Word]()
+    var selectedWord: Word!
+    var searchText: String? { didSet {
+        print("***didSet searchText")
+        words.removeAll()
+        searching(searchText)
+        title = searchText } }
+    let showWordDetailID = "ShowWordDetail"
+    
     
 }

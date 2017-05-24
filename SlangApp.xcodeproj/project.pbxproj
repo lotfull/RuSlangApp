@@ -41,6 +41,7 @@
 		9114F9CD1ED45A89009A28BE /* dict29.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AD1ED45A89009A28BE /* dict29.csv */; };
 		9114F9CE1ED45A89009A28BE /* dict30.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AE1ED45A89009A28BE /* dict30.csv */; };
 		9114F9CF1ED45A89009A28BE /* dict31.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AF1ED45A89009A28BE /* dict31.csv */; };
+		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		9140F8961E7430A600F32580 /* parse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9140F8951E7430A600F32580 /* parse.txt */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
@@ -93,6 +94,7 @@
 		9114F9AD1ED45A89009A28BE /* dict29.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict29.csv; sourceTree = "<group>"; };
 		9114F9AE1ED45A89009A28BE /* dict30.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict30.csv; sourceTree = "<group>"; };
 		9114F9AF1ED45A89009A28BE /* dict31.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict31.csv; sourceTree = "<group>"; };
+		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9140F8951E7430A600F32580 /* parse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parse.txt; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
+				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
 				917D38711ED18F0800EA315F /* Functions.swift */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */,
+				9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */,
 				9114F98E1ED45089009A28BE /* CsvParcer.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
 				917D38721ED18F0800EA315F /* Functions.swift in Sources */,
