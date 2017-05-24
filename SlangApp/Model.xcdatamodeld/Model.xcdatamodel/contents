@@ -7,11 +7,11 @@
         <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hashtags" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="story" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="synonyms" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Word" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

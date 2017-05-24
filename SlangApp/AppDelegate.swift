@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
         }
         listenForFatalCoreDataNotifications()
+        removeDubs()
         return true
     }
 
@@ -145,6 +146,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try managedObjectContext.save()
         } catch {
             print ("There was an error")
+        }
+    }
+    
+    func removeDubs() {
+        var words = [Word]()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        var countEqual = 0
+        var countSimilar = 0
+        var count = 0
+        do {
+            words = try managedObjectContext.fetch(fetchRequest) as! [Word]
+            count = words.count
+            if !words.isEmpty {
+                var x = 0
+                while x < words.count {
+                    var y = x + 1
+                    while y < words.count && words[y].name == words[x].name {
+                        if words[x].definition == words[y].definition {
+                            countSimilar += 1
+                            if words[x].origin == words[y].origin,
+                                words[x].examples == words[y].examples,
+                                words[x].type == words[y].type,
+                                words[x].synonyms == words[y].synonyms,
+                                words[x].hashtags == words[y].hashtags,
+                                words[x].group == words[y].group {
+                                countEqual += 1
+                                managedObjectContext.delete(words[y])
+                                do {
+                                    try managedObjectContext.save()
+                                } catch {
+                                    print("**********insert error: \(error.localizedDescription)\n********")
+                                }
+                            }
+                        }
+                        y += 1
+                    }
+                    x += 1
+                }
+            }
+        } catch {
+            fatalError("Failed to fetch words: \(error)")
+        }
+        print("***!!!!***!!!\(count) countAll***!!!!***!!!")
+        print("***!!!!***!!!\(countEqual)countEqual***!!!!***!!!")
+        print("***!!!!***!!!\(countSimilar)countSimilar***!!!!***!!!")
+    }
+    
+    func deleteObject(withID objectID: NSManagedObjectID) {
+        let fetchRequest: NSFetchRequest<Word> = Word.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "attendance = \(objectID)")// Predicate.init(format: "profileID==\(withID)")
+        if let result = try? managedObjectContext.fetch(fetchRequest) {
+            for object in result {
+                managedObjectContext.delete(object)
+            }
+        }
+    }
+    
+    func println(_ s: String) {
+        let path = "/Users/lotfull/Desktop/xcode/SlangApp/SlangApp/output.txt"
+        var dump = ""
+        if FileManager.default.fileExists(atPath: path) {
+            dump =  try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        }
+        do {
+            // Write to the file
+            try  "\(dump)\n\(s)".write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
+        } catch let error as NSError {
+            print("Failed writing to log file: \(path), Error: " + error.localizedDescription)
         }
     }
     

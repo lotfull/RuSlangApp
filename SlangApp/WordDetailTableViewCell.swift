@@ -18,45 +18,82 @@ class WordDetailTableViewCell: UITableViewCell {
     }
 
     @IBOutlet weak var wordTextView: UITextView!
+    var number = 1
     
     func configurate(with word: Word) {
         let wtv = wordTextView!
         
-        let nameString = "\(word.name)\n\n"
-        let attributedText = NSMutableAttributedString(string: nameString, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16), NSForegroundColorAttributeName: UIColor.blue])
+        
+        print("***********\(word.description)")
+        
+        let nameString = "\(word.name)\n"
+        let attributedText = NSMutableAttributedString(string: nameString, attributes: [
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16),
+            NSForegroundColorAttributeName: UIColor.blue])
         
         if word.type != nil {
             let typeString = "\(word.type!) "
-            attributedText.append(NSAttributedString(string: typeString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.green]))
-        }
-        if word.group != nil {
-            let groupString = "\(word.group!) "
-            attributedText.append(NSAttributedString(string: groupString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.green]))
+            attributedText.append(NSAttributedString(string: typeString, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSForegroundColorAttributeName: UIColor.purple,
+                NSParagraphStyleAttributeName: typeParagraphStyle]))
         }
         
-        let defString = "\n  1) \(word.definition)\n"
-        attributedText.append(NSAttributedString(string: defString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.black]))
+        if word.group != nil {
+            let groupString = "\(word.group!)"
+            attributedText.append(NSAttributedString(string: groupString, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSForegroundColorAttributeName: UIColor.purple]))
+        }
+        
+        let defString = "\n  \(number)) \(word.definition)\n"
+        attributedText.append(NSAttributedString(string: defString, attributes: [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+            NSForegroundColorAttributeName: UIColor.black,
+            NSParagraphStyleAttributeName: defParagraphStyle]))
         
         if word.examples != nil {
-            let examplesString = "    прим.: \(word.examples!)\n"
-            attributedText.append(NSAttributedString(string: examplesString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.gray]))
+            let examplesString = "примеры: \(word.examples!)\n"
+            attributedText.append(NSMutableAttributedString(string: examplesString, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 14),
+                NSForegroundColorAttributeName: UIColor.gray,
+                NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
         
         if word.origin != nil {
-            let originString = "  происх.: \(word.origin!)\n"
-            attributedText.append(NSAttributedString(string: originString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.darkGray]))
+            let originString = "происх.: \(word.origin!)\n"
+            attributedText.append(NSAttributedString(string: originString, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSForegroundColorAttributeName: UIColor.darkGray,
+                NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
         
         if word.synonyms != nil {
-            let synonymsString = "  син.: \(word.synonyms!)\n"
-            attributedText.append(NSAttributedString(string: synonymsString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14), NSForegroundColorAttributeName: UIColor.darkGray]))
+            let synonymsString = "син.: \(word.synonyms!)\n"
+            attributedText.append(NSAttributedString(string: synonymsString, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSForegroundColorAttributeName: UIColor.darkGray,
+                NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
         
         if word.hashtags != nil {
-            let hashtagsString = "\n  \(word.hashtags!) "
-            attributedText.append(NSAttributedString(string: hashtagsString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.green]))
+            let hashtagsString = "\(word.hashtags!)\n"
+            attributedText.append(NSAttributedString(string: hashtagsString, attributes: [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSForegroundColorAttributeName: UIColor.green,
+                NSParagraphStyleAttributeName: hashParagraphStyle]))
         }
+
         
+        //let spaceCoef: CGFloat = 3
+        //let font = UIFont.systemFont(ofSize: 20)
+        
+                /*
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.paragraphSpacing = spaceCoef * font.lineHeight
+        paragraphStyle.headIndent = 30*/
+        
+        //attributedText.append(NSAttributedString(string: "TEST string in case that this string will work perfect - then i will use this method in my project", attributes: [NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle]))
         wtv.attributedText = attributedText
         
         wtv.isSelectable = true
@@ -67,7 +104,38 @@ class WordDetailTableViewCell: UITableViewCell {
         // wtv.backgroundColor = .yellow
         
         //name, definition, type, group, examples, hashtags, story, synonims
-
     }
+    
+    let smallParagraphStyle: NSMutableParagraphStyle = {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.headIndent = 20
+        paragraphStyle.firstLineHeadIndent = 20
+        paragraphStyle.paragraphSpacingBefore = 3
+        return paragraphStyle
+    }()
+    
+    let defParagraphStyle: NSMutableParagraphStyle = {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.headIndent = 10
+        paragraphStyle.firstLineHeadIndent = 0
+        paragraphStyle.paragraphSpacingBefore = 3
+        return paragraphStyle
+    }()
+    
+    let hashParagraphStyle: NSMutableParagraphStyle = {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.headIndent = 20
+        paragraphStyle.firstLineHeadIndent = 0
+        paragraphStyle.paragraphSpacingBefore = 3
+        return paragraphStyle
+    }()
+    
+    let typeParagraphStyle: NSMutableParagraphStyle = {
+        let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.headIndent = 0
+        paragraphStyle.firstLineHeadIndent = 0
+        paragraphStyle.paragraphSpacingBefore = 15
+        return paragraphStyle
+    }()
 }
- 
+
