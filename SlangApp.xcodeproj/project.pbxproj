@@ -42,7 +42,6 @@
 		9114F9CE1ED45A89009A28BE /* dict30.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AE1ED45A89009A28BE /* dict30.csv */; };
 		9114F9CF1ED45A89009A28BE /* dict31.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AF1ED45A89009A28BE /* dict31.csv */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
-		9140F8961E7430A600F32580 /* parse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9140F8951E7430A600F32580 /* parse.txt */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
@@ -50,7 +49,6 @@
 		9183C3271ED4463000F2FF76 /* test_dict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9183C3261ED4462F00F2FF76 /* test_dict.csv */; };
 		9183C3291ED44C9400F2FF76 /* saved_test_dict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9183C3281ED44C9400F2FF76 /* saved_test_dict.csv */; };
 		919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */; };
-		919BEC861E85991500AF1644 /* dict_AtoB.csv in Resources */ = {isa = PBXBuildFile; fileRef = 919BEC851E85991500AF1644 /* dict_AtoB.csv */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
 		91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E959581E430F540055F5B2 /* WordsTableVC.swift */; };
 		91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F97AFD1E37BF1900796C1F /* AppDelegate.swift */; };
@@ -95,7 +93,6 @@
 		9114F9AE1ED45A89009A28BE /* dict30.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict30.csv; sourceTree = "<group>"; };
 		9114F9AF1ED45A89009A28BE /* dict31.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict31.csv; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
-		9140F8951E7430A600F32580 /* parse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = parse.txt; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
@@ -103,7 +100,6 @@
 		9183C3261ED4462F00F2FF76 /* test_dict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_dict.csv; sourceTree = "<group>"; };
 		9183C3281ED44C9400F2FF76 /* saved_test_dict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = saved_test_dict.csv; sourceTree = "<group>"; };
 		919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
-		919BEC851E85991500AF1644 /* dict_AtoB.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dict_AtoB.csv; path = ../../../dict_AtoB.csv; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		91E959581E430F540055F5B2 /* WordsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsTableVC.swift; sourceTree = "<group>"; };
 		91F97AFA1E37BF1900796C1F /* SlangApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlangApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,12 +163,13 @@
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
+				917D38711ED18F0800EA315F /* Functions.swift */,
+				9114F98D1ED45089009A28BE /* CsvParcer.swift */,
 				9114F98F1ED45A51009A28BE /* csv_dicts */,
-				919BEC851E85991500AF1644 /* dict_AtoB.csv */,
 				91F97B0B1E37BF1900796C1F /* Info.plist */,
 				91F97B061E37BF1900796C1F /* Assets.xcassets */,
 				91F97B081E37BF1900796C1F /* LaunchScreen.storyboard */,
-				9140F8951E7430A600F32580 /* parse.txt */,
 				9183C3261ED4462F00F2FF76 /* test_dict.csv */,
 				9183C3281ED44C9400F2FF76 /* saved_test_dict.csv */,
 			);
@@ -201,16 +198,13 @@
 			isa = PBXGroup;
 			children = (
 				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
-				917D38711ED18F0800EA315F /* Functions.swift */,
-				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
 				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
 				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
 				91099B371E744FDF007F6A36 /* WordViewController.swift */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
-				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
+				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
-				9114F98D1ED45089009A28BE /* CsvParcer.swift */,
 			);
 			path = SlangApp;
 			sourceTree = "<group>";
@@ -278,7 +272,6 @@
 				9114F9CA1ED45A89009A28BE /* dict26.csv in Resources */,
 				9114F9B51ED45A89009A28BE /* dict5.csv in Resources */,
 				9114F9B71ED45A89009A28BE /* dict7.csv in Resources */,
-				919BEC861E85991500AF1644 /* dict_AtoB.csv in Resources */,
 				9114F9BC1ED45A89009A28BE /* dict12.csv in Resources */,
 				9114F9B21ED45A89009A28BE /* dict2.csv in Resources */,
 				9114F9CF1ED45A89009A28BE /* dict31.csv in Resources */,
@@ -301,7 +294,6 @@
 				9114F9CD1ED45A89009A28BE /* dict29.csv in Resources */,
 				9114F9B41ED45A89009A28BE /* dict4.csv in Resources */,
 				9114F9C71ED45A89009A28BE /* dict23.csv in Resources */,
-				9140F8961E7430A600F32580 /* parse.txt in Resources */,
 				9114F9C41ED45A89009A28BE /* dict20.csv in Resources */,
 				9114F9C51ED45A89009A28BE /* dict21.csv in Resources */,
 				9114F9BB1ED45A89009A28BE /* dict11.csv in Resources */,

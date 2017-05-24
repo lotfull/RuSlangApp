@@ -4,8 +4,10 @@ import CoreData
 
 class WordsTableVC: UITableViewController, UITextFieldDelegate  {
 
+    // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
         searching("")
         tableView.dataSource = self
         tableView.delegate = self
@@ -24,7 +26,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
         }
     }
     
-    // MARK: - tableView funcs
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelectRowAt")
     }
@@ -44,7 +46,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
     // MARK: - searching funcs
     func searching(_ text: String?) {
         let searchFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if searchText != "" { searchFetch.predicate =  NSPredicate(format: "name BEGINSWITH %@", text!) }
+        if text != "" { searchFetch.predicate =  NSPredicate(format: "name contains[c] %@", text!) }
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         searchFetch.sortDescriptors = [sortDescriptor]
         do {
@@ -88,12 +90,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
         word.examples = "Сегодня я выучила \(wordName) на уроке английского"
     }
     
-    // MARK: - @IBO and @IBA
     @IBOutlet weak var searchTextField: UITextField! {
         didSet { searchTextField.delegate = self }
     }
     
     // MARK: - VARS and LETS
+
     var dictWords = [String:String]()
     var arrayWords = NSMutableArray()
     var managedObjectContext: NSManagedObjectContext!
@@ -105,6 +107,5 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
         searching(searchText)
         title = searchText } }
     let showWordDetailID = "ShowWordDetail"
-    
     
 }

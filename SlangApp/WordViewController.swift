@@ -33,6 +33,6 @@ class WordViewController: UIViewController {
     
     
     
-    //name,type,group,definition,examples,hashtags,story
+    //name,type,group,definition,examples,hashtags,origin
     
 }

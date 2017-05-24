@@ -81,7 +81,7 @@
                                     <outlet property="isFavoriteWordSwitch" destination="3DQ-F8-Ikx" id="nXi-ua-OoO"/>
                                     <outlet property="wordDefinitionLabel" destination="WWh-38-grY" id="QxW-zn-0MF"/>
                                     <outlet property="wordNameLabel" destination="vDx-g7-APK" id="4Fg-t6-u7z"/>
-                                    <segue destination="wg3-we-q2F" kind="presentation" identifier="ShowWordDetail" id="TUG-Ki-UH0"/>
+                                    <segue destination="wg3-we-q2F" kind="show" identifier="ShowWordDetail" id="TUG-Ki-UH0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,7 +103,7 @@
         <scene sceneID="Gjt-Rc-L7f">
             <objects>
                 <tableViewController id="1C6-aZ-MHr" customClass="WordDetailVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OIh-59-vmN">
+                    <tableView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OIh-59-vmN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,93 +161,6 @@
             </objects>
             <point key="canvasLocation" x="3340" y="-22"/>
         </scene>
-        <!--Word-->
-        <scene sceneID="X7N-Ac-5Bw">
-            <objects>
-                <viewController id="fYP-TH-Qa2" customClass="WordViewController" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SRn-p6-fs2"/>
-                        <viewControllerLayoutGuide type="bottom" id="BzO-ZJ-ZUg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bfG-il-VPl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="75W-1T-Di7">
-                                <rect key="frame" x="26" y="74" width="318" height="216"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKb-AB-2Rt">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="72"/>
-                                        <string key="text">Значение слова
-Довольно длинное значение
-Даже очень</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Тут еще примеры использования слова" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4f-TG-ARr">
-                                        <rect key="frame" x="0.0" y="72" width="318" height="72"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="hcu-2e-QOk">
-                                        <rect key="frame" x="0.0" y="144" width="276" height="72"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QHz-Ik-db5">
-                                                <rect key="frame" x="0.0" y="15.5" width="149" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Тут его часть речи" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-qP-wF4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="149" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Тут еще приколы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-bU-6Er">
-                                                        <rect key="frame" x="0.0" y="20.5" width="149" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qrF-mA-uoo">
-                                                <rect key="frame" x="189" y="0.0" width="87" height="72"/>
-                                                <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GZ-Fh-Ptn">
-                                                        <rect key="frame" x="19" y="0.0" width="51" height="31"/>
-                                                    </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlV-ZR-coy">
-                                                        <rect key="frame" x="0.5" y="31" width="86.5" height="41"/>
-                                                        <string key="text">это свитч
-избранное</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.97242755889999999" blue="0.73925835039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Word" id="qaQ-nG-3iP">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="CMz-os-fbG"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="YjO-PB-uoT"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="WordNameInBar" destination="qaQ-nG-3iP" id="D5a-lr-9jb"/>
-                        <outlet property="wordDefinitionLabel" destination="dKb-AB-2Rt" id="LHE-rl-jLf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UA7-lV-feO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2116" y="891"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
             <objects>
@@ -265,24 +178,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkC-hT-DkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026" y="-22"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hxw-uH-IF6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="93y-PA-H6i" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vhk-JY-PWh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fYP-TH-Qa2" kind="relationship" relationship="rootViewController" id="eVj-QQ-itw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k7z-bp-70h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1401" y="876"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zSw-6h-z13">

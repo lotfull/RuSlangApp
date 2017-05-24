@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults.standard
         //defaults.set(false, forKey: "isPreloaded")
-        let isPreloaded = defaults.bool(forKey: "isPreloaded")
+        let isPreloaded = defaults.bool(forKey: isPreloadedKey)
         if !isPreloaded {
-            preloadData()
-            defaults.set(true, forKey: "isPreloaded")
+            preloadDataFrom31CSVFiles()
+            defaults.set(true, forKey: isPreloadedKey)
         }
         if let navigationVC = window!.rootViewController as? UINavigationController,
             let wordsTableVC = navigationVC.topViewController as? WordsTableVC {
@@ -61,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // MARK: - FatalCoreDataNotifications
+    
     func listenForFatalCoreDataNotifications() {
         NotificationCenter.default.addObserver(
             forName: MyManagedObjectContextSaveDidFailNotification,
@@ -95,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    let test_dict = "test_dict"
+    // MARK: - PRELOAD FROM CSV FUNCS
     
     func returnNilIfNonNone(str: String) -> String? {
         if str == "NonNone" {
@@ -105,9 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    let dict = "dict"
-    
-    func preloadData () {
+    func preloadDataFrom31CSVFiles () {
         removeData()
         var i = 0;
         while i <= 31 {
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         word.group = returnNilIfNonNone(str: item_array[3])
                         word.examples = returnNilIfNonNone(str: item_array[4])
                         word.hashtags = returnNilIfNonNone(str: item_array[5])
-                        word.story = returnNilIfNonNone(str: item_array[6])
+                        word.origin = returnNilIfNonNone(str: item_array[6])
                         word.synonyms = returnNilIfNonNone(str: item_array[7])
                         do {
                             try managedObjectContext.save()
@@ -147,6 +147,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print ("There was an error")
         }
     }
+    
+    let dict = "dict"
+    let isPreloadedKey = "isPreloaded"
+    
 }
 
 

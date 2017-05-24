@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import UIKit
 
 extension Word {
 
@@ -22,12 +22,13 @@ extension Word {
     @NSManaged public var type: String?
     @NSManaged public var examples: String?
     @NSManaged public var hashtags: String?
-    @NSManaged public var story: String?
+    @NSManaged public var origin: String?
     @NSManaged public var favorite: Bool
     @NSManaged public var synonyms: String?
 
-    func textViewFormat() -> String {
+    func textViewString() -> String {
         let answer = "\(name)\n  \(definition)"
+        
         return answer
     }
 }
