@@ -17,72 +17,24 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr3-Vw-6OL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.9980061267" green="1" blue="0.61961615940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.9980061267" green="1" blue="0.61961615940000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="whileEditing" id="aC3-xR-TTM">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                        <color key="backgroundColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="aC3-xR-TTM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="0.99957929917252497" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                         </textField>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Word" rowHeight="162" id="cfG-Th-Hzz" customClass="WordTableViewCell" customModule="SlangApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="375" height="162"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCR-jE-HTs">
+                                <rect key="frame" x="0.0" y="78" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cfG-Th-Hzz" id="RMo-mV-6g6">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sCR-jE-HTs" id="nAk-Qi-GuC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eDv-Ah-GBc">
-                                            <rect key="frame" x="18" y="13" width="269" height="130"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="400" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDx-g7-APK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="33.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Значение слова, его определение" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-38-grY">
-                                                    <rect key="frame" x="0.0" y="33.5" width="269" height="96.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u1t-Md-yKP">
-                                            <rect key="frame" x="287" y="18" width="80" height="125"/>
-                                            <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3DQ-F8-Ikx">
-                                                    <rect key="frame" x="15.5" y="0.0" width="51" height="31"/>
-                                                </switch>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfZ-6o-Hwj">
-                                                    <rect key="frame" x="29" y="31" width="22" height="94"/>
-                                                    <connections>
-                                                        <action selector="readMoreButton:" destination="cfG-Th-Hzz" eventType="touchUpInside" id="giy-BY-9pY"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="u1t-Md-yKP" firstAttribute="top" secondItem="RMo-mV-6g6" secondAttribute="topMargin" constant="10" id="0rM-FV-sxm"/>
-                                        <constraint firstItem="eDv-Ah-GBc" firstAttribute="top" secondItem="RMo-mV-6g6" secondAttribute="topMargin" constant="5" id="52E-Zk-p2D"/>
-                                        <constraint firstItem="eDv-Ah-GBc" firstAttribute="leading" secondItem="RMo-mV-6g6" secondAttribute="leadingMargin" constant="10" id="Lsf-ye-4se"/>
-                                        <constraint firstItem="u1t-Md-yKP" firstAttribute="leading" secondItem="eDv-Ah-GBc" secondAttribute="trailing" id="Zn0-Nf-Use"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="eDv-Ah-GBc" secondAttribute="bottom" constant="10" id="cGJ-77-BYz"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="u1t-Md-yKP" secondAttribute="bottom" constant="10" id="enX-O5-bYh"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="u1t-Md-yKP" secondAttribute="trailing" id="fwx-7O-CHL"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eDv-Ah-GBc" secondAttribute="trailing" constant="80" id="nq6-b1-cI9"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="isFavoriteWordSwitch" destination="3DQ-F8-Ikx" id="nXi-ua-OoO"/>
-                                    <outlet property="wordDefinitionLabel" destination="WWh-38-grY" id="QxW-zn-0MF"/>
-                                    <outlet property="wordNameLabel" destination="vDx-g7-APK" id="4Fg-t6-u7z"/>
-                                    <segue destination="wg3-we-q2F" kind="show" identifier="ShowWordDetail" id="TUG-Ki-UH0"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -90,14 +42,18 @@
                             <outlet property="delegate" destination="mPO-jZ-NT8" id="VLh-M6-Sw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="RuSlang Dictionary" id="fm6-bQ-Tt8"/>
+                    <navigationItem key="navigationItem" title="RuSlang Dictionary" id="fm6-bQ-Tt8">
+                        <barButtonItem key="rightBarButtonItem" image="yellow star" width="30" style="done" id="ozX-dg-Ura">
+                            <color key="tintColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchTextField" destination="aC3-xR-TTM" id="Bbn-75-hca"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag2-Q2-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="-22"/>
+            <point key="canvasLocation" x="1762" y="-22"/>
         </scene>
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
@@ -115,6 +71,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
+                                            <rect key="frame" x="315" y="18" width="42" height="42"/>
+                                            <state key="normal" image="big star "/>
+                                            <connections>
+                                                <action selector="favoriteButtonPressed:" destination="nBR-Ft-9hw" eventType="touchUpInside" id="yyx-9q-F3O"/>
+                                            </connections>
+                                        </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B1g-Nf-cYu">
                                             <rect key="frame" x="8" y="8" width="359" height="181.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,11 +89,14 @@
                                     <constraints>
                                         <constraint firstItem="B1g-Nf-cYu" firstAttribute="top" secondItem="Z4n-B7-Qh5" secondAttribute="topMargin" id="7wT-JO-kPM"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="B1g-Nf-cYu" secondAttribute="bottom" id="E7K-6w-wCh"/>
+                                        <constraint firstItem="KQo-hw-Esj" firstAttribute="top" secondItem="Z4n-B7-Qh5" secondAttribute="topMargin" constant="10" id="Tgp-lN-qvK"/>
                                         <constraint firstItem="B1g-Nf-cYu" firstAttribute="leading" secondItem="Z4n-B7-Qh5" secondAttribute="leadingMargin" id="cKF-9t-QQw"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="B1g-Nf-cYu" secondAttribute="trailing" id="lqU-tQ-gvB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="KQo-hw-Esj" secondAttribute="trailing" constant="10" id="xyX-Qu-5Dl"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="KQo-hw-Esj" id="fXM-qe-HqG"/>
                                     <outlet property="wordTextView" destination="B1g-Nf-cYu" id="QYO-r7-SJc"/>
                                 </connections>
                             </tableViewCell>
@@ -159,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3340" y="-22"/>
+            <point key="canvasLocation" x="3340" y="-22.03898050974513"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
@@ -198,4 +164,8 @@
             <point key="canvasLocation" x="2452" y="-22"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="big star " width="42" height="42"/>
+        <image name="yellow star" width="21" height="21"/>
+    </resources>
 </document>

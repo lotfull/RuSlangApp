@@ -53,6 +53,7 @@ class WordDetailVC: UITableViewController {
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

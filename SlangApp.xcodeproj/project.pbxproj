@@ -7,48 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91099B381E744FDF007F6A36 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91099B371E744FDF007F6A36 /* WordViewController.swift */; };
 		9114F98E1ED45089009A28BE /* CsvParcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F98D1ED45089009A28BE /* CsvParcer.swift */; };
-		9114F9B01ED45A89009A28BE /* dict0.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9901ED45A89009A28BE /* dict0.csv */; };
-		9114F9B11ED45A89009A28BE /* dict1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9911ED45A89009A28BE /* dict1.csv */; };
-		9114F9B21ED45A89009A28BE /* dict2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9921ED45A89009A28BE /* dict2.csv */; };
-		9114F9B31ED45A89009A28BE /* dict3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9931ED45A89009A28BE /* dict3.csv */; };
-		9114F9B41ED45A89009A28BE /* dict4.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9941ED45A89009A28BE /* dict4.csv */; };
-		9114F9B51ED45A89009A28BE /* dict5.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9951ED45A89009A28BE /* dict5.csv */; };
-		9114F9B61ED45A89009A28BE /* dict6.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9961ED45A89009A28BE /* dict6.csv */; };
-		9114F9B71ED45A89009A28BE /* dict7.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9971ED45A89009A28BE /* dict7.csv */; };
-		9114F9B81ED45A89009A28BE /* dict8.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9981ED45A89009A28BE /* dict8.csv */; };
-		9114F9B91ED45A89009A28BE /* dict9.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9991ED45A89009A28BE /* dict9.csv */; };
-		9114F9BA1ED45A89009A28BE /* dict10.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F99A1ED45A89009A28BE /* dict10.csv */; };
-		9114F9BB1ED45A89009A28BE /* dict11.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F99B1ED45A89009A28BE /* dict11.csv */; };
-		9114F9BC1ED45A89009A28BE /* dict12.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F99C1ED45A89009A28BE /* dict12.csv */; };
-		9114F9BD1ED45A89009A28BE /* dict13.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F99D1ED45A89009A28BE /* dict13.csv */; };
-		9114F9BE1ED45A89009A28BE /* dict14.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F99E1ED45A89009A28BE /* dict14.csv */; };
-		9114F9BF1ED45A89009A28BE /* dict15.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F99F1ED45A89009A28BE /* dict15.csv */; };
-		9114F9C01ED45A89009A28BE /* dict16.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A01ED45A89009A28BE /* dict16.csv */; };
-		9114F9C11ED45A89009A28BE /* dict17.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A11ED45A89009A28BE /* dict17.csv */; };
-		9114F9C21ED45A89009A28BE /* dict18.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A21ED45A89009A28BE /* dict18.csv */; };
-		9114F9C31ED45A89009A28BE /* dict19.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A31ED45A89009A28BE /* dict19.csv */; };
-		9114F9C41ED45A89009A28BE /* dict20.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A41ED45A89009A28BE /* dict20.csv */; };
-		9114F9C51ED45A89009A28BE /* dict21.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A51ED45A89009A28BE /* dict21.csv */; };
-		9114F9C61ED45A89009A28BE /* dict22.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A61ED45A89009A28BE /* dict22.csv */; };
-		9114F9C71ED45A89009A28BE /* dict23.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A71ED45A89009A28BE /* dict23.csv */; };
-		9114F9C81ED45A89009A28BE /* dict24.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A81ED45A89009A28BE /* dict24.csv */; };
-		9114F9C91ED45A89009A28BE /* dict25.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9A91ED45A89009A28BE /* dict25.csv */; };
-		9114F9CA1ED45A89009A28BE /* dict26.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AA1ED45A89009A28BE /* dict26.csv */; };
-		9114F9CB1ED45A89009A28BE /* dict27.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AB1ED45A89009A28BE /* dict27.csv */; };
-		9114F9CC1ED45A89009A28BE /* dict28.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AC1ED45A89009A28BE /* dict28.csv */; };
-		9114F9CD1ED45A89009A28BE /* dict29.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AD1ED45A89009A28BE /* dict29.csv */; };
-		9114F9CE1ED45A89009A28BE /* dict30.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AE1ED45A89009A28BE /* dict30.csv */; };
-		9114F9CF1ED45A89009A28BE /* dict31.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9114F9AF1ED45A89009A28BE /* dict31.csv */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
-		9183C3271ED4463000F2FF76 /* test_dict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9183C3261ED4462F00F2FF76 /* test_dict.csv */; };
-		9183C3291ED44C9400F2FF76 /* saved_test_dict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9183C3281ED44C9400F2FF76 /* saved_test_dict.csv */; };
 		919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */; };
+		91A9BEFC1ED75DC500E24C96 /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A9BEFA1ED75DC500E24C96 /* WordTableViewCell.xib */; };
+		91A9BEFE1ED786FD00E24C96 /* fullDict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91A9BEFD1ED786FD00E24C96 /* fullDict.csv */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
 		91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E959581E430F540055F5B2 /* WordsTableVC.swift */; };
 		91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F97AFD1E37BF1900796C1F /* AppDelegate.swift */; };
@@ -58,48 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		91099B371E744FDF007F6A36 /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		9114F98D1ED45089009A28BE /* CsvParcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvParcer.swift; sourceTree = "<group>"; };
-		9114F9901ED45A89009A28BE /* dict0.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict0.csv; sourceTree = "<group>"; };
-		9114F9911ED45A89009A28BE /* dict1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict1.csv; sourceTree = "<group>"; };
-		9114F9921ED45A89009A28BE /* dict2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict2.csv; sourceTree = "<group>"; };
-		9114F9931ED45A89009A28BE /* dict3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict3.csv; sourceTree = "<group>"; };
-		9114F9941ED45A89009A28BE /* dict4.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict4.csv; sourceTree = "<group>"; };
-		9114F9951ED45A89009A28BE /* dict5.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict5.csv; sourceTree = "<group>"; };
-		9114F9961ED45A89009A28BE /* dict6.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict6.csv; sourceTree = "<group>"; };
-		9114F9971ED45A89009A28BE /* dict7.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict7.csv; sourceTree = "<group>"; };
-		9114F9981ED45A89009A28BE /* dict8.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict8.csv; sourceTree = "<group>"; };
-		9114F9991ED45A89009A28BE /* dict9.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict9.csv; sourceTree = "<group>"; };
-		9114F99A1ED45A89009A28BE /* dict10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict10.csv; sourceTree = "<group>"; };
-		9114F99B1ED45A89009A28BE /* dict11.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict11.csv; sourceTree = "<group>"; };
-		9114F99C1ED45A89009A28BE /* dict12.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict12.csv; sourceTree = "<group>"; };
-		9114F99D1ED45A89009A28BE /* dict13.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict13.csv; sourceTree = "<group>"; };
-		9114F99E1ED45A89009A28BE /* dict14.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict14.csv; sourceTree = "<group>"; };
-		9114F99F1ED45A89009A28BE /* dict15.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict15.csv; sourceTree = "<group>"; };
-		9114F9A01ED45A89009A28BE /* dict16.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict16.csv; sourceTree = "<group>"; };
-		9114F9A11ED45A89009A28BE /* dict17.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict17.csv; sourceTree = "<group>"; };
-		9114F9A21ED45A89009A28BE /* dict18.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict18.csv; sourceTree = "<group>"; };
-		9114F9A31ED45A89009A28BE /* dict19.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict19.csv; sourceTree = "<group>"; };
-		9114F9A41ED45A89009A28BE /* dict20.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict20.csv; sourceTree = "<group>"; };
-		9114F9A51ED45A89009A28BE /* dict21.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict21.csv; sourceTree = "<group>"; };
-		9114F9A61ED45A89009A28BE /* dict22.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict22.csv; sourceTree = "<group>"; };
-		9114F9A71ED45A89009A28BE /* dict23.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict23.csv; sourceTree = "<group>"; };
-		9114F9A81ED45A89009A28BE /* dict24.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict24.csv; sourceTree = "<group>"; };
-		9114F9A91ED45A89009A28BE /* dict25.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict25.csv; sourceTree = "<group>"; };
-		9114F9AA1ED45A89009A28BE /* dict26.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict26.csv; sourceTree = "<group>"; };
-		9114F9AB1ED45A89009A28BE /* dict27.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict27.csv; sourceTree = "<group>"; };
-		9114F9AC1ED45A89009A28BE /* dict28.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict28.csv; sourceTree = "<group>"; };
-		9114F9AD1ED45A89009A28BE /* dict29.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict29.csv; sourceTree = "<group>"; };
-		9114F9AE1ED45A89009A28BE /* dict30.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict30.csv; sourceTree = "<group>"; };
-		9114F9AF1ED45A89009A28BE /* dict31.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict31.csv; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		9183C3261ED4462F00F2FF76 /* test_dict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_dict.csv; sourceTree = "<group>"; };
-		9183C3281ED44C9400F2FF76 /* saved_test_dict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = saved_test_dict.csv; sourceTree = "<group>"; };
 		919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
+		91A9BEFA1ED75DC500E24C96 /* WordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
+		91A9BEFD1ED786FD00E24C96 /* fullDict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fullDict.csv; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		91E959581E430F540055F5B2 /* WordsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsTableVC.swift; sourceTree = "<group>"; };
 		91F97AFA1E37BF1900796C1F /* SlangApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlangApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,57 +55,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9114F98F1ED45A51009A28BE /* csv_dicts */ = {
-			isa = PBXGroup;
-			children = (
-				9114F9901ED45A89009A28BE /* dict0.csv */,
-				9114F9911ED45A89009A28BE /* dict1.csv */,
-				9114F9921ED45A89009A28BE /* dict2.csv */,
-				9114F9931ED45A89009A28BE /* dict3.csv */,
-				9114F9941ED45A89009A28BE /* dict4.csv */,
-				9114F9951ED45A89009A28BE /* dict5.csv */,
-				9114F9961ED45A89009A28BE /* dict6.csv */,
-				9114F9971ED45A89009A28BE /* dict7.csv */,
-				9114F9981ED45A89009A28BE /* dict8.csv */,
-				9114F9991ED45A89009A28BE /* dict9.csv */,
-				9114F99A1ED45A89009A28BE /* dict10.csv */,
-				9114F99B1ED45A89009A28BE /* dict11.csv */,
-				9114F99C1ED45A89009A28BE /* dict12.csv */,
-				9114F99D1ED45A89009A28BE /* dict13.csv */,
-				9114F99E1ED45A89009A28BE /* dict14.csv */,
-				9114F99F1ED45A89009A28BE /* dict15.csv */,
-				9114F9A01ED45A89009A28BE /* dict16.csv */,
-				9114F9A11ED45A89009A28BE /* dict17.csv */,
-				9114F9A21ED45A89009A28BE /* dict18.csv */,
-				9114F9A31ED45A89009A28BE /* dict19.csv */,
-				9114F9A41ED45A89009A28BE /* dict20.csv */,
-				9114F9A51ED45A89009A28BE /* dict21.csv */,
-				9114F9A61ED45A89009A28BE /* dict22.csv */,
-				9114F9A71ED45A89009A28BE /* dict23.csv */,
-				9114F9A81ED45A89009A28BE /* dict24.csv */,
-				9114F9A91ED45A89009A28BE /* dict25.csv */,
-				9114F9AA1ED45A89009A28BE /* dict26.csv */,
-				9114F9AB1ED45A89009A28BE /* dict27.csv */,
-				9114F9AC1ED45A89009A28BE /* dict28.csv */,
-				9114F9AD1ED45A89009A28BE /* dict29.csv */,
-				9114F9AE1ED45A89009A28BE /* dict30.csv */,
-				9114F9AF1ED45A89009A28BE /* dict31.csv */,
-			);
-			name = csv_dicts;
-			sourceTree = "<group>";
-		};
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				91A9BEFD1ED786FD00E24C96 /* fullDict.csv */,
 				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
 				917D38711ED18F0800EA315F /* Functions.swift */,
 				9114F98D1ED45089009A28BE /* CsvParcer.swift */,
-				9114F98F1ED45A51009A28BE /* csv_dicts */,
 				91F97B0B1E37BF1900796C1F /* Info.plist */,
 				91F97B061E37BF1900796C1F /* Assets.xcassets */,
 				91F97B081E37BF1900796C1F /* LaunchScreen.storyboard */,
-				9183C3261ED4462F00F2FF76 /* test_dict.csv */,
-				9183C3281ED44C9400F2FF76 /* saved_test_dict.csv */,
 			);
 			name = "Other Files";
 			sourceTree = "<group>";
@@ -201,9 +94,9 @@
 				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
 				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
 				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
-				91099B371E744FDF007F6A36 /* WordViewController.swift */,
-				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
+				91F97B031E37BF1900796C1F /* Main.storyboard */,
+				91A9BEFA1ED75DC500E24C96 /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
 			);
 			path = SlangApp;
@@ -269,43 +162,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9114F9CA1ED45A89009A28BE /* dict26.csv in Resources */,
-				9114F9B51ED45A89009A28BE /* dict5.csv in Resources */,
-				9114F9B71ED45A89009A28BE /* dict7.csv in Resources */,
-				9114F9BC1ED45A89009A28BE /* dict12.csv in Resources */,
-				9114F9B21ED45A89009A28BE /* dict2.csv in Resources */,
-				9114F9CF1ED45A89009A28BE /* dict31.csv in Resources */,
-				9114F9BE1ED45A89009A28BE /* dict14.csv in Resources */,
-				9114F9B31ED45A89009A28BE /* dict3.csv in Resources */,
 				91F97B0A1E37BF1900796C1F /* LaunchScreen.storyboard in Resources */,
-				9114F9C31ED45A89009A28BE /* dict19.csv in Resources */,
-				9114F9CC1ED45A89009A28BE /* dict28.csv in Resources */,
-				9114F9B61ED45A89009A28BE /* dict6.csv in Resources */,
 				91F97B071E37BF1900796C1F /* Assets.xcassets in Resources */,
-				9114F9CE1ED45A89009A28BE /* dict30.csv in Resources */,
-				9114F9BF1ED45A89009A28BE /* dict15.csv in Resources */,
-				9114F9B91ED45A89009A28BE /* dict9.csv in Resources */,
-				9114F9C91ED45A89009A28BE /* dict25.csv in Resources */,
+				91A9BEFE1ED786FD00E24C96 /* fullDict.csv in Resources */,
+				91A9BEFC1ED75DC500E24C96 /* WordTableViewCell.xib in Resources */,
 				91F97B051E37BF1900796C1F /* Main.storyboard in Resources */,
-				9114F9C81ED45A89009A28BE /* dict24.csv in Resources */,
-				9114F9C11ED45A89009A28BE /* dict17.csv in Resources */,
-				9114F9CB1ED45A89009A28BE /* dict27.csv in Resources */,
-				9183C3271ED4463000F2FF76 /* test_dict.csv in Resources */,
-				9114F9CD1ED45A89009A28BE /* dict29.csv in Resources */,
-				9114F9B41ED45A89009A28BE /* dict4.csv in Resources */,
-				9114F9C71ED45A89009A28BE /* dict23.csv in Resources */,
-				9114F9C41ED45A89009A28BE /* dict20.csv in Resources */,
-				9114F9C51ED45A89009A28BE /* dict21.csv in Resources */,
-				9114F9BB1ED45A89009A28BE /* dict11.csv in Resources */,
-				9183C3291ED44C9400F2FF76 /* saved_test_dict.csv in Resources */,
-				9114F9C21ED45A89009A28BE /* dict18.csv in Resources */,
-				9114F9B11ED45A89009A28BE /* dict1.csv in Resources */,
-				9114F9B01ED45A89009A28BE /* dict0.csv in Resources */,
-				9114F9B81ED45A89009A28BE /* dict8.csv in Resources */,
-				9114F9BA1ED45A89009A28BE /* dict10.csv in Resources */,
-				9114F9BD1ED45A89009A28BE /* dict13.csv in Resources */,
-				9114F9C61ED45A89009A28BE /* dict22.csv in Resources */,
-				9114F9C01ED45A89009A28BE /* dict16.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +182,6 @@
 				9114F98E1ED45089009A28BE /* CsvParcer.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
 				917D38721ED18F0800EA315F /* Functions.swift in Sources */,
-				91099B381E744FDF007F6A36 /* WordViewController.swift in Sources */,
 				916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */,
 				91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */,
 				917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */,

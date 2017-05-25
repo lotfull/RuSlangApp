@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //defaults.set(false, forKey: "isPreloaded")
         let isPreloaded = defaults.bool(forKey: isPreloadedKey)
         if !isPreloaded {
-            preloadDataFrom31CSVFiles()
+            preloadDataFromCSVFile()
             defaults.set(true, forKey: isPreloadedKey)
         }
         if let navigationVC = window!.rootViewController as? UINavigationController,
@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
         }
         listenForFatalCoreDataNotifications()
-        removeDubs()
         return true
     }
 
@@ -108,33 +107,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func preloadDataFrom31CSVFiles () {
+    func preloadDataFromCSVFile () {
         removeData()
-        var i = 0;
-        while i <= 31 {
-            if let contentsOfURL = Bundle.main.url(forResource: dict + "\(i)", withExtension: "csv") {
-                if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
-                    let items_arrays = content.csvRows(firstRowIgnored: true)
-                    for item_array in items_arrays {
-                        let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                        word.name = item_array[0]
-                        word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1])
-                        word.type = returnNilIfNonNone(str: item_array[2])
-                        word.group = returnNilIfNonNone(str: item_array[3])
-                        word.examples = returnNilIfNonNone(str: item_array[4])
-                        word.hashtags = returnNilIfNonNone(str: item_array[5])
-                        word.origin = returnNilIfNonNone(str: item_array[6])
-                        word.synonyms = returnNilIfNonNone(str: item_array[7])
-                        do {
-                            try managedObjectContext.save()
-                        } catch {
-                            print("**********insert error: \(error.localizedDescription)\n********")
-                        }
+        if let contentsOfURL = Bundle.main.url(forResource: fullDict, withExtension: "csv") {
+            if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
+                let items_arrays = content.csvRows(firstRowIgnored: true)
+                for item_array in items_arrays {
+                    let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
+                    word.name = item_array[0]
+                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1])
+                    word.type = returnNilIfNonNone(str: item_array[2])
+                    word.group = returnNilIfNonNone(str: item_array[3])
+                    word.examples = returnNilIfNonNone(str: item_array[4])
+                    word.hashtags = returnNilIfNonNone(str: item_array[5])
+                    word.origin = returnNilIfNonNone(str: item_array[6])
+                    word.synonyms = returnNilIfNonNone(str: item_array[7])
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print("**********insert error: \(error.localizedDescription)\n********")
                     }
                 }
             }
-            i += 1
-            print("Парсинг \(i + 1) из \(32)")
         }
     }
     
@@ -147,51 +141,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print ("There was an error")
         }
-    }
-    
-    func removeDubs() {
-        var words = [Word]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        var countEqual = 0
-        var countSimilar = 0
-        var count = 0
-        do {
-            words = try managedObjectContext.fetch(fetchRequest) as! [Word]
-            count = words.count
-            if !words.isEmpty {
-                var x = 0
-                while x < words.count {
-                    var y = x + 1
-                    while y < words.count && words[y].name == words[x].name {
-                        if words[x].definition == words[y].definition {
-                            countSimilar += 1
-                            if words[x].origin == words[y].origin,
-                                words[x].examples == words[y].examples,
-                                words[x].type == words[y].type,
-                                words[x].synonyms == words[y].synonyms,
-                                words[x].hashtags == words[y].hashtags,
-                                words[x].group == words[y].group {
-                                countEqual += 1
-                                managedObjectContext.delete(words[y])
-                                do {
-                                    try managedObjectContext.save()
-                                } catch {
-                                    print("**********insert error: \(error.localizedDescription)\n********")
-                                }
-                            }
-                        }
-                        y += 1
-                    }
-                    x += 1
-                }
-            }
-        } catch {
-            fatalError("Failed to fetch words: \(error)")
-        }
-        print("***!!!!***!!!\(count) countAll***!!!!***!!!")
-        print("***!!!!***!!!\(countEqual)countEqual***!!!!***!!!")
-        print("***!!!!***!!!\(countSimilar)countSimilar***!!!!***!!!")
     }
     
     func deleteObject(withID objectID: NSManagedObjectID) {
@@ -218,7 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    let dict = "dict"
+    let fullDict = "fullDict"
     let isPreloadedKey = "isPreloaded"
     
 }

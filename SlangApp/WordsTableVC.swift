@@ -2,11 +2,13 @@
 import UIKit
 import CoreData
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate  {
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate  {
 
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
+        //searchTextField
+        tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         print("viewDidLoad")
         searching("")
         tableView.dataSource = self
@@ -16,19 +18,19 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             print("prepare(for segue")
-            if let navigationVC = segue.destination as? UINavigationController,
-                let wordDetailVC = navigationVC.topViewController as? WordDetailVC,
-                let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+            if let navigationVC = segue.destination as? UINavigationController, let wordDetailVC = navigationVC.topViewController as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
-                selectedWord = words[indexPath.row]
                 wordDetailVC.word = selectedWord
             }
+        } else if segue.identifier == showFavorites {
+            
         }
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedWord = words[indexPath.row]
         print("didSelectRowAt")
+        self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -39,9 +41,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
         let word = words[indexPath.row]
-        cell.configure(with: word)
+        cell.configure(with: word, at: indexPath)
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.delegate = self
         return cell
     }
+    
 
     // MARK: - searching funcs
     func searching(_ text: String?) {
@@ -90,6 +95,18 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
         word.examples = "Сегодня я выучила \(wordName) на уроке английского"
     }
     
+    // MARK: - WordTableViewCellDelegate
+    func shareWord(_ controller: WordTableViewCell, word: Word) {
+        let text = word.textViewString()
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    func reloading(_ controller: WordTableViewCell, indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
     @IBOutlet weak var searchTextField: UITextField! {
         didSet { searchTextField.delegate = self }
     }
@@ -107,5 +124,5 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate  {
         searching(searchText)
         title = searchText } }
     let showWordDetailID = "ShowWordDetail"
-    
+    let showFavorites = "showFavorites"
 }

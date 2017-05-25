@@ -16,25 +16,31 @@ class WordDetailTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    var thisCellWord: Word!
 
     @IBOutlet weak var wordTextView: UITextView!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        thisCellWord.favorite = !thisCellWord.favorite
+        sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star ") : #imageLiteral(resourceName: "big star ")
+    }
+    
     var number = 1
     
     func configurate(with word: Word) {
+        thisCellWord = word
+        favoriteButton.imageView?.image = word.favorite ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
         let wtv = wordTextView!
-        
-        
-        print("***********\(word.description)")
-        
         let nameString = "\(word.name)\n"
         let attributedText = NSMutableAttributedString(string: nameString, attributes: [
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 16),
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: mainFontSize + 1),
             NSForegroundColorAttributeName: UIColor.blue])
         
         if word.type != nil {
             let typeString = "\(word.type!) "
             attributedText.append(NSAttributedString(string: typeString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.purple,
                 NSParagraphStyleAttributeName: typeParagraphStyle]))
         }
@@ -42,20 +48,20 @@ class WordDetailTableViewCell: UITableViewCell {
         if word.group != nil {
             let groupString = "\(word.group!)"
             attributedText.append(NSAttributedString(string: groupString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.purple]))
         }
         
         let defString = "\n  \(number)) \(word.definition)\n"
         attributedText.append(NSAttributedString(string: defString, attributes: [
-            NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+            NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
             NSForegroundColorAttributeName: UIColor.black,
             NSParagraphStyleAttributeName: defParagraphStyle]))
         
         if word.examples != nil {
             let examplesString = "примеры: \(word.examples!)\n"
             attributedText.append(NSMutableAttributedString(string: examplesString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 14),
+                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.gray,
                 NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
@@ -63,7 +69,7 @@ class WordDetailTableViewCell: UITableViewCell {
         if word.origin != nil {
             let originString = "происх.: \(word.origin!)\n"
             attributedText.append(NSAttributedString(string: originString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.darkGray,
                 NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
@@ -71,7 +77,7 @@ class WordDetailTableViewCell: UITableViewCell {
         if word.synonyms != nil {
             let synonymsString = "син.: \(word.synonyms!)\n"
             attributedText.append(NSAttributedString(string: synonymsString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.darkGray,
                 NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
@@ -79,7 +85,7 @@ class WordDetailTableViewCell: UITableViewCell {
         if word.hashtags != nil {
             let hashtagsString = "\(word.hashtags!)\n"
             attributedText.append(NSAttributedString(string: hashtagsString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.green,
                 NSParagraphStyleAttributeName: hashParagraphStyle]))
         }
@@ -95,7 +101,6 @@ class WordDetailTableViewCell: UITableViewCell {
         
         //attributedText.append(NSAttributedString(string: "TEST string in case that this string will work perfect - then i will use this method in my project", attributes: [NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle]))
         wtv.attributedText = attributedText
-        
         wtv.isSelectable = true
         wtv.dataDetectorTypes = UIDataDetectorTypes.link
         wtv.isUserInteractionEnabled = true
@@ -137,5 +142,7 @@ class WordDetailTableViewCell: UITableViewCell {
         paragraphStyle.paragraphSpacingBefore = 15
         return paragraphStyle
     }()
+    
+    let mainFontSize: CGFloat = 16
 }
 
