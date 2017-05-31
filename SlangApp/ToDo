@@ -1,0 +1,28 @@
+
+Сделать избранное обновляемым. Сохранять выбор в память.
+
+NEXT: Creating tabBarController.
+Adding favourites view, little settings view,
+adding last used words at top.
+
+AFter: Suggest NEW Word ability adding,
+Firebase connection to get trending word,
+adding trend words tab button.
+
+Make search bar always at top
+
+
+Last changes:
+Added:
+CreateEditWordVC.swift
+FavoritesTableVC.swift
+ToDo
+share arrow.png
+sending.png
+Modified:
+every rest swift files
+rest icons
+new functions:
+Now we can create or edit existent words
+tint color and definition font changed
+many other little changes

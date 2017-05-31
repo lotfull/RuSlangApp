@@ -19,21 +19,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="400" fixedFrame="YES" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT2-1b-Wng">
-                        <rect key="frame" x="8" y="0.0" width="288" height="70"/>
+                        <rect key="frame" x="8" y="0.0" width="284" height="70"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" fixedFrame="YES" text="Значение слова, его определение " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wD-ND-5Wz">
-                        <rect key="frame" x="8" y="68" width="288" height="93"/>
+                        <rect key="frame" x="8" y="68" width="284" height="93"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cif-O5-8fQ" userLabel="Favorite Button">
-                        <rect key="frame" x="294" y="0.0" width="81" height="81"/>
+                        <rect key="frame" x="292" y="0.0" width="83" height="83"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="big star "/>
                         <connections>
@@ -41,9 +41,9 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSB-U6-aVh" userLabel="Share Button">
-                        <rect key="frame" x="294" y="80" width="81" height="81"/>
+                        <rect key="frame" x="292" y="82" width="83" height="80"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="share">
+                        <state key="normal" image="big sending ">
                             <color key="titleColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
@@ -61,6 +61,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="big sending " width="42" height="42"/>
         <image name="big star " width="42" height="42"/>
     </resources>
 </document>

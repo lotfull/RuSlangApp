@@ -13,11 +13,14 @@
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
+		917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */; };
 		919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */; };
 		91A9BEFC1ED75DC500E24C96 /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91A9BEFA1ED75DC500E24C96 /* WordTableViewCell.xib */; };
 		91A9BEFE1ED786FD00E24C96 /* fullDict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91A9BEFD1ED786FD00E24C96 /* fullDict.csv */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
 		91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E959581E430F540055F5B2 /* WordsTableVC.swift */; };
+		91F3B12D1EDC122100E78466 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 91F3B12C1EDC122100E78466 /* ToDo */; };
+		91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */; };
 		91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F97AFD1E37BF1900796C1F /* AppDelegate.swift */; };
 		91F97B051E37BF1900796C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F97B031E37BF1900796C1F /* Main.storyboard */; };
 		91F97B071E37BF1900796C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F97B061E37BF1900796C1F /* Assets.xcassets */; };
@@ -31,11 +34,14 @@
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditWordVC.swift; sourceTree = "<group>"; };
 		919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 		91A9BEFA1ED75DC500E24C96 /* WordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
 		91A9BEFD1ED786FD00E24C96 /* fullDict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fullDict.csv; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		91E959581E430F540055F5B2 /* WordsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsTableVC.swift; sourceTree = "<group>"; };
+		91F3B12C1EDC122100E78466 /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
+		91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableVC.swift; sourceTree = "<group>"; };
 		91F97AFA1E37BF1900796C1F /* SlangApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlangApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F97AFD1E37BF1900796C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91F97B041E37BF1900796C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				91F3B12C1EDC122100E78466 /* ToDo */,
 				91A9BEFD1ED786FD00E24C96 /* fullDict.csv */,
 				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
 				917D38711ED18F0800EA315F /* Functions.swift */,
@@ -90,6 +97,8 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
+				917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */,
+				91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */,
 				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
 				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
 				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
@@ -164,6 +173,7 @@
 			files = (
 				91F97B0A1E37BF1900796C1F /* LaunchScreen.storyboard in Resources */,
 				91F97B071E37BF1900796C1F /* Assets.xcassets in Resources */,
+				91F3B12D1EDC122100E78466 /* ToDo in Resources */,
 				91A9BEFE1ED786FD00E24C96 /* fullDict.csv in Resources */,
 				91A9BEFC1ED75DC500E24C96 /* WordTableViewCell.xib in Resources */,
 				91F97B051E37BF1900796C1F /* Main.storyboard in Resources */,
@@ -185,7 +195,9 @@
 				916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */,
 				91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */,
 				917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */,
+				917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */,
 				919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */,
+				91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */,
 				916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

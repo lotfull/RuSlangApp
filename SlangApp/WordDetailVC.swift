@@ -9,13 +9,12 @@
 import CoreData
 import UIKit
 
-class WordDetailVC: UITableViewController {
+class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate {
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.isScrollEnabled = true
         title = word.name
-        //wordTextView.text = "\(word.name)\n\n  \(word.definition)\n    \"\(word.examples == nil ? "нет примеров" : word.examples!)\" \n Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
         tblView.estimatedRowHeight = tableView.rowHeight
         tblView.rowHeight = UITableViewAutomaticDimension
     }
@@ -23,6 +22,42 @@ class WordDetailVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.estimatedRowHeight = 100//tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == editWordID {
+            if let navigationVC = segue.destination as? UINavigationController,
+                let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
+                createEditWordVC.managedObjectContext = managedObjectContext
+                createEditWordVC.editingWord = word
+                createEditWordVC.delegate = self
+                //wordDetailVC.word = selectedWord
+            }
+        }
+    }
+    
+    // MARK: - CreateWordVCDelegate
+    func createEditWordVCDidCancel(_ controller: CreateEditWordVC) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func createEditWordVCDone(_ controller: CreateEditWordVC, adding word: Word) {
+        tableView.reloadData()
+        saveManagedObjectContext()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func createEditWordVCDone(_ controller: CreateEditWordVC, editing word: Word) {
+        tableView.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func saveManagedObjectContext() {
+        do {
+            try managedObjectContext.save() // <- remember to put this :)
+        } catch {
+            fatalError("error tableView(_ tableView: UITableView, commit editingStyle \(error)")
+        }
     }
     
     // MARK: - TABLEVIEW FUNCS
@@ -35,10 +70,19 @@ class WordDetailVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordDetailCell", for: indexPath) as! WordDetailTableViewCell
-        cell.configurate(with: word)
+        cell.configurate(with: word, at: indexPath)
+        cell.delegate = self
         return cell
     }
     
+    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath) {
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print ("There was managedObjectContext.save() error")
+        }
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
     
     // MARK: - @IBO and @IBA
     @IBAction func shareWordButton(_ sender: Any) {
@@ -62,6 +106,7 @@ class WordDetailVC: UITableViewController {
     // MARK: - VARS and LETS
     var managedObjectContext: NSManagedObjectContext!
     var word: Word!
+    let editWordID = "EditWord"
 }
 
 

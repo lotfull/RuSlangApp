@@ -2,19 +2,23 @@
 import UIKit
 import CoreData
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate {
-
+class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate  {
+    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         //searchTextField
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         print("viewDidLoad")
-        searching(searchText)
+        searchingFavorites("")
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        searchingFavorites(searchText)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             print("prepare(for segue")
@@ -22,20 +26,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
             }
-        } else if segue.identifier == showFavoritesID {
+        } else if segue.identifier == showFavorites {
             
-        } else if segue.identifier == createEditWordID {
-            if let navigationVC = segue.destination as? UINavigationController,
-                let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
-                createEditWordVC.managedObjectContext = managedObjectContext
-                createEditWordVC.delegate = self
-                //wordDetailVC.word = selectedWord
-            }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        searching(searchText)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -51,17 +44,22 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        cell.configure(with: words[indexPath.row], at: indexPath)
+        let word = words[indexPath.row]
+        cell.configure(with: word, at: indexPath)
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.delegate = self
         return cell
     }
     
-
+    
     // MARK: - searching funcs
-    func searching(_ text: String?) {
+    func searchingFavorites(_ text: String?) {
         let searchFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if text != "", text != nil { searchFetch.predicate =  NSPredicate(format: "name contains[c] %@", text!) }
+        if text != "", text != nil {
+            searchFetch.predicate =  NSPredicate(format: "name contains[c] %@ and favorite = true", text!)
+        } else {
+            searchFetch.predicate =  NSPredicate(format: "favorite = true")
+        }
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         searchFetch.sortDescriptors = [sortDescriptor]
         do {
@@ -99,7 +97,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     func addWord(_ wordName: String) {
-        let word = Word()
+        let word = Word(context: managedObjectContext)
         word.name = wordName
         word.definition = "Значение слова \(wordName)"
         word.examples = "Сегодня я выучила \(wordName) на уроке английского"
@@ -114,11 +112,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         self.present(activityViewController, animated: true, completion: nil)
     }
     func reloading(_ controller: WordTableViewCell, indexPath: IndexPath) {
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print ("There was managedObjectContext.save() error")
-        }
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
@@ -126,39 +119,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         didSet { searchTextField.delegate = self }
     }
     
-    // MARK: - CreateWordVCDelegate
-    func createEditWordVCDidCancel(_ controller: CreateEditWordVC) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func createEditWordVCDone(_ controller: CreateEditWordVC, adding word: Word) {
-        tableView.reloadData()
-        saveManagedObjectContext()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func createEditWordVCDone(_ controller: CreateEditWordVC, editing word: Word) {
-        tableView.reloadData()
-        dismiss(animated: true, completion: nil)
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        managedObjectContext.delete(words[indexPath.row])
-        saveManagedObjectContext()
-        words.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-        tableView.reloadData()
-    }
-    func saveManagedObjectContext() {
-        do {
-            try managedObjectContext.save() // <- remember to put this :)
-        } catch {
-            fatalError("error tableView(_ tableView: UITableView, commit editingStyle \(error)")
-        }
-    }
-    
     // MARK: - VARS and LETS
-
+    
     var dictWords = [String:String]()
     var arrayWords = NSMutableArray()
     var managedObjectContext: NSManagedObjectContext!
@@ -167,9 +129,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var searchText: String? { didSet {
         print("***didSet searchText")
         words.removeAll()
-        searching(searchText)
-        title = searchText != "" ? searchText : "Словарь молодежных слов" } }
+        searchingFavorites(searchText) } }
     let showWordDetailID = "ShowWordDetail"
-    let showFavoritesID = "ShowFavorites"
-    let createEditWordID = "CreateEditWord"
+    let showFavorites = "showFavorites"
 }

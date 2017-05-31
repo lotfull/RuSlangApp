@@ -15,8 +15,6 @@ protocol WordTableViewCellDelegate: class {
 
 class WordTableViewCell: UITableViewCell {
     
-    
-    
     weak var delegate: WordTableViewCellDelegate?
     
     @IBOutlet weak var wordNameLabel: UILabel!

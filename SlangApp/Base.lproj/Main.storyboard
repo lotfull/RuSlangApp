@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dma-0F-Smm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L8c-Gy-FJ1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,17 +7,18 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--RuSlang Dictionary-->
+        <!--Словарь молодежных слов-->
         <scene sceneID="cxQ-3f-SLf">
             <objects>
                 <tableViewController id="mPO-jZ-NT8" customClass="WordsTableVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr3-Vw-6OL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97559744120000003" green="0.97514015440000001" blue="0.84750080110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="aC3-xR-TTM">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -35,6 +36,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wg3-we-q2F" kind="presentation" identifier="ShowWordDetail" id="kwr-K5-b4U"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,9 +46,11 @@
                             <outlet property="delegate" destination="mPO-jZ-NT8" id="VLh-M6-Sw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="RuSlang Dictionary" id="fm6-bQ-Tt8">
-                        <barButtonItem key="rightBarButtonItem" image="yellow star" width="30" style="done" id="ozX-dg-Ura">
-                            <color key="tintColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <navigationItem key="navigationItem" title="Словарь молодежных слов" id="fm6-bQ-Tt8">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ozX-dg-Ura">
+                            <connections>
+                                <segue destination="z6M-zH-SkY" kind="show" identifier="CreateEditWord" id="NR0-LT-nVw"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -54,6 +60,356 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag2-Q2-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1762" y="-22"/>
+        </scene>
+        <!--Создать слово-->
+        <scene sceneID="xyL-DV-06X">
+            <objects>
+                <tableViewController id="hqZ-La-evY" customClass="CreateEditWordVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="AHr-0f-1Ed">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Основное" id="KHn-GX-zuw">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zOI-M2-Ia5">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zOI-M2-Ia5" id="WTD-LJ-Zzb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SWz-qL-S67">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zn2-tD-LkV">
+                                                            <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="j22-pN-mNV"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Слово1" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-a0-GQN">
+                                                            <rect key="frame" x="85" y="7" width="260" height="30"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="SWz-qL-S67" secondAttribute="bottom" id="YI3-r6-tbx"/>
+                                                <constraint firstItem="SWz-qL-S67" firstAttribute="top" secondItem="WTD-LJ-Zzb" secondAttribute="top" id="hqs-Eb-xcN"/>
+                                                <constraint firstItem="SWz-qL-S67" firstAttribute="leading" secondItem="WTD-LJ-Zzb" secondAttribute="leading" constant="15" id="t0D-Oy-3ht"/>
+                                                <constraint firstAttribute="trailing" secondItem="SWz-qL-S67" secondAttribute="trailing" constant="15" id="tGV-4b-CF5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RLy-pP-ar8">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RLy-pP-ar8" id="mUc-cE-tC1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gGD-0i-Ckf">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFx-OI-VvV">
+                                                            <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="66S-X3-neF"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Значение слова1, его употребление" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="amf-E5-Mfl">
+                                                            <rect key="frame" x="85" y="7" width="260" height="30"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gGD-0i-Ckf" secondAttribute="trailing" constant="15" id="HYC-s8-VpB"/>
+                                                <constraint firstItem="gGD-0i-Ckf" firstAttribute="top" secondItem="mUc-cE-tC1" secondAttribute="top" id="RiC-6j-CIu"/>
+                                                <constraint firstItem="gGD-0i-Ckf" firstAttribute="leading" secondItem="mUc-cE-tC1" secondAttribute="leading" constant="15" id="bHL-gY-dGn"/>
+                                                <constraint firstAttribute="bottom" secondItem="gGD-0i-Ckf" secondAttribute="bottom" id="muR-rI-VY4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Дополнительно" id="QgU-0A-KU7">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="c9j-xr-iAX">
+                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c9j-xr-iAX" id="fqC-fo-gSs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="O8x-WV-uKt">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYR-XH-ABQ">
+                                                            <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="EzS-lp-h8E"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Например, Сущ., с. р." textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cul-g0-b1E">
+                                                            <rect key="frame" x="85" y="7" width="260" height="30"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="O8x-WV-uKt" secondAttribute="bottom" id="5pu-Tq-xwf"/>
+                                                <constraint firstItem="O8x-WV-uKt" firstAttribute="leading" secondItem="fqC-fo-gSs" secondAttribute="leading" constant="15" id="EDi-mp-mNX"/>
+                                                <constraint firstAttribute="trailing" secondItem="O8x-WV-uKt" secondAttribute="trailing" constant="15" id="lnp-GN-bGr"/>
+                                                <constraint firstItem="O8x-WV-uKt" firstAttribute="top" secondItem="fqC-fo-gSs" secondAttribute="top" id="nvW-CN-emx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kJu-tC-9Z9">
+                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kJu-tC-9Z9" id="Kij-Xh-ibA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="emr-UC-6kG">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Группа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwx-0G-31W">
+                                                            <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="ewr-M4-dVv"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="например, Аниме или Мат" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iRm-AQ-dde">
+                                                            <rect key="frame" x="85" y="7" width="260" height="30"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="emr-UC-6kG" secondAttribute="trailing" constant="15" id="811-Z5-kuO"/>
+                                                <constraint firstAttribute="bottom" secondItem="emr-UC-6kG" secondAttribute="bottom" id="MRi-sh-Fkx"/>
+                                                <constraint firstItem="emr-UC-6kG" firstAttribute="top" secondItem="Kij-Xh-ibA" secondAttribute="top" id="e13-2y-aKm"/>
+                                                <constraint firstItem="emr-UC-6kG" firstAttribute="leading" secondItem="Kij-Xh-ibA" secondAttribute="leading" constant="15" id="rmo-WG-72j"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Примеры использования" id="h6N-tw-92u">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="cid-Kh-nJP">
+                                        <rect key="frame" x="0.0" y="260" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cid-Kh-nJP" id="YsN-fi-NlW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ybw-Gb-ook">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="71.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ybw-Gb-ook" firstAttribute="top" secondItem="YsN-fi-NlW" secondAttribute="top" id="3pQ-94-Q1y"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ybw-Gb-ook" secondAttribute="bottom" id="Bog-Hf-C5I"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ybw-Gb-ook" secondAttribute="trailing" constant="15" id="TBJ-LE-TzV"/>
+                                                <constraint firstItem="Ybw-Gb-ook" firstAttribute="leading" secondItem="YsN-fi-NlW" secondAttribute="leading" constant="15" id="qje-OC-LiF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Происхождение" id="jfN-Uj-PWV">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="83" id="bFN-4B-GYq">
+                                        <rect key="frame" x="0.0" y="360" width="375" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bFN-4B-GYq" id="wHF-Fl-620">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Djh-I1-2qs">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="82.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Djh-I1-2qs" secondAttribute="bottom" id="8Ue-qM-OZZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Djh-I1-2qs" secondAttribute="trailing" constant="15" id="blc-GR-ihB"/>
+                                                <constraint firstItem="Djh-I1-2qs" firstAttribute="leading" secondItem="wHF-Fl-620" secondAttribute="leading" constant="15" id="fsb-qM-QmE"/>
+                                                <constraint firstItem="Djh-I1-2qs" firstAttribute="top" secondItem="wHF-Fl-620" secondAttribute="top" id="mOc-iN-UHk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Синонимы" id="wI7-t0-4aQ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="UDX-X7-2oP">
+                                        <rect key="frame" x="0.0" y="471" width="375" height="47"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UDX-X7-2oP" id="SfI-WI-VKc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="слово2, слово3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8GC-h3-J2n">
+                                                    <rect key="frame" x="15" y="8" width="345" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8GC-h3-J2n" firstAttribute="leading" secondItem="SfI-WI-VKc" secondAttribute="leading" constant="15" id="7Jx-3A-dNd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8GC-h3-J2n" secondAttribute="bottom" id="8hH-qj-iE7"/>
+                                                <constraint firstAttribute="trailing" secondItem="8GC-h3-J2n" secondAttribute="trailing" constant="15" id="Qs6-Ak-CUF"/>
+                                                <constraint firstItem="8GC-h3-J2n" firstAttribute="top" secondItem="SfI-WI-VKc" secondAttribute="topMargin" id="cge-Al-S8V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Теги" id="l9x-oZ-za8">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="KH7-1X-qHw">
+                                        <rect key="frame" x="0.0" y="546" width="375" height="47"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KH7-1X-qHw" id="8OS-tn-MdN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="#Тег1, #Тег2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNt-8l-3Lg">
+                                                    <rect key="frame" x="15" y="8" width="345" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mNt-8l-3Lg" secondAttribute="bottom" id="SYv-kY-Ilv"/>
+                                                <constraint firstAttribute="trailing" secondItem="mNt-8l-3Lg" secondAttribute="trailing" constant="15" id="TfE-5N-oVk"/>
+                                                <constraint firstItem="mNt-8l-3Lg" firstAttribute="top" secondItem="8OS-tn-MdN" secondAttribute="topMargin" id="Zff-UM-owY"/>
+                                                <constraint firstItem="mNt-8l-3Lg" firstAttribute="leading" secondItem="8OS-tn-MdN" secondAttribute="leading" constant="15" id="oJV-P7-erU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="hL6-84-xU0" userLabel="Избранное">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="Jvb-Mf-gMf">
+                                        <rect key="frame" x="0.0" y="593" width="375" height="47"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jvb-Mf-gMf" id="Uh8-Iv-3zN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lYe-Wo-KcA">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="46.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Избранное" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN3-3b-yji">
+                                                            <rect key="frame" x="0.0" y="13" width="89" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OD6-vT-jOW">
+                                                            <rect key="frame" x="296" y="8" width="51" height="31"/>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="lYe-Wo-KcA" secondAttribute="bottom" id="AOO-hm-3vF"/>
+                                                <constraint firstAttribute="trailing" secondItem="lYe-Wo-KcA" secondAttribute="trailing" constant="15" id="Rmv-9s-D65"/>
+                                                <constraint firstItem="lYe-Wo-KcA" firstAttribute="top" secondItem="Uh8-Iv-3zN" secondAttribute="top" id="Wff-mj-9hK"/>
+                                                <constraint firstItem="lYe-Wo-KcA" firstAttribute="leading" secondItem="Uh8-Iv-3zN" secondAttribute="leading" constant="15" id="yOa-Uy-PJi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="hqZ-La-evY" id="qdh-BV-XD5"/>
+                            <outlet property="delegate" destination="hqZ-La-evY" id="AS3-ay-OdJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Создать слово" id="jUy-Tq-ddA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="j2R-x3-zVQ">
+                            <connections>
+                                <action selector="cancel" destination="hqZ-La-evY" id="J8a-76-PX7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jcA-bw-Hdj">
+                            <connections>
+                                <action selector="done" destination="hqZ-La-evY" id="HAe-YB-9wx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="definitionField" destination="amf-E5-Mfl" id="WI7-zh-vib"/>
+                        <outlet property="doneBarButton" destination="jcA-bw-Hdj" id="C4w-QG-hDk"/>
+                        <outlet property="examplesTextView" destination="Ybw-Gb-ook" id="2w4-Zp-SVC"/>
+                        <outlet property="favoriteSwitch" destination="OD6-vT-jOW" id="K1J-ex-rvB"/>
+                        <outlet property="groupField" destination="iRm-AQ-dde" id="QEb-CR-IHa"/>
+                        <outlet property="hashtagsField" destination="mNt-8l-3Lg" id="Oj8-S1-dh1"/>
+                        <outlet property="nameField" destination="9ml-a0-GQN" id="4Jf-VD-eKA"/>
+                        <outlet property="originTextView" destination="Djh-I1-2qs" id="MLa-1D-M0I"/>
+                        <outlet property="synonymsField" destination="8GC-h3-J2n" id="4SE-Ba-V0P"/>
+                        <outlet property="typeField" destination="Cul-g0-b1E" id="MiL-TJ-YsT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meW-vI-mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3249" y="-719"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rij-WX-arD">
+            <objects>
+                <navigationController id="z6M-zH-SkY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oE8-Nu-0FU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hqZ-La-evY" kind="relationship" relationship="rootViewController" id="0nA-sB-Hgd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpK-db-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2548" y="-719"/>
         </scene>
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
@@ -71,13 +427,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
-                                            <rect key="frame" x="315" y="18" width="42" height="42"/>
-                                            <state key="normal" image="big star "/>
-                                            <connections>
-                                                <action selector="favoriteButtonPressed:" destination="nBR-Ft-9hw" eventType="touchUpInside" id="yyx-9q-F3O"/>
-                                            </connections>
-                                        </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B1g-Nf-cYu">
                                             <rect key="frame" x="8" y="8" width="359" height="181.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,6 +434,13 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
+                                            <rect key="frame" x="315" y="18" width="42" height="42"/>
+                                            <state key="normal" image="big star "/>
+                                            <connections>
+                                                <action selector="favoriteButtonPressed:" destination="nBR-Ft-9hw" eventType="touchUpInside" id="yyx-9q-F3O"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="B1g-Nf-cYu" firstAttribute="top" secondItem="Z4n-B7-Qh5" secondAttribute="topMargin" id="7wT-JO-kPM"/>
@@ -108,16 +464,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Word" id="aen-Uj-hxZ">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="2oY-un-qCJ">
+                        <barButtonItem key="leftBarButtonItem" title="Back    " id="2oY-un-qCJ">
                             <connections>
                                 <action selector="cancel:" destination="1C6-aZ-MHr" id="kvK-UU-4Kb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="SIt-cl-U9e">
-                            <connections>
-                                <action selector="shareWordButton:" destination="1C6-aZ-MHr" id="r59-iX-eDO"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="sending " id="SIt-cl-U9e">
+                                <connections>
+                                    <action selector="shareWordButton:" destination="1C6-aZ-MHr" id="r59-iX-eDO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="kHG-ux-Ued">
+                                <connections>
+                                    <segue destination="z6M-zH-SkY" kind="presentation" identifier="EditWord" id="UBp-CX-A8z"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tblView" destination="OIh-59-vmN" id="aHx-yh-jr5"/>
@@ -125,12 +488,32 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3340" y="-22.03898050974513"/>
+            <point key="canvasLocation" x="3249" y="-22"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="AuP-CR-mH1">
+            <objects>
+                <tabBarController id="L8c-Gy-FJ1" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9a9-Ln-gDz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dma-0F-Smm" kind="relationship" relationship="viewControllers" id="Lcl-0h-WyI"/>
+                        <segue destination="nfL-Lc-rdr" kind="relationship" relationship="viewControllers" id="HLr-Xe-vH1"/>
+                        <segue destination="mrs-cS-hmM" kind="relationship" relationship="viewControllers" id="bcY-ha-awr"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BF1-qU-oUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="717"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dma-0F-Smm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="mul-ic-Fvx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mna-vR-UXN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -144,6 +527,153 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkC-hT-DkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1026" y="-22"/>
+        </scene>
+        <!--Избранное-->
+        <scene sceneID="Edt-jL-dYm">
+            <objects>
+                <tableViewController id="KFF-r0-k4g" customClass="FavoritesTableVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5H-aE-WSY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.97559744119644165" green="0.97514015436172485" blue="0.84750080108642578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="Y7v-uc-1Cw">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                        </textField>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowWordDetail" id="dcI-hJ-EjA">
+                                <rect key="frame" x="0.0" y="78" width="375" height="161"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dcI-hJ-EjA" id="GKA-RW-why">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wg3-we-q2F" kind="presentation" identifier="ShowWordDetail" id="aRb-Zg-pKx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KFF-r0-k4g" id="zsa-gS-fg9"/>
+                            <outlet property="delegate" destination="KFF-r0-k4g" id="c5G-Qd-2Na"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Избранное" id="7oz-GK-O74"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="Y7v-uc-1Cw" id="qe9-E4-tTZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zO-rR-77A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760.8" y="717.39130434782612"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="pcU-8a-tV3">
+            <objects>
+                <tableViewController id="LoA-tr-JrU" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3AT-NU-7Hr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Настройка 1" id="O9y-21-Knn">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ivg-7M-OEM" style="IBUITableViewCellStyleDefault" id="1gx-K5-ysZ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1gx-K5-ysZ" id="B7f-Da-vgD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Тут настройка 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ivg-7M-OEM">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Настройка 2" id="pBN-Xy-piZ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ppT-rg-uTp" detailTextLabel="Hs1-YC-aqj" style="IBUITableViewCellStyleValue1" id="IY4-mI-6xS">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IY4-mI-6xS" id="ejM-xh-U4a">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Тут выбор настройки 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ppT-rg-uTp">
+                                                    <rect key="frame" x="15" y="12" width="184.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="настройка 2 1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hs1-YC-aqj">
+                                                    <rect key="frame" x="250" y="12" width="110" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="LoA-tr-JrU" id="oCP-RH-ozo"/>
+                            <outlet property="delegate" destination="LoA-tr-JrU" id="S9h-6e-cvE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Настройки" id="DrM-rc-Jc9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-TI-Wzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="1435"/>
+        </scene>
+        <!--Настройки-->
+        <scene sceneID="6Gp-y7-xhb">
+            <objects>
+                <navigationController id="mrs-cS-hmM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Настройки" id="rcn-2w-GpE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MbW-CL-GDW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LoA-tr-JrU" kind="relationship" relationship="rootViewController" id="UXb-YB-nKl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpi-It-V3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="1435"/>
+        </scene>
+        <!--Избранное-->
+        <scene sceneID="HJ4-Jg-0YI">
+            <objects>
+                <navigationController id="nfL-Lc-rdr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Избранное" image="star " selectedImage="star " id="5lj-Sz-gGd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zpx-ED-ZU3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KFF-r0-k4g" kind="relationship" relationship="rootViewController" id="fud-nt-qyN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HNJ-sO-RoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="718"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zSw-6h-z13">
@@ -160,12 +690,35 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="viR-N9-DLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" id="9v0-ID-53u">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="43.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWo-eK-rVW">
+                            <rect key="frame" x="0.0" y="11.5" width="49.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0fc-hG-xkf">
+                            <rect key="frame" x="54.5" y="7" width="290.5" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
             </objects>
-            <point key="canvasLocation" x="2452" y="-22"/>
+            <point key="canvasLocation" x="2548" y="-22"/>
         </scene>
     </scenes>
     <resources>
         <image name="big star " width="42" height="42"/>
-        <image name="yellow star" width="21" height="21"/>
+        <image name="sending " width="29" height="29"/>
+        <image name="star " width="29" height="29"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kwr-K5-b4U"/>
+        <segue reference="UBp-CX-A8z"/>
+    </inferredMetricsTieBreakers>
 </document>

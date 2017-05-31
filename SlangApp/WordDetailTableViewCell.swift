@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol WordDetailTableViewCellDelegate: class {
+    //func shareWord(_ controller: WordTableViewCell, word: Word)
+    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath)
+}
+
+
 class WordDetailTableViewCell: UITableViewCell {
+    
+    weak var delegate: WordDetailTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,20 +25,26 @@ class WordDetailTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     var thisCellWord: Word!
-
+    var thisCellIndexPath: IndexPath!
+    
     @IBOutlet weak var wordTextView: UITextView!
     @IBOutlet weak var favoriteButton: UIButton!
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         thisCellWord.favorite = !thisCellWord.favorite
-        sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star ") : #imageLiteral(resourceName: "big star ")
+        sender.imageView?.image = thisCellWord.favorite == true ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
+        print("word is \(thisCellWord.favorite ? "" : "NOT ")favorite")
+        delegate?.reloading(self, indexPath: thisCellIndexPath)
     }
     
     var number = 1
     
-    func configurate(with word: Word) {
+    func configurate(with word: Word, at indexPath: IndexPath) {
         thisCellWord = word
-        favoriteButton.imageView?.image = word.favorite ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
+        thisCellIndexPath = indexPath
+        favoriteButton.imageView?.image = thisCellWord.favorite == true ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
+
+        print("word is \(thisCellWord.favorite ? "" : "NOT ")favorite")
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"
         let attributedText = NSMutableAttributedString(string: nameString, attributes: [
@@ -61,7 +75,7 @@ class WordDetailTableViewCell: UITableViewCell {
         if word.examples != nil {
             let examplesString = "примеры: \(word.examples!)\n"
             attributedText.append(NSMutableAttributedString(string: examplesString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
+                NSFontAttributeName: UIFont.italicSystemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.gray,
                 NSParagraphStyleAttributeName: smallParagraphStyle]))
         }
@@ -86,7 +100,7 @@ class WordDetailTableViewCell: UITableViewCell {
             let hashtagsString = "\(word.hashtags!)\n"
             attributedText.append(NSAttributedString(string: hashtagsString, attributes: [
                 NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.green,
+                NSForegroundColorAttributeName: UIColor.purple,
                 NSParagraphStyleAttributeName: hashParagraphStyle]))
         }
 
@@ -143,6 +157,6 @@ class WordDetailTableViewCell: UITableViewCell {
         return paragraphStyle
     }()
     
-    let mainFontSize: CGFloat = 16
+    let mainFontSize: CGFloat = 18
 }
 
