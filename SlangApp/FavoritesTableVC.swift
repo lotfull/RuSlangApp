@@ -60,7 +60,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
         } else {
             searchFetch.predicate =  NSPredicate(format: "favorite = true")
         }
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
         searchFetch.sortDescriptors = [sortDescriptor]
         do {
             words = try managedObjectContext.fetch(searchFetch) as! [Word]

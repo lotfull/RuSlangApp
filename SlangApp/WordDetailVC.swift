@@ -99,6 +99,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     }
     
     @IBAction func cancel(_ sender: Any) {
+        needToUpdate = false
         dismiss(animated: true, completion: nil)
     }
     @IBOutlet var tblView: UITableView!

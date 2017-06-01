@@ -76,6 +76,7 @@ class CreateEditWordVC: UITableViewController {
         delegate?.createEditWordVCDidCancel(self)
     }
     @IBAction func done() {
+        //needToUpdate = true
         if let word = editingWord {
             word.name = nameField.text!
             word.definition = definitionField.text!

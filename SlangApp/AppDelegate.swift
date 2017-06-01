@@ -90,8 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             reason: "Fatal Core Data error",
                             userInfo: nil)
                         exception.raise()
-                }
-                )
+                })
                 alert.addAction(fatalErrorOKAction)
                 self.viewControllerForShowingAlert().present(alert, animated: true, completion: nil)
         }
@@ -123,19 +122,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let items_arrays = content.csvRows(firstRowIgnored: true)
                 for item_array in items_arrays {
                     let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                    word.name = item_array[0]
-                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1])
+                    word.name = item_array[0].uppercaseFirst()
+                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
                     word.type = returnNilIfNonNone(str: item_array[2])
                     word.group = returnNilIfNonNone(str: item_array[3])
                     word.examples = returnNilIfNonNone(str: item_array[4])
                     word.hashtags = returnNilIfNonNone(str: item_array[5])
                     word.origin = returnNilIfNonNone(str: item_array[6])
                     word.synonyms = returnNilIfNonNone(str: item_array[7])
-                    do {
-                        try managedObjectContext.save()
-                    } catch {
-                        print("**********insert error: \(error.localizedDescription)\n********")
-                    }
+                }
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print("**********insert error: \(error.localizedDescription)\n********")
                 }
             }
         }

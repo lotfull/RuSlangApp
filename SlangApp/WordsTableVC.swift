@@ -35,7 +35,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        searching(searchText)
+        if needToUpdate {
+            searching(searchText)
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,7 +64,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     func searching(_ text: String?) {
         let searchFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         if text != "", text != nil { searchFetch.predicate =  NSPredicate(format: "name contains[c] %@", text!) }
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
         searchFetch.sortDescriptors = [sortDescriptor]
         do {
             words = try managedObjectContext.fetch(searchFetch) as! [Word]
@@ -169,6 +171,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         words.removeAll()
         searching(searchText)
         title = searchText != "" ? searchText : "Словарь молодежных слов" } }
+    //var needToUpdate = false
     let showWordDetailID = "ShowWordDetail"
     let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"

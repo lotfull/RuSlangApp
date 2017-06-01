@@ -20,3 +20,13 @@ func fatalCoreDataError(_ error: Error) {
     print("*** Fatal error: \(error)")
     NotificationCenter.default.post(name: MyManagedObjectContextSaveDidFailNotification, object: nil)
 }
+
+extension String {
+    func uppercaseFirst() -> String {
+        if characters.count == 1 { return self.capitalized }
+        if String(characters.prefix(2)).lowercased() != String(characters.prefix(2)) { return self }
+        return String(characters.prefix(1)).capitalized + String(characters.dropFirst())
+    }
+}
+
+var needToUpdate = false
