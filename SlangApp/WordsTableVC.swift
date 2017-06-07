@@ -18,7 +18,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             print("prepare(for segue")
-            if let navigationVC = segue.destination as? UINavigationController, let wordDetailVC = navigationVC.topViewController as? WordDetailVC {
+            if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
             }
@@ -51,6 +51,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
         cell.configure(with: words[indexPath.row], at: indexPath)
@@ -62,12 +63,16 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
 
     // MARK: - searching funcs
     func searching(_ text: String?) {
-        let searchFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if text != "", text != nil { searchFetch.predicate =  NSPredicate(format: "name contains[c] %@", text!) }
+        let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        if text != "", text != nil { nameBeginsFetch.predicate =  NSPredicate(format: "name BEGINSWITH %@", text!) }
+        let nameContainsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        if text != "", text != nil { nameContainsFetch.predicate =  NSPredicate(format: "(NOT (name BEGINSWITH %@)) AND (name CONTAINS[c] %@)", text!, text!) }
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
-        searchFetch.sortDescriptors = [sortDescriptor]
+        nameBeginsFetch.sortDescriptors = [sortDescriptor]
+        nameContainsFetch.sortDescriptors = [sortDescriptor]
         do {
-            words = try managedObjectContext.fetch(searchFetch) as! [Word]
+            words = try managedObjectContext.fetch(nameBeginsFetch) as! [Word]
+            words.append(contentsOf: try managedObjectContext.fetch(nameContainsFetch) as! [Word])
         } catch {
             fatalError("Failed to fetch words: \(error)")
         }

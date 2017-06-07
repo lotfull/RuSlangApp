@@ -24,6 +24,8 @@ class WordTableViewCell: UITableViewCell {
     @IBOutlet weak var favoriteButton: UIButton!
     
     func configure(with word: Word, at indexPath: IndexPath) {
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
         thisCellWord = word
         thisCellIndexPath = indexPath
         wordNameLabel.text = word.name

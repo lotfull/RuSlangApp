@@ -26,8 +26,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == editWordID {
-            if let navigationVC = segue.destination as? UINavigationController,
-                let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
+            if let createEditWordVC = segue.destination as? CreateEditWordVC {
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.editingWord = word
                 createEditWordVC.delegate = self

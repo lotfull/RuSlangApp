@@ -22,7 +22,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             print("prepare(for segue")
-            if let navigationVC = segue.destination as? UINavigationController, let wordDetailVC = navigationVC.topViewController as? WordDetailVC {
+            if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
             }
