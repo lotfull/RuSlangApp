@@ -1,0 +1,154 @@
+[INFO  - 2017-06-23T11:24:18.918Z] GhostDriver - Main - running on port 59836
+[INFO  - 2017-06-23T11:24:19.103Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-06-23T11:24:19.104Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.customHeaders:  - {}
+[INFO  - 2017-06-23T11:24:19.104Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-06-23T11:24:19.104Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 7f8a7d40-5806-11e7-a593-1f0d4ffe0853
+[ERROR - 2017-06-23T11:24:21.155Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: io
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:21.156Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (http://teenslang.su/content/%D0%90:48)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.456Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: getLang
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.456Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/lang0_0.js?6826:671)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.475Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: extend
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.476Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/al/ui_common.js?2918179257:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.554Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domStarted
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.554Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_community.php?app=1967874&width=220px&_ver=1&gid=137127263&mode=3&color1=&color2=&color3=&class_name=&no_cover=1&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2590&referrer=&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%90%C2%BB&15cd4b21dc0:55)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.717Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domReady
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.717Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_community.php?app=1967874&width=220px&_ver=1&gid=137127263&mode=3&color1=&color2=&color3=&class_name=&no_cover=1&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2590&referrer=&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%90%C2%BB&15cd4b21dc0:95)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.795Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: getLang
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:23.795Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/lang0_0.js?6826:671)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.142Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: extend
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.146Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/al/ui_common.js?2918179257:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.336Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: browser
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.336Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/al/page.js?1046174730:1634)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.386Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domStarted
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.386Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_comments.php?app=1967874&width=100%25&_ver=1&limit=10&height=0&mini=auto&norealtime=0&page=0&status_publish=0&attach=graffiti%2Cphoto%2Cvideo%2Caudio&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2590&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%90%C2%BB&description=&image=&startWidth=400&referrer=&15cd4b2207f:55)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.430Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domReady
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:24.430Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_comments.php?app=1967874&width=100%25&_ver=1&limit=10&height=0&mini=auto&norealtime=0&page=0&status_publish=0&attach=graffiti%2Cphoto%2Cvideo%2Caudio&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2590&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%90%C2%BB&description=&image=&startWidth=400&referrer=&15cd4b2207f:148)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:32.218Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: io
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:32.219Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (http://teenslang.su/content/%D0%99:48)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.115Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: getLang
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.115Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/lang0_0.js?6826:671)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.128Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: extend
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.128Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/al/ui_common.js?2918179257:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.198Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: getLang
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.198Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/lang0_0.js?6826:671)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.233Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domStarted
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.233Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_community.php?app=1967874&width=220px&_ver=1&gid=137127263&mode=3&color1=&color2=&color3=&class_name=&no_cover=1&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2599&referrer=&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%99%C2%BB&15cd4b2469d:55)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.248Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domReady
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.248Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_community.php?app=1967874&width=220px&_ver=1&gid=137127263&mode=3&color1=&color2=&color3=&class_name=&no_cover=1&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2599&referrer=&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%99%C2%BB&15cd4b2469d:95)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.521Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: extend
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.521Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/al/ui_common.js?2918179257:2)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.524Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: browser
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.525Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/js/al/page.js?1046174730:1634)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.570Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domStarted
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.570Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_comments.php?app=1967874&width=100%25&_ver=1&limit=10&height=0&mini=auto&norealtime=0&page=0&status_publish=0&attach=graffiti%2Cphoto%2Cvideo%2Caudio&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2599&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%99%C2%BB&description=&image=&startWidth=400&referrer=&15cd4b24771:55)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.630Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - msg: ReferenceError: Can't find variable: domReady
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-06-23T11:24:33.630Z] Session [7f8a7d40-5806-11e7-a593-1f0d4ffe0853] - page.onError - stack:
+  global code (https://vk.com/widget_comments.php?app=1967874&width=100%25&_ver=1&limit=10&height=0&mini=auto&norealtime=0&page=0&status_publish=0&attach=graffiti%2Cphoto%2Cvideo%2Caudio&url=http%3A%2F%2Fteenslang.su%2Fcontent%2F%25D0%2599&title=%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%20%D0%BD%D0%B0%20%D0%B1%D1%83%D0%BA%D0%B2%D1%83%20%C2%AB%D0%99%C2%BB&description=&image=&startWidth=400&referrer=&15cd4b24771:103)
+
+  phantomjs://platform/console++.js:263 in error
+[INFO  - 2017-06-23T11:29:18.929Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T11:34:18.940Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T11:39:18.949Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T11:44:18.959Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T11:49:18.970Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T11:54:18.982Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T11:59:18.991Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T12:04:19.001Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-06-23T12:09:19.015Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
