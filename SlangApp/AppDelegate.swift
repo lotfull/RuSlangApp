@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.tintColor = UIColor.purple
         let defaults = UserDefaults.standard
-        //defaults.set(false, forKey: "isPreloaded")
+        defaults.set(false, forKey: "isPreloaded")
         let isPreloaded = defaults.bool(forKey: isPreloadedKey)
         if !isPreloaded {
             preloadDataFromCSVFile()
@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - PRELOAD FROM CSV FUNCS
     
     func returnNilIfNonNone(str: String) -> String? {
-        if str == "NonNone" || str == "" {
+        if str == "NonNone" || str == "" || str == "_" || str == " " {
             return nil
         } else {
             return str
@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func preloadDataFromCSVFile() {
         removeData()
-        if let contentsOfURL = Bundle.main.url(forResource: fullDict, withExtension: "csv") {
+        if let contentsOfURL = Bundle.main.url(forResource: teenslang, withExtension: "csv") {
             print("teenslang Nigga!")
             if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                 let items_arrays = content.csvRows(firstRowIgnored: true)
