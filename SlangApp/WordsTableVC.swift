@@ -1,12 +1,27 @@
 
 import UIKit
 import CoreData
+import Dispatch
 
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate {
 
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Asynchronous, with quality of class
+        DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let defaults = UserDefaults.standard
+            defaults.set(false, forKey: "isPreloaded")
+            let isPreloaded = defaults.bool(forKey: appDelegate.isPreloadedKey)
+            if !isPreloaded {
+                appDelegate.preloadDataFromCSVFile()
+                defaults.set(true, forKey: appDelegate.isPreloadedKey)
+            }
+        }
+        
+        
         //searchTextField
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         print("viewDidLoad")

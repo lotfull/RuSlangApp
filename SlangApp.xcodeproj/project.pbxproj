@@ -26,6 +26,7 @@
 		91EB3C1E1EFDA42C00F807EA /* vsekidki_appwords.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */; };
 		91EB3C1F1EFDA42C00F807EA /* vsekidki_fullwords.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C1D1EFDA42C00F807EA /* vsekidki_fullwords.csv */; };
 		91EB3C211EFDA43E00F807EA /* teenslang_appwords.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */; };
+		91EB3C231EFDD59B00F807EA /* AppLaunchingInitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */; };
 		91F3B12D1EDC122100E78466 /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = 91F3B12C1EDC122100E78466 /* ToDo */; };
 		91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */; };
 		91F7D5DD1EE0099200BE7088 /* Twitter parsing.ipynb in Resources */ = {isa = PBXBuildFile; fileRef = 91F7D5DB1EE0099200BE7088 /* Twitter parsing.ipynb */; };
@@ -55,6 +56,7 @@
 		91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vsekidki_appwords.csv; sourceTree = "<group>"; };
 		91EB3C1D1EFDA42C00F807EA /* vsekidki_fullwords.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vsekidki_fullwords.csv; sourceTree = "<group>"; };
 		91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teenslang_appwords.csv; sourceTree = "<group>"; };
+		91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchingInitialVC.swift; sourceTree = "<group>"; };
 		91F3B12C1EDC122100E78466 /* ToDo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
 		91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableVC.swift; sourceTree = "<group>"; };
 		91F7D5DB1EE0099200BE7088 /* Twitter parsing.ipynb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Twitter parsing.ipynb"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
 				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
+				91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
@@ -231,6 +234,7 @@
 				919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */,
 				91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */,
 				916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */,
+				91EB3C231EFDD59B00F807EA /* AppLaunchingInitialVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
