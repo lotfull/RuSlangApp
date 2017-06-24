@@ -2,7 +2,12 @@
 import UIKit
 import CoreData
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating {
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
+    
+    @IBAction func titleTapped(_ sender: Any) {
+        scrollToHeader()
+    }
+    @IBOutlet weak var titleButton: UIButton!
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -12,15 +17,28 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         installSearchController()
         installTableView()
         firstFetching()
+        self.tabBarController?.delegate = self
+        selectedTabBarIndex = self.tabBarController?.selectedIndex
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tappedTabBarIndex = tabBarController.selectedIndex
+        print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
+        if tappedTabBarIndex == selectedTabBarIndex {
+            scrollToHeader()
+        }
+        selectedTabBarIndex = tappedTabBarIndex
+    }
+    
+    func scrollToHeader() {
+        self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
     
     func installTableView() {
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
-    
     func installSearchController() {
         searchController = UISearchController(searchResultsController: resultsController)
         tableView.tableHeaderView = searchController.searchBar
@@ -33,7 +51,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.hidesNavigationBarDuringPresentation = false
-        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,14 +97,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedWord = filteredWords[indexPath.row]
         print("didSelectRowAt")
-        if tableView == resultsController.tableView {
-            print("********************")
-            //searchController.dismiss(animated: true, completion: nil)
-            //resultsController.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: showWordDetailID, sender: nil)
-        } else {
-            self.performSegue(withIdentifier: showWordDetailID, sender: nil)
-        }
+        self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 162
@@ -98,10 +108,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         let text = searchController.searchBar.text
         if text == nil || text == "" {
             filteredWords = words
+            titleButton.setTitle("Словарь сленговых слов", for: .normal)
         } else {
             filteredWords = words.filter({ (word:Word) -> Bool in
                 return word.name.contains(text!) ? true : false
             })
+            titleButton.setTitle(text, for: .normal)
         }
         resultsController.tableView.reloadData()
     }
@@ -190,7 +202,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var words = [Word]()
     var filteredWords = [Word]()
     var selectedWord: Word!
-    
+    var selectedTabBarIndex: Int!
     let showWordDetailID = "ShowWordDetail"
     let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"
