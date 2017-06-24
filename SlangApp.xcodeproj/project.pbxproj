@@ -11,7 +11,6 @@
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
-		9166BC431EFF2893004990EC /* teenslang_appwords1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9166BC421EFF2893004990EC /* teenslang_appwords1.csv */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
 		917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */; };
@@ -39,7 +38,6 @@
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		9166BC421EFF2893004990EC /* teenslang_appwords1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teenslang_appwords1.csv; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditWordVC.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */,
-				9166BC421EFF2893004990EC /* teenslang_appwords1.csv */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
@@ -201,7 +198,6 @@
 				91EB3C1F1EFDA42C00F807EA /* vsekidki_fullwords.csv in Resources */,
 				91EB3C181EFA9DDF00F807EA /* Parse-vsekidki.ipynb in Resources */,
 				91EB3C1E1EFDA42C00F807EA /* vsekidki_appwords.csv in Resources */,
-				9166BC431EFF2893004990EC /* teenslang_appwords1.csv in Resources */,
 				91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
