@@ -91,72 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - PRELOAD FROM CSV FUNCS
     
-    func returnNilIfNonNone(str: String) -> String? {
-        if str == "NonNone" || str == "" || str == "_" || str == " " {
-            return nil
-        } else {
-            return str
-        }
-    }
+
     
-    func preloadDataFromCSVFile() {
-        removeData()
-        if let contentsOfURL = Bundle.main.url(forResource: teenslang, withExtension: "csv") {
-            print("teenslang Nigga!")
-            if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
-                let items_arrays = content.csvRows(firstRowIgnored: true)
-                for item_array in items_arrays {
-                    let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                    word.name = item_array[0].uppercaseFirst()
-                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
-                    word.type = returnNilIfNonNone(str: item_array[2])
-                    word.group = returnNilIfNonNone(str: item_array[3])
-                    word.examples = returnNilIfNonNone(str: item_array[4])
-                    word.hashtags = returnNilIfNonNone(str: item_array[5])
-                    word.origin = returnNilIfNonNone(str: item_array[6])
-                    word.synonyms = returnNilIfNonNone(str: item_array[7])
-                }
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print("**********insert error: \(error.localizedDescription)\n********")
-                }
-            }
-        }
-        if let contentsOfURL = Bundle.main.url(forResource: vsekidki, withExtension: "csv") {
-            print("vsekidki Nigga!")
-            if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
-                let items_arrays = content.csvRows(firstRowIgnored: true)
-                for item_array in items_arrays {
-                    let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                    word.name = item_array[0].uppercaseFirst()
-                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
-                    word.type = returnNilIfNonNone(str: item_array[2])
-                    word.group = returnNilIfNonNone(str: item_array[3])
-                    word.examples = returnNilIfNonNone(str: item_array[4])
-                    word.hashtags = returnNilIfNonNone(str: item_array[5])
-                    word.origin = returnNilIfNonNone(str: item_array[6])
-                    word.synonyms = returnNilIfNonNone(str: item_array[7])
-                }
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print("**********insert error: \(error.localizedDescription)\n********")
-                }
-            }
-        }
-    }
-    
-    func removeData() {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        let request = NSBatchDeleteRequest(fetchRequest: fetch)
-        do {
-            try managedObjectContext.execute(request)
-            try managedObjectContext.save()
-        } catch {
-            print ("There was an error")
-        }
-    }
     
     func deleteObject(withID objectID: NSManagedObjectID) {
         let fetchRequest: NSFetchRequest<Word> = Word.fetchRequest()
@@ -182,9 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    let teenslang = "teenslang_appwords"
-    let vsekidki = "vsekidki_appwords"
-    let isPreloadedKey = "isPreloaded"
+
     
 }
 

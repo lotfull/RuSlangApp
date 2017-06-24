@@ -13,49 +13,95 @@ import CoreData
 
 class AppLaunchingInitialVC: UIViewController {
         
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         
         // Asynchronous, with quality of class
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let defaults = UserDefaults.standard
-            defaults.set(false, forKey: "isPreloaded")
-            let isPreloaded = defaults.bool(forKey: appDelegate.isPreloadedKey)
+            //defaults.set(false, forKey: "isPreloaded")
+            let isPreloaded = defaults.bool(forKey: self.isPreloadedKey)
             if !isPreloaded {
-                appDelegate.preloadDataFromCSVFile()
-                defaults.set(true, forKey: appDelegate.isPreloadedKey)
+                self.preloadDataFromCSVFile()
+                defaults.set(true, forKey: self.isPreloadedKey)
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: self.showMainVCID, sender: nil)
+                self.activityIndicator.color = UIColor.purple
                 //self.activityIndicator.stopAnimating()
             }
         }
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.global(qos: .utility).async {
-            
-            let kNumberOfIterations = 81
-            var iIndicator = self.view.viewWithTag(101) as! UIActivityIndicatorView
-            for i in 1 ... kNumberOfIterations {
-                
-                usleep(50 * 1000)
-                // do something time consuming here
-                
-                DispatchQueue.main.async {
-                    // now update UI on main thread
-                    iIndicator.color = UIColor.purple
-                    iIndicator.stopAnimating()
-                    iIndicator = self.view.viewWithTag(100 + i) as! UIActivityIndicatorView
-                    iIndicator.startAnimating()
-                    self.progressView.setProgress(Float(i) / Float(kNumberOfIterations), animated: true)
+    func preloadDataFromCSVFile() {
+        removeData()
+        if let contentsOfURL = Bundle.main.url(forResource: teenslang, withExtension: "csv") {
+            print("teenslang Nigga!")
+            if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
+                let items_arrays = content.csvRows(firstRowIgnored: true)
+                for item_array in items_arrays {
+                    let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
+                    word.name = item_array[0].uppercaseFirst()
+                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
+                    word.type = returnNilIfNonNone(str: item_array[2])
+                    word.group = returnNilIfNonNone(str: item_array[3])
+                    word.examples = returnNilIfNonNone(str: item_array[4])
+                    word.hashtags = returnNilIfNonNone(str: item_array[5])
+                    word.origin = returnNilIfNonNone(str: item_array[6])
+                    word.synonyms = returnNilIfNonNone(str: item_array[7])
+                }
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print("**********insert error: \(error.localizedDescription)\n********")
                 }
             }
+        }
+        if let contentsOfURL = Bundle.main.url(forResource: vsekidki, withExtension: "csv") {
+            print("vsekidki Nigga!")
+            if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
+                let items_arrays = content.csvRows(firstRowIgnored: true)
+                for item_array in items_arrays {
+                    let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
+                    word.name = item_array[0].uppercaseFirst()
+                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
+                    word.type = returnNilIfNonNone(str: item_array[2])
+                    word.group = returnNilIfNonNone(str: item_array[3])
+                    word.examples = returnNilIfNonNone(str: item_array[4])
+                    word.hashtags = returnNilIfNonNone(str: item_array[5])
+                    word.origin = returnNilIfNonNone(str: item_array[6])
+                    word.synonyms = returnNilIfNonNone(str: item_array[7])
+                }
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print("**********insert error: \(error.localizedDescription)\n********")
+                }
+            }
+        }
+    }
+    
+
+    func removeData() {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+        do {
+            try managedObjectContext.execute(request)
+            try managedObjectContext.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+
+    func returnNilIfNonNone(str: String) -> String? {
+        if str == "NonNone" || str == "" || str == "_" || str == " " {
+            return nil
+        } else {
+            return str
         }
     }
     
@@ -81,5 +127,8 @@ class AppLaunchingInitialVC: UIViewController {
     
     var managedObjectContext: NSManagedObjectContext!
     let showMainVCID = "ShowMainVC"
+    let isPreloadedKey = "isPreloaded"
+    let teenslang = "teenslang_appwords"
+    let vsekidki = "vsekidki_appwords"
     
 }

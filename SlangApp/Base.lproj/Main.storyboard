@@ -18,7 +18,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr3-Vw-6OL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97559744120000003" green="0.97514015440000001" blue="0.84750080110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="aC3-xR-TTM">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -495,392 +495,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gZH-sL-baN">
-                                <rect key="frame" x="21" y="167" width="333" height="333"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oV0-Rq-2qK">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1yN-Gg-Cjq">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RI0-bX-0HV">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-Wa-6vE">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="104" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="n36-Cy-Jl3">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="105" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Qvr-a5-ZbV">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="106" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oSC-et-I22">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="107" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZvU-ce-07g">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="108" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-8c-ZBb">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="109" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Tk7-v9-9kH">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujz-hs-TqJ">
-                                        <rect key="frame" x="0.0" y="37" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="110" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1pz-kc-eUI">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="111" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Q7n-SP-4rL">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="112" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Sfg-9u-e6y">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="113" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ORH-q2-fR8">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="114" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JDP-31-pw9">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="115" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8E4-vI-cWS">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="116" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-UA-AlC">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="117" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ArP-HG-bgr">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="118" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AtL-im-yfU">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsq-Uf-PNs">
-                                        <rect key="frame" x="0.0" y="74" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="119" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wtP-sQ-Qie">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="120" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="60w-e6-u1l">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="121" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Mqg-5C-XX4">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="122" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gTA-1u-SIx">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="123" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fX5-qu-Pmy">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="124" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yqx-G0-6qu">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="125" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gRz-Cr-eyL">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="126" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QMF-fX-iJK">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="127" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dNa-ya-law">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30f-bw-T7e">
-                                        <rect key="frame" x="0.0" y="111" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="128" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u88-M3-DyY">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="129" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QiG-kV-sI5">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="130" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XYU-Vs-gNt">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="131" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uH9-5a-Z4p">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="132" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Qqj-DF-40z">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="133" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="F2G-tl-TgJ">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="134" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kdA-FV-BBJ">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="135" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IMc-Qv-rsr">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="136" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cwo-EV-2YH">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-e2-YPO">
-                                        <rect key="frame" x="0.0" y="148" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="137" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="k1p-K6-kCv">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="138" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="79u-nw-mJ2">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="139" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-jN-uiu">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="140" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="i7i-WR-563">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="141" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ziA-pL-ZLO">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="142" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="e88-Rx-t14">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="143" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-PZ-xTO">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="144" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hPQ-3i-aEV">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="145" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="U5X-en-9HN">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLW-TE-AIb">
-                                        <rect key="frame" x="0.0" y="185" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="146" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xmM-Vz-SVm">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="147" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="emC-MH-UBL">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="148" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-oa-0oo">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="149" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iWw-UG-f4s">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="150" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FXX-BP-Zv1">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="151" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gms-8Y-2u7">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="152" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="msI-If-Pnd">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="153" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="G3T-Xh-vSK">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="154" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Pq-ay-4vt">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yA-KI-aEQ">
-                                        <rect key="frame" x="0.0" y="222" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="155" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LDD-kE-ouD">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="156" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5ih-be-oHi">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="157" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-Fl-Qjl">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="158" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-e0-7aF">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="159" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zPB-Ne-NUq">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="160" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QwF-ao-OTB">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="161" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aqd-lP-dgT">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="162" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2B4-4m-7Vq">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="163" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="teQ-3a-JEA">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBB-KX-jgw">
-                                        <rect key="frame" x="0.0" y="259" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="164" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="P0Y-Vk-5tr">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="165" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jai-xe-GFi">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="166" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wqJ-yP-E7x">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="167" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eEa-cp-cwD">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="168" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="EZt-dg-J3Y">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="169" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mTb-Gs-6to">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="170" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BQv-ma-OPD">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="171" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="T5e-5t-Zye">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="172" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5qi-Fk-WUa">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdd-L1-6K9">
-                                        <rect key="frame" x="0.0" y="296" width="333" height="37"/>
-                                        <subviews>
-                                            <activityIndicatorView opaque="NO" tag="173" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-zY-hSQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="174" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AUh-XN-k2i">
-                                                <rect key="frame" x="37" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="175" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="R9C-dW-6po">
-                                                <rect key="frame" x="74" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="176" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="m9Z-Mb-q9y">
-                                                <rect key="frame" x="111" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="177" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="09L-IP-EG2">
-                                                <rect key="frame" x="148" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="178" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rc1-J3-98r">
-                                                <rect key="frame" x="185" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="179" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="A2R-gs-zbv">
-                                                <rect key="frame" x="222" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="180" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Foa-WR-8gz">
-                                                <rect key="frame" x="259" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                            <activityIndicatorView opaque="NO" tag="181" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qNF-j7-kNr">
-                                                <rect key="frame" x="296" y="0.0" width="37" height="37"/>
-                                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            </activityIndicatorView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-xG-RUs">
-                                <rect key="frame" x="112" y="538" width="150" height="38"/>
+                            <activityIndicatorView opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-bG-d1U">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-BI-ofg">
+                                <rect key="frame" x="56.5" y="382" width="262.5" height="50.5"/>
+                                <string key="text">Идет установка слов
+Пожалуйста, подождите</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.29999999999999999" height="0.29999999999999999"/>
+                            </label>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-xG-RUs">
+                                <rect key="frame" x="112" y="445" width="150" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-dZ-wQy">
+                                <rect key="frame" x="67" y="58" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.20000000000000001" height="0.20000000000000001"/>
                         <constraints>
-                            <constraint firstItem="gZH-sL-baN" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="81w-GR-PZ5"/>
-                            <constraint firstItem="gZH-sL-baN" firstAttribute="centerY" secondItem="qE1-MF-bic" secondAttribute="centerY" id="gap-2W-c2q"/>
+                            <constraint firstItem="sPl-BI-ofg" firstAttribute="top" secondItem="E1e-bG-d1U" secondAttribute="bottom" constant="30" id="GDh-JY-7V2"/>
+                            <constraint firstItem="E1e-bG-d1U" firstAttribute="centerY" secondItem="qE1-MF-bic" secondAttribute="centerY" id="hhf-Ck-rik"/>
+                            <constraint firstItem="sPl-BI-ofg" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="s09-UG-U8M"/>
+                            <constraint firstItem="E1e-bG-d1U" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="tMD-4T-oc7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="E1e-bG-d1U" id="eUb-XQ-EXS"/>
                         <outlet property="progressView" destination="Ebg-xG-RUs" id="q4q-8h-ARR"/>
                         <segue destination="L8c-Gy-FJ1" kind="presentation" identifier="ShowMainVC" modalTransitionStyle="crossDissolve" id="B5Z-2N-kAm"/>
                     </connections>
@@ -934,7 +582,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5H-aE-WSY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97559744119644165" green="0.97514015436172485" blue="0.84750080108642578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="Y7v-uc-1Cw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1079,7 +727,7 @@
         <image name="star " width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oJz-hB-ms0"/>
         <segue reference="NR0-LT-nVw"/>
+        <segue reference="oJz-hB-ms0"/>
     </inferredMetricsTieBreakers>
 </document>
