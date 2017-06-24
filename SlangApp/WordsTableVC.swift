@@ -2,18 +2,44 @@
 import UIKit
 import CoreData
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate {
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating {
 
+    var searchController = UISearchController()
+    var resultsController = UITableViewController()
+    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //searchTextField
+        searchController = UISearchController(searchResultsController: resultsController)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        resultsController.tableView.delegate = self
+        resultsController.tableView.dataSource = self
+        resultsController.tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
+        
+        
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         print("viewDidLoad")
         firstFetching()
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 162
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text
+        if text == nil || text == "" {
+            filteredWords = words
+        } else {
+            filteredWords = words.filter({ (word:Word) -> Bool in
+                return word.name.contains(text!) ? true : false
+            })
+        }
+        resultsController.tableView.reloadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,14 +56,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.delegate = self
-                //wordDetailVC.word = selectedWord
             }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if needToUpdate {
-            searching(searchText)
         }
     }
     
@@ -50,12 +69,21 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredWords.count
+        if tableView == resultsController.tableView {
+            return filteredWords.count
+        } else {
+            return words.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+        
+        if tableView == resultsController.tableView {
+            cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+        } else {
+            cell.configure(with: words[indexPath.row], at: indexPath)
+        }
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.delegate = self
         return cell
@@ -168,7 +196,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     func saveManagedObjectContext() {
         do {
-            try managedObjectContext.save() // <- remember to put this :)
+            try managedObjectContext.save()
         } catch {
             fatalError("error tableView(_ tableView: UITableView, commit editingStyle \(error)")
         }
@@ -186,7 +214,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         print("***didSet searchText")
         searching(searchText)
         title = searchText != "" ? searchText : "Словарь молодежных слов" } }
-    //var needToUpdate = false
     let showWordDetailID = "ShowWordDetail"
     let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"
