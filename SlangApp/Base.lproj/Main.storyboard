@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L8c-Gy-FJ1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ezt-oK-anp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,26 +11,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Словарь молодежных слов-->
+        <!--Words TableVC-->
         <scene sceneID="cxQ-3f-SLf">
             <objects>
                 <tableViewController id="mPO-jZ-NT8" customClass="WordsTableVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="zr3-Vw-6OL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97559744120000003" green="0.97514015440000001" blue="0.84750080110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="aC3-xR-TTM">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.99957929917252497" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCR-jE-HTs">
-                                <rect key="frame" x="0.0" y="78" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sCR-jE-HTs" id="nAk-Qi-GuC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
@@ -43,7 +35,17 @@
                             <outlet property="delegate" destination="mPO-jZ-NT8" id="VLh-M6-Sw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Словарь молодежных слов" id="fm6-bQ-Tt8">
+                    <navigationItem key="navigationItem" id="fm6-bQ-Tt8">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4MI-s5-OK5">
+                            <rect key="frame" x="98.5" y="7" width="178" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Словарь сленговых слов">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="titleTapped:" destination="mPO-jZ-NT8" eventType="touchUpInside" id="USJ-eL-rw9"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ozX-dg-Ura">
                             <connections>
                                 <segue destination="z6M-zH-SkY" kind="show" identifier="CreateEditWord" id="NR0-LT-nVw"/>
@@ -51,7 +53,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchTextField" destination="aC3-xR-TTM" id="Bbn-75-hca"/>
+                        <outlet property="titleButton" destination="4MI-s5-OK5" id="VMp-uo-Tqf"/>
                         <segue destination="1C6-aZ-MHr" kind="show" identifier="ShowWordDetail" id="oJz-hB-ms0"/>
                     </connections>
                 </tableViewController>
@@ -434,7 +436,10 @@
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
                                             <rect key="frame" x="315" y="18" width="42" height="42"/>
-                                            <state key="normal" image="big star "/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="42" id="4Ua-oL-ed1"/>
+                                                <constraint firstAttribute="width" constant="42" id="bel-rY-OYj"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="favoriteButtonPressed:" destination="nBR-Ft-9hw" eventType="touchUpInside" id="yyx-9q-F3O"/>
                                             </connections>
@@ -483,6 +488,61 @@
             </objects>
             <point key="canvasLocation" x="3249" y="-22"/>
         </scene>
+        <!--App Launching InitialVC-->
+        <scene sceneID="l50-4y-TA5">
+            <objects>
+                <viewController id="Ezt-oK-anp" customClass="AppLaunchingInitialVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PZC-Al-zS0"/>
+                        <viewControllerLayoutGuide type="bottom" id="qUd-JH-DNJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qE1-MF-bic">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-bG-d1U">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-BI-ofg">
+                                <rect key="frame" x="56.5" y="382" width="262.5" height="50.5"/>
+                                <string key="text">Идет установка слов
+Пожалуйста, подождите</string>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.29999999999999999" height="0.29999999999999999"/>
+                            </label>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Ebg-xG-RUs">
+                                <rect key="frame" x="112" y="445" width="150" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Сленг иконка русская без фона 512" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-dZ-wQy">
+                                <rect key="frame" x="59" y="29" width="256" height="256"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.20000000000000001" height="0.20000000000000001"/>
+                        <constraints>
+                            <constraint firstItem="UOK-dZ-wQy" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="5gn-eC-JZQ"/>
+                            <constraint firstItem="sPl-BI-ofg" firstAttribute="top" secondItem="E1e-bG-d1U" secondAttribute="bottom" constant="30" id="GDh-JY-7V2"/>
+                            <constraint firstItem="E1e-bG-d1U" firstAttribute="top" secondItem="UOK-dZ-wQy" secondAttribute="bottom" constant="30" id="fL8-HD-U82"/>
+                            <constraint firstItem="E1e-bG-d1U" firstAttribute="centerY" secondItem="qE1-MF-bic" secondAttribute="centerY" id="hhf-Ck-rik"/>
+                            <constraint firstItem="sPl-BI-ofg" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="s09-UG-U8M"/>
+                            <constraint firstItem="E1e-bG-d1U" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="tMD-4T-oc7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="E1e-bG-d1U" id="eUb-XQ-EXS"/>
+                        <outlet property="progressView" destination="Ebg-xG-RUs" id="q4q-8h-ARR"/>
+                        <segue destination="L8c-Gy-FJ1" kind="presentation" identifier="ShowMainVC" modalTransitionStyle="crossDissolve" id="B5Z-2N-kAm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ukR-g3-crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610" y="716"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AuP-CR-mH1">
             <objects>
@@ -528,7 +588,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="P5H-aE-WSY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97559744119644165" green="0.97514015436172485" blue="0.84750080108642578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Поиск слова" minimumFontSize="17" clearButtonMode="always" id="Y7v-uc-1Cw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -668,12 +728,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="big star " width="42" height="42"/>
         <image name="sending " width="29" height="29"/>
         <image name="star " width="29" height="29"/>
+        <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oJz-hB-ms0"/>
-        <segue reference="NR0-LT-nVw"/>
+        <segue reference="UBp-CX-A8z"/>
     </inferredMetricsTieBreakers>
 </document>

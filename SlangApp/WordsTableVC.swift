@@ -2,17 +2,55 @@
 import UIKit
 import CoreData
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate {
-
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
+    
+    @IBAction func titleTapped(_ sender: Any) {
+        scrollToHeader()
+    }
+    @IBOutlet weak var titleButton: UIButton!
+    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchTextField
-        tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
+        
         print("viewDidLoad")
-        searching(searchText)
+        installSearchController()
+        installTableView()
+        firstFetching()
+        self.tabBarController?.delegate = self
+        selectedTabBarIndex = self.tabBarController?.selectedIndex
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tappedTabBarIndex = tabBarController.selectedIndex
+        print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
+        if tappedTabBarIndex == selectedTabBarIndex {
+            scrollToHeader()
+        }
+        selectedTabBarIndex = tappedTabBarIndex
+    }
+    
+    func scrollToHeader() {
+        self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+    }
+    
+    func installTableView() {
+        tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    func installSearchController() {
+        searchController = UISearchController(searchResultsController: resultsController)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        resultsController.tableView.delegate = self
+        resultsController.tableView.dataSource = self
+        resultsController.tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
+        resultsController.tableView.keyboardDismissMode = .onDrag
+        searchController.searchBar.placeholder = "Поиск слова"
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,72 +67,67 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.delegate = self
-                //wordDetailVC.word = selectedWord
             }
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if needToUpdate {
-            searching(searchText)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedWord = words[indexPath.row]
-        print("didSelectRowAt")
-        self.performSegue(withIdentifier: showWordDetailID, sender: nil)
-    }
+    // MARK: - TableView Funcs
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        if tableView == resultsController.tableView {
+            return filteredWords.count
+        } else {
+            return words.count
+        }
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        cell.configure(with: words[indexPath.row], at: indexPath)
+        
+        if tableView == resultsController.tableView {
+            cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+        } else {
+            cell.configure(with: words[indexPath.row], at: indexPath)
+        }
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.delegate = self
         return cell
     }
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedWord = filteredWords[indexPath.row]
+        print("didSelectRowAt")
+        self.performSegue(withIdentifier: showWordDetailID, sender: nil)
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 162
+    }
 
     // MARK: - searching funcs
-    func searching(_ text: String?) {
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text
+        if text == nil || text == "" {
+            filteredWords = words
+            titleButton.setTitle("Словарь сленговых слов", for: .normal)
+        } else {
+            filteredWords = words.filter({ (word:Word) -> Bool in
+                return word.name.contains(text!) ? true : false
+            })
+            titleButton.setTitle(text, for: .normal)
+        }
+        resultsController.tableView.reloadData()
+    }
+    func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if text != "", text != nil { nameBeginsFetch.predicate =  NSPredicate(format: "name BEGINSWITH %@", text!) }
-        let nameContainsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if text != "", text != nil { nameContainsFetch.predicate =  NSPredicate(format: "(NOT (name BEGINSWITH %@)) AND (name CONTAINS[c] %@)", text!, text!) }
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
-        nameBeginsFetch.sortDescriptors = [sortDescriptor]
-        nameContainsFetch.sortDescriptors = [sortDescriptor]
         do {
             words = try managedObjectContext.fetch(nameBeginsFetch) as! [Word]
-            words.append(contentsOf: try managedObjectContext.fetch(nameContainsFetch) as! [Word])
         } catch {
             fatalError("Failed to fetch words: \(error)")
         }
+        filteredWords = words
         tableView.reloadData()
     }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let oldText = textField.text! as NSString
-        let newText = oldText.replacingCharacters(in: range, with: string)
-        print("***shouldChangeCharactersIn")
-        searchText = newText
-        return true
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("***textFieldShouldReturn")
-        searchText = textField.text
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        searchText = ""
-        return true
-    }
+    
     func clearAllData() {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
@@ -129,10 +162,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
-    @IBOutlet weak var searchTextField: UITextField! {
-        didSet { searchTextField.delegate = self }
-    }
-    
     // MARK: - CreateWordVCDelegate
     func createEditWordVCDidCancel(_ controller: CreateEditWordVC) {
         dismiss(animated: true, completion: nil)
@@ -158,25 +187,22 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     func saveManagedObjectContext() {
         do {
-            try managedObjectContext.save() // <- remember to put this :)
+            try managedObjectContext.save()
         } catch {
             fatalError("error tableView(_ tableView: UITableView, commit editingStyle \(error)")
         }
     }
     
     // MARK: - VARS and LETS
-
+    var searchController = UISearchController()
+    var resultsController = UITableViewController()
     var dictWords = [String:String]()
     var arrayWords = NSMutableArray()
     var managedObjectContext: NSManagedObjectContext!
     var words = [Word]()
+    var filteredWords = [Word]()
     var selectedWord: Word!
-    var searchText: String? { didSet {
-        print("***didSet searchText")
-        words.removeAll()
-        searching(searchText)
-        title = searchText != "" ? searchText : "Словарь молодежных слов" } }
-    //var needToUpdate = false
+    var selectedTabBarIndex: Int!
     let showWordDetailID = "ShowWordDetail"
     let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"
