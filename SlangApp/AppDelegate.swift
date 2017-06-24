@@ -17,27 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window?.tintColor = UIColor.purple
-        /*
-        let defaults = UserDefaults.standard
-        defaults.set(false, forKey: "isPreloaded")
-        let isPreloaded = defaults.bool(forKey: isPreloadedKey)
-        if !isPreloaded {
-            preloadDataFromCSVFile()
-            defaults.set(true, forKey: isPreloadedKey)
-         }*/ //preloadDataFromCSVFile() CODE
-        if let tabBarVC = window!.rootViewController as? UITabBarController,
-            let VControllers = tabBarVC.viewControllers as? [UINavigationController] {
-            if let wordsTableVC = VControllers[0].topViewController as? WordsTableVC {
-                wordsTableVC.managedObjectContext = managedObjectContext
-            } else {
-                fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
-            }
-            if let favoritesTableVC = VControllers[1].topViewController as? FavoritesTableVC {
-                favoritesTableVC.managedObjectContext = managedObjectContext
-            } else {
-                fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
-            }
-            
+        if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
+            initialVC.managedObjectContext = managedObjectContext
+        } else {
+            print("Something went wrong with managedObjectContext assignment")
         }
         listenForFatalCoreDataNotifications()
         return true
