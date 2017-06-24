@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-bc-Cbw">
+                            <activityIndicatorView hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-bc-Cbw">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iu3-FD-YOq">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iu3-FD-YOq">
                                 <rect key="frame" x="56.5" y="382" width="262.5" height="50.5"/>
                                 <string key="text">Идет установка слов
 Пожалуйста, подождите</string>
@@ -39,11 +39,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Сленг иконка русская без фона 512" translatesAutoresizingMaskIntoConstraints="NO" id="3lW-cD-YFH">
+                                <rect key="frame" x="59" y="29" width="256" height="256"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Iu3-FD-YOq" firstAttribute="top" secondItem="rsQ-bc-Cbw" secondAttribute="bottom" constant="30" id="6ub-zP-lY1"/>
                             <constraint firstItem="Iu3-FD-YOq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="D0a-zf-bM5"/>
+                            <constraint firstItem="rsQ-bc-Cbw" firstAttribute="top" secondItem="3lW-cD-YFH" secondAttribute="bottom" constant="30" id="EP7-yq-Grk"/>
+                            <constraint firstItem="3lW-cD-YFH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FBc-Ik-72t"/>
                             <constraint firstItem="rsQ-bc-Cbw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="P4v-72-JeS"/>
                             <constraint firstItem="Iu3-FD-YOq" firstAttribute="top" secondItem="rsQ-bc-Cbw" secondAttribute="bottom" constant="30" id="RPv-dw-wyL"/>
                             <constraint firstItem="rsQ-bc-Cbw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VV3-zW-793"/>
@@ -55,4 +60,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
+    </resources>
 </document>

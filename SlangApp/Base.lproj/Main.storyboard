@@ -436,7 +436,10 @@
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
                                             <rect key="frame" x="315" y="18" width="42" height="42"/>
-                                            <state key="normal" image="big star "/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="42" id="4Ua-oL-ed1"/>
+                                                <constraint firstAttribute="width" constant="42" id="bel-rY-OYj"/>
+                                            </constraints>
                                             <connections>
                                                 <action selector="favoriteButtonPressed:" destination="nBR-Ft-9hw" eventType="touchUpInside" id="yyx-9q-F3O"/>
                                             </connections>
@@ -515,15 +518,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-dZ-wQy">
-                                <rect key="frame" x="67" y="58" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Сленг иконка русская без фона 512" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-dZ-wQy">
+                                <rect key="frame" x="59" y="29" width="256" height="256"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="0.20000000000000001" height="0.20000000000000001"/>
                         <constraints>
+                            <constraint firstItem="UOK-dZ-wQy" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="5gn-eC-JZQ"/>
                             <constraint firstItem="sPl-BI-ofg" firstAttribute="top" secondItem="E1e-bG-d1U" secondAttribute="bottom" constant="30" id="GDh-JY-7V2"/>
+                            <constraint firstItem="E1e-bG-d1U" firstAttribute="top" secondItem="UOK-dZ-wQy" secondAttribute="bottom" constant="30" id="fL8-HD-U82"/>
                             <constraint firstItem="E1e-bG-d1U" firstAttribute="centerY" secondItem="qE1-MF-bic" secondAttribute="centerY" id="hhf-Ck-rik"/>
                             <constraint firstItem="sPl-BI-ofg" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="s09-UG-U8M"/>
                             <constraint firstItem="E1e-bG-d1U" firstAttribute="centerX" secondItem="qE1-MF-bic" secondAttribute="centerX" id="tMD-4T-oc7"/>
@@ -724,12 +728,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="big star " width="42" height="42"/>
         <image name="sending " width="29" height="29"/>
         <image name="star " width="29" height="29"/>
+        <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NR0-LT-nVw"/>
         <segue reference="oJz-hB-ms0"/>
+        <segue reference="UBp-CX-A8z"/>
     </inferredMetricsTieBreakers>
 </document>

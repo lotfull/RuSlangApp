@@ -17,6 +17,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         title = word.name
         tblView.estimatedRowHeight = tableView.rowHeight
         tblView.rowHeight = UITableViewAutomaticDimension
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
