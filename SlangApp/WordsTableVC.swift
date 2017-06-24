@@ -30,7 +30,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         resultsController.tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         resultsController.tableView.keyboardDismissMode = .onDrag
         searchController.searchBar.placeholder = "Поиск слова"
-        //searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
         
     }
 
