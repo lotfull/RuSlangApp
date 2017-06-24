@@ -11,18 +11,16 @@
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
+		9166BC431EFF2893004990EC /* teenslang_appwords1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9166BC421EFF2893004990EC /* teenslang_appwords1.csv */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
 		917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */; };
 		919600FC1EE1E41C002BE3D6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 919600FB1EE1E41C002BE3D6 /* README.md */; };
 		919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */; };
-		91C455121EE6ECC000E05DFD /* Twitter parsing py.py in Resources */ = {isa = PBXBuildFile; fileRef = 91C455101EE6ECC000E05DFD /* Twitter parsing py.py */; };
-		91C455131EE6ECC000E05DFD /* wordsNamesArray in Resources */ = {isa = PBXBuildFile; fileRef = 91C455111EE6ECC000E05DFD /* wordsNamesArray */; };
 		91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
 		91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E959581E430F540055F5B2 /* WordsTableVC.swift */; };
 		91EB3C181EFA9DDF00F807EA /* Parse-vsekidki.ipynb in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C141EFA9DDF00F807EA /* Parse-vsekidki.ipynb */; };
-		91EB3C1B1EFA9DDF00F807EA /* TwitterTrendsParsingResults in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C171EFA9DDF00F807EA /* TwitterTrendsParsingResults */; };
 		91EB3C1E1EFDA42C00F807EA /* vsekidki_appwords.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */; };
 		91EB3C1F1EFDA42C00F807EA /* vsekidki_fullwords.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C1D1EFDA42C00F807EA /* vsekidki_fullwords.csv */; };
 		91EB3C211EFDA43E00F807EA /* teenslang_appwords.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */; };
@@ -41,18 +39,16 @@
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9166BC421EFF2893004990EC /* teenslang_appwords1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teenslang_appwords1.csv; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditWordVC.swift; sourceTree = "<group>"; };
 		919600FB1EE1E41C002BE3D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
-		91C455101EE6ECC000E05DFD /* Twitter parsing py.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = "Twitter parsing py.py"; sourceTree = "<group>"; };
-		91C455111EE6ECC000E05DFD /* wordsNamesArray */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordsNamesArray; sourceTree = "<group>"; };
 		91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		91E959581E430F540055F5B2 /* WordsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsTableVC.swift; sourceTree = "<group>"; };
 		91EB3C141EFA9DDF00F807EA /* Parse-vsekidki.ipynb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Parse-vsekidki.ipynb"; sourceTree = "<group>"; };
-		91EB3C171EFA9DDF00F807EA /* TwitterTrendsParsingResults */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwitterTrendsParsingResults; sourceTree = "<group>"; };
 		91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vsekidki_appwords.csv; sourceTree = "<group>"; };
 		91EB3C1D1EFDA42C00F807EA /* vsekidki_fullwords.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vsekidki_fullwords.csv; sourceTree = "<group>"; };
 		91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teenslang_appwords.csv; sourceTree = "<group>"; };
@@ -85,10 +81,7 @@
 				91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */,
 				91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */,
 				91EB3C1D1EFDA42C00F807EA /* vsekidki_fullwords.csv */,
-				91C455101EE6ECC000E05DFD /* Twitter parsing py.py */,
-				91C455111EE6ECC000E05DFD /* wordsNamesArray */,
 				91EB3C141EFA9DDF00F807EA /* Parse-vsekidki.ipynb */,
-				91EB3C171EFA9DDF00F807EA /* TwitterTrendsParsingResults */,
 				91F7D5DB1EE0099200BE7088 /* Twitter parsing.ipynb */,
 				91F3B12C1EDC122100E78466 /* ToDo */,
 				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
@@ -131,6 +124,7 @@
 				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */,
+				9166BC421EFF2893004990EC /* teenslang_appwords1.csv */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
@@ -201,15 +195,13 @@
 				91F97B0A1E37BF1900796C1F /* LaunchScreen.storyboard in Resources */,
 				91F97B071E37BF1900796C1F /* Assets.xcassets in Resources */,
 				91EB3C211EFDA43E00F807EA /* teenslang_appwords.csv in Resources */,
-				91EB3C1B1EFA9DDF00F807EA /* TwitterTrendsParsingResults in Resources */,
 				91F3B12D1EDC122100E78466 /* ToDo in Resources */,
-				91C455121EE6ECC000E05DFD /* Twitter parsing py.py in Resources */,
 				91F7D5DD1EE0099200BE7088 /* Twitter parsing.ipynb in Resources */,
 				91F97B051E37BF1900796C1F /* Main.storyboard in Resources */,
 				91EB3C1F1EFDA42C00F807EA /* vsekidki_fullwords.csv in Resources */,
-				91C455131EE6ECC000E05DFD /* wordsNamesArray in Resources */,
 				91EB3C181EFA9DDF00F807EA /* Parse-vsekidki.ipynb in Resources */,
 				91EB3C1E1EFDA42C00F807EA /* vsekidki_appwords.csv in Resources */,
+				9166BC431EFF2893004990EC /* teenslang_appwords1.csv in Resources */,
 				91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -39,7 +39,7 @@ class AppLaunchingInitialVC: UIViewController {
     
     func preloadDataFromCSVFile() {
         removeData()
-        if let contentsOfURL = Bundle.main.url(forResource: teenslang, withExtension: "csv") {
+        if let contentsOfURL = Bundle.main.url(forResource: teenslang + "1", withExtension: "csv") {
             print("teenslang Nigga!")
             if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                 let items_arrays = content.csvRows(firstRowIgnored: true)
