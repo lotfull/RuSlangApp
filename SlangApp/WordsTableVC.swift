@@ -11,7 +11,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         //searchTextField
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         print("viewDidLoad")
-        searching(searchText)
+        firstFetching()
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -42,7 +42,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedWord = words[indexPath.row]
+        selectedWord = filteredWords[indexPath.row]
         print("didSelectRowAt")
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
@@ -50,12 +50,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        return filteredWords.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        cell.configure(with: words[indexPath.row], at: indexPath)
+        cell.configure(with: filteredWords[indexPath.row], at: indexPath)
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.delegate = self
         return cell
@@ -63,19 +63,28 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
 
     // MARK: - searching funcs
-    func searching(_ text: String?) {
+    func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if text != "", text != nil { nameBeginsFetch.predicate =  NSPredicate(format: "name BEGINSWITH %@", text!) }
-        let nameContainsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        if text != "", text != nil { nameContainsFetch.predicate =  NSPredicate(format: "(NOT (name BEGINSWITH %@)) AND (name CONTAINS[c] %@)", text!, text!) }
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))
-        nameBeginsFetch.sortDescriptors = [sortDescriptor]
-        nameContainsFetch.sortDescriptors = [sortDescriptor]
         do {
             words = try managedObjectContext.fetch(nameBeginsFetch) as! [Word]
-            words.append(contentsOf: try managedObjectContext.fetch(nameContainsFetch) as! [Word])
         } catch {
             fatalError("Failed to fetch words: \(error)")
+        }
+        filteredWords = words
+        tableView.reloadData()
+    }
+    
+    func searching(_ text: String?) {
+        if text == nil || text == "" {
+            filteredWords = words
+        } else {
+            filteredWords = words.filter({ (word:Word) -> Bool in
+                if word.name.contains(text!) {
+                    return true
+                } else {
+                    return false
+                }
+            })
         }
         tableView.reloadData()
     }
@@ -171,10 +180,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var arrayWords = NSMutableArray()
     var managedObjectContext: NSManagedObjectContext!
     var words = [Word]()
+    var filteredWords = [Word]()
     var selectedWord: Word!
     var searchText: String? { didSet {
         print("***didSet searchText")
-        words.removeAll()
         searching(searchText)
         title = searchText != "" ? searchText : "Словарь молодежных слов" } }
     //var needToUpdate = false
