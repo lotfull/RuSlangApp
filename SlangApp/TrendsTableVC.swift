@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseDatabase
+import Dispatch
 
 class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate {
     
@@ -26,15 +27,14 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     @IBAction func addTrends(_ sender: Any) {
         print("addTrends")
-        add_temp_trends()
+        //add_temp_trends()
     }
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstTrendsFetch()
-        //trendsFetch()
+        observeTrends()
         
         print("viewDidLoad")
         installTableView()
@@ -50,17 +50,14 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         }
         selectedTabBarIndex = tappedTabBarIndex
     }
-    
     func scrollToHeader() {
         self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
-    
     func installTableView() {
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             print("prepare(for segue")
@@ -79,10 +76,10 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         return trendWords.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        cell.configure(with: trendWords[indexPath.row], at: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrendsCell", for: indexPath)
+        cell.textLabel?.text = trendWords[indexPath.row].name
+        cell.detailTextLabel?.text = trendWords[indexPath.row].definition
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.delegate = self
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -90,12 +87,9 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         print("didSelectRowAt")
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 162
-    }
     
     // MARK: - Fetch funcs
-    func add_temp_trends() {
+    /*func add_temp_trends() {
         ref.child("trend words").child("rand \(arc4random())").setValue(arc4random())
         
     }
@@ -134,8 +128,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             }
             self.tableView.reloadData()
         })
-    }
-        /*
+     
         handleChanging = ref.child("trend words").observe(.childChanged, with: { (snapshot) in
             print("childChanged")
             if let trendsDict = snapshot.value as? [String: Int] {
@@ -150,9 +143,8 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
                 self.tableView.reloadData()
             }
         })
+     }
 */
-        
-        
         /*let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         do {
             words = try managedObjectContext.fetch(nameBeginsFetch) as! [Word]
@@ -161,7 +153,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         }
         filteredWords = words
          tableView.reloadData()*/ // last fetching
-
     
     // MARK: - WordTableViewCellDelegate
     func shareWord(_ controller: WordTableViewCell, word: Word) {
@@ -179,15 +170,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         }
         tableView.reloadRows(at: [indexPath], with: .none)
     }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        managedObjectContext.delete(trendWords[indexPath.row])
-        saveManagedObjectContext()
-        trendWords.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-        tableView.reloadData()
-    }
-    
     func saveManagedObjectContext() {
         do {
             try managedObjectContext.save()
@@ -196,10 +178,74 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         }
     }
     
+    
+    func word(fromDict dictionary: [String: String]) -> Word {
+        func returnNilIfNonNone(_ str: String) -> String? {
+            if str == "NonNone" || str == "" || str == "_" || str == " " {
+                return nil
+            } else {
+                return str
+            }
+        }
+        let word = Word(context: self.managedObjectContext)
+        word.name = dictionary["name"]!
+        word.definition = dictionary["definition"]!
+        word.origin = returnNilIfNonNone(dictionary["origin"]!)
+        word.group = returnNilIfNonNone(dictionary["group"]!)
+        word.examples = returnNilIfNonNone(dictionary["examples"]!)
+        word.synonyms = returnNilIfNonNone(dictionary["synonyms"]!)
+        word.type = returnNilIfNonNone(dictionary["type"]!)
+        word.hashtags = returnNilIfNonNone(dictionary["hashtags"]!)
+        return word
+    }
+    
+    func observeTrends() {
+        ref.child("trend words").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let dict = snap.value as! [String: String]
+                let word = self.word(fromDict: dict)
+                print("\(word.name)")
+                self.trendWords.append(word)
+            }
+            DispatchQueue.main.async(execute: {
+                self.tableView.reloadData()
+            })
+        })
+        
+    }
+    
+            /*
+            self.trendWords = [Word]()
+            if let dictionary = dataSnapshot.value as? [String: AnyObject] {
+                let word = Word(context: self.managedObjectContext)
+                word.name = dictionary["name"] as! String
+                word.definition =
+                    dictionary["definition"] as! String
+                word.origin = self.returnNilIfNonNone(dictionary["origin"] as! String)
+                word.group = self.returnNilIfNonNone(dictionary["group"] as! String)
+                word.examples = self.returnNilIfNonNone(dictionary["examples"] as! String)
+                word.synonyms = self.returnNilIfNonNone(dictionary["synonyms"] as! String)
+                word.type = self.returnNilIfNonNone(dictionary["type"] as! String)
+                word.hashtags = self.returnNilIfNonNone(dictionary["hashtags"] as! String)
+                self.trendWords.append(word)
+                
+                DispatchQueue.main.async(execute: { 
+                    self.tableView.reloadData()
+                })
+            }
+            */
+    
+    
+    
+    
+    
+    
+    
     // MARK: - VARS and LETS
     var managedObjectContext: NSManagedObjectContext!
-    var trendWords = [Word]()
     var trends = [String: Int]()
+    var trendWords = [Word]()
     var selectedWord: Word!
     var selectedTabBarIndex: Int!
     let showWordDetailID = "ShowWordDetail"

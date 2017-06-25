@@ -59,7 +59,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag2-Q2-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="-720"/>
+            <point key="canvasLocation" x="1868" y="-722"/>
         </scene>
         <!--Создать слово-->
         <scene sceneID="xyL-DV-06X">
@@ -393,7 +393,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meW-vI-mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3250" y="-721"/>
+            <point key="canvasLocation" x="3609" y="-722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rij-WX-arD">
@@ -486,7 +486,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="59"/>
+            <point key="canvasLocation" x="2727" y="56"/>
         </scene>
         <!--App Launching InitialVC-->
         <scene sceneID="l50-4y-TA5">
@@ -621,7 +621,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zO-rR-77A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="717"/>
+            <point key="canvasLocation" x="1868" y="714"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="pcU-8a-tV3">
@@ -691,7 +691,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-TI-Wzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="1435"/>
+            <point key="canvasLocation" x="1868" y="1432"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Gp-y7-xhb">
@@ -731,18 +731,34 @@
         <scene sceneID="Mt5-6g-soa">
             <objects>
                 <tableViewController id="AMp-IS-Lhz" customClass="TrendsTableVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="NMG-9j-ehT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="NMG-9j-ehT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rOr-uL-idP">
-                                <rect key="frame" x="0.0" y="28" width="375" height="162"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrendsCell" textLabel="GRQ-5X-Vop" detailTextLabel="rZ7-wp-Bcf" rowHeight="63" style="IBUITableViewCellStyleValue1" id="4P0-53-J9x">
+                                <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rOr-uL-idP" id="H8F-VG-u2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4P0-53-J9x" id="6f0-wm-sml">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GRQ-5X-Vop">
+                                            <rect key="frame" x="15" y="21" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rZ7-wp-Bcf">
+                                            <rect key="frame" x="316" y="21" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -753,9 +769,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="pkM-RS-ttQ">
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bhe-T1-PpC">
-                            <rect key="frame" x="98.5" y="7" width="178" height="30"/>
+                            <rect key="frame" x="155" y="7" width="65" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Словарь сленговых слов">
+                            <state key="normal" title="В тренде">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -775,7 +791,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbV-9f-iba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1625" y="59"/>
+            <point key="canvasLocation" x="1868" y="56.221889055472268"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Ad-7X-R5y">
@@ -803,7 +819,7 @@
         <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oJz-hB-ms0"/>
+        <segue reference="ohW-bx-XNF"/>
         <segue reference="UBp-CX-A8z"/>
     </inferredMetricsTieBreakers>
 </document>
