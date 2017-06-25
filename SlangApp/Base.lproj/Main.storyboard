@@ -59,7 +59,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag2-Q2-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762" y="-22"/>
+            <point key="canvasLocation" x="1625" y="-720"/>
         </scene>
         <!--Создать слово-->
         <scene sceneID="xyL-DV-06X">
@@ -393,7 +393,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meW-vI-mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3249" y="-719"/>
+            <point key="canvasLocation" x="3250" y="-721"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rij-WX-arD">
@@ -409,7 +409,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpK-db-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-719"/>
+            <point key="canvasLocation" x="2728" y="-720"/>
         </scene>
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
@@ -486,7 +486,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3249" y="-22"/>
+            <point key="canvasLocation" x="2214" y="59"/>
         </scene>
         <!--App Launching InitialVC-->
         <scene sceneID="l50-4y-TA5">
@@ -541,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukR-g3-crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-610" y="716"/>
+            <point key="canvasLocation" x="-630" y="394"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AuP-CR-mH1">
@@ -554,13 +554,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="dma-0F-Smm" kind="relationship" relationship="viewControllers" id="Lcl-0h-WyI"/>
+                        <segue destination="YTm-jh-uIX" kind="relationship" relationship="viewControllers" id="jgy-rH-YuA"/>
                         <segue destination="nfL-Lc-rdr" kind="relationship" relationship="viewControllers" id="HLr-Xe-vH1"/>
                         <segue destination="mrs-cS-hmM" kind="relationship" relationship="viewControllers" id="bcY-ha-awr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF1-qU-oUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="239" y="717"/>
+            <point key="canvasLocation" x="186" y="394"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
@@ -579,7 +580,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkC-hT-DkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="-22"/>
+            <point key="canvasLocation" x="1025" y="-719"/>
         </scene>
         <!--Избранное-->
         <scene sceneID="Edt-jL-dYm">
@@ -620,7 +621,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zO-rR-77A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760.8" y="717.39130434782612"/>
+            <point key="canvasLocation" x="1625" y="717"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="pcU-8a-tV3">
@@ -690,7 +691,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-TI-Wzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="1435"/>
+            <point key="canvasLocation" x="1625" y="1435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Gp-y7-xhb">
@@ -725,6 +726,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNJ-sO-RoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1025" y="718"/>
+        </scene>
+        <!--Trends TableVC-->
+        <scene sceneID="Mt5-6g-soa">
+            <objects>
+                <tableViewController id="AMp-IS-Lhz" customClass="TrendsTableVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="NMG-9j-ehT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rOr-uL-idP">
+                                <rect key="frame" x="0.0" y="28" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rOr-uL-idP" id="H8F-VG-u2m">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AMp-IS-Lhz" id="VkR-tm-Qte"/>
+                            <outlet property="delegate" destination="AMp-IS-Lhz" id="r6Y-fk-6cA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="pkM-RS-ttQ">
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bhe-T1-PpC">
+                            <rect key="frame" x="98.5" y="7" width="178" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Словарь сленговых слов">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="titleTapped:" destination="AMp-IS-Lhz" eventType="touchUpInside" id="ecg-OS-SCk"/>
+                            </connections>
+                        </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xgV-hH-GmZ">
+                            <connections>
+                                <action selector="addTrends:" destination="AMp-IS-Lhz" id="vWi-Ia-h0F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="titleButton" destination="bhe-T1-PpC" id="3Dc-II-XDa"/>
+                        <segue destination="1C6-aZ-MHr" kind="show" identifier="ShowWordDetail" id="ohW-bx-XNF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbV-9f-iba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="59"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Ad-7X-R5y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YTm-jh-uIX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="i2C-Of-Ljo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6c4-dN-h7f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AMp-IS-Lhz" kind="relationship" relationship="rootViewController" id="pCW-Xp-pcm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwP-Ng-wgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="59"/>
         </scene>
     </scenes>
     <resources>

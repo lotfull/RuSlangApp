@@ -112,16 +112,19 @@ class AppLaunchingInitialVC: UIViewController {
                 if let wordsTableVC = VControllers[0].topViewController as? WordsTableVC {
                     wordsTableVC.managedObjectContext = managedObjectContext
                 } else {
-                    fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
+                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }
-                if let favoritesTableVC = VControllers[1].topViewController as? FavoritesTableVC {
+                if let trendsTableVC = VControllers[1].topViewController as? TrendsTableVC {
+                    trendsTableVC.managedObjectContext = managedObjectContext
+                } else {
+                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
+                }
+                if let favoritesTableVC = VControllers[2].topViewController as? FavoritesTableVC {
                     favoritesTableVC.managedObjectContext = managedObjectContext
                 } else {
-                    fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
+                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }
-                
             }
-
         }
     }
     

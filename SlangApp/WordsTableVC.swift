@@ -1,8 +1,19 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseDatabase
 
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
+    
+    let ref = Database.database().reference()
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func titleTapped(_ sender: Any) {
         scrollToHeader()
@@ -13,6 +24,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref.child("list").childByAutoId()
+
         print("viewDidLoad")
         installSearchController()
         installTableView()
@@ -128,16 +141,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         tableView.reloadData()
     }
     
-    func clearAllData() {
-        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        let request = NSBatchDeleteRequest(fetchRequest: fetch)
-        do {
-            try managedObjectContext.execute(request)
-            try managedObjectContext.save()
-        } catch {
-            print ("There was an error")
-        }
-    }
     func addWord(_ wordName: String) {
         let word = Word()
         word.name = wordName
@@ -179,9 +182,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        managedObjectContext.delete(words[indexPath.row])
+        managedObjectContext.delete(filteredWords[indexPath.row])
         saveManagedObjectContext()
-        words.remove(at: indexPath.row)
+        filteredWords.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
     }
@@ -196,8 +199,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     // MARK: - VARS and LETS
     var searchController = UISearchController()
     var resultsController = UITableViewController()
-    var dictWords = [String:String]()
-    var arrayWords = NSMutableArray()
     var managedObjectContext: NSManagedObjectContext!
     var words = [Word]()
     var filteredWords = [Word]()
