@@ -36,8 +36,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fm6-bQ-Tt8">
+                        <barButtonItem key="leftBarButtonItem" title="перемешать" id="zcW-ZB-3vM">
+                            <connections>
+                                <action selector="shufflePressed:" destination="mPO-jZ-NT8" id="lef-uz-rM9"/>
+                            </connections>
+                        </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4MI-s5-OK5">
-                            <rect key="frame" x="98.5" y="7" width="178" height="30"/>
+                            <rect key="frame" x="122" y="7" width="178" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Словарь сленговых слов">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -768,6 +773,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="pkM-RS-ttQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="sNo-oe-uvH">
+                            <connections>
+                                <action selector="reloadTrends:" destination="AMp-IS-Lhz" id="U2G-i6-XJy"/>
+                            </connections>
+                        </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bhe-T1-PpC">
                             <rect key="frame" x="155" y="7" width="65" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -819,7 +829,7 @@
         <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NR0-LT-nVw"/>
         <segue reference="ohW-bx-XNF"/>
-        <segue reference="UBp-CX-A8z"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,9 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     var handleChanging: DatabaseHandle?
     var handle: DatabaseHandle?
     
+    @IBAction func reloadTrends(_ sender: Any) {
+        observeTrends()
+    }
     @IBAction func titleTapped(_ sender: Any) {
         scrollToHeader()
     }
@@ -33,9 +36,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         observeTrends()
-        
         print("viewDidLoad")
         installTableView()
         self.tabBarController?.delegate = self
@@ -89,70 +90,21 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     
     // MARK: - Fetch funcs
-    /*func add_temp_trends() {
-        ref.child("trend words").child("rand \(arc4random())").setValue(arc4random())
-        
-    }
-    
-    func firstTrendsFetch() {
-        handle = ref.child("trend words").observe(.value, with: { (snapshot) in
-            print("handle value")
-            if let snapDict = snapshot.value as? [String:Int] {
-                print("SNAPDICT: \(snapDict)")
-                self.trends = snapDict
-                self.trendWords = [Word]()
-                for trend in snapDict {
-                    let word = Word(context: self.managedObjectContext)
-                    word.name = trend.key
-                    word.definition = "\(trend.value)"
-                    self.trendWords.append(word)
-                }
-            } else {
-                print("failed if let", snapshot.value)
+    func observeTrends() {
+        ref.child("trend words").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.trendWords = [Word]()
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let dict = snap.value as! [String: String]
+                let word = self.word(fromDict: dict)
+                print("\(word.name)")
+                self.trendWords.append(word)
             }
-            self.tableView.reloadData()
-        })
-    }
-    
-    func trendsFetch() {
-        handleAdding = ref.child("trend words").observe(.childAdded, with: { (snapshot) in
-            print("handle adding")
-            if let snapDict = snapshot.value as? [String:Int] {
-                if let trend = snapDict.first {
-                    self.trends[trend.key] = trend.value
-                    let word = Word(context: self.managedObjectContext)
-                    word.name = trend.key
-                    word.definition = "\(trend.value)"
-                    self.trendWords.append(word)
-                }
-            }
-            self.tableView.reloadData()
-        })
-     
-        handleChanging = ref.child("trend words").observe(.childChanged, with: { (snapshot) in
-            print("childChanged")
-            if let trendsDict = snapshot.value as? [String: Int] {
-                for trend in trendsDict {
-                    self.trends[trend.key] = trend.value
-                    print(trend)
-                    let word = Word(context: self.managedObjectContext)
-                    word.name = trend.key
-                    word.definition = "\(trend.value)"
-                    self.trendWords.append(word)
-                }
+            DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
-            }
+            })
         })
-     }
-*/
-        /*let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        do {
-            words = try managedObjectContext.fetch(nameBeginsFetch) as! [Word]
-        } catch {
-            fatalError("Failed to fetch words: \(error)")
-        }
-        filteredWords = words
-         tableView.reloadData()*/ // last fetching
+    }
     
     // MARK: - WordTableViewCellDelegate
     func shareWord(_ controller: WordTableViewCell, word: Word) {
@@ -198,49 +150,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         word.hashtags = returnNilIfNonNone(dictionary["hashtags"]!)
         return word
     }
-    
-    func observeTrends() {
-        ref.child("trend words").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let dict = snap.value as! [String: String]
-                let word = self.word(fromDict: dict)
-                print("\(word.name)")
-                self.trendWords.append(word)
-            }
-            DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-            })
-        })
-        
-    }
-    
-            /*
-            self.trendWords = [Word]()
-            if let dictionary = dataSnapshot.value as? [String: AnyObject] {
-                let word = Word(context: self.managedObjectContext)
-                word.name = dictionary["name"] as! String
-                word.definition =
-                    dictionary["definition"] as! String
-                word.origin = self.returnNilIfNonNone(dictionary["origin"] as! String)
-                word.group = self.returnNilIfNonNone(dictionary["group"] as! String)
-                word.examples = self.returnNilIfNonNone(dictionary["examples"] as! String)
-                word.synonyms = self.returnNilIfNonNone(dictionary["synonyms"] as! String)
-                word.type = self.returnNilIfNonNone(dictionary["type"] as! String)
-                word.hashtags = self.returnNilIfNonNone(dictionary["hashtags"] as! String)
-                self.trendWords.append(word)
-                
-                DispatchQueue.main.async(execute: { 
-                    self.tableView.reloadData()
-                })
-            }
-            */
-    
-    
-    
-    
-    
-    
     
     // MARK: - VARS and LETS
     var managedObjectContext: NSManagedObjectContext!
