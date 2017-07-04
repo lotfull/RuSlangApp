@@ -105,14 +105,9 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
-    @IBAction func wordToTrend(_ thisWord: Word? = nil) {
+    @IBAction func wordToTrend(_ sender: Any) {
         print("wordToTrend")
-        if thisWord == nil {
-            print("word == nil")
-        } else {
-            print("word == word")
-            delegate?.addToTrends(self, word: thisWord!)
-        }
+        delegate?.addToTrends(self, word: self.word)
     }
     
     // self.ref.child("users").child(user.uid).setValue(["username": username])

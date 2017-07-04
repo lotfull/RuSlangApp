@@ -76,11 +76,15 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         ref.child("trend words").observeSingleEvent(of: .value, with: { (snapshot) in
             self.trendWords = [Word]()
             for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let dict = snap.value as! [String: String]
-                let word = self.word(fromDict: dict)
-                print("\(word.name)")
-                self.trendWords.append(word)
+                print("***** child", child)
+                if let snap = child as? DataSnapshot,
+                    let dict = snap.value as? [String: String],
+                    dict.count > 1
+                {
+                    let word = self.word(fromDict: dict)
+                    print("\(word.name)")
+                    self.trendWords.append(word)
+                }
             }
             DispatchQueue.main.async(execute: {
                 self.tableView.reloadData()
@@ -89,9 +93,21 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     
     func addToTrends(_ controller: WordDetailVC, word: Word) {
-        print("delegate add to trends")
-        
-        //ref.child("trend words").child("3").setValue(["name": word.name])
+        print("*****delegate add to trends")
+        print(word)
+        ref.child("trend words").childByAutoId().setValue("test")
+        print("***** DONE 1")
+        ref.child("trend words").child("3").setValue(["name": word.name])
+        print("***** DONE 2")
+        ref.child("trend words").child("4").setValue([
+            "name": word.name,
+            "definition": word.definition,
+            "origin": word.origin,
+            "group": word.group,
+            "examples": word.examples,
+            "synonyms": word.synonyms,
+            "type": word.type,
+            "hashtags": word.hashtags])
     }
     
     // MARK: - WordTableViewCellDelegate
@@ -120,7 +136,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     
     func word(fromDict dictionary: [String: String]) -> Word {
-        func returnNilIfNonNone(_ str: String) -> String? {
+        func returnNilIfNonNone(_ str: String?) -> String? {
             if str == "NonNone" || str == "" || str == "_" || str == " " {
                 return nil
             } else {
@@ -130,12 +146,12 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         let word = Word(context: self.managedObjectContext)
         word.name = dictionary["name"]!
         word.definition = dictionary["definition"]!
-        word.origin = returnNilIfNonNone(dictionary["origin"]!)
-        word.group = returnNilIfNonNone(dictionary["group"]!)
-        word.examples = returnNilIfNonNone(dictionary["examples"]!)
-        word.synonyms = returnNilIfNonNone(dictionary["synonyms"]!)
-        word.type = returnNilIfNonNone(dictionary["type"]!)
-        word.hashtags = returnNilIfNonNone(dictionary["hashtags"]!)
+        word.origin = returnNilIfNonNone(dictionary["origin"])
+        word.group = returnNilIfNonNone(dictionary["group"])
+        word.examples = returnNilIfNonNone(dictionary["examples"])
+        word.synonyms = returnNilIfNonNone(dictionary["synonyms"])
+        word.type = returnNilIfNonNone(dictionary["type"])
+        word.hashtags = returnNilIfNonNone(dictionary["hashtags"])
         return word
     }
     
