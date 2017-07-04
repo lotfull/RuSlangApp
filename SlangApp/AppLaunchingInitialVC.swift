@@ -111,6 +111,7 @@ class AppLaunchingInitialVC: UIViewController {
                 let VControllers = tabBarVC.viewControllers as? [UINavigationController] {
                 if let wordsTableVC = VControllers[0].topViewController as? WordsTableVC {
                     wordsTableVC.managedObjectContext = managedObjectContext
+                    wordsTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
                 } else {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }

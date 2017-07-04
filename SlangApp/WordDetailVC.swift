@@ -9,7 +9,14 @@
 import CoreData
 import UIKit
 
+protocol AddingWordsToTrendsDelegate: class {
+    func addToTrends(_ controller: WordDetailVC, word: Word)
+}
+
 class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate {
+    
+    weak var delegate: AddingWordsToTrendsDelegate?
+    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +105,17 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+    @IBAction func wordToTrend(_ thisWord: Word? = nil) {
+        print("wordToTrend")
+        if thisWord == nil {
+            print("word == nil")
+        } else {
+            print("word == word")
+            delegate?.addToTrends(self, word: thisWord!)
+        }
+    }
     
+    // self.ref.child("users").child(user.uid).setValue(["username": username])
     @IBAction func cancel(_ sender: Any) {
         needToUpdate = false
         dismiss(animated: true, completion: nil)

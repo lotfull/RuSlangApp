@@ -478,9 +478,14 @@
                                     <action selector="shareWordButton:" destination="1C6-aZ-MHr" id="r59-iX-eDO"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="kHG-ux-Ued">
+                            <barButtonItem title="изменить" id="kHG-ux-Ued">
                                 <connections>
                                     <segue destination="z6M-zH-SkY" kind="presentation" identifier="EditWord" id="UBp-CX-A8z"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="тренд" id="I58-ta-OQN">
+                                <connections>
+                                    <action selector="wordToTrend:" destination="1C6-aZ-MHr" id="p4a-ut-n11"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -807,7 +812,7 @@
         <scene sceneID="8Ad-7X-R5y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YTm-jh-uIX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="i2C-Of-Ljo"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="i2C-Of-Ljo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6c4-dN-h7f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -829,7 +834,7 @@
         <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NR0-LT-nVw"/>
+        <segue reference="UBp-CX-A8z"/>
         <segue reference="ohW-bx-XNF"/>
     </inferredMetricsTieBreakers>
 </document>

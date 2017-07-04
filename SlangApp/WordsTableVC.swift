@@ -21,7 +21,6 @@ extension MutableCollection where Indices.Iterator.Element == Index {
 
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
     
-    let ref = Database.database().reference()
 
     @IBAction func shufflePressed(_ sender: UIBarButtonItem) {
         if isShuffled {
@@ -85,10 +84,17 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            print("prepare(for segue")
+            print("prepare(for segue) in WordsTableVC")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
+                
+                if trendsVC != nil {
+                    print("wordDetailVC.delegate = trendsVC")
+                    wordDetailVC.delegate = trendsVC
+                } else {
+                    print("wordDetailVC.delegate = else nil")
+                }
             }
         } else if segue.identifier == showFavoritesID {
             
@@ -124,10 +130,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
-        if isShuffled {
-            cell.configure(with: words[indexPath.row], at: indexPath)
-        } else if tableView == resultsController.tableView {
+        if tableView == resultsController.tableView {
             cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+        } else if isShuffled {
+            cell.configure(with: words[indexPath.row], at: indexPath)
         } else {
             let wordsKey = sectionNames[indexPath.section]
             if let sectionWords = wordsBySection[wordsKey] {
@@ -139,7 +145,16 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedWord = filteredWords[indexPath.row]
+        if tableView == resultsController.tableView {
+            selectedWord = filteredWords[indexPath.row]
+        } else if isShuffled {
+            selectedWord = words[indexPath.row]
+        } else {
+            let wordsKey = sectionNames[indexPath.section]
+            if let sectionWords = wordsBySection[wordsKey] {
+                selectedWord = sectionWords[indexPath.row]
+            }
+        }
         print("didSelectRowAt")
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
@@ -199,6 +214,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             wordsBySection[sectionNames[index]] = [Word]()
         }
         for word in words {
+            if word.name == "" {
+                managedObjectContext.delete(word)
+                continue
+            }
             let key = "\(word.name[word.name.startIndex])"
             if wordsBySection[key] != nil {
                 wordsBySection[key]!.append(word)
@@ -273,7 +292,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var selectedWord: Word!
     var selectedTabBarIndex: Int!
     var isShuffled = false
+    var trendsVC: TrendsTableVC!
     let showWordDetailID = "ShowWordDetail"
     let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"
+    let ref = Database.database().reference()
+
 }

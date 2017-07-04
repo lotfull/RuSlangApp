@@ -13,25 +13,7 @@ import Firebase
 import FirebaseDatabase
 import Dispatch
 
-class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate {
-    
-    let ref = Database.database().reference()
-    var handleAdding: DatabaseHandle?
-    var handleChanging: DatabaseHandle?
-    var handle: DatabaseHandle?
-    
-    @IBAction func reloadTrends(_ sender: Any) {
-        observeTrends()
-    }
-    @IBAction func titleTapped(_ sender: Any) {
-        scrollToHeader()
-    }
-    @IBOutlet weak var titleButton: UIButton!
-    
-    @IBAction func addTrends(_ sender: Any) {
-        print("addTrends")
-        //add_temp_trends()
-    }
+class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate {
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -106,6 +88,12 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         })
     }
     
+    func addToTrends(_ controller: WordDetailVC, word: Word) {
+        print("delegate add to trends")
+        
+        //ref.child("trend words").child("3").setValue(["name": word.name])
+    }
+    
     // MARK: - WordTableViewCellDelegate
     func shareWord(_ controller: WordTableViewCell, word: Word) {
         let text = word.textViewString()
@@ -151,11 +139,29 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         return word
     }
     
+    @IBAction func reloadTrends(_ sender: Any) {
+        observeTrends()
+    }
+    @IBAction func titleTapped(_ sender: Any) {
+        scrollToHeader()
+    }
+    @IBOutlet weak var titleButton: UIButton!
+    
+    @IBAction func addTrends(_ sender: Any) {
+        print("addTrends")
+        //add_temp_trends()
+    }
+    
     // MARK: - VARS and LETS
     var managedObjectContext: NSManagedObjectContext!
     var trends = [String: Int]()
     var trendWords = [Word]()
     var selectedWord: Word!
     var selectedTabBarIndex: Int!
+    var handleAdding: DatabaseHandle?
+    var handleChanging: DatabaseHandle?
+    var handle: DatabaseHandle?
     let showWordDetailID = "ShowWordDetail"
+    let ref = Database.database().reference()
+    
 }
