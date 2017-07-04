@@ -93,21 +93,30 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     
     func addToTrends(_ controller: WordDetailVC, word: Word) {
-        print("*****delegate add to trends")
-        print(word)
-        ref.child("trend words").childByAutoId().setValue("test")
-        print("***** DONE 1")
-        ref.child("trend words").child("3").setValue(["name": word.name])
-        print("***** DONE 2")
-        ref.child("trend words").child("4").setValue([
-            "name": word.name,
-            "definition": word.definition,
-            "origin": word.origin,
-            "group": word.group,
-            "examples": word.examples,
-            "synonyms": word.synonyms,
-            "type": word.type,
-            "hashtags": word.hashtags])
+        print("***** delegate addToTrends func start")
+        if trendWords.count > maxTrendsNum {
+            ref.child("trend words").child("\(maxTrendsNum)").setValue([
+                "name": word.name,
+                "definition": word.definition,
+                "origin": word.origin,
+                "group": word.group,
+                "examples": word.examples,
+                "synonyms": word.synonyms,
+                "type": word.type,
+                "hashtags": word.hashtags])
+            print("***** Word \(word.name) added to trends")
+        } else {
+            ref.child("trend words").child("\(trendWords.count)").setValue([
+                "name": word.name,
+                "definition": word.definition,
+                "origin": word.origin,
+                "group": word.group,
+                "examples": word.examples,
+                "synonyms": word.synonyms,
+                "type": word.type,
+                "hashtags": word.hashtags])
+            print("***** Word \(word.name) added to trends")
+        }
     }
     
     // MARK: - WordTableViewCellDelegate
@@ -179,5 +188,5 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     var handle: DatabaseHandle?
     let showWordDetailID = "ShowWordDetail"
     let ref = Database.database().reference()
-    
+    let maxTrendsNum = 10
 }
