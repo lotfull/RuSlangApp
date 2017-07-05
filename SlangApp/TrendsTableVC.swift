@@ -117,6 +117,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
                 "hashtags": word.hashtags])
             print("***** Word \(word.name) added to trends")
         }
+        observeTrends()
     }
     
     // MARK: - WordTableViewCellDelegate
