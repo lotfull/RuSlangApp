@@ -53,6 +53,7 @@ class AppLaunchingInitialVC: UIViewController {
                     word.hashtags = returnNilIfNonNone(str: item_array[5])
                     word.origin = returnNilIfNonNone(str: item_array[6])
                     word.synonyms = returnNilIfNonNone(str: item_array[7])
+                    word.id = Int(item_array[8])!
                 }
                 do {
                     try managedObjectContext.save()
@@ -72,9 +73,10 @@ class AppLaunchingInitialVC: UIViewController {
                     word.type = returnNilIfNonNone(str: item_array[2])
                     word.group = returnNilIfNonNone(str: item_array[3])
                     word.examples = returnNilIfNonNone(str: item_array[4])
-                    word.hashtags = returnNilIfNonNone(str: item_array[5])
-                    word.origin = returnNilIfNonNone(str: item_array[6])
+                    word.origin = returnNilIfNonNone(str: item_array[5])
+                    word.hashtags = returnNilIfNonNone(str: item_array[6])
                     word.synonyms = returnNilIfNonNone(str: item_array[7])
+                    word.id = Int(item_array[8])!
                 }
                 do {
                     try managedObjectContext.save()

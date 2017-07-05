@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [INFO  - 2017-07-05T07:46:31.082Z] GhostDriver - Main - running on port 36485
 [INFO  - 2017-07-05T07:46:31.965Z] Session [0fe13a70-6156-11e7-a6e3-d9eba039f469] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
 [INFO  - 2017-07-05T07:46:31.965Z] Session [0fe13a70-6156-11e7-a6e3-d9eba039f469] - page.customHeaders:  - {}
@@ -15,3 +16,148 @@
 [INFO  - 2017-07-05T08:36:33.796Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
 [INFO  - 2017-07-05T08:41:33.933Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
 [INFO  - 2017-07-05T08:42:12.843Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+=======
+[INFO  - 2017-07-05T07:01:49.157Z] GhostDriver - Main - running on port 53217
+[INFO  - 2017-07-05T07:01:49.821Z] Session [d131c520-614f-11e7-b440-3d126fb3e081] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2017-07-05T07:01:49.821Z] Session [d131c520-614f-11e7-b440-3d126fb3e081] - page.customHeaders:  - {}
+[INFO  - 2017-07-05T07:01:49.821Z] Session [d131c520-614f-11e7-b440-3d126fb3e081] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2017-07-05T07:01:49.821Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: d131c520-614f-11e7-b440-3d126fb3e081
+[INFO  - 2017-07-05T07:06:49.165Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:11:49.173Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:16:49.182Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:21:49.190Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:26:49.199Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:31:49.208Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:36:49.216Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:41:49.225Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:46:49.234Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:51:49.242Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:56:49.251Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:01:49.260Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:06:49.270Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:11:49.283Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:16:49.292Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:21:49.300Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:26:49.309Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:31:49.319Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:36:49.328Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:41:49.336Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:46:49.345Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+NOW
+[INFO  - 2017-07-05T08:32:29.734Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:37:29.743Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:42:29.752Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:47:29.761Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+ (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:21:55.394Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:21:55.395Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:00.191Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:00.191Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:15.396Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:15.396Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:20.192Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:20.192Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:35.397Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:35.397Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:40.193Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:40.193Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:55.402Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:22:55.402Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:23:00.200Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:23:00.200Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:23:15.404Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:23:15.405Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:23:20.202Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - msg: InvalidStateError: DOM Exception 11: An attempt was made to use an object that is not, or is no longer, usable.
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2017-07-05T07:23:20.202Z] Session [f633e930-614e-11e7-83c0-0ffae2679513] - page.onError - stack:
+  send (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+  (anonymous function) (http://static.reasedoper.pw/launcher.3.multi.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[INFO  - 2017-07-05T07:25:42.227Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:30:42.235Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:35:42.244Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:40:42.253Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:45:42.261Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:50:42.270Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T07:55:42.278Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:00:42.288Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:05:42.298Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:10:42.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:15:42.318Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:20:42.333Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:25:42.343Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:30:42.351Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:35:42.360Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:40:42.369Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:45:42.383Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2017-07-05T08:50:42.393Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+>>>>>>> Stashed changes

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Word" representedClassName="Word" syncable="YES">
         <attribute name="definition" attributeType="String" syncable="YES"/>
         <attribute name="examples" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hashtags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="origin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="synonyms" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

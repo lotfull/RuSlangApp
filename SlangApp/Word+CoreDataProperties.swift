@@ -25,6 +25,7 @@ extension Word {
     @NSManaged public var origin: String?
     @NSManaged public var favorite: Bool
     @NSManaged public var synonyms: String?
+    @NSManaged public var id: Int
 
     func textViewString() -> String {
         let answer = "\(name)\n  \(definition)"
