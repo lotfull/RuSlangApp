@@ -19,9 +19,19 @@ extension MutableCollection where Indices.Iterator.Element == Index {
     }
 }
 
+
+
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
     
-
+    var indicator = UIActivityIndicatorView()
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+    }
+    
     @IBAction func shufflePressed(_ sender: UIBarButtonItem) {
         if isShuffled {
             words.sort(by: sorting)
@@ -95,6 +105,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 } else {
                     print("wordDetailVC.delegate = else nil")
                 }
+                
+                indicator.stopAnimating()
+                indicator.hidesWhenStopped = true
             }
         } else if segue.identifier == showFavoritesID {
             
@@ -145,6 +158,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if hudNeeded {
+            indicator.startAnimating()
+            indicator.backgroundColor = UIColor.white
+        }
         if tableView == resultsController.tableView {
             selectedWord = filteredWords[indexPath.row]
         } else if isShuffled {
@@ -293,6 +310,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var selectedTabBarIndex: Int!
     var isShuffled = false
     var trendsVC: TrendsTableVC!
+    var hudNeeded = true
     let showWordDetailID = "ShowWordDetail"
     let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"

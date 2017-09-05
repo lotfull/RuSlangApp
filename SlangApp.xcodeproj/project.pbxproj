@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
+		911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FD0991F0CED91000C5C84 /* HudView.swift */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
 		916AFF941EFF90BE00ADC371 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */; };
@@ -41,6 +42,7 @@
 		81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp.release.xcconfig"; sourceTree = "<group>"; };
 		9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVtoArrayStringExtension.swift; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
+		911FD0991F0CED91000C5C84 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				911FD0991F0CED91000C5C84 /* HudView.swift */,
 				916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */,
 				91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */,
 				91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */,
@@ -295,6 +298,7 @@
 				9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */,
 				9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
+				911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */,
 				919600FC1EE1E41C002BE3D6 /* README.md in Sources */,
 				917D38721ED18F0800EA315F /* Functions.swift in Sources */,
 				916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */,

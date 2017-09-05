@@ -32,6 +32,10 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == editWordID {
             if let navigationController = segue.destination as? UINavigationController,
