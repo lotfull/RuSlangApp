@@ -25,6 +25,21 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     var indicator = UIActivityIndicatorView()
     
+    var time = 0.0
+    var timer = Timer()
+    func start() {
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(WordsTableVC.action), userInfo: nil, repeats: true)
+    }
+    func action() {
+        time += 0.001
+    }
+    func printTime(_ string: String = "") {
+        print("TIMER \(string): ********  \(time)  ********")
+    }
+    
+    
+    
+    
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
@@ -52,6 +67,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
+        start()
+        DispatchQueue.main.async { 
+            self.printTime()
+        }
+
         super.viewDidLoad()
         print("viewDidLoad")
         installSearchController()
@@ -93,6 +113,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         searchController.hidesNavigationBarDuringPresentation = false
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        DispatchQueue.main.async { 
+            self.printTime("prepare(for segue)")
+        }
         if segue.identifier == showWordDetailID {
             print("prepare(for segue) in WordsTableVC")
             if let wordDetailVC = segue.destination as? WordDetailVC {
@@ -142,6 +165,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        DispatchQueue.main.async { 
+            self.printTime("tableView(cellForRowAt)")
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
         if tableView == resultsController.tableView {
             cell.configure(with: filteredWords[indexPath.row], at: indexPath)
@@ -158,6 +185,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async { 
+            self.printTime("tableView(didSelectRowAt)")
+        }
+
         if hudNeeded {
             indicator.startAnimating()
             indicator.backgroundColor = UIColor.white
@@ -173,7 +204,17 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             }
         }
         print("didSelectRowAt")
+        DispatchQueue.main.async { 
+            self.printTime("self.performSegue(showWordDetailID)")
+        }
+
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
+        /*
+        let destination = storyboard?.instantiateViewController(withIdentifier: "WordDetailID") as! WordDetailVC
+        
+        DispatchQueue.main.async {
+            self.present(destination, animated: true, completion: nil)
+        }*/
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 162
