@@ -28,7 +28,7 @@ class WordTableViewCell: UITableViewCell {
         self.layoutMargins = UIEdgeInsets.zero
         thisCellWord = word
         thisCellIndexPath = indexPath
-        wordNameLabel.text = String(word.id) + " " + word.name
+        wordNameLabel.text = /*String(word.id) + " " + */word.name
         if word.definition.isEmpty {
             wordDefinitionLabel.text = "(No Definition)"
         } else {

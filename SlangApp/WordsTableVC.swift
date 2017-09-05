@@ -283,30 +283,17 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         dismiss(animated: true, completion: nil)
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if tableView == resultsController.tableView {
-            managedObjectContext.delete(filteredWords[indexPath.row])
-            filteredWords.remove(at: indexPath.row)
-            DispatchQueue.main.async(execute: {
-                self.calculateWordsBySections()
-            })
-        } else if isShuffled {
-            managedObjectContext.delete(words[indexPath.row])
-            words.remove(at: indexPath.row)
-            DispatchQueue.main.async(execute: { 
-                self.calculateWordsBySections()
-            })
-        } else {
-            let wordKey = sectionNames[indexPath.section]
+        if tableView != resultsController.tableView && !isShuffled {            let wordKey = sectionNames[indexPath.section]
             if var sectionWords = wordsBySection[wordKey] {
                 managedObjectContext.delete(sectionWords[indexPath.row])
-                print(wordsBySection[wordKey]!.count)
                 wordsBySection[wordKey]!.remove(at: indexPath.row)
-                print(wordsBySection[wordKey]!.count)
             }
+            saveManagedObjectContext()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
+        } else {
+            tableView.reloadData()
         }
-        saveManagedObjectContext()
-        tableView.deleteRows(at: [indexPath], with: .automatic)
-        tableView.reloadData()
     }
     func saveManagedObjectContext() {
         do {

@@ -121,7 +121,9 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     
     // MARK: - WordTableViewCellDelegate
+    
     func shareWord(_ controller: WordTableViewCell, word: Word) {
+        shareWordFunc()
         let text = word.textViewString()
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)

@@ -34,3 +34,7 @@ func afterDelay(_ seconds: Double, closure: @escaping () -> ()) {
 }
 
 var needToUpdate = false
+
+func shareWordFunc() {
+    
+}

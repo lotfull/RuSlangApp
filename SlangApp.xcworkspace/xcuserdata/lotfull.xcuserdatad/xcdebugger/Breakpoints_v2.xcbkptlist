@@ -42,12 +42,12 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/TrendsTableVC.swift"
-                  timestampString = "520946052.765748"
+                  timestampString = "526287678.945865"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "92"
                   endingLineNumber = "92"
-                  offsetFromSymbolStart = "296">
+                  offsetFromSymbolStart = "271">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -57,12 +57,12 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/TrendsTableVC.swift"
-                  timestampString = "520946052.767754"
+                  timestampString = "526287678.949767"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "92"
                   endingLineNumber = "92"
-                  offsetFromSymbolStart = "2024">
+                  offsetFromSymbolStart = "2516">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -90,28 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "520946051.007995"
+            timestampString = "526284599.986066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/WordDetailVC.swift"
-            timestampString = "520944734.814653"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
