@@ -23,12 +23,18 @@ extension Word {
     @NSManaged public var examples: String?
     @NSManaged public var hashtags: String?
     @NSManaged public var origin: String?
-    @NSManaged public var favorite: Bool
     @NSManaged public var synonyms: String?
+    @NSManaged public var favorite: Bool
+    @NSManaged public var id: Int
 
     func textViewString() -> String {
-        let answer = "\(name)\n  \(definition)"
-        
+        var answer = "\(name)\n\(definition)"
+        if group != nil { answer += "\nгруппа: \(group!)" }
+        if type != nil { answer += "\nтип: \(type!)" }
+        if hashtags != nil { answer += "\nтеги: \(hashtags!)" }
+        if examples != nil { answer += "\nпримеры: \(examples!)" }
+        if origin != nil { answer += "\nпроисх.: \(origin!)" }
+        if synonyms != nil { answer += "\nсин.: \(synonyms!)" }
         return answer
     }
     

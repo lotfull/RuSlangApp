@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9101F32A1F61CC4A005294F5 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101F3291F61CC4A005294F5 /* FeedbackVC.swift */; };
+		9101F32C1F61EBF6005294F5 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101F32B1F61EBF6005294F5 /* Feedback.swift */; };
 		9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
+		911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FD0991F0CED91000C5C84 /* HudView.swift */; };
+		9126D2471F61F8720033E19D /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126D2461F61F8720033E19D /* MoreVC.swift */; };
 		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
+		916AFF941EFF90BE00ADC371 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */; };
+		916AFF961EFF98C100ADC371 /* TrendsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
 		917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */; };
@@ -31,13 +37,22 @@
 		91F97B051E37BF1900796C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F97B031E37BF1900796C1F /* Main.storyboard */; };
 		91F97B071E37BF1900796C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91F97B061E37BF1900796C1F /* Assets.xcassets */; };
 		91F97B0A1E37BF1900796C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F97B081E37BF1900796C1F /* LaunchScreen.storyboard */; };
+		F544C7EF1AB28CD71A9C56C1 /* Pods_SlangApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD08435A1BFCE9548FE5F3C /* Pods_SlangApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BD4CB1B4339256A3E93A4D3 /* Pods-SlangApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp.debug.xcconfig"; sourceTree = "<group>"; };
+		81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp.release.xcconfig"; sourceTree = "<group>"; };
+		9101F3291F61CC4A005294F5 /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		9101F32B1F61EBF6005294F5 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVtoArrayStringExtension.swift; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
+		911FD0991F0CED91000C5C84 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
+		9126D2461F61F8720033E19D /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendsTableVC.swift; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditWordVC.swift; sourceTree = "<group>"; };
@@ -60,6 +75,7 @@
 		91F97B061E37BF1900796C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91F97B091E37BF1900796C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91F97B0B1E37BF1900796C1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBD08435A1BFCE9548FE5F3C /* Pods_SlangApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlangApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,15 +83,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F544C7EF1AB28CD71A9C56C1 /* Pods_SlangApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BCE061C72F128E91A28F2E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBD08435A1BFCE9548FE5F3C /* Pods_SlangApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				911FD0991F0CED91000C5C84 /* HudView.swift */,
+				916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */,
 				91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */,
 				91EB3C1C1EFDA42C00F807EA /* vsekidki_appwords.csv */,
 				91EB3C1D1EFDA42C00F807EA /* vsekidki_fullwords.csv */,
@@ -100,6 +127,8 @@
 				916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */,
 				91F97AFC1E37BF1900796C1F /* SlangApp */,
 				91F97AFB1E37BF1900796C1F /* Products */,
+				AA450E737682413B4C79AC19 /* Pods */,
+				6BCE061C72F128E91A28F2E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +143,9 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
+				9101F3291F61CC4A005294F5 /* FeedbackVC.swift */,
+				9126D2461F61F8720033E19D /* MoreVC.swift */,
+				916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */,
 				917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */,
 				91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */,
 				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
@@ -125,8 +157,18 @@
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
+				9101F32B1F61EBF6005294F5 /* Feedback.swift */,
 			);
 			path = SlangApp;
+			sourceTree = "<group>";
+		};
+		AA450E737682413B4C79AC19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3BD4CB1B4339256A3E93A4D3 /* Pods-SlangApp.debug.xcconfig */,
+				81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91F97B0E1E37BF1900796C1F /* Build configuration list for PBXNativeTarget "SlangApp" */;
 			buildPhases = (
+				FC0023E3ECC62B3A1F027FDD /* [CP] Check Pods Manifest.lock */,
 				91F97AF61E37BF1800796C1F /* Sources */,
 				91F97AF71E37BF1800796C1F /* Frameworks */,
 				91F97AF81E37BF1800796C1F /* Resources */,
+				F4B298AADE5CB80F7128189A /* [CP] Embed Pods Frameworks */,
+				93A7260FCF31C88A06A368D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,7 +206,7 @@
 				TargetAttributes = {
 					91F97AF91E37BF1800796C1F = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 6YN2YGXZUM;
+						DevelopmentTeam = 754G6TU2DQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -197,6 +242,7 @@
 				91F97B051E37BF1900796C1F /* Main.storyboard in Resources */,
 				91EB3C1F1EFDA42C00F807EA /* vsekidki_fullwords.csv in Resources */,
 				91EB3C181EFA9DDF00F807EA /* Parse-vsekidki.ipynb in Resources */,
+				916AFF941EFF90BE00ADC371 /* GoogleService-Info.plist in Resources */,
 				91EB3C1E1EFDA42C00F807EA /* vsekidki_appwords.csv in Resources */,
 				91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */,
 			);
@@ -204,22 +250,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		93A7260FCF31C88A06A368D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4B298AADE5CB80F7128189A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC0023E3ECC62B3A1F027FDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		91F97AF61E37BF1800796C1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */,
+				9101F32A1F61CC4A005294F5 /* FeedbackVC.swift in Sources */,
+				9101F32C1F61EBF6005294F5 /* Feedback.swift in Sources */,
 				9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */,
 				9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
+				911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */,
 				919600FC1EE1E41C002BE3D6 /* README.md in Sources */,
+				9126D2471F61F8720033E19D /* MoreVC.swift in Sources */,
 				917D38721ED18F0800EA315F /* Functions.swift in Sources */,
 				916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */,
 				91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */,
 				917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */,
 				917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */,
 				919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */,
+				916AFF961EFF98C100ADC371 /* TrendsTableVC.swift in Sources */,
 				91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */,
 				916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */,
 				91EB3C231EFDD59B00F807EA /* AppLaunchingInitialVC.swift in Sources */,
@@ -347,12 +446,15 @@
 		};
 		91F97B0F1E37BF1900796C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BD4CB1B4339256A3E93A4D3 /* Pods-SlangApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6YN2YGXZUM;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 754G6TU2DQ;
 				INFOPLIST_FILE = SlangApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lotfull.SlangApp;
+				PRODUCT_BUNDLE_IDENTIFIER = KamLotfull.SlangApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -360,12 +462,15 @@
 		};
 		91F97B101E37BF1900796C1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6YN2YGXZUM;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 754G6TU2DQ;
 				INFOPLIST_FILE = SlangApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lotfull.SlangApp;
+				PRODUCT_BUNDLE_IDENTIFIER = KamLotfull.SlangApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -80,28 +80,37 @@ class CreateEditWordVC: UITableViewController {
         if let word = editingWord {
             word.name = nameField.text!
             word.definition = definitionField.text!
-            word.group = groupField.text
-            word.type = typeField.text
-            word.examples = examplesTextView.text
-            word.origin = originTextView.text
-            word.hashtags = hashtagsField.text
-            word.synonyms = synonymsField.text
+            word.group = returnNilIfEmpty(groupField.text!)
+            word.type = returnNilIfEmpty(typeField.text!)
+            word.examples = returnNilIfEmpty(examplesTextView.text)
+            word.origin = returnNilIfEmpty(originTextView.text)
+            word.hashtags = returnNilIfEmpty(hashtagsField.text!)
+            word.synonyms = returnNilIfEmpty(synonymsField.text!)
             word.favorite = favoriteSwitch.isOn
             delegate?.createEditWordVCDone(self, editing: word)
         } else {
-            let word = Word(context: managedObjectContext)
-            word.name = nameField.text!
-            word.definition = definitionField.text!
-            word.group = groupField.text
-            word.type = typeField.text
-            word.examples = examplesTextView.text
-            word.origin = originTextView.text
-            word.hashtags = hashtagsField.text
-            word.synonyms = synonymsField.text
-            word.favorite = favoriteSwitch.isOn
-            delegate?.createEditWordVCDone(self, adding: word)
+            if #available(iOS 10.0, *) {
+                let word = Word(context: managedObjectContext)
+                word.name = nameField.text!
+                word.definition = definitionField.text!
+                word.group = returnNilIfEmpty(groupField.text!)
+                word.type = returnNilIfEmpty(typeField.text!)
+                word.examples = returnNilIfEmpty(examplesTextView.text)
+                word.origin = returnNilIfEmpty(originTextView.text)
+                word.hashtags = returnNilIfEmpty(hashtagsField.text!)
+                word.synonyms = returnNilIfEmpty(synonymsField.text!)
+                word.favorite = favoriteSwitch.isOn
+                delegate?.createEditWordVCDone(self, adding: word)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
+    
+    func returnNilIfEmpty(_ str: String) -> String? {
+        return (str == "" || str == "_" || str == " ") ? nil : str
+    }
+
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.section == 1 {

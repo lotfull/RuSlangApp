@@ -9,7 +9,14 @@
 import CoreData
 import UIKit
 
+protocol AddingWordsToTrendsDelegate: class {
+    func addToTrends(_ controller: WordDetailVC, word: Word)
+}
+
 class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate {
+    
+    weak var delegate: AddingWordsToTrendsDelegate?
+    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,10 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     override func viewWillAppear(_ animated: Bool) {
         tableView.estimatedRowHeight = 100//tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -98,7 +109,12 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
+    @IBAction func wordToTrend(_ sender: Any) {
+        print("wordToTrend")
+        delegate?.addToTrends(self, word: self.word)
+    }
     
+    // self.ref.child("users").child(user.uid).setValue(["username": username])
     @IBAction func cancel(_ sender: Any) {
         needToUpdate = false
         dismiss(animated: true, completion: nil)

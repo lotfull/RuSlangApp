@@ -46,13 +46,14 @@ class AppLaunchingInitialVC: UIViewController {
                 for item_array in items_arrays {
                     let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
                     word.name = item_array[0].uppercaseFirst()
-                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
-                    word.type = returnNilIfNonNone(str: item_array[2])
-                    word.group = returnNilIfNonNone(str: item_array[3])
-                    word.examples = returnNilIfNonNone(str: item_array[4])
-                    word.hashtags = returnNilIfNonNone(str: item_array[5])
-                    word.origin = returnNilIfNonNone(str: item_array[6])
-                    word.synonyms = returnNilIfNonNone(str: item_array[7])
+                    word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
+                    word.type = returnNilIfEmpty(item_array[2])
+                    word.group = returnNilIfEmpty(item_array[3])
+                    word.examples = returnNilIfEmpty(item_array[4])
+                    word.hashtags = returnNilIfEmpty(item_array[5])
+                    word.origin = returnNilIfEmpty(item_array[6])
+                    word.synonyms = returnNilIfEmpty(item_array[7])
+                    word.id = Int(item_array[8])!
                 }
                 do {
                     try managedObjectContext.save()
@@ -68,13 +69,14 @@ class AppLaunchingInitialVC: UIViewController {
                 for item_array in items_arrays {
                     let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
                     word.name = item_array[0].uppercaseFirst()
-                    word.definition = (returnNilIfNonNone(str: item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
-                    word.type = returnNilIfNonNone(str: item_array[2])
-                    word.group = returnNilIfNonNone(str: item_array[3])
-                    word.examples = returnNilIfNonNone(str: item_array[4])
-                    word.hashtags = returnNilIfNonNone(str: item_array[5])
-                    word.origin = returnNilIfNonNone(str: item_array[6])
-                    word.synonyms = returnNilIfNonNone(str: item_array[7])
+                    word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
+                    word.type = returnNilIfEmpty(item_array[2])
+                    word.group = returnNilIfEmpty(item_array[3])
+                    word.examples = returnNilIfEmpty(item_array[4])
+                    word.origin = returnNilIfEmpty(item_array[5])
+                    word.hashtags = returnNilIfEmpty(item_array[6])
+                    word.synonyms = returnNilIfEmpty(item_array[7])
+                    word.id = Int(item_array[8])!
                 }
                 do {
                     try managedObjectContext.save()
@@ -97,12 +99,8 @@ class AppLaunchingInitialVC: UIViewController {
         }
     }
 
-    func returnNilIfNonNone(str: String) -> String? {
-        if str == "NonNone" || str == "" || str == "_" || str == " " {
-            return nil
-        } else {
-            return str
-        }
+    func returnNilIfEmpty(_ str: String) -> String? {
+        return (str == "" || str == "_" || str == " ") ? nil : str
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,17 +109,25 @@ class AppLaunchingInitialVC: UIViewController {
                 let VControllers = tabBarVC.viewControllers as? [UINavigationController] {
                 if let wordsTableVC = VControllers[0].topViewController as? WordsTableVC {
                     wordsTableVC.managedObjectContext = managedObjectContext
+                    wordsTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
                 } else {
-                    fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
+                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }
-                if let favoritesTableVC = VControllers[1].topViewController as? FavoritesTableVC {
+                if let trendsTableVC = VControllers[1].topViewController as? TrendsTableVC {
+                    trendsTableVC.managedObjectContext = managedObjectContext
+                } else {
+                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
+                }
+                if let favoritesTableVC = VControllers[2].topViewController as? FavoritesTableVC {
                     favoritesTableVC.managedObjectContext = managedObjectContext
                 } else {
-                    fatalError("not correct window!.rootViewController as? UINavigationController unwrapping")
+                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }
-                
+                if let moreVC = VControllers[3].topViewController as? MoreVC {
+                    moreVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
+                    moreVC.wordsVC = VControllers[0].topViewController as? WordsTableVC
+                }
             }
-
         }
     }
     
