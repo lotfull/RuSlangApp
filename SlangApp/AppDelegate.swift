@@ -10,8 +10,80 @@ import UIKit
 import CoreData
 import Firebase
 
+struct AppFontName {
+    static let regular = "Georgia"//"CourierNewPSMT"
+    static let bold = "Georgia-Bold"//"CourierNewPS-BoldMT"
+    static let italic = "Georgia-Italic"//"CourierNewPS-ItalicMT"
+}
+
+extension UIFont {
+    
+    class func mySystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.regular, size: size)!
+    }
+    
+    class func myBoldSystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.bold, size: size)!
+    }
+    
+    class func myItalicSystemFont(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: AppFontName.italic, size: size)!
+    }
+    
+    convenience init(myCoder aDecoder: NSCoder) {
+        if let fontDescriptor = aDecoder.decodeObject(forKey: "UIFontDescriptor") as? UIFontDescriptor {
+            if let fontAttribute = fontDescriptor.fontAttributes["NSCTFontUIUsageAttribute"] as? String {
+                var fontName = ""
+                switch fontAttribute {
+                case "CTFontRegularUsage":
+                    fontName = AppFontName.regular
+                case "CTFontEmphasizedUsage", "CTFontBoldUsage":
+                    fontName = AppFontName.bold
+                case "CTFontObliqueUsage":
+                    fontName = AppFontName.italic
+                default:
+                    fontName = AppFontName.regular
+                }
+                self.init(name: fontName, size: fontDescriptor.pointSize)!
+            }
+            else {
+                self.init(myCoder: aDecoder)
+            }
+        }
+        else {
+            self.init(myCoder: aDecoder)
+        }
+    }
+    
+    class func overrideInitialize() {
+        if self == UIFont.self {
+            let systemFontMethod = class_getClassMethod(self, #selector(systemFont(ofSize:)))
+            let mySystemFontMethod = class_getClassMethod(self, #selector(mySystemFont(ofSize:)))
+            method_exchangeImplementations(systemFontMethod, mySystemFontMethod)
+            
+            let boldSystemFontMethod = class_getClassMethod(self, #selector(boldSystemFont(ofSize:)))
+            let myBoldSystemFontMethod = class_getClassMethod(self, #selector(myBoldSystemFont(ofSize:)))
+            method_exchangeImplementations(boldSystemFontMethod, myBoldSystemFontMethod)
+            
+            let italicSystemFontMethod = class_getClassMethod(self, #selector(italicSystemFont(ofSize:)))
+            let myItalicSystemFontMethod = class_getClassMethod(self, #selector(myItalicSystemFont(ofSize:)))
+            method_exchangeImplementations(italicSystemFontMethod, myItalicSystemFontMethod)
+            
+            let initCoderMethod = class_getInstanceMethod(self, #selector(UIFontDescriptor.init(coder:))) // Trick to get over the lack of UIFont.init(coder:))
+            let myInitCoderMethod = class_getInstanceMethod(self, #selector(UIFont.init(myCoder:)))
+            method_exchangeImplementations(initCoderMethod, myInitCoderMethod)
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    override init() {
+        super.init()
+        UIFont.overrideInitialize()
+    }
+
 
     var window: UIWindow?
     
@@ -21,7 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.tintColor = UIColor.purple
         if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
-            initialVC.managedObjectContext = managedObjectContext
+            if #available(iOS 10.0, *) {
+                initialVC.managedObjectContext = managedObjectContext
+            } else {
+                // Fallback on earlier versions
+            }
         } else {
             print("Something went wrong with managedObjectContext assignment")
         }
@@ -31,8 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
     
+    @available(iOS 10.0, *)
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
     
+    @available(iOS 10.0, *)
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDefinition, error) in
@@ -46,15 +124,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
     
     func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        if #available(iOS 10.0, *) {
+            let context = persistentContainer.viewContext
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
+        } else {
+            // Fallback on earlier versions
         }
+        
     }
 
     // MARK: - FatalCoreDataNotifications
@@ -100,10 +183,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func deleteObject(withID objectID: NSManagedObjectID) {
         let fetchRequest: NSFetchRequest<Word> = Word.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "attendance = \(objectID)")// Predicate.init(format: "profileID==\(withID)")
-        if let result = try? managedObjectContext.fetch(fetchRequest) {
-            for object in result {
-                managedObjectContext.delete(object)
+        if #available(iOS 10.0, *) {
+            if let result = try? managedObjectContext.fetch(fetchRequest) {
+                for object in result {
+                    managedObjectContext.delete(object)
+                }
             }
+        } else {
+            // Fallback on earlier versions
         }
     }
     

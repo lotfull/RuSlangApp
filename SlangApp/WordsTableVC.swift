@@ -21,7 +21,11 @@ extension MutableCollection where Indices.Iterator.Element == Index {
 
 
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, FreeDelegate {
+    
+    func printDick() {
+        print("8====o")
+    }
     
     var indicator = UIActivityIndicatorView()
     
@@ -197,7 +201,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         let text = searchController.searchBar.text
         if text == nil || text == "" {
             filteredWords = words
-            titleButton.setTitle("Словарь сленговых слов", for: .normal)
+            titleButton.setTitle("Словарь сленг-слов", for: .normal)
         } else {
             filteredWords = words.filter({ (word:Word) -> Bool in
                 if word.name.contains(text!) {

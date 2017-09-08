@@ -97,10 +97,14 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
         }
     }
     func addWord(_ wordName: String) {
-        let word = Word(context: managedObjectContext)
-        word.name = wordName
-        word.definition = "Значение слова \(wordName)"
-        word.examples = "Сегодня я выучила \(wordName) на уроке английского"
+        if #available(iOS 10.0, *) {
+            let word = Word(context: managedObjectContext)
+            word.name = wordName
+            word.definition = "Значение слова \(wordName)"
+            word.examples = "Сегодня я выучила \(wordName) на уроке английского"
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     // MARK: - WordTableViewCellDelegate

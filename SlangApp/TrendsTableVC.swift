@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import Dispatch
 
-class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate {
+class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate, SendingFeedbackDelegate {
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -92,6 +92,15 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         })
     }
     
+    func sendFeedback(_ controller: FeedbackVC, _ feedback: Feedback) {
+        print(feedback.text())
+        ref.child("feedbacks").childByAutoId().setValue([
+            "contacts": feedback.contacts,
+            "feedback": feedback.feedback,
+            "rating": feedback.rating])
+        print("feedback added:\(feedback.text())")
+    }
+    
     func addToTrends(_ controller: WordDetailVC, word: Word) {
         print("***** delegate addToTrends func start")
         if trendWords.count > maxTrendsNum {
@@ -155,16 +164,21 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
                 return str
             }
         }
-        let word = Word(context: self.managedObjectContext)
-        word.name = dictionary["name"]!
-        word.definition = dictionary["definition"]!
-        word.origin = returnNilIfNonNone(dictionary["origin"])
-        word.group = returnNilIfNonNone(dictionary["group"])
-        word.examples = returnNilIfNonNone(dictionary["examples"])
-        word.synonyms = returnNilIfNonNone(dictionary["synonyms"])
-        word.type = returnNilIfNonNone(dictionary["type"])
-        word.hashtags = returnNilIfNonNone(dictionary["hashtags"])
-        return word
+        if #available(iOS 10.0, *) {
+            let word = Word(context: self.managedObjectContext)
+            word.name = dictionary["name"]!
+            word.definition = dictionary["definition"]!
+            word.origin = returnNilIfNonNone(dictionary["origin"])
+            word.group = returnNilIfNonNone(dictionary["group"])
+            word.examples = returnNilIfNonNone(dictionary["examples"])
+            word.synonyms = returnNilIfNonNone(dictionary["synonyms"])
+            word.type = returnNilIfNonNone(dictionary["type"])
+            word.hashtags = returnNilIfNonNone(dictionary["hashtags"])
+            return word
+        } else {
+            return Word()
+            // Fallback on earlier versions
+        }
     }
     
     @IBAction func reloadTrends(_ sender: Any) {
