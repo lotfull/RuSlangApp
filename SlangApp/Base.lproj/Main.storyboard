@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -20,7 +21,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCR-jE-HTs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="y" id="sCR-jE-HTs">
                                 <rect key="frame" x="0.0" y="28" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sCR-jE-HTs" id="nAk-Qi-GuC">
@@ -35,13 +36,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fm6-bQ-Tt8">
-                        <barButtonItem key="leftBarButtonItem" title="случайно" id="zcW-ZB-3vM">
+                        <barButtonItem key="leftBarButtonItem" title="🎲" id="zcW-ZB-3vM">
                             <connections>
                                 <action selector="shufflePressed:" destination="mPO-jZ-NT8" id="lef-uz-rM9"/>
                             </connections>
                         </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4MI-s5-OK5">
-                            <rect key="frame" x="98.5" y="7" width="178" height="30"/>
+                            <rect key="frame" x="71" y="7" width="178" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <state key="normal" title="Словарь сленг-слов">
@@ -398,7 +399,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meW-vI-mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3609" y="-722"/>
+            <point key="canvasLocation" x="2831" y="-719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rij-WX-arD">
@@ -414,7 +415,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpK-db-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728" y="-720"/>
+            <point key="canvasLocation" x="2387" y="-717"/>
         </scene>
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
@@ -439,7 +440,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQo-hw-Esj">
                                             <rect key="frame" x="260" y="18" width="42" height="42"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="42" id="4Ua-oL-ed1"/>
@@ -473,7 +474,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Word" id="aen-Uj-hxZ">
                         <rightBarButtonItems>
-                            <barButtonItem image="sending " id="SIt-cl-U9e">
+                            <barButtonItem image="sendIconSmall" id="SIt-cl-U9e">
                                 <connections>
                                     <action selector="shareWordButton:" destination="1C6-aZ-MHr" id="r59-iX-eDO"/>
                                 </connections>
@@ -496,7 +497,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2727" y="56"/>
+            <point key="canvasLocation" x="2386" y="59"/>
         </scene>
         <!--App Launching InitialVC-->
         <scene sceneID="l50-4y-TA5">
@@ -547,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukR-g3-crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="392.95774647887322"/>
+            <point key="canvasLocation" x="336" y="449"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AuP-CR-mH1">
@@ -567,7 +568,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF1-qU-oUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="394"/>
+            <point key="canvasLocation" x="809" y="449"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
@@ -586,7 +587,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkC-hT-DkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="-719"/>
+            <point key="canvasLocation" x="1375" y="-719"/>
         </scene>
         <!--Избранное-->
         <scene sceneID="Edt-jL-dYm">
@@ -725,28 +726,36 @@
                                     <constraint firstAttribute="width" constant="75" id="KF2-Vn-uL5"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All rights reserved. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXN-QK-dlo">
-                                <rect key="frame" x="16" y="157" width="294" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Slang App 2017 by Kam Lotfull." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joR-C2-jGZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="РуСленг 2017 by Kam Lotfull." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joR-C2-jGZ">
                                 <rect key="frame" x="101" y="74" width="209" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-OH-qaX">
+                                <rect key="frame" x="16" y="157" width="280" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="tsG-9t-Obs"/>
+                                </constraints>
+                                <string key="text">All rights reserved.
+Все права защищены.
+Слова взяты с сайта teenslang.su.
+Также слова взяты с сайта vsekidki.ru
+Тренды составлены исходя из популярности слов в Твиттере и в открытой сети интернет.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="joR-C2-jGZ" firstAttribute="leading" secondItem="pHq-hG-33G" secondAttribute="trailing" constant="10" id="1je-Z8-MJN"/>
-                            <constraint firstItem="dXN-QK-dlo" firstAttribute="leading" secondItem="7UJ-fk-WD4" secondAttribute="leading" constant="16" id="8d9-Ez-Sa3"/>
                             <constraint firstAttribute="trailing" secondItem="joR-C2-jGZ" secondAttribute="trailing" constant="10" id="AWz-di-QY1"/>
                             <constraint firstItem="pHq-hG-33G" firstAttribute="leading" secondItem="7UJ-fk-WD4" secondAttribute="leadingMargin" id="Bld-ui-8PS"/>
-                            <constraint firstItem="dXN-QK-dlo" firstAttribute="top" secondItem="pHq-hG-33G" secondAttribute="bottom" constant="8" id="FAb-VH-ro4"/>
-                            <constraint firstAttribute="trailing" secondItem="dXN-QK-dlo" secondAttribute="trailing" constant="10" id="JUB-Qs-tXI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jCq-OH-qaX" secondAttribute="trailing" constant="8" id="ChH-db-Pt8"/>
+                            <constraint firstItem="jCq-OH-qaX" firstAttribute="top" secondItem="pHq-hG-33G" secondAttribute="bottom" constant="8" id="Lhz-TV-fhz"/>
                             <constraint firstItem="joR-C2-jGZ" firstAttribute="top" secondItem="9QF-Oi-AbT" secondAttribute="bottom" constant="10" id="RHY-AX-JWy"/>
+                            <constraint firstItem="jCq-OH-qaX" firstAttribute="leading" secondItem="7UJ-fk-WD4" secondAttribute="leadingMargin" id="TuH-aC-aKs"/>
                             <constraint firstItem="pHq-hG-33G" firstAttribute="top" secondItem="9QF-Oi-AbT" secondAttribute="bottom" constant="10" id="grX-tf-kSP"/>
                         </constraints>
                     </view>
@@ -754,7 +763,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgh-c0-aMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="1432"/>
+            <point key="canvasLocation" x="2386" y="1099"/>
         </scene>
         <!--Отзыв-->
         <scene sceneID="KUD-yR-x9t">
@@ -786,7 +795,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Необязательно" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3bE-UU-emY">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Например, Петр" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="3bE-UU-emY">
                                                             <rect key="frame" x="85" y="7" width="205" height="30"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -922,7 +931,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XU-fX-Owb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4084" y="1435"/>
+            <point key="canvasLocation" x="2815" y="1435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Gp-y7-xhb">
@@ -939,7 +948,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpi-It-V3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="1435"/>
+            <point key="canvasLocation" x="1375" y="1435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HJ4-Jg-0YI">
@@ -956,7 +965,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNJ-sO-RoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="718"/>
+            <point key="canvasLocation" x="1375" y="718"/>
         </scene>
         <!--Trends TableVC-->
         <scene sceneID="Mt5-6g-soa">
@@ -1047,7 +1056,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwP-Ng-wgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="59"/>
+            <point key="canvasLocation" x="1375" y="59"/>
         </scene>
         <!--О разработчике-->
         <scene sceneID="nqU-fv-XdW">
@@ -1068,51 +1077,62 @@
                                     <constraint firstAttribute="width" constant="75" id="hv7-Ua-xkv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzV-4q-feF">
-                                <rect key="frame" x="16" y="159" width="298" height="110"/>
-                                <string key="text">iOS-Developer. 
-Education: HSE, CS, Applied Maths and Informatics, 2019
-E-mail: kamlotfull@gmail.com
-GitHub.com/Lotfull</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kam Lotfull, Russia, Moscow." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t66-M2-H9V">
                                 <rect key="frame" x="101" y="74" width="213" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWR-U8-d5B">
+                                <rect key="frame" x="74" y="469" width="172" height="30"/>
+                                <state key="normal" title="Написать разработчику"/>
+                                <connections>
+                                    <segue destination="cep-Yy-ISM" kind="show" id="s96-ql-dpo"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F83-s0-oH4">
+                                <rect key="frame" x="16" y="157" width="288" height="302"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">iOS-Developer. 
+Education: HSE, CS, Applied Maths and Informatics, 2019
+E-mail: kamlotfull@gmail.com
+GitHub.com/Lotfull</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vzV-4q-feF" secondAttribute="trailing" constant="10" id="2CJ-bA-Jgt"/>
                             <constraint firstItem="wie-3C-0cY" firstAttribute="top" secondItem="kHi-5g-Oz5" secondAttribute="bottom" constant="10" id="5fU-82-bif"/>
+                            <constraint firstItem="iWR-U8-d5B" firstAttribute="centerX" secondItem="xVo-9l-vE8" secondAttribute="centerX" id="8Wq-AA-lCm"/>
                             <constraint firstItem="t66-M2-H9V" firstAttribute="trailing" secondItem="xVo-9l-vE8" secondAttribute="trailingMargin" constant="10" id="9LN-jq-ILD"/>
+                            <constraint firstItem="7Up-gG-FkW" firstAttribute="top" secondItem="iWR-U8-d5B" secondAttribute="bottom" constant="20" id="Ha2-Ob-hFC"/>
                             <constraint firstItem="t66-M2-H9V" firstAttribute="top" secondItem="kHi-5g-Oz5" secondAttribute="bottom" constant="10" id="KEf-wJ-aYE"/>
-                            <constraint firstItem="vzV-4q-feF" firstAttribute="leading" secondItem="xVo-9l-vE8" secondAttribute="leading" constant="16" id="bKg-WW-aHZ"/>
+                            <constraint firstItem="F83-s0-oH4" firstAttribute="top" secondItem="wie-3C-0cY" secondAttribute="bottom" constant="8" id="NmJ-2I-F4n"/>
+                            <constraint firstItem="F83-s0-oH4" firstAttribute="leading" secondItem="xVo-9l-vE8" secondAttribute="leadingMargin" id="Qwk-6d-YMY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F83-s0-oH4" secondAttribute="trailing" id="TB0-H4-cVB"/>
                             <constraint firstItem="t66-M2-H9V" firstAttribute="leading" secondItem="wie-3C-0cY" secondAttribute="trailing" constant="10" id="d0h-8d-D0l"/>
-                            <constraint firstItem="vzV-4q-feF" firstAttribute="top" secondItem="wie-3C-0cY" secondAttribute="bottom" constant="10" id="pKQ-pb-Mc2"/>
                             <constraint firstItem="wie-3C-0cY" firstAttribute="leading" secondItem="xVo-9l-vE8" secondAttribute="leadingMargin" id="qvz-9C-a1M"/>
+                            <constraint firstItem="iWR-U8-d5B" firstAttribute="top" secondItem="F83-s0-oH4" secondAttribute="bottom" constant="10" id="v8n-OI-vpX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="О разработчике" id="oBf-PH-WqQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vs-LJ-sQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3360" y="1433.4507042253522"/>
+            <point key="canvasLocation" x="2386" y="1771"/>
         </scene>
     </scenes>
     <resources>
         <image name="KamLotfull-98" width="98" height="98"/>
-        <image name="sending " width="29" height="29"/>
+        <image name="sendIconSmall" width="26" height="29"/>
         <image name="star " width="29" height="29"/>
         <image name="русленг-512" width="512" height="512"/>
         <image name="русленг-98" width="98" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oJz-hB-ms0"/>
+        <segue reference="ohW-bx-XNF"/>
         <segue reference="UBp-CX-A8z"/>
+        <segue reference="U4e-pe-9gt"/>
     </inferredMetricsTieBreakers>
 </document>

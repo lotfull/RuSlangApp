@@ -34,7 +34,7 @@ class WordTableViewCell: UITableViewCell {
         } else {
             wordDefinitionLabel.text = word.definition
         }
-        favoriteButton.imageView?.image = word.favorite ? #imageLiteral(resourceName: "big yellow star ") : #imageLiteral(resourceName: "big star ")
+        favoriteButton.imageView?.image = word.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
     }
 
     var thisCellWord: Word!
@@ -42,7 +42,7 @@ class WordTableViewCell: UITableViewCell {
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         thisCellWord.favorite = !thisCellWord.favorite
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star ") : #imageLiteral(resourceName: "big star ")
+        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
         delegate?.reloading(self, indexPath: thisCellIndexPath)
     }
     override func awakeFromNib() {

@@ -21,31 +21,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iu3-FD-YOq">
-                                <rect key="frame" x="29" y="363" width="262.5" height="50.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="русленг-512" translatesAutoresizingMaskIntoConstraints="NO" id="ndW-DH-83m">
+                                <rect key="frame" x="20" y="20" width="280" height="225.5"/>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="jzw-us-Oq6">
+                                <rect key="frame" x="142" y="265.5" width="37" height="37"/>
+                                <color key="color" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="67y-Dh-2mu">
+                                <rect key="frame" x="22" y="332.5" width="276" height="48"/>
                                 <string key="text">Идет установка слов
 Пожалуйста, подождите</string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="21"/>
                                 <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.29999999999999999" height="0.29999999999999999"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Сленг иконка русская без фона 512" translatesAutoresizingMaskIntoConstraints="NO" id="3lW-cD-YFH">
-                                <rect key="frame" x="32" y="30" width="256" height="256"/>
-                            </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-bc-Cbw">
-                                <rect key="frame" x="141.5" y="306" width="37" height="37"/>
-                                <color key="color" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Iu3-FD-YOq" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="D0a-zf-bM5"/>
-                            <constraint firstItem="3lW-cD-YFH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FBc-Ik-72t"/>
-                            <constraint firstItem="3lW-cD-YFH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="10" id="UZJ-0s-6nt"/>
-                            <constraint firstItem="Iu3-FD-YOq" firstAttribute="top" secondItem="3lW-cD-YFH" secondAttribute="bottom" constant="77" id="aT6-M5-Whi"/>
-                            <constraint firstItem="rsQ-bc-Cbw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aUM-ZP-VLh"/>
-                            <constraint firstItem="rsQ-bc-Cbw" firstAttribute="top" secondItem="3lW-cD-YFH" secondAttribute="bottom" constant="20" id="dOK-9P-bdC"/>
+                            <constraint firstItem="jzw-us-Oq6" firstAttribute="top" secondItem="ndW-DH-83m" secondAttribute="bottom" constant="20" id="8DY-hG-e6g"/>
+                            <constraint firstItem="ndW-DH-83m" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="20" id="C3Q-No-Nck"/>
+                            <constraint firstItem="ndW-DH-83m" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="F1M-gF-rba"/>
+                            <constraint firstAttribute="trailing" secondItem="ndW-DH-83m" secondAttribute="trailing" constant="20" id="R13-uT-xvS"/>
+                            <constraint firstItem="67y-Dh-2mu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bXg-3f-Eep"/>
+                            <constraint firstItem="67y-Dh-2mu" firstAttribute="top" secondItem="jzw-us-Oq6" secondAttribute="bottom" constant="30" id="g0A-dr-aDu"/>
+                            <constraint firstItem="jzw-us-Oq6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="s2u-cJ-B3m"/>
+                            <constraint firstItem="jzw-us-Oq6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uPh-dw-kI1"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -55,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Сленг иконка русская без фона 512" width="256" height="256"/>
+        <image name="русленг-512" width="512" height="512"/>
     </resources>
 </document>

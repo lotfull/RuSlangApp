@@ -39,15 +39,15 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     @IBAction func shufflePressed(_ sender: UIBarButtonItem) {
         
         if isShuffled {
-            words.sort(by: sorting)
+            words = sortedWords//.sort(by: sorting)
             isShuffled = false
             self.tableView.reloadData()
-            sender.title = "случайно"
+            sender.title = "🎲"
         } else {
             words.shuffle()
             isShuffled = true
             self.tableView.reloadData()
-            sender.title = "по порядку"
+            sender.title = "А-Я"
         }
         scrollToHeader()
     }
@@ -218,11 +218,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         do {
-            words = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
+            sortedWords = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
+            sortedWords.sort(by: sorting)
         } catch {
             fatalError("Failed to fetch words: \(error)")
         }
-        words.sort(by: sorting)
+        words = sortedWords
         calculateWordsBySections()
         filteredWords = words
         tableView.reloadData()
@@ -314,6 +315,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var resultsController = UITableViewController()
     var managedObjectContext: NSManagedObjectContext!
     var words = [Word]()
+    var sortedWords = [Word]()
     var filteredWords = [Word]()
     var selectedWord: Word!
     var selectedTabBarIndex: Int!

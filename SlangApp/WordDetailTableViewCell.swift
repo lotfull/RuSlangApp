@@ -32,7 +32,7 @@ class WordDetailTableViewCell: UITableViewCell {
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         thisCellWord.favorite = !thisCellWord.favorite
-        sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
+        sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled"): #imageLiteral(resourceName: "purpleStar")
         print("word is \(thisCellWord.favorite ? "" : "NOT ")favorite")
         delegate?.reloading(self, indexPath: thisCellIndexPath)
     }
@@ -42,7 +42,7 @@ class WordDetailTableViewCell: UITableViewCell {
     func configurate(with word: Word, at indexPath: IndexPath) {
         thisCellWord = word
         thisCellIndexPath = indexPath
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
+        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled"): #imageLiteral(resourceName: "purpleStar")
 
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"

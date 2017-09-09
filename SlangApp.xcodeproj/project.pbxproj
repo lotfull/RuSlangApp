@@ -449,7 +449,6 @@
 			baseConfigurationReference = 3BD4CB1B4339256A3E93A4D3 /* Pods-SlangApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 754G6TU2DQ;
 				INFOPLIST_FILE = SlangApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -465,7 +464,6 @@
 			baseConfigurationReference = 81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 754G6TU2DQ;
 				INFOPLIST_FILE = SlangApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
