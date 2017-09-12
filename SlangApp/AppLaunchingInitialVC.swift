@@ -40,7 +40,7 @@ class AppLaunchingInitialVC: UIViewController {
     func preloadDataFromCSVFile() {
         removeData()
         if let contentsOfURL = Bundle.main.url(forResource: teenslang, withExtension: "csv") {
-            print("teenslang Nigga!")
+            //print("teenslang Nigga!")
             if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                 let items_arrays = content.csvRows(firstRowIgnored: true)
                 for item_array in items_arrays {
@@ -58,12 +58,12 @@ class AppLaunchingInitialVC: UIViewController {
                 do {
                     try managedObjectContext.save()
                 } catch {
-                    print("**********insert error: \(error.localizedDescription)\n********")
+                    //print("**********insert error: \(error.localizedDescription)\n********")
                 }
             }
         }
         if let contentsOfURL = Bundle.main.url(forResource: vsekidki, withExtension: "csv") {
-            print("vsekidki Nigga!")
+            //print("vsekidki Nigga!")
             if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                 let items_arrays = content.csvRows(firstRowIgnored: true)
                 for item_array in items_arrays {
@@ -81,7 +81,7 @@ class AppLaunchingInitialVC: UIViewController {
                 do {
                     try managedObjectContext.save()
                 } catch {
-                    print("**********insert error: \(error.localizedDescription)\n********")
+                    //print("**********insert error: \(error.localizedDescription)\n********")
                 }
             }
         }

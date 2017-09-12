@@ -61,7 +61,7 @@ class FeedbackVC: UITableViewController, UITextViewDelegate {
                                 email: emailField.text,
                                 feedback: feedbackTextView.text,
                                 rating: ratingSegmentControl.selectedSegmentIndex + 1)
-        print(feedback.text())
+        //print(feedback.text())
         delegate?.sendFeedback(self, feedback)
         _ = navigationController?.popViewController(animated: true)
     }

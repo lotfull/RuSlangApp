@@ -39,8 +39,8 @@ class WordTableViewCell: UITableViewCell {
             wordDefinitionLabel.text = thisCellWord.definition
         }
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-        print("\nconfigure thisCellIndexPath: \(thisCellIndexPath.row)")
-        print("configure thisCellWord.name: \(thisCellWord.name), favourite: \(thisCellWord.favorite)")
+        //print("\nconfigure thisCellIndexPath: \(thisCellIndexPath.row)")
+        //print("configure thisCellWord.name: \(thisCellWord.name), favourite: \(thisCellWord.favorite)")
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
 
     }
@@ -62,8 +62,8 @@ class WordTableViewCell: UITableViewCell {
         if !addNewWord {
             thisCellWord.favorite = !thisCellWord.favorite
             favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-            print("\nthisCellIndexPath: \(thisCellIndexPath.row)")
-            print("thisCellWord.name: \(thisCellWord.name), favourite: \(thisCellWord.favorite)")
+            //print("\nthisCellIndexPath: \(thisCellIndexPath.row)")
+            //print("thisCellWord.name: \(thisCellWord.name), favourite: \(thisCellWord.favorite)")
             delegate?.reloading(self, indexPath: thisCellIndexPath)
         }
     }

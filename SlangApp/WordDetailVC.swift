@@ -36,12 +36,12 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     }
     
     func trendRating(_ rating: Int) {
-        print("wordToTrend at rating \(rating)")
+        //print("wordToTrend at rating \(rating)")
         delegate?.addToTrends(self, word: self.word, rating: rating)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear")
+        //print("viewDidAppear")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

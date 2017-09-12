@@ -9,7 +9,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
         super.viewDidLoad()
         //searchTextField
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
-        print("viewDidLoad")
+        //print("viewDidLoad")
         searchingFavorites("")
         tableView.dataSource = self
         tableView.delegate = self
@@ -21,15 +21,15 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            print("prepare(for segue)")
+            //print("prepare(for segue)")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
                 if trendsVC != nil {
-                    print("wordDetailVC.delegate = trendsVC")
+                    //print("wordDetailVC.delegate = trendsVC")
                     wordDetailVC.delegate = trendsVC
                 } else {
-                    print("wordDetailVC.delegate = else nil")
+                    //print("wordDetailVC.delegate = else nil")
                 }
             }
         }
@@ -37,7 +37,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedWord = words[indexPath.row]
-        print("didSelectRowAt")
+        //print("didSelectRowAt")
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,12 +76,12 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text! as NSString
         let newText = oldText.replacingCharacters(in: range, with: string)
-        print("***shouldChangeCharactersIn")
+        //print("***shouldChangeCharactersIn")
         searchText = newText
         return true
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("***textFieldShouldReturn")
+        //print("***textFieldShouldReturn")
         searchText = textField.text
         textField.resignFirstResponder()
         return true
@@ -136,7 +136,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     var selectedWord: Word!
     var trendsVC: TrendsTableVC!
     var searchText: String? { didSet {
-        print("***didSet searchText")
+        //print("***didSet searchText")
         words.removeAll()
         searchingFavorites(searchText) } }
     let showWordDetailID = "ShowWordDetail"

@@ -24,7 +24,7 @@ extension MutableCollection where Indices.Iterator.Element == Index {
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, FreeDelegate {
     
     func printDick() {
-        print("8====o")
+        //print("8====o")
     }
     
     var indicator = UIActivityIndicatorView()
@@ -63,7 +63,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        //print("viewDidLoad")
         installSearchController()
         installTableView()
         
@@ -75,7 +75,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tappedTabBarIndex = tabBarController.selectedIndex
-        print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
+        //print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
         if tappedTabBarIndex == selectedTabBarIndex {
             scrollToHeader()
         }
@@ -104,16 +104,16 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            print("prepare(for segue) in WordsTableVC")
+            //print("prepare(for segue) in WordsTableVC")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
                 
                 if trendsVC != nil {
-                    print("wordDetailVC.delegate = trendsVC")
+                    //print("wordDetailVC.delegate = trendsVC")
                     wordDetailVC.delegate = trendsVC
                 } else {
-                    print("wordDetailVC.delegate = else nil")
+                    //print("wordDetailVC.delegate = else nil")
                 }
                 
                 indicator.stopAnimating()
@@ -142,11 +142,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         if tableView == resultsController.tableView {
             let num = filteredWords.count + ((filteredWords.count < 4) ? 1 : 0)
             if num < 5 {
-                print("\nnumberOfRowsInSection: \(num)")
+                //print("\nnumberOfRowsInSection: \(num)")
                 for word in filteredWords {
-                    print("word.name: \(word.name)")
+                    //print("word.name: \(word.name)")
                 }
-                print()
+                //print()
             }
             return num
         } else if isShuffled {
@@ -171,8 +171,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                     cell.configure(with: filteredWords[indexPath.row], at: indexPath)
                     cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
 
-                    print("indexPath.row: \(indexPath.row)")
-                    print("word.name: \(filteredWords[indexPath.row].name)")
+                    //print("indexPath.row: \(indexPath.row)")
+                    //print("word.name: \(filteredWords[indexPath.row].name)")
                     
                 }
             }
@@ -209,7 +209,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 selectedWord = sectionWords[indexPath.row]
             }
         }
-        print("didSelectRowAt")
+        //print("didSelectRowAt")
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

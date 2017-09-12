@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Fallback on earlier versions
             }
         } else {
-            print("Something went wrong with managedObjectContext assignment")
+            //print("Something went wrong with managedObjectContext assignment")
         }
         listenForFatalCoreDataNotifications()
         return true
@@ -204,7 +204,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Write to the file
             try  "\(dump)\n\(s)".write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
         } catch let error as NSError {
-            print("Failed writing to log file: \(path), Error: " + error.localizedDescription)
+            //print("Failed writing to log file: \(path), Error: " + error.localizedDescription)
         }
     }
     

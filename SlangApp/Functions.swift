@@ -17,7 +17,7 @@ let applicationDocumentsDirectory: URL = {
 let MyManagedObjectContextSaveDidFailNotification = Notification.Name(rawValue: "MyManagedObjectContextSaveDidFailNotification")
 
 func fatalCoreDataError(_ error: Error) {
-    print("*** Fatal error: \(error)")
+    //print("*** Fatal error: \(error)")
     NotificationCenter.default.post(name: MyManagedObjectContextSaveDidFailNotification, object: nil)
 }
 
