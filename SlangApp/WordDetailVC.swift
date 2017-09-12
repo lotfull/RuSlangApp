@@ -10,10 +10,10 @@ import CoreData
 import UIKit
 
 protocol AddingWordsToTrendsDelegate: class {
-    func addToTrends(_ controller: WordDetailVC, word: Word)
+    func addToTrends(_ controller: WordDetailVC, word: Word, rating: Int)
 }
 
-class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate {
+class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate, getTrendRatingDelegate {
     
     weak var delegate: AddingWordsToTrendsDelegate?
     
@@ -32,6 +32,11 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    func trendRating(_ rating: Int) {
+        print("wordToTrend at rating \(rating)")
+        delegate?.addToTrends(self, word: self.word, rating: rating)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
     }
@@ -44,6 +49,10 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
                 createEditWordVC.editingWord = word
                 createEditWordVC.delegate = self
                 //wordDetailVC.word = selectedWord
+            }
+        } else if segue.identifier == "getTrendRating" {
+            if let trendRatingTVC = segue.destination as? TrendRatingTVC {
+                trendRatingTVC.delegate = self
             }
         }
     }
@@ -109,10 +118,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
-    @IBAction func wordToTrend(_ sender: Any) {
-        print("wordToTrend")
-        delegate?.addToTrends(self, word: self.word)
-    }
+
     
     // self.ref.child("users").child(user.uid).setValue(["username": username])
     @IBAction func cancel(_ sender: Any) {

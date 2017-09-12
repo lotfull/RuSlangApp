@@ -21,13 +21,17 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            print("prepare(for segue")
+            print("prepare(for segue)")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
+                if trendsVC != nil {
+                    print("wordDetailVC.delegate = trendsVC")
+                    wordDetailVC.delegate = trendsVC
+                } else {
+                    print("wordDetailVC.delegate = else nil")
+                }
             }
-        } else if segue.identifier == showFavorites {
-            
         }
     }
     
@@ -130,6 +134,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     var managedObjectContext: NSManagedObjectContext!
     var words = [Word]()
     var selectedWord: Word!
+    var trendsVC: TrendsTableVC!
     var searchText: String? { didSet {
         print("***didSet searchText")
         words.removeAll()

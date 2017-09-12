@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9101F32A1F61CC4A005294F5 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101F3291F61CC4A005294F5 /* FeedbackVC.swift */; };
 		9101F32C1F61EBF6005294F5 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101F32B1F61EBF6005294F5 /* Feedback.swift */; };
+		911127A51F67E9AC00BA06F1 /* TrendRatingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */; };
 		9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FD0991F0CED91000C5C84 /* HudView.swift */; };
@@ -45,6 +46,7 @@
 		81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp.release.xcconfig"; sourceTree = "<group>"; };
 		9101F3291F61CC4A005294F5 /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		9101F32B1F61EBF6005294F5 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendRatingTVC.swift; sourceTree = "<group>"; };
 		9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVtoArrayStringExtension.swift; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		911FD0991F0CED91000C5C84 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
+				911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */,
 				9101F3291F61CC4A005294F5 /* FeedbackVC.swift */,
 				9126D2461F61F8720033E19D /* MoreVC.swift */,
 				916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */,
@@ -309,6 +312,7 @@
 				9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */,
 				9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
+				911127A51F67E9AC00BA06F1 /* TrendRatingTVC.swift in Sources */,
 				911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */,
 				919600FC1EE1E41C002BE3D6 /* README.md in Sources */,
 				9126D2471F61F8720033E19D /* MoreVC.swift in Sources */,

@@ -229,13 +229,13 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
 
     // MARK: - searching funcs
     func updateSearchResults(for searchController: UISearchController) {
-        let text = searchController.searchBar.text
+        let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
             filteredWords = words
             titleButton.setTitle("Словарь сленг-слов", for: .normal)
         } else {
             filteredWords = words.filter({ (word:Word) -> Bool in
-                if word.name.contains(text!) {
+                if word.name.lowercased(with: NSLocale.current).contains(text!) {
                     return true
                 } else {
                     return false
@@ -303,6 +303,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             print ("There was managedObjectContext.save() error")
         }
         resultsController.tableView.reloadRows(at: [indexPath], with: .none)
+        self.tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - CreateWordVCDelegate

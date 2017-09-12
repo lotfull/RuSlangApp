@@ -112,31 +112,18 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             "hashtags": word.hashtags])
     }
     
-    func addToTrends(_ controller: WordDetailVC, word: Word) {
+    func addToTrends(_ controller: WordDetailVC, word: Word, rating: Int) {
         print("***** delegate addToTrends func start")
-        if trendWords.count > 9 {
-            ref.child("trend words").child("0").setValue([
-                "name": word.name,
-                "definition": word.definition,
-                "origin": word.origin,
-                "group": word.group,
-                "examples": word.examples,
-                "synonyms": word.synonyms,
-                "type": word.type,
-                "hashtags": word.hashtags])
-            print("***** Word \(word.name) added to trends")
-        } else {
-            ref.child("trend words").child("\(trendWords.count)").setValue([
-                "name": word.name,
-                "definition": word.definition,
-                "origin": word.origin,
-                "group": word.group,
-                "examples": word.examples,
-                "synonyms": word.synonyms,
-                "type": word.type,
-                "hashtags": word.hashtags])
-            print("***** Word \(word.name) added to trends")
-        }
+        ref.child("trend words").child("\(rating)").setValue([
+            "name": word.name,
+            "definition": word.definition,
+            "origin": word.origin,
+            "group": word.group,
+            "examples": word.examples,
+            "synonyms": word.synonyms,
+            "type": word.type,
+            "hashtags": word.hashtags])
+        print("***** Word \(word.name) added to trends")
         observeTrends()
     }
     

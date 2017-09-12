@@ -120,6 +120,7 @@ class AppLaunchingInitialVC: UIViewController {
                 }
                 if let favoritesTableVC = VControllers[2].topViewController as? FavoritesTableVC {
                     favoritesTableVC.managedObjectContext = managedObjectContext
+                    favoritesTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
                 } else {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }
