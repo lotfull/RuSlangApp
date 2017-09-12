@@ -13,7 +13,7 @@ import Firebase
 import FirebaseDatabase
 import Dispatch
 
-class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate, SendingFeedbackDelegate {
+class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate, SendingFeedbackDelegate, AddingNewWordsToFirebase {
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -76,7 +76,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         ref.child("trend words").observeSingleEvent(of: .value, with: { (snapshot) in
             self.trendWords = [Word]()
             for child in snapshot.children {
-                print("***** child", child)
                 if let snap = child as? DataSnapshot,
                     let dict = snap.value as? [String: String],
                     dict.count > 1
@@ -98,13 +97,25 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             "contacts": feedback.contacts,
             "feedback": feedback.feedback,
             "rating": feedback.rating])
-        print("feedback added:\(feedback.text())")
+        print("feedback added")
+    }
+    
+    func addNewWord(_ word: Word) {
+        ref.child("new words").childByAutoId().setValue([
+            "name": word.name,
+            "definition": word.definition,
+            "origin": word.origin,
+            "group": word.group,
+            "examples": word.examples,
+            "synonyms": word.synonyms,
+            "type": word.type,
+            "hashtags": word.hashtags])
     }
     
     func addToTrends(_ controller: WordDetailVC, word: Word) {
         print("***** delegate addToTrends func start")
-        if trendWords.count > maxTrendsNum {
-            ref.child("trend words").child("\(maxTrendsNum)").setValue([
+        if trendWords.count > 9 {
+            ref.child("trend words").child("0").setValue([
                 "name": word.name,
                 "definition": word.definition,
                 "origin": word.origin,

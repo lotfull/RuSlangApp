@@ -46,7 +46,7 @@ class AppLaunchingInitialVC: UIViewController {
                 for item_array in items_arrays {
                     let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
                     word.name = item_array[0].uppercaseFirst()
-                    word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
+                    word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()
                     word.type = returnNilIfEmpty(item_array[2])
                     word.group = returnNilIfEmpty(item_array[3])
                     word.examples = returnNilIfEmpty(item_array[4])
@@ -69,7 +69,7 @@ class AppLaunchingInitialVC: UIViewController {
                 for item_array in items_arrays {
                     let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
                     word.name = item_array[0].uppercaseFirst()
-                    word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "No definition" : item_array[1]).uppercaseFirst()
+                    word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()
                     word.type = returnNilIfEmpty(item_array[2])
                     word.group = returnNilIfEmpty(item_array[3])
                     word.examples = returnNilIfEmpty(item_array[4])
@@ -113,8 +113,8 @@ class AppLaunchingInitialVC: UIViewController {
                 } else {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }
-                if let trendsTableVC = VControllers[1].topViewController as? TrendsTableVC {
-                    trendsTableVC.managedObjectContext = managedObjectContext
+                if let trendsVC = VControllers[1].topViewController as? TrendsTableVC {
+                    trendsVC.managedObjectContext = managedObjectContext
                 } else {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }

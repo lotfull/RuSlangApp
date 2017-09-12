@@ -36,6 +36,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         self.view.addSubview(indicator)
     }
     
+    @IBAction func addNewWordButtonPressed() {
+        performSegue(withIdentifier: createEditWordID, sender: nil)
+        searchController.searchBar.text = ""
+    }
     @IBAction func shufflePressed(_ sender: UIBarButtonItem) {
         
         if isShuffled {
@@ -115,13 +119,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 indicator.stopAnimating()
                 indicator.hidesWhenStopped = true
             }
-        } else if segue.identifier == showFavoritesID {
-            
         } else if segue.identifier == createEditWordID {
             if let navigationVC = segue.destination as? UINavigationController,
                 let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.delegate = self
+                createEditWordVC.delegate1 = trendsVC
             }
         }
     }
@@ -134,9 +137,18 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             return sectionNames.count
         }
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == resultsController.tableView {
-            return filteredWords.count
+            let num = filteredWords.count + ((filteredWords.count < 4) ? 1 : 0)
+            if num < 5 {
+                print("\nnumberOfRowsInSection: \(num)")
+                for word in filteredWords {
+                    print("word.name: \(word.name)")
+                }
+                print()
+            }
+            return num
         } else if isShuffled {
             return words.count
         } else {
@@ -150,10 +162,23 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
         if tableView == resultsController.tableView {
-            cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+            if filteredWords.count > 4 {
+                cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+            } else {
+                if indexPath.row == filteredWords.count {
+                    cell.configure(withName: "Нет желаемого слова?", withDefinition: "Добавьте его сами и помогите найти его другим, нажав на эту ячейку.", at: indexPath)
+                } else {
+                    cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+                    cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
+
+                    print("indexPath.row: \(indexPath.row)")
+                    print("word.name: \(filteredWords[indexPath.row].name)")
+                    
+                }
+            }
         } else if isShuffled {
             cell.configure(with: words[indexPath.row], at: indexPath)
-        } else {
+        } else if tableView == self.tableView {
             let wordKey = sectionNames[indexPath.section]
             if let sectionWords = wordsBySection[wordKey] {
                 cell.configure(with: sectionWords[indexPath.row], at: indexPath)
@@ -169,7 +194,13 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             indicator.backgroundColor = UIColor.white
         }
         if tableView == resultsController.tableView {
-            selectedWord = filteredWords[indexPath.row]
+            if filteredWords.count < 4,
+                indexPath.row == filteredWords.count {
+                addNewWordButtonPressed()
+                return
+            } else {
+                selectedWord = filteredWords[indexPath.row]
+            }
         } else if isShuffled {
             selectedWord = words[indexPath.row]
         } else {
@@ -271,7 +302,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         } catch {
             print ("There was managedObjectContext.save() error")
         }
-        tableView.reloadRows(at: [indexPath], with: .none)
+        resultsController.tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - CreateWordVCDelegate
@@ -323,7 +354,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var trendsVC: TrendsTableVC!
     var hudNeeded = true
     let showWordDetailID = "ShowWordDetail"
-    let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"
     let ref = Database.database().reference()
 

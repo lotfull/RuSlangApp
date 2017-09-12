@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ezt-oK-anp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ezt-oK-anp">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,6 +54,7 @@
                         </button>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ozX-dg-Ura">
                             <connections>
+                                <action selector="addNewWordButtonPressed:" destination="mPO-jZ-NT8" id="Cur-yd-D0A"/>
                                 <segue destination="z6M-zH-SkY" kind="show" identifier="CreateEditWord" id="NR0-LT-nVw"/>
                             </connections>
                         </barButtonItem>
@@ -65,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag2-Q2-61u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="-722"/>
+            <point key="canvasLocation" x="2284" y="-717"/>
         </scene>
         <!--Создать слово-->
         <scene sceneID="xyL-DV-06X">
@@ -380,7 +381,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="jcA-bw-Hdj">
                             <connections>
-                                <action selector="done" destination="hqZ-La-evY" id="HAe-YB-9wx"/>
+                                <action selector="done" destination="hqZ-La-evY" id="aMI-SP-PAn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -399,7 +400,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meW-vI-mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2831" y="-719"/>
+            <point key="canvasLocation" x="4039" y="-717"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rij-WX-arD">
@@ -415,7 +416,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpK-db-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2387" y="-717"/>
+            <point key="canvasLocation" x="3144" y="-717"/>
         </scene>
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
@@ -484,9 +485,9 @@
                                     <segue destination="z6M-zH-SkY" kind="presentation" identifier="EditWord" id="UBp-CX-A8z"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="тренд" id="I58-ta-OQN">
+                            <barButtonItem title="тренд" id="wBZ-zL-lF2">
                                 <connections>
-                                    <action selector="wordToTrend:" destination="1C6-aZ-MHr" id="p4a-ut-n11"/>
+                                    <action selector="wordToTrend:" destination="1C6-aZ-MHr" id="zOT-4a-DpY"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -497,7 +498,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="59"/>
+            <point key="canvasLocation" x="3144" y="59"/>
         </scene>
         <!--App Launching InitialVC-->
         <scene sceneID="l50-4y-TA5">
@@ -548,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukR-g3-crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="336" y="449"/>
+            <point key="canvasLocation" x="-347" y="449"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AuP-CR-mH1">
@@ -568,7 +569,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF1-qU-oUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="449"/>
+            <point key="canvasLocation" x="446" y="449"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QG4-cS-vWH">
@@ -620,7 +621,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zO-rR-77A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="714"/>
+            <point key="canvasLocation" x="2284" y="718"/>
         </scene>
         <!--Другое-->
         <scene sceneID="pcU-8a-tV3">
@@ -705,7 +706,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-TI-Wzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="1432"/>
+            <point key="canvasLocation" x="2284" y="1437"/>
         </scene>
         <!--О программе-->
         <scene sceneID="kGm-Ux-OXx">
@@ -763,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgh-c0-aMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="1099"/>
+            <point key="canvasLocation" x="3144" y="1100"/>
         </scene>
         <!--Отзыв-->
         <scene sceneID="KUD-yR-x9t">
@@ -931,7 +932,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XU-fX-Owb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2815" y="1435"/>
+            <point key="canvasLocation" x="4024" y="1437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Gp-y7-xhb">
@@ -1024,11 +1025,6 @@
                                 <action selector="titleTapped:" destination="AMp-IS-Lhz" eventType="touchUpInside" id="ecg-OS-SCk"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xgV-hH-GmZ">
-                            <connections>
-                                <action selector="addTrends:" destination="AMp-IS-Lhz" id="vWi-Ia-h0F"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="titleButton" destination="bhe-T1-PpC" id="3Dc-II-XDa"/>
@@ -1037,7 +1033,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbV-9f-iba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="56.221889055472268"/>
+            <point key="canvasLocation" x="2284" y="61"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Ad-7X-R5y">
@@ -1120,7 +1116,7 @@ GitHub.com/Lotfull</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vs-LJ-sQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2386" y="1771"/>
+            <point key="canvasLocation" x="3143" y="1771"/>
         </scene>
     </scenes>
     <resources>
@@ -1132,7 +1128,7 @@ GitHub.com/Lotfull</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ohW-bx-XNF"/>
+        <segue reference="s96-ql-dpo"/>
         <segue reference="UBp-CX-A8z"/>
-        <segue reference="U4e-pe-9gt"/>
     </inferredMetricsTieBreakers>
 </document>
