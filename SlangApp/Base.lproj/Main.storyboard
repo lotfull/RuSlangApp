@@ -485,15 +485,11 @@
                                     <segue destination="z6M-zH-SkY" kind="presentation" identifier="EditWord" id="UBp-CX-A8z"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="тренд" id="wBZ-zL-lF2">
-                                <connections>
-                                    <segue destination="YxA-AO-R3f" kind="show" identifier="getTrendRating" id="LrA-ZW-6nS"/>
-                                </connections>
-                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tblView" destination="OIh-59-vmN" id="aHx-yh-jr5"/>
+                        <segue destination="YxA-AO-R3f" kind="show" identifier="getTrendRating" id="v5W-tx-vnr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>

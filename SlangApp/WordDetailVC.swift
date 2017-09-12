@@ -17,6 +17,9 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     
     weak var delegate: AddingWordsToTrendsDelegate?
     
+    @IBAction func setTrendRatingButtonAction() {
+        self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
+    }
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,6 +134,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     var managedObjectContext: NSManagedObjectContext!
     var word: Word!
     let editWordID = "EditWord"
+    let getTrendRatingID = "getTrendRating"
 }
 
 
