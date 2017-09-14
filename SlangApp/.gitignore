@@ -1,3 +1,4 @@
 *.png
 .ipynb_checkpoints
 .ipynb_checkpoints/*
+screenshotsForiTunes/*.png
