@@ -46,7 +46,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             words = sortedWords//.sort(by: sorting)
             isShuffled = false
             self.tableView.reloadData()
-            sender.title = "🎲"
+            sender.title = "Случайно"
         } else {
             words.shuffle()
             isShuffled = true

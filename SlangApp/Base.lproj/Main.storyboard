@@ -36,7 +36,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fm6-bQ-Tt8">
-                        <barButtonItem key="leftBarButtonItem" title="🎲" id="zcW-ZB-3vM">
+                        <barButtonItem key="leftBarButtonItem" title="Случайно" id="zcW-ZB-3vM">
                             <connections>
                                 <action selector="shufflePressed:" destination="mPO-jZ-NT8" id="lef-uz-rM9"/>
                             </connections>
