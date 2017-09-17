@@ -421,7 +421,7 @@
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
             <objects>
-                <tableViewController storyboardIdentifier="WordDetailID" id="1C6-aZ-MHr" customClass="WordDetailVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="WordDetailVC" id="1C6-aZ-MHr" customClass="WordDetailVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="OIh-59-vmN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -483,6 +483,11 @@
                             <barButtonItem title="изменить" id="kHG-ux-Ued">
                                 <connections>
                                     <segue destination="z6M-zH-SkY" kind="presentation" identifier="EditWord" id="UBp-CX-A8z"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="тренд" id="JK7-oL-3Vj">
+                                <connections>
+                                    <action selector="setTrendRatingButtonAction" destination="1C6-aZ-MHr" id="Jkd-5e-SyU"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -1161,7 +1166,7 @@ GitHub.com/Lotfull</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ohW-bx-XNF"/>
-        <segue reference="s96-ql-dpo"/>
         <segue reference="UBp-CX-A8z"/>
+        <segue reference="s96-ql-dpo"/>
     </inferredMetricsTieBreakers>
 </document>

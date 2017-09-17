@@ -110,6 +110,10 @@ class AppLaunchingInitialVC: UIViewController {
                 if let wordsTableVC = VControllers[0].topViewController as? WordsTableVC {
                     wordsTableVC.managedObjectContext = managedObjectContext
                     wordsTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
+                    /*let viewC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WordDetailVC") as? WordDetailVC
+                    viewC?.managedObjectContext = managedObjectContext
+                    let someView = viewC?.view
+                    print("*** instantiateViewController")*/
                 } else {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
                 }

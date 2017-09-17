@@ -66,9 +66,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         //print("viewDidLoad")
         installSearchController()
         installTableView()
-        
         firstFetching()
-        
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
     }
@@ -234,18 +232,46 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             filteredWords = words
             titleButton.setTitle("Словарь сленг-слов", for: .normal)
         } else {
+            var tempWords = [Word]()
             filteredWords = words.filter({ (word:Word) -> Bool in
-                if word.name.lowercased(with: NSLocale.current).contains(text!) {
+                if word.name.lowercased(with: NSLocale.current).hasPrefix(text!) {
                     return true
                 } else {
+                    if word.name.lowercased(with: NSLocale.current).contains(text!) {
+                        tempWords.append(word)
+                    }
                     return false
                 }
             })
+            filteredWords.append(contentsOf: tempWords)
+            //filteredWords.sort(by: beginsWithWordLettersSort)
             titleButton.setTitle(text, for: .normal)
         }
         resultsController.tableView.reloadData()
     }
-    
+    /*
+    func beginsWithWordLettersSort(w1: Word, w2: Word) -> Bool {
+        var str1 = w1.name.lowercased()
+        var str2 = w2.name.lowercased()
+        var key = searchController.searchBar.text!.lowercased(with: NSLocale.current)
+        var i = 1
+        var minQ = min(str1.characters.count, str2.characters.count, key.characters.count)
+        while i < minQ {
+            let iLett = key.characters.dropFirst(i)
+            if String(str1.characters.dropFirst(i)) == iLett {
+                if String(str2.characters.dropFirst(i)) == iLett {
+                    i += 1
+                    continue
+                } else {
+                    return true
+                }
+            } else {
+                return false
+            }
+        }
+        return str1.localizedCompare(str2) == .orderedAscending
+    }
+    */
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         do {
