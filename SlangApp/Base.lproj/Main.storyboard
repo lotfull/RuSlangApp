@@ -36,9 +36,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fm6-bQ-Tt8">
-                        <barButtonItem key="leftBarButtonItem" title="Случайно" id="zcW-ZB-3vM">
+                        <barButtonItem key="leftBarButtonItem" title="А-Я" id="zcW-ZB-3vM">
                             <connections>
-                                <action selector="shufflePressed:" destination="mPO-jZ-NT8" id="lef-uz-rM9"/>
+                                <action selector="shufflePressed" destination="mPO-jZ-NT8" id="ioV-TZ-KIr"/>
                             </connections>
                         </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4MI-s5-OK5">
@@ -54,12 +54,13 @@
                         </button>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ozX-dg-Ura">
                             <connections>
-                                <action selector="addNewWordButtonPressed:" destination="mPO-jZ-NT8" id="Cur-yd-D0A"/>
+                                <action selector="addNewWordButtonPressed" destination="mPO-jZ-NT8" id="NEv-hd-hC0"/>
                                 <segue destination="z6M-zH-SkY" kind="show" identifier="CreateEditWord" id="NR0-LT-nVw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="shuffleButton" destination="zcW-ZB-3vM" id="wIR-FL-z7V"/>
                         <outlet property="titleButton" destination="4MI-s5-OK5" id="VMp-uo-Tqf"/>
                         <segue destination="1C6-aZ-MHr" kind="show" identifier="ShowWordDetail" id="oJz-hB-ms0"/>
                     </connections>
@@ -1165,8 +1166,8 @@ GitHub.com/Lotfull</string>
         <image name="русленг-98" width="98" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ohW-bx-XNF"/>
-        <segue reference="UBp-CX-A8z"/>
         <segue reference="s96-ql-dpo"/>
+        <segue reference="oJz-hB-ms0"/>
+        <segue reference="NR0-LT-nVw"/>
     </inferredMetricsTieBreakers>
 </document>

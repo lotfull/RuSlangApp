@@ -9,7 +9,6 @@ extension MutableCollection where Indices.Iterator.Element == Index {
     mutating func shuffle() {
         let c = count
         guard c > 1 else { return }
-        
         for (firstUnshuffled , unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
             let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             guard d != 0 else { continue }
@@ -19,15 +18,7 @@ extension MutableCollection where Indices.Iterator.Element == Index {
     }
 }
 
-
-
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, FreeDelegate {
-    
-    func printDick() {
-        //print("8====o")
-    }
-    
-    var indicator = UIActivityIndicatorView()
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
     
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -35,30 +26,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         indicator.center = self.view.center
         self.view.addSubview(indicator)
     }
-    
-    @IBAction func addNewWordButtonPressed() {
-        performSegue(withIdentifier: createEditWordID, sender: nil)
-        searchController.searchBar.text = ""
-    }
-    @IBAction func shufflePressed(_ sender: UIBarButtonItem) {
-        
-        if isShuffled {
-            words = sortedWords//.sort(by: sorting)
-            isShuffled = false
-            self.tableView.reloadData()
-            sender.title = "Случайно"
-        } else {
-            words.shuffle()
-            isShuffled = true
-            self.tableView.reloadData()
-            sender.title = "А-Я"
-        }
-        scrollToHeader()
-    }
-    @IBAction func titleTapped(_ sender: Any) {
-        scrollToHeader()
-    }
-    @IBOutlet weak var titleButton: UIButton!
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -69,6 +36,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         firstFetching()
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
+        firstShuffle()
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -358,6 +326,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             tableView.reloadData()
         }
     }
+    
+    func firstShuffle() {
+        words.shuffle()
+        isShuffled = true
+    }
+    
     func saveManagedObjectContext() {
         do {
             try managedObjectContext.save()
@@ -366,6 +340,31 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     
+    @IBAction func addNewWordButtonPressed() {
+        performSegue(withIdentifier: createEditWordID, sender: nil)
+        searchController.searchBar.text = ""
+    }
+    
+    @IBAction func shufflePressed() {
+        if isShuffled {
+            words = sortedWords//.sort(by: sorting)
+            isShuffled = false
+            self.tableView.reloadData()
+            shuffleButton.title = "Случайно"
+        } else {
+            words.shuffle()
+            isShuffled = true
+            self.tableView.reloadData()
+            shuffleButton.title = "А-Я"
+        }
+        scrollToHeader()
+    }
+    @IBAction func titleTapped(_ sender: Any) {
+        scrollToHeader()
+    }
+    
+    @IBOutlet weak var shuffleButton: UIBarButtonItem!
+    @IBOutlet weak var titleButton: UIButton!
     // MARK: - VARS and LETS
     var sectionNames = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я", "#"]
     var wordsBySection = [String: [Word]]()
@@ -380,6 +379,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var isShuffled = false
     var trendsVC: TrendsTableVC!
     var hudNeeded = true
+    var indicator = UIActivityIndicatorView()
     let showWordDetailID = "ShowWordDetail"
     let createEditWordID = "CreateEditWord"
     let ref = Database.database().reference()

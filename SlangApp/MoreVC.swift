@@ -18,12 +18,10 @@ class MoreVC: UITableViewController {
         if segue.identifier == "ShowFeedbackView" {
             if let feedbackVC = segue.destination as? FeedbackVC {
                 feedbackVC.delegate = trendsVC
-                feedbackVC.delegate1 = wordsVC
             }
         }
     }
 
-    
     var trendsVC: TrendsTableVC!
     var wordsVC: WordsTableVC!
 
