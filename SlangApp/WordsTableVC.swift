@@ -36,7 +36,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         firstFetching()
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
-        firstShuffle()
+        words.shuffle()
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -106,15 +106,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == resultsController.tableView {
-            let num = filteredWords.count + ((filteredWords.count < 4) ? 1 : 0)
-            if num < 5 {
-                //print("\nnumberOfRowsInSection: \(num)")
-                for word in filteredWords {
-                    //print("word.name: \(word.name)")
-                }
-                //print()
-            }
-            return num
+            return filteredWords.count
         } else if isShuffled {
             return words.count
         } else {
@@ -197,11 +189,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     func updateSearchResults(for searchController: UISearchController) {
         let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
-            filteredWords = words
+            filteredWords = sortedWords
             titleButton.setTitle("Словарь сленг-слов", for: .normal)
         } else {
             var tempWords = [Word]()
-            filteredWords = words.filter({ (word:Word) -> Bool in
+            filteredWords = sortedWords.filter({ (word:Word) -> Bool in
                 if word.name.lowercased(with: NSLocale.current).hasPrefix(text!) {
                     return true
                 } else {
@@ -327,11 +319,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     
-    func firstShuffle() {
-        words.shuffle()
-        isShuffled = true
-    }
-    
     func saveManagedObjectContext() {
         do {
             try managedObjectContext.save()
@@ -376,7 +363,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var filteredWords = [Word]()
     var selectedWord: Word!
     var selectedTabBarIndex: Int!
-    var isShuffled = false
+    var isShuffled = true
     var trendsVC: TrendsTableVC!
     var hudNeeded = true
     var indicator = UIActivityIndicatorView()

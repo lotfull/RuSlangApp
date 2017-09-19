@@ -31,7 +31,6 @@ class AppLaunchingInitialVC: UIViewController {
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: self.showMainVCID, sender: nil)
-                self.activityIndicator.color = UIColor.purple
                 //self.activityIndicator.stopAnimating()
             }
         }
