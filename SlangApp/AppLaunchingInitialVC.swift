@@ -19,8 +19,6 @@ class AppLaunchingInitialVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
-        
-        // Asynchronous, with quality of class
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let defaults = UserDefaults.standard
             //defaults.set(false, forKey: "isPreloaded")
@@ -31,7 +29,7 @@ class AppLaunchingInitialVC: UIViewController {
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: self.showMainVCID, sender: nil)
-                //self.activityIndicator.stopAnimating()
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -39,7 +37,7 @@ class AppLaunchingInitialVC: UIViewController {
     func preloadDataFromCSVFile() {
         removeData()
         for appwordsFile in [teenslang, vsekidki] {
-            print("appwordsFile Nigga!")
+            print("\(appwordsFile) Nigga!")
             if let contentsOfURL = Bundle.main.url(forResource: appwordsFile, withExtension: "csv") {
                 if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                     let items_arrays = content.csvRows(firstRowIgnored: true)

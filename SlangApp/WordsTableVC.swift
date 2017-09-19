@@ -186,20 +186,38 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         if text == nil || text == "" {
             filteredWords = sortedWords
             titleButton.setTitle("Словарь сленг-слов", for: .normal)
+        } else if text?.characters.first! == "#" {
+            filteredWords = sortedWords.filter({ (word:Word) -> Bool in
+                if let wordHashtags = word.hashtags {
+                    let components = wordHashtags.components(separatedBy: " ")
+                    for var hashtag in components {
+                        hashtag = hashtag.lowercased()
+                        let bit = hashtag == text!.lowercased()
+                        if bit {
+                            return true
+                        } else {
+                            return false
+                        }
+                    }
+                } else {
+                    return false
+                }
+                return false
+            })
+            titleButton.setTitle(text!, for: .normal)
+            resultsController.tableView.reloadData()
         } else {
             var tempWords = [Word]()
             filteredWords = sortedWords.filter({ (word:Word) -> Bool in
-                if word.name.lowercased(with: NSLocale.current).hasPrefix(text!) {
+                let wordName = word.name.lowercased(with: NSLocale.current)
+                if wordName.hasPrefix(text!) {
                     return true
-                } else {
-                    if word.name.lowercased(with: NSLocale.current).contains(text!) {
-                        tempWords.append(word)
-                    }
-                    return false
+                } else if wordName.contains(text!) {
+                    tempWords.append(word)
                 }
+                return false
             })
             filteredWords.append(contentsOf: tempWords)
-            //filteredWords.sort(by: beginsWithWordLettersSort)
             titleButton.setTitle(text, for: .normal)
         }
         resultsController.tableView.reloadData()
@@ -237,17 +255,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     
-    func updateSearchResultsByHashtag(_ hashtag: String) {
-        searchController.searchBar.text? = hashtag
-        filteredWords = sortedWords.filter({ (word:Word) -> Bool in
-            if let wordHashtags = word.hashtags {
-                return wordHashtags.components(separatedBy: ";").contains(hashtag) ? true : false
-            } else {
-                return false
-            }
-        })
-        titleButton.setTitle(hashtag, for: .normal)
-        resultsController.tableView.reloadData()
+    func updateSearchResults(_ wordName: String) {
+        searchController.searchBar.text? = wordName
+        self.updateSearchResults(for: searchController)
     }
     
     // MARK: - WordTableViewCellDelegate

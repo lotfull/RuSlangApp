@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "527490470.345782"
+            timestampString = "527501013.679748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,7 +154,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.580898"
+                  timestampString = "527501014.360476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -169,7 +169,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.583052"
+                  timestampString = "527501014.363219"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -184,7 +184,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.584868"
+                  timestampString = "527501014.365879"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -199,7 +199,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.586628"
+                  timestampString = "527501014.367894"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -214,7 +214,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.58914"
+                  timestampString = "527501014.369616"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -229,7 +229,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.591486"
+                  timestampString = "527501014.371342"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -244,7 +244,7 @@
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/CreateEditWordVC.swift"
-                  timestampString = "527381612.593714"
+                  timestampString = "527501014.373173"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
@@ -277,11 +277,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "527490470.345782"
+            timestampString = "527501013.679748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "updateSearchResults(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -369,15 +369,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordDetailTableViewCell.swift"
-            timestampString = "527491193.431077"
+            timestampString = "527500176.835993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "textView(_:shouldInteractWith:in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -385,16 +385,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordDetailTableViewCell.swift"
-            timestampString = "527490606.824027"
+            timestampString = "527500176.835993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "configurate(with:wordsTVCRef:at:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlangApp/AppLaunchingInitialVC.swift"
+            timestampString = "527498179.59795"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SlangApp/WordDetailTableViewCell.swift"
+            timestampString = "527498652.597246"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "favoriteButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

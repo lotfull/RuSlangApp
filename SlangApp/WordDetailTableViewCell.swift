@@ -14,7 +14,7 @@ protocol WordDetailTableViewCellDelegate: class {
 }
 
 protocol SearchWordByHashtagDelegate: class {
-    func updateSearchResultsByHashtag(_ hashtag: String)
+    func updateSearchResults(_ wordName: String)
 }
 
 class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
@@ -98,6 +98,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                 NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                 NSForegroundColorAttributeName: UIColor.darkGray,
                 NSParagraphStyleAttributeName: smallParagraphStyle]))
+            
         }
         
         if word.hashtags != nil {
@@ -129,7 +130,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
 
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         print(URL.absoluteString)
-        delegate1?.updateSearchResultsByHashtag(TranslitToHashtagsDict[URL.absoluteString]!)
+        delegate1?.updateSearchResults(TranslitToHashtagsDict[URL.absoluteString]!)
         
         return false
     }
