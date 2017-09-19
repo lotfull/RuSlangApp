@@ -13,10 +13,14 @@ protocol WordDetailTableViewCellDelegate: class {
     func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath)
 }
 
+protocol SearchWordByHashtagDelegate: class {
+    func updateSearchResultsByHashtag(_ hashtag: String)
+}
 
 class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     
     weak var delegate: WordDetailTableViewCellDelegate?
+    weak var delegate1: SearchWordByHashtagDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,11 +41,10 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         delegate?.reloading(self, indexPath: thisCellIndexPath)
     }
     
-    var number = 1
-    
-    func configurate(with word: Word, at indexPath: IndexPath) {
+    func configurate(with word: Word, wordsTVCRef: WordsTableVC, at indexPath: IndexPath) {
+        self.delegate1 = wordsTVCRef
         self.wordTextView.delegate = self
-
+        
         thisCellWord = word
         thisCellIndexPath = indexPath
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled"): #imageLiteral(resourceName: "purpleStar")
@@ -67,7 +70,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                 NSForegroundColorAttributeName: UIColor.purple]))
         }
         
-        let defString = "\n  \(number)) \(word.definition)\n"
+        let defString = "\n  1) \(word.definition)\n"
         attributedText.append(NSAttributedString(string: defString, attributes: [
             NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
             NSForegroundColorAttributeName: UIColor.black,
@@ -103,28 +106,19 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
             let attributedString = NSMutableAttributedString(string: hashtagsString)
             var foundRange: NSRange
             for hashtag in hashtagsArray {
-                if hashtag != "", hashtag != " " {
-                    print(hashtag)
-                    let translitHashtag = NSMutableString(string: hashtag)
-                    CFStringTransform(translitHashtag, nil, kCFStringTransformToLatin, false)
-                    print(translitHashtag)
-                    CFStringTransform(translitHashtag, nil, kCFStringTransformStripDiacritics, false)
-                    print(translitHashtag)
-                    foundRange = attributedString.mutableString.range(of: hashtag)
-                    attributedString.addAttribute(NSLinkAttributeName, value: translitHashtag, range: foundRange)
+                guard hashtag != "", hashtag != " " else {
+                    continue
                 }
+                let translitHashtag = NSMutableString(string: hashtag)
+                CFStringTransform(translitHashtag, nil, kCFStringTransformStripDiacritics, false)
+                print("hashtag: \(hashtag) -> \(translitHashtag)")
+                foundRange = attributedString.mutableString.range(of: hashtag)
+                attributedString.addAttribute(NSLinkAttributeName, value: translitHashtag, range: foundRange)
             }
             attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
                                            NSForegroundColorAttributeName: UIColor.purple,
                                            NSParagraphStyleAttributeName: hashParagraphStyle], range: attributedString.mutableString.range(of: hashtagsString))
             attributedText.append(attributedString)
-            /*
-            var foundRange = attributedString.mutableString.range(of: "Terms of use") //mention the parts of the attributed text you want to tap and get an custom action
-            attributedString.addAttribute(NSLinkAttributeName, value: termsAndConditionsURL, range: foundRange)
-            foundRange = attributedString.mutableString.range(of: "Privacy policy")
-            attributedString.addAttribute(NSLinkAttributeName, value: privacyURL, range: foundRange)
-            //wordTextView.attributedText = attributedString
-            */
         }
 
         wtv.attributedText = attributedText
@@ -133,15 +127,13 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         wtv.isUserInteractionEnabled = true
         wtv.isEditable = false
     }
-    
-    var set = Set<String>()
 
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         print(URL.absoluteString)
+        delegate1?.updateSearchResultsByHashtag(URL.absoluteString)
         return false
     }
 
-    
     let smallParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.headIndent = 20

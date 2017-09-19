@@ -17,9 +17,6 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     
     weak var delegate: AddingWordsToTrendsDelegate?
     
-    @IBAction func setTrendRatingButtonAction() {
-        self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
-    }
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +28,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.estimatedRowHeight = 100//tableView.rowHeight
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
@@ -78,14 +75,13 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     
     func saveManagedObjectContext() {
         do {
-            try managedObjectContext.save() // <- remember to put this :)
+            try managedObjectContext.save()
         } catch {
             fatalError("error tableView(_ tableView: UITableView, commit editingStyle \(error)")
         }
     }
     
     // MARK: - TABLEVIEW FUNCS
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -94,7 +90,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordDetailCell", for: indexPath) as! WordDetailTableViewCell
-        cell.configurate(with: word, at: indexPath)
+        cell.configurate(with: word, wordsTVCRef: wordsTableVCRef, at: indexPath)
         cell.delegate = self
         return cell
     }
@@ -109,21 +105,17 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     }
     
     // MARK: - @IBO and @IBA
+    @IBAction func setTrendRatingButtonAction() {
+        self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
+    }
     @IBAction func shareWordButton(_ sender: Any) {
-        // text to share
         let text = word.textViewString()
-        // set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        // exclude some activity types from the list (optional)
-        //activityViewController.excludedActivityTypes = [ ]
-        // present the view controller
+        activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
 
-    
-    // self.ref.child("users").child(user.uid).setValue(["username": username])
     @IBAction func cancel(_ sender: Any) {
         needToUpdate = false
         dismiss(animated: true, completion: nil)
@@ -135,6 +127,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     var word: Word!
     let editWordID = "EditWord"
     let getTrendRatingID = "getTrendRating"
+    var wordsTableVCRef: WordsTableVC!
 }
 
 

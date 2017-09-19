@@ -18,7 +18,7 @@ extension MutableCollection where Indices.Iterator.Element == Index {
     }
 }
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate {
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, SearchWordByHashtagDelegate {
     
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -209,29 +209,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
         resultsController.tableView.reloadData()
     }
-    /*
-    func beginsWithWordLettersSort(w1: Word, w2: Word) -> Bool {
-        var str1 = w1.name.lowercased()
-        var str2 = w2.name.lowercased()
-        var key = searchController.searchBar.text!.lowercased(with: NSLocale.current)
-        var i = 1
-        var minQ = min(str1.characters.count, str2.characters.count, key.characters.count)
-        while i < minQ {
-            let iLett = key.characters.dropFirst(i)
-            if String(str1.characters.dropFirst(i)) == iLett {
-                if String(str2.characters.dropFirst(i)) == iLett {
-                    i += 1
-                    continue
-                } else {
-                    return true
-                }
-            } else {
-                return false
-            }
-        }
-        return str1.localizedCompare(str2) == .orderedAscending
-    }
-    */
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         do {
@@ -245,11 +222,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         filteredWords = words
         tableView.reloadData()
     }
-    
     func sorting(word1: Word, word2: Word) -> Bool {
         return word1.name.lowercased().localizedCaseInsensitiveCompare(word2.name.lowercased()) == .orderedAscending
     }
-    
     func calculateWordsBySections() {
         for index in 0 ..< sectionNames.count {
             wordsBySection[sectionNames[index]] = [Word]()
@@ -266,12 +241,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             }
         }
     }
-    
-    func addWord(_ wordName: String) {
-        let word = Word()
-        word.name = wordName
-        word.definition = "Значение слова \(wordName)"
-        word.examples = "Сегодня я выучила \(wordName) на уроке английского"
+    func updateSearchResultsByHashtag(_ hashtag: String) {
+        
     }
     
     // MARK: - WordTableViewCellDelegate
