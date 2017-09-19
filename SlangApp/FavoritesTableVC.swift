@@ -112,14 +112,14 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     }
     
     // MARK: - WordTableViewCellDelegate
-    func shareWord(_ controller: WordTableViewCell, word: Word) {
+    func shareWord(word: Word) {
         let text = word.textViewString()
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
-    func reloading(_ controller: WordTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     

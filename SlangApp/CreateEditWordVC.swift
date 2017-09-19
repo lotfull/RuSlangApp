@@ -45,7 +45,7 @@ class CreateEditWordVC: UITableViewController {
     
     // MARK: - TABLEVIEW FUNCS
     
-    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {

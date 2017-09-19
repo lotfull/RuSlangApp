@@ -95,7 +95,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         return cell
     }
     
-    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {

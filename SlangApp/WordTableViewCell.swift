@@ -9,8 +9,8 @@
 import UIKit
 
 protocol WordTableViewCellDelegate: class {
-    func shareWord(_ controller: WordTableViewCell, word: Word)
-    func reloading(_ controller: WordTableViewCell, indexPath: IndexPath)
+    func shareWord(word: Word)
+    func reloading(indexPath: IndexPath)
 }
 
 
@@ -18,14 +18,7 @@ protocol WordTableViewCellDelegate: class {
 class WordTableViewCell: UITableViewCell {
     
     weak var delegate: WordTableViewCellDelegate?
-    
-    @IBOutlet weak var wordNameLabel: UILabel!
-    
-    @IBOutlet weak var wordDefinitionLabel: UILabel!
-    
-    @IBOutlet weak var favoriteButton: UIButton!
-    var addNewWord = false
-    
+
     func configure(with word: Word, at indexPath: IndexPath) {
         addNewWord = false
         self.separatorInset = UIEdgeInsets.zero
@@ -39,8 +32,6 @@ class WordTableViewCell: UITableViewCell {
             wordDefinitionLabel.text = thisCellWord.definition
         }
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-        //print("\nconfigure thisCellIndexPath: \(thisCellIndexPath.row)")
-        //print("configure thisCellWord.name: \(thisCellWord.name), favourite: \(thisCellWord.favorite)")
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
 
     }
@@ -54,34 +45,25 @@ class WordTableViewCell: UITableViewCell {
         wordDefinitionLabel.text = withDefinition
         favoriteButton.imageView?.image = #imageLiteral(resourceName: "purpleStar")
     }
-
-    var thisCellWord: Word!
-    var thisCellIndexPath: IndexPath!
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         if !addNewWord {
             thisCellWord.favorite = !thisCellWord.favorite
             favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-            //print("\nthisCellIndexPath: \(thisCellIndexPath.row)")
-            //print("thisCellWord.name: \(thisCellWord.name), favourite: \(thisCellWord.favorite)")
-            delegate?.reloading(self, indexPath: thisCellIndexPath)
+            delegate?.reloading(indexPath: thisCellIndexPath)
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
     @IBAction func shareWordButton(_ sender: Any) {
         if !addNewWord {
-            delegate?.shareWord(self, word: thisCellWord)
+            delegate?.shareWord(word: thisCellWord)
         }
     }
+    
+    @IBOutlet weak var wordNameLabel: UILabel!
+    @IBOutlet weak var wordDefinitionLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
 
-
+    var addNewWord = false
+    var thisCellWord: Word!
+    var thisCellIndexPath: IndexPath!
 }

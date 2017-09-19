@@ -70,18 +70,13 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            //print("prepare(for segue) in WordsTableVC")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
-                
+                wordDetailVC.wordsTableVCRef = self
                 if trendsVC != nil {
-                    //print("wordDetailVC.delegate = trendsVC")
                     wordDetailVC.delegate = trendsVC
-                } else {
-                    //print("wordDetailVC.delegate = else nil")
                 }
-                
                 indicator.stopAnimating()
                 indicator.hidesWhenStopped = true
             }
@@ -241,19 +236,29 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             }
         }
     }
+    
     func updateSearchResultsByHashtag(_ hashtag: String) {
-        
+        searchController.searchBar.text? = hashtag
+        filteredWords = sortedWords.filter({ (word:Word) -> Bool in
+            if let wordHashtags = word.hashtags {
+                return wordHashtags.components(separatedBy: ";").contains(hashtag) ? true : false
+            } else {
+                return false
+            }
+        })
+        titleButton.setTitle(hashtag, for: .normal)
+        resultsController.tableView.reloadData()
     }
     
     // MARK: - WordTableViewCellDelegate
-    func shareWord(_ controller: WordTableViewCell, word: Word) {
+    func shareWord(word: Word) {
         let text = word.textViewString()
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
-    func reloading(_ controller: WordTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {

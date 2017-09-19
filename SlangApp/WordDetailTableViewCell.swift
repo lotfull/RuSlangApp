@@ -9,8 +9,8 @@
 import UIKit
 
 protocol WordDetailTableViewCellDelegate: class {
-    //func shareWord(_ controller: WordTableViewCell, word: Word)
-    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath)
+    //func shareWord(word: Word)
+    func reloading(indexPath: IndexPath)
 }
 
 protocol SearchWordByHashtagDelegate: class {
@@ -38,7 +38,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         thisCellWord.favorite = !thisCellWord.favorite
         sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled"): #imageLiteral(resourceName: "purpleStar")
         print("word is \(thisCellWord.favorite ? "" : "NOT ")favorite")
-        delegate?.reloading(self, indexPath: thisCellIndexPath)
+        delegate?.reloading(indexPath: thisCellIndexPath)
     }
     
     func configurate(with word: Word, wordsTVCRef: WordsTableVC, at indexPath: IndexPath) {
@@ -110,17 +110,16 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                     continue
                 }
                 let translitHashtag = NSMutableString(string: hashtag)
+                CFStringTransform(translitHashtag, nil, kCFStringTransformToLatin, false)
                 CFStringTransform(translitHashtag, nil, kCFStringTransformStripDiacritics, false)
                 print("hashtag: \(hashtag) -> \(translitHashtag)")
+                TranslitToHashtagsDict[String(translitHashtag)] = hashtag
                 foundRange = attributedString.mutableString.range(of: hashtag)
                 attributedString.addAttribute(NSLinkAttributeName, value: translitHashtag, range: foundRange)
             }
-            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                                           NSForegroundColorAttributeName: UIColor.purple,
-                                           NSParagraphStyleAttributeName: hashParagraphStyle], range: attributedString.mutableString.range(of: hashtagsString))
+            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.purple, NSParagraphStyleAttributeName: hashParagraphStyle], range: attributedString.mutableString.range(of: hashtagsString))
             attributedText.append(attributedString)
         }
-
         wtv.attributedText = attributedText
         wtv.isSelectable = true
         wtv.dataDetectorTypes = UIDataDetectorTypes.link
@@ -130,7 +129,8 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
 
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         print(URL.absoluteString)
-        delegate1?.updateSearchResultsByHashtag(URL.absoluteString)
+        delegate1?.updateSearchResultsByHashtag(TranslitToHashtagsDict[URL.absoluteString]!)
+        
         return false
     }
 

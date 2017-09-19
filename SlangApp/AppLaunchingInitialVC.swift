@@ -24,7 +24,7 @@ class AppLaunchingInitialVC: UIViewController {
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let defaults = UserDefaults.standard
             //defaults.set(false, forKey: "isPreloaded")
-            let isPreloaded = defaults.bool(forKey: self.isPreloadedKey)
+            let isPreloaded = defaults.bool(forKey: self.isPreloadedKey + self.wordsVersion)
             if !isPreloaded {
                 self.preloadDataFromCSVFile()
                 defaults.set(true, forKey: self.isPreloadedKey)
@@ -110,5 +110,5 @@ class AppLaunchingInitialVC: UIViewController {
     let isPreloadedKey = "isPreloaded"
     let teenslang = "teenslang_appwords"
     let vsekidki = "vsekidki_appwords"
-    
+    let wordsVersion = "1"
 }

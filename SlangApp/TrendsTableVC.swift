@@ -129,7 +129,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     // MARK: - WordTableViewCellDelegate
     
-    func shareWord(_ controller: WordTableViewCell, word: Word) {
+    func shareWord(word: Word) {
         shareWordFunc()
         let text = word.textViewString()
         let textToShare = [ text ]
@@ -137,7 +137,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
-    func reloading(_ controller: WordTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {
