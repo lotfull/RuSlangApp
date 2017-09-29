@@ -95,6 +95,10 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         return cell
     }
     
+    func pop() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()

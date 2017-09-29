@@ -25,11 +25,10 @@ class AppLaunchingInitialVC: UIViewController {
             let isPreloaded = defaults.bool(forKey: self.isPreloadedKey + self.wordsVersion)
             if !isPreloaded {
                 self.preloadDataFromCSVFile()
-                defaults.set(true, forKey: self.isPreloadedKey)
+                defaults.set(true, forKey: self.isPreloadedKey + self.wordsVersion)
             }
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: self.showMainVCID, sender: nil)
-                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -91,11 +90,8 @@ class AppLaunchingInitialVC: UIViewController {
             }
             wordsTableVC.managedObjectContext = managedObjectContext
             wordsTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
-                /*let viewC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WordDetailVC") as? WordDetailVC
-                viewC?.managedObjectContext = managedObjectContext
-                let someView = viewC?.view
-                print("*** instantiateViewController")*/
             trendsVC.managedObjectContext = managedObjectContext
+            trendsVC.wordsTableVCRef = wordsTableVC
             favoritesTableVC.managedObjectContext = managedObjectContext
             favoritesTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
             moreVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC

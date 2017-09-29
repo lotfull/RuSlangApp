@@ -101,7 +101,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == resultsController.tableView {
-            return filteredWords.count
+            if filteredWords.count > 4 {
+                return filteredWords.count
+            } else {
+                return filteredWords.count + 1
+            }
         } else if isShuffled {
             return words.count
         } else {
@@ -123,10 +127,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 } else {
                     cell.configure(with: filteredWords[indexPath.row], at: indexPath)
                     cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-
-                    //print("indexPath.row: \(indexPath.row)")
-                    //print("word.name: \(filteredWords[indexPath.row].name)")
-                    
                 }
             }
         } else if isShuffled {
@@ -182,6 +182,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
 
     // MARK: - searching funcs
     func updateSearchResults(for searchController: UISearchController) {
+        print("-------update")
         let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
             filteredWords = sortedWords
@@ -191,21 +192,15 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 if let wordHashtags = word.hashtags {
                     let components = wordHashtags.components(separatedBy: " ")
                     for var hashtag in components {
-                        hashtag = hashtag.lowercased()
-                        let bit = hashtag == text!.lowercased()
-                        if bit {
-                            return true
-                        } else {
-                            return false
-                        }
+                        return hashtag.lowercased() == text!.lowercased()
                     }
-                } else {
-                    return false
                 }
                 return false
             })
+            print("in '#' filter mode \(filteredWords.count)")
             titleButton.setTitle(text!, for: .normal)
             resultsController.tableView.reloadData()
+            self.tableView.reloadData()
         } else {
             var tempWords = [Word]()
             filteredWords = sortedWords.filter({ (word:Word) -> Bool in
@@ -219,8 +214,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             })
             filteredWords.append(contentsOf: tempWords)
             titleButton.setTitle(text, for: .normal)
+            print("in 'else' filter mode \(filteredWords.count)")
         }
         resultsController.tableView.reloadData()
+        self.tableView.reloadData()
+
     }
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
@@ -256,8 +254,15 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     func updateSearchResults(_ wordName: String) {
+        print("----1----update")
         searchController.searchBar.text? = wordName
+        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
+        print("----3----update")
+        searchController.isActive = true
+        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
+        print("----4----update")
         self.updateSearchResults(for: searchController)
+        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
     }
     
     // MARK: - WordTableViewCellDelegate
@@ -274,7 +279,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         } catch {
             print ("There was managedObjectContext.save() error")
         }
-        resultsController.tableView.reloadRows(at: [indexPath], with: .none)
+        //resultsController.tableView.reloadRows(at: [indexPath], with: .none)
         self.tableView.reloadRows(at: [indexPath], with: .none)
     }
     

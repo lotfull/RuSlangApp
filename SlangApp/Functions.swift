@@ -38,5 +38,3 @@ var needToUpdate = false
 func shareWordFunc() {
     
 }
-
-var TranslitToHashtagsDict = ["#internet": "#Интернет"]

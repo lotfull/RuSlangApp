@@ -151,9 +151,48 @@
 			name = Supporting;
 			sourceTree = "<group>";
 		};
+		9181B48F1F7EC3500088970D /* WORDS */ = {
+			isa = PBXGroup;
+			children = (
+				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
+				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
+			);
+			name = WORDS;
+			sourceTree = "<group>";
+		};
+		9181B4901F7EC35F0088970D /* WORD DETAIL */ = {
+			isa = PBXGroup;
+			children = (
+				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
+				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
+			);
+			name = "WORD DETAIL";
+			sourceTree = "<group>";
+		};
+		9181B4911F7EC3A10088970D /* MORE */ = {
+			isa = PBXGroup;
+			children = (
+				9101F3291F61CC4A005294F5 /* FeedbackVC.swift */,
+				9126D2461F61F8720033E19D /* MoreVC.swift */,
+			);
+			name = MORE;
+			sourceTree = "<group>";
+		};
+		9181B4921F7EC3BD0088970D /* TAB BAR OTHERS */ = {
+			isa = PBXGroup;
+			children = (
+				916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */,
+				91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */,
+			);
+			name = "TAB BAR OTHERS";
+			sourceTree = "<group>";
+		};
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */,
+				911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */,
+				9101F32B1F61EBF6005294F5 /* Feedback.swift */,
 				911FD0991F0CED91000C5C84 /* HudView.swift */,
 				916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */,
 				91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */,
@@ -198,22 +237,15 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
-				911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */,
-				9101F3291F61CC4A005294F5 /* FeedbackVC.swift */,
-				9126D2461F61F8720033E19D /* MoreVC.swift */,
-				916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */,
-				917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */,
-				91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */,
-				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
-				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
-				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
-				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
+				9181B4911F7EC3A10088970D /* MORE */,
+				9181B4921F7EC3BD0088970D /* TAB BAR OTHERS */,
+				9181B4901F7EC35F0088970D /* WORD DETAIL */,
+				9181B48F1F7EC3500088970D /* WORDS */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
-				9101F32B1F61EBF6005294F5 /* Feedback.swift */,
 			);
 			path = SlangApp;
 			sourceTree = "<group>";

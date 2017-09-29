@@ -10,6 +10,7 @@ import UIKit
 
 protocol WordDetailTableViewCellDelegate: class {
     //func shareWord(word: Word)
+    func pop()
     func reloading(indexPath: IndexPath)
 }
 
@@ -21,7 +22,9 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     
     weak var delegate: WordDetailTableViewCellDelegate?
     weak var delegate1: SearchWordByHashtagDelegate?
-
+    
+    var linkedWord = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -30,24 +33,17 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     }
     var thisCellWord: Word!
     var thisCellIndexPath: IndexPath!
+    var linkedWords: [String] = []
     
     @IBOutlet weak var wordTextView: UITextView!
-    @IBOutlet weak var favoriteButton: UIButton!
-    
-    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        thisCellWord.favorite = !thisCellWord.favorite
-        sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled"): #imageLiteral(resourceName: "purpleStar")
-        print("word is \(thisCellWord.favorite ? "" : "NOT ")favorite")
-        delegate?.reloading(indexPath: thisCellIndexPath)
-    }
     
     func configurate(with word: Word, wordsTVCRef: WordsTableVC, at indexPath: IndexPath) {
+        linkedWords = [String]()
         self.delegate1 = wordsTVCRef
         self.wordTextView.delegate = self
         
         thisCellWord = word
         thisCellIndexPath = indexPath
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled"): #imageLiteral(resourceName: "purpleStar")
 
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"
@@ -94,11 +90,20 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         
         if word.synonyms != nil {
             let synonymsString = "син.: \(word.synonyms!)\n"
-            attributedText.append(NSAttributedString(string: synonymsString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.darkGray,
-                NSParagraphStyleAttributeName: smallParagraphStyle]))
-            
+            let seps = CharacterSet.init(charactersIn: ",. ")
+            let synonymsArray = synonymsString.components(separatedBy: seps)
+            let attributedString = NSMutableAttributedString(string: synonymsString)
+            var foundRange: NSRange
+            for synonym in synonymsArray {
+                guard synonym.rangeOfCharacter(from: seps) == nil else { continue }
+                let synonymID = NSMutableString(string: "\(linkedWords.count)")
+                print("hashtagID \(synonymID)")
+                linkedWords.append(synonym.uppercaseFirst())
+                foundRange = attributedString.mutableString.range(of: synonym)
+                attributedString.addAttribute(NSLinkAttributeName, value: synonymID, range: foundRange)
+            }
+            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.darkGray, NSParagraphStyleAttributeName: smallParagraphStyle], range: attributedString.mutableString.range(of: synonymsString))
+            attributedText.append(attributedString)
         }
         
         if word.hashtags != nil {
@@ -107,16 +112,12 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
             let attributedString = NSMutableAttributedString(string: hashtagsString)
             var foundRange: NSRange
             for hashtag in hashtagsArray {
-                guard hashtag != "", hashtag != " " else {
-                    continue
-                }
-                let translitHashtag = NSMutableString(string: hashtag)
-                CFStringTransform(translitHashtag, nil, kCFStringTransformToLatin, false)
-                CFStringTransform(translitHashtag, nil, kCFStringTransformStripDiacritics, false)
-                print("hashtag: \(hashtag) -> \(translitHashtag)")
-                TranslitToHashtagsDict[String(translitHashtag)] = hashtag
+                guard hashtag != "", hashtag != " " else { continue }
+                let hashtagID = NSMutableString(string: "\(linkedWords.count)")
+                print("hashtagID \(hashtagID)")
+                linkedWords.append(hashtag)
                 foundRange = attributedString.mutableString.range(of: hashtag)
-                attributedString.addAttribute(NSLinkAttributeName, value: translitHashtag, range: foundRange)
+                attributedString.addAttribute(NSLinkAttributeName, value: hashtagID, range: foundRange)
             }
             attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.purple, NSParagraphStyleAttributeName: hashParagraphStyle], range: attributedString.mutableString.range(of: hashtagsString))
             attributedText.append(attributedString)
@@ -130,8 +131,11 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
 
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         print(URL.absoluteString)
-        delegate1?.updateSearchResults(TranslitToHashtagsDict[URL.absoluteString]!)
-        
+        if let linkedWordID = Int(URL.absoluteString),
+            linkedWords.count > linkedWordID {
+            delegate1?.updateSearchResults(linkedWords[linkedWordID])
+        }
+        delegate?.pop()
         return false
     }
 

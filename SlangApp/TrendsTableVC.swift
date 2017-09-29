@@ -27,7 +27,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tappedTabBarIndex = tabBarController.selectedIndex
-        ////print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
         if tappedTabBarIndex == selectedTabBarIndex {
             scrollToHeader()
         }
@@ -43,10 +42,10 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            //print("prepare(for segue")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
+                wordDetailVC.wordsTableVCRef = wordsTableVCRef
             }
         }
     }
@@ -81,7 +80,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
                     dict.count > 1
                 {
                     let word = self.word(fromDict: dict)
-                    //print("\(word.name)")
                     self.trendWords.append(word)
                 }
             }
@@ -92,12 +90,10 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     
     func sendFeedback(_ controller: FeedbackVC, _ feedback: Feedback) {
-        //print(feedback.text())
         ref.child("feedbacks").childByAutoId().setValue([
             "contacts": feedback.contacts,
             "feedback": feedback.feedback,
             "rating": feedback.rating])
-        //print("feedback added")
     }
     
     func addNewWord(_ word: Word) {
@@ -113,7 +109,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     }
     
     func addToTrends(_ controller: WordDetailVC, word: Word, rating: Int) {
-        //print("***** delegate addToTrends func start")
         ref.child("trend words").child("\(rating)").setValue([
             "name": word.name,
             "definition": word.definition,
@@ -123,7 +118,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             "synonyms": word.synonyms,
             "type": word.type,
             "hashtags": word.hashtags])
-        //print("***** Word \(word.name) added to trends")
         observeTrends()
     }
     
@@ -188,12 +182,11 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     @IBOutlet weak var titleButton: UIButton!
     
     @IBAction func addTrends(_ sender: Any) {
-        //print("addTrends")
-        //add_temp_trends()
     }
     
     // MARK: - VARS and LETS
     var managedObjectContext: NSManagedObjectContext!
+    var wordsTableVCRef: WordsTableVC!
     var trends = [String: Int]()
     var trendWords = [Word]()
     var selectedWord: Word!
