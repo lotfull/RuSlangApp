@@ -7,7 +7,7 @@ Development Tools: Xcode, Jupyter Notebook, PyCharm.
 Development Technologies: CoreData, FireBase, UI, Pandas, BeautifulSoup, Selenium, Protocols, MVC.
 
 
-<img src="https://raw.githubusercontent.com/Lotfull/RuSlang-app/master/ScreenGifs/Image-2.gif" alt="Word Detail Screen" width="300"> <img src="https://raw.githubusercontent.com/Lotfull/RuSlang-app/master/ScreenGifs/Image-3.gif" alt="Main Screen" width="300"> 
+<img src="https://raw.githubusercontent.com/Lotfull/RuSlang-app/master/ScreenGifs/Image-2.gif" alt="Word Detail Screen" width="300"> <img src="https://raw.githubusercontent.com/Lotfull/RuSlang-app/master/ScreenGifs/Image-3.gif" alt="Main Screen" width="300">
 
 
 Compilation instructions: <br>
