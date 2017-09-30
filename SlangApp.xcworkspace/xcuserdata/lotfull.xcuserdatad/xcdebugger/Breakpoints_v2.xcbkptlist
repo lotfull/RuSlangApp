@@ -228,7 +228,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordDetailVC.swift"
-            timestampString = "528402203.511569"
+            timestampString = "528481361.852027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -244,13 +244,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordDetailTableViewCell.swift"
-            timestampString = "528402203.511974"
+            timestampString = "528482144.644342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "textView(_:shouldInteractWith:in:)"
-            landmarkType = "7">
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "smallParagraphStyle"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
