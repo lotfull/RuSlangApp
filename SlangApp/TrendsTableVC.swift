@@ -32,6 +32,9 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         }
         selectedTabBarIndex = tappedTabBarIndex
     }
+    
+    //
+    
     func scrollToHeader() {
         self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
