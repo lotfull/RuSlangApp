@@ -16,6 +16,10 @@ protocol CreateWordVCDelegate: class {
     func createEditWordVCDone(_ controller: CreateEditWordVC, editing word: Word)
 }
 
+protocol AddingNewWordsToFirebase: class {
+    func addNewWord(_ word: Word)
+}
+
 class CreateEditWordVC: UITableViewController {
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -37,10 +41,11 @@ class CreateEditWordVC: UITableViewController {
     }
     
     weak var delegate: CreateWordVCDelegate?
+    weak var delegate1: AddingNewWordsToFirebase?
     
     // MARK: - TABLEVIEW FUNCS
     
-    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {
@@ -101,6 +106,7 @@ class CreateEditWordVC: UITableViewController {
                 word.synonyms = returnNilIfEmpty(synonymsField.text!)
                 word.favorite = favoriteSwitch.isOn
                 delegate?.createEditWordVCDone(self, adding: word)
+                delegate1?.addNewWord(word)
             } else {
                 // Fallback on earlier versions
             }
@@ -126,21 +132,6 @@ class CreateEditWordVC: UITableViewController {
         doneBarButton.isEnabled = (newText.length > 0)
         return true
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 
 }

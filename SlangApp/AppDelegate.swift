@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Fallback on earlier versions
             }
         } else {
-            print("Something went wrong with managedObjectContext assignment")
+            //print("Something went wrong with managedObjectContext assignment")
         }
         listenForFatalCoreDataNotifications()
         return true
@@ -177,23 +177,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - PRELOAD FROM CSV FUNCS
     
-
-    
-    
-    func deleteObject(withID objectID: NSManagedObjectID) {
-        let fetchRequest: NSFetchRequest<Word> = Word.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "attendance = \(objectID)")// Predicate.init(format: "profileID==\(withID)")
-        if #available(iOS 10.0, *) {
-            if let result = try? managedObjectContext.fetch(fetchRequest) {
-                for object in result {
-                    managedObjectContext.delete(object)
-                }
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
     func println(_ s: String) {
         let path = "/Users/lotfull/Desktop/xcode/SlangApp/SlangApp/output.txt"
         var dump = ""
@@ -207,9 +190,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Failed writing to log file: \(path), Error: " + error.localizedDescription)
         }
     }
-    
-
-    
 }
 
 

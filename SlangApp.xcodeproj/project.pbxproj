@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9101F32A1F61CC4A005294F5 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101F3291F61CC4A005294F5 /* FeedbackVC.swift */; };
 		9101F32C1F61EBF6005294F5 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101F32B1F61EBF6005294F5 /* Feedback.swift */; };
+		911127A51F67E9AC00BA06F1 /* TrendRatingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */; };
 		9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FD0991F0CED91000C5C84 /* HudView.swift */; };
@@ -40,11 +41,24 @@
 		F544C7EF1AB28CD71A9C56C1 /* Pods_SlangApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD08435A1BFCE9548FE5F3C /* Pods_SlangApp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		911127AF1F68F9F200BA06F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91F97AF21E37BF1800796C1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91F97AF91E37BF1800796C1F;
+			remoteInfo = SlangApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3BD4CB1B4339256A3E93A4D3 /* Pods-SlangApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp.debug.xcconfig"; sourceTree = "<group>"; };
 		81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlangApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlangApp/Pods-SlangApp.release.xcconfig"; sourceTree = "<group>"; };
 		9101F3291F61CC4A005294F5 /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		9101F32B1F61EBF6005294F5 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendRatingTVC.swift; sourceTree = "<group>"; };
+		911127AA1F68F9F200BA06F1 /* SlangAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlangAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		911127AE1F68F9F200BA06F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVtoArrayStringExtension.swift; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		911FD0991F0CED91000C5C84 /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
@@ -79,6 +93,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		911127A71F68F9F200BA06F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91F97AF71E37BF1800796C1F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,9 +119,80 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		911127AB1F68F9F200BA06F1 /* SlangAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				911127B61F68FA6400BA06F1 /* Supporting */,
+				911127B51F68FA5E00BA06F1 /* Data */,
+				911127B41F68FA5500BA06F1 /* Cases */,
+			);
+			path = SlangAppTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		911127B41F68FA5500BA06F1 /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cases;
+			sourceTree = "<group>";
+		};
+		911127B51F68FA5E00BA06F1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		911127B61F68FA6400BA06F1 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				911127AE1F68F9F200BA06F1 /* Info.plist */,
+			);
+			name = Supporting;
+			sourceTree = "<group>";
+		};
+		9181B48F1F7EC3500088970D /* WORDS */ = {
+			isa = PBXGroup;
+			children = (
+				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
+				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
+			);
+			name = WORDS;
+			sourceTree = "<group>";
+		};
+		9181B4901F7EC35F0088970D /* WORD DETAIL */ = {
+			isa = PBXGroup;
+			children = (
+				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
+				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
+			);
+			name = "WORD DETAIL";
+			sourceTree = "<group>";
+		};
+		9181B4911F7EC3A10088970D /* MORE */ = {
+			isa = PBXGroup;
+			children = (
+				9101F3291F61CC4A005294F5 /* FeedbackVC.swift */,
+				9126D2461F61F8720033E19D /* MoreVC.swift */,
+			);
+			name = MORE;
+			sourceTree = "<group>";
+		};
+		9181B4921F7EC3BD0088970D /* TAB BAR OTHERS */ = {
+			isa = PBXGroup;
+			children = (
+				916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */,
+				91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */,
+			);
+			name = "TAB BAR OTHERS";
+			sourceTree = "<group>";
+		};
 		919BEC811E8591CD00AF1644 /* Other Files */ = {
 			isa = PBXGroup;
 			children = (
+				917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */,
+				911127A41F67E9AB00BA06F1 /* TrendRatingTVC.swift */,
+				9101F32B1F61EBF6005294F5 /* Feedback.swift */,
 				911FD0991F0CED91000C5C84 /* HudView.swift */,
 				916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */,
 				91EB3C201EFDA43E00F807EA /* teenslang_appwords.csv */,
@@ -126,6 +218,7 @@
 				916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */,
 				916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */,
 				91F97AFC1E37BF1900796C1F /* SlangApp */,
+				911127AB1F68F9F200BA06F1 /* SlangAppTests */,
 				91F97AFB1E37BF1900796C1F /* Products */,
 				AA450E737682413B4C79AC19 /* Pods */,
 				6BCE061C72F128E91A28F2E0 /* Frameworks */,
@@ -136,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				91F97AFA1E37BF1900796C1F /* SlangApp.app */,
+				911127AA1F68F9F200BA06F1 /* SlangAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,21 +237,15 @@
 		91F97AFC1E37BF1900796C1F /* SlangApp */ = {
 			isa = PBXGroup;
 			children = (
-				9101F3291F61CC4A005294F5 /* FeedbackVC.swift */,
-				9126D2461F61F8720033E19D /* MoreVC.swift */,
-				916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */,
-				917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */,
-				91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */,
-				9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */,
-				917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */,
-				91E959581E430F540055F5B2 /* WordsTableVC.swift */,
-				919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */,
+				9181B4911F7EC3A10088970D /* MORE */,
+				9181B4921F7EC3BD0088970D /* TAB BAR OTHERS */,
+				9181B4901F7EC35F0088970D /* WORD DETAIL */,
+				9181B48F1F7EC3500088970D /* WORDS */,
 				91F97AFD1E37BF1900796C1F /* AppDelegate.swift */,
 				91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */,
 				91F97B031E37BF1900796C1F /* Main.storyboard */,
 				91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */,
 				919BEC811E8591CD00AF1644 /* Other Files */,
-				9101F32B1F61EBF6005294F5 /* Feedback.swift */,
 			);
 			path = SlangApp;
 			sourceTree = "<group>";
@@ -174,6 +262,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		911127A91F68F9F200BA06F1 /* SlangAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 911127B11F68F9F200BA06F1 /* Build configuration list for PBXNativeTarget "SlangAppTests" */;
+			buildPhases = (
+				911127A61F68F9F200BA06F1 /* Sources */,
+				911127A71F68F9F200BA06F1 /* Frameworks */,
+				911127A81F68F9F200BA06F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				911127B01F68F9F200BA06F1 /* PBXTargetDependency */,
+			);
+			name = SlangAppTests;
+			productName = SlangAppTests;
+			productReference = 911127AA1F68F9F200BA06F1 /* SlangAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		91F97AF91E37BF1800796C1F /* SlangApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91F97B0E1E37BF1900796C1F /* Build configuration list for PBXNativeTarget "SlangApp" */;
@@ -200,10 +306,17 @@
 		91F97AF21E37BF1800796C1F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Kam Lotfull";
 				TargetAttributes = {
+					911127A91F68F9F200BA06F1 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6YN2YGXZUM;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 91F97AF91E37BF1800796C1F;
+					};
 					91F97AF91E37BF1800796C1F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 754G6TU2DQ;
@@ -225,11 +338,19 @@
 			projectRoot = "";
 			targets = (
 				91F97AF91E37BF1800796C1F /* SlangApp */,
+				911127A91F68F9F200BA06F1 /* SlangAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		911127A81F68F9F200BA06F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91F97AF81E37BF1800796C1F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +420,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		911127A61F68F9F200BA06F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91F97AF61E37BF1800796C1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +437,7 @@
 				9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */,
 				9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
+				911127A51F67E9AC00BA06F1 /* TrendRatingTVC.swift in Sources */,
 				911FD09A1F0CED91000C5C84 /* HudView.swift in Sources */,
 				919600FC1EE1E41C002BE3D6 /* README.md in Sources */,
 				9126D2471F61F8720033E19D /* MoreVC.swift in Sources */,
@@ -326,6 +455,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		911127B01F68F9F200BA06F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 91F97AF91E37BF1800796C1F /* SlangApp */;
+			targetProxy = 911127AF1F68F9F200BA06F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		91F97B031E37BF1900796C1F /* Main.storyboard */ = {
@@ -347,6 +484,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		911127B21F68F9F200BA06F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 6YN2YGXZUM;
+				INFOPLIST_FILE = SlangAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KamLotfull.SlangAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlangApp.app/SlangApp";
+			};
+			name = Debug;
+		};
+		911127B31F68F9F200BA06F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 6YN2YGXZUM;
+				INFOPLIST_FILE = SlangAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KamLotfull.SlangAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlangApp.app/SlangApp";
+			};
+			name = Release;
+		};
 		91F97B0C1E37BF1900796C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -356,7 +528,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -364,7 +538,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -388,7 +566,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -408,7 +586,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -416,7 +596,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -434,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -449,7 +633,6 @@
 			baseConfigurationReference = 3BD4CB1B4339256A3E93A4D3 /* Pods-SlangApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 754G6TU2DQ;
 				INFOPLIST_FILE = SlangApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -465,7 +648,6 @@
 			baseConfigurationReference = 81B932F17F441CB0C3EABC7F /* Pods-SlangApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 754G6TU2DQ;
 				INFOPLIST_FILE = SlangApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -479,6 +661,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		911127B11F68F9F200BA06F1 /* Build configuration list for PBXNativeTarget "SlangAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				911127B21F68F9F200BA06F1 /* Debug */,
+				911127B31F68F9F200BA06F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		91F97AF51E37BF1800796C1F /* Build configuration list for PBXProject "SlangApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

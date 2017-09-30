@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol FreeDelegate: class {
-    func printDick()
-}
-
 protocol SendingFeedbackDelegate: class {
     func sendFeedback(_ controller: FeedbackVC, _ feedback: Feedback)
 }
@@ -19,7 +15,6 @@ protocol SendingFeedbackDelegate: class {
 class FeedbackVC: UITableViewController, UITextViewDelegate {
 
     weak var delegate: SendingFeedbackDelegate?
-    weak var delegate1: FreeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +23,6 @@ class FeedbackVC: UITableViewController, UITextViewDelegate {
         feedbackTextView.delegate = self
         nameField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         emailField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
-        delegate1?.printDick()
-        
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -61,7 +54,7 @@ class FeedbackVC: UITableViewController, UITextViewDelegate {
                                 email: emailField.text,
                                 feedback: feedbackTextView.text,
                                 rating: ratingSegmentControl.selectedSegmentIndex + 1)
-        print(feedback.text())
+        //print(feedback.text())
         delegate?.sendFeedback(self, feedback)
         _ = navigationController?.popViewController(animated: true)
     }

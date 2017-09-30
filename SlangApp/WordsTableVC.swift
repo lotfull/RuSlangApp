@@ -9,25 +9,16 @@ extension MutableCollection where Indices.Iterator.Element == Index {
     mutating func shuffle() {
         let c = count
         guard c > 1 else { return }
-        
         for (firstUnshuffled , unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
             let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             guard d != 0 else { continue }
             let i = index(firstUnshuffled, offsetBy: d)
-            swap(&self[firstUnshuffled], &self[i])
+            self.swapAt(firstUnshuffled, i)
         }
     }
 }
 
-
-
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, FreeDelegate {
-    
-    func printDick() {
-        print("8====o")
-    }
-    
-    var indicator = UIActivityIndicatorView()
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, SearchWordByHashtagDelegate {
     
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -36,42 +27,21 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         self.view.addSubview(indicator)
     }
     
-    @IBAction func shufflePressed(_ sender: UIBarButtonItem) {
-        
-        if isShuffled {
-            words.sort(by: sorting)
-            isShuffled = false
-            self.tableView.reloadData()
-            sender.title = "случайно"
-        } else {
-            words.shuffle()
-            isShuffled = true
-            self.tableView.reloadData()
-            sender.title = "по порядку"
-        }
-        scrollToHeader()
-    }
-    @IBAction func titleTapped(_ sender: Any) {
-        scrollToHeader()
-    }
-    @IBOutlet weak var titleButton: UIButton!
-    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        //print("viewDidLoad")
         installSearchController()
         installTableView()
-        
         firstFetching()
-        
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
+        words.shuffle()
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tappedTabBarIndex = tabBarController.selectedIndex
-        print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
+        //print("previous: \(selectedTabBarIndex), tapped: \(tappedTabBarIndex)")
         if tappedTabBarIndex == selectedTabBarIndex {
             scrollToHeader()
         }
@@ -100,28 +70,22 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
-            print("prepare(for segue) in WordsTableVC")
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
-                
+                wordDetailVC.wordsTableVCRef = self
                 if trendsVC != nil {
-                    print("wordDetailVC.delegate = trendsVC")
                     wordDetailVC.delegate = trendsVC
-                } else {
-                    print("wordDetailVC.delegate = else nil")
                 }
-                
                 indicator.stopAnimating()
                 indicator.hidesWhenStopped = true
             }
-        } else if segue.identifier == showFavoritesID {
-            
         } else if segue.identifier == createEditWordID {
             if let navigationVC = segue.destination as? UINavigationController,
                 let createEditWordVC = navigationVC.topViewController as? CreateEditWordVC {
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.delegate = self
+                createEditWordVC.delegate1 = trendsVC
             }
         }
     }
@@ -134,9 +98,14 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             return sectionNames.count
         }
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == resultsController.tableView {
-            return filteredWords.count
+            if filteredWords.count > 4 {
+                return filteredWords.count
+            } else {
+                return filteredWords.count + 1
+            }
         } else if isShuffled {
             return words.count
         } else {
@@ -150,10 +119,19 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
         if tableView == resultsController.tableView {
-            cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+            if filteredWords.count > 4 {
+                cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+            } else {
+                if indexPath.row == filteredWords.count {
+                    cell.configure(withName: "Нет желаемого слова?", withDefinition: "Добавьте его сами и помогите найти его другим, нажав на эту ячейку.", at: indexPath)
+                } else {
+                    cell.configure(with: filteredWords[indexPath.row], at: indexPath)
+                    cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
+                }
+            }
         } else if isShuffled {
             cell.configure(with: words[indexPath.row], at: indexPath)
-        } else {
+        } else if tableView == self.tableView {
             let wordKey = sectionNames[indexPath.section]
             if let sectionWords = wordsBySection[wordKey] {
                 cell.configure(with: sectionWords[indexPath.row], at: indexPath)
@@ -169,7 +147,13 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             indicator.backgroundColor = UIColor.white
         }
         if tableView == resultsController.tableView {
-            selectedWord = filteredWords[indexPath.row]
+            if filteredWords.count < 4,
+                indexPath.row == filteredWords.count {
+                addNewWordButtonPressed()
+                return
+            } else {
+                selectedWord = filteredWords[indexPath.row]
+            }
         } else if isShuffled {
             selectedWord = words[indexPath.row]
         } else {
@@ -178,7 +162,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 selectedWord = sectionWords[indexPath.row]
             }
         }
-        print("didSelectRowAt")
+        //print("didSelectRowAt")
         self.performSegue(withIdentifier: showWordDetailID, sender: nil)
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -198,40 +182,60 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
 
     // MARK: - searching funcs
     func updateSearchResults(for searchController: UISearchController) {
-        let text = searchController.searchBar.text
+        print("-------update")
+        let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
-            filteredWords = words
+            filteredWords = sortedWords
             titleButton.setTitle("Словарь сленг-слов", for: .normal)
-        } else {
-            filteredWords = words.filter({ (word:Word) -> Bool in
-                if word.name.contains(text!) {
-                    return true
-                } else {
-                    return false
+        } else if text?.characters.first! == "#" {
+            filteredWords = sortedWords.filter({ (word:Word) -> Bool in
+                if let wordHashtags = word.hashtags {
+                    let components = wordHashtags.components(separatedBy: " ")
+                    for var hashtag in components {
+                        return hashtag.lowercased() == text!.lowercased()
+                    }
                 }
+                return false
             })
+            print("in '#' filter mode \(filteredWords.count)")
+            titleButton.setTitle(text!, for: .normal)
+            resultsController.tableView.reloadData()
+            self.tableView.reloadData()
+        } else {
+            var tempWords = [Word]()
+            filteredWords = sortedWords.filter({ (word:Word) -> Bool in
+                let wordName = word.name.lowercased(with: NSLocale.current)
+                if wordName.hasPrefix(text!) {
+                    return true
+                } else if wordName.contains(text!) {
+                    tempWords.append(word)
+                }
+                return false
+            })
+            filteredWords.append(contentsOf: tempWords)
             titleButton.setTitle(text, for: .normal)
+            print("in 'else' filter mode \(filteredWords.count)")
         }
         resultsController.tableView.reloadData()
+        self.tableView.reloadData()
+
     }
-    
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         do {
-            words = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
+            sortedWords = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
+            sortedWords.sort(by: sorting)
         } catch {
             fatalError("Failed to fetch words: \(error)")
         }
-        words.sort(by: sorting)
+        words = sortedWords
         calculateWordsBySections()
         filteredWords = words
         tableView.reloadData()
     }
-    
     func sorting(word1: Word, word2: Word) -> Bool {
         return word1.name.lowercased().localizedCaseInsensitiveCompare(word2.name.lowercased()) == .orderedAscending
     }
-    
     func calculateWordsBySections() {
         for index in 0 ..< sectionNames.count {
             wordsBySection[sectionNames[index]] = [Word]()
@@ -249,28 +253,34 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     
-    func addWord(_ wordName: String) {
-        let word = Word()
-        word.name = wordName
-        word.definition = "Значение слова \(wordName)"
-        word.examples = "Сегодня я выучила \(wordName) на уроке английского"
+    func updateSearchResults(_ wordName: String) {
+        print("----1----update")
+        searchController.searchBar.text? = wordName
+        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
+        print("----3----update")
+        searchController.isActive = true
+        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
+        print("----4----update")
+        self.updateSearchResults(for: searchController)
+        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
     }
     
     // MARK: - WordTableViewCellDelegate
-    func shareWord(_ controller: WordTableViewCell, word: Word) {
+    func shareWord(word: Word) {
         let text = word.textViewString()
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
-    func reloading(_ controller: WordTableViewCell, indexPath: IndexPath) {
+    func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {
             print ("There was managedObjectContext.save() error")
         }
-        tableView.reloadRows(at: [indexPath], with: .none)
+        //resultsController.tableView.reloadRows(at: [indexPath], with: .none)
+        self.tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - CreateWordVCDelegate
@@ -299,6 +309,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             tableView.reloadData()
         }
     }
+    
     func saveManagedObjectContext() {
         do {
             try managedObjectContext.save()
@@ -307,6 +318,31 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         }
     }
     
+    @IBAction func addNewWordButtonPressed() {
+        performSegue(withIdentifier: createEditWordID, sender: nil)
+        searchController.searchBar.text = ""
+    }
+    
+    @IBAction func shufflePressed() {
+        if isShuffled {
+            words = sortedWords//.sort(by: sorting)
+            isShuffled = false
+            self.tableView.reloadData()
+            shuffleButton.title = "Случайно"
+        } else {
+            words.shuffle()
+            isShuffled = true
+            self.tableView.reloadData()
+            shuffleButton.title = "А-Я"
+        }
+        scrollToHeader()
+    }
+    @IBAction func titleTapped(_ sender: Any) {
+        scrollToHeader()
+    }
+    
+    @IBOutlet weak var shuffleButton: UIBarButtonItem!
+    @IBOutlet weak var titleButton: UIButton!
     // MARK: - VARS and LETS
     var sectionNames = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я", "#"]
     var wordsBySection = [String: [Word]]()
@@ -314,14 +350,15 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     var resultsController = UITableViewController()
     var managedObjectContext: NSManagedObjectContext!
     var words = [Word]()
+    var sortedWords = [Word]()
     var filteredWords = [Word]()
     var selectedWord: Word!
     var selectedTabBarIndex: Int!
-    var isShuffled = false
+    var isShuffled = true
     var trendsVC: TrendsTableVC!
     var hudNeeded = true
+    var indicator = UIActivityIndicatorView()
     let showWordDetailID = "ShowWordDetail"
-    let showFavoritesID = "ShowFavorites"
     let createEditWordID = "CreateEditWord"
     let ref = Database.database().reference()
 

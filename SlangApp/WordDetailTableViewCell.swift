@@ -9,15 +9,22 @@
 import UIKit
 
 protocol WordDetailTableViewCellDelegate: class {
-    //func shareWord(_ controller: WordTableViewCell, word: Word)
-    func reloading(_ controller: WordDetailTableViewCell, indexPath: IndexPath)
+    //func shareWord(word: Word)
+    func pop()
+    func reloading(indexPath: IndexPath)
 }
 
+protocol SearchWordByHashtagDelegate: class {
+    func updateSearchResults(_ wordName: String)
+}
 
-class WordDetailTableViewCell: UITableViewCell {
+class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     
     weak var delegate: WordDetailTableViewCellDelegate?
-
+    weak var delegate1: SearchWordByHashtagDelegate?
+    
+    var linkedWord = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -26,23 +33,17 @@ class WordDetailTableViewCell: UITableViewCell {
     }
     var thisCellWord: Word!
     var thisCellIndexPath: IndexPath!
+    var linkedWords: [String] = []
     
     @IBOutlet weak var wordTextView: UITextView!
-    @IBOutlet weak var favoriteButton: UIButton!
     
-    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        thisCellWord.favorite = !thisCellWord.favorite
-        sender.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
-        print("word is \(thisCellWord.favorite ? "" : "NOT ")favorite")
-        delegate?.reloading(self, indexPath: thisCellIndexPath)
-    }
-    
-    var number = 1
-    
-    func configurate(with word: Word, at indexPath: IndexPath) {
+    func configurate(with word: Word, wordsTVCRef: WordsTableVC, at indexPath: IndexPath) {
+        linkedWords = [String]()
+        self.delegate1 = wordsTVCRef
+        self.wordTextView.delegate = self
+        
         thisCellWord = word
         thisCellIndexPath = indexPath
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star "): #imageLiteral(resourceName: "big star ")
 
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"
@@ -65,7 +66,7 @@ class WordDetailTableViewCell: UITableViewCell {
                 NSForegroundColorAttributeName: UIColor.purple]))
         }
         
-        let defString = "\n  \(number)) \(word.definition)\n"
+        let defString = "\n  1) \(word.definition)\n"
         attributedText.append(NSAttributedString(string: defString, attributes: [
             NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
             NSForegroundColorAttributeName: UIColor.black,
@@ -89,41 +90,55 @@ class WordDetailTableViewCell: UITableViewCell {
         
         if word.synonyms != nil {
             let synonymsString = "син.: \(word.synonyms!)\n"
-            attributedText.append(NSAttributedString(string: synonymsString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.darkGray,
-                NSParagraphStyleAttributeName: smallParagraphStyle]))
+            let seps = CharacterSet.init(charactersIn: ",. ")
+            let synonymsArray = synonymsString.components(separatedBy: seps)
+            let attributedString = NSMutableAttributedString(string: synonymsString)
+            var foundRange: NSRange
+            for synonym in synonymsArray {
+                guard synonym.rangeOfCharacter(from: seps) == nil else { continue }
+                let synonymID = NSMutableString(string: "\(linkedWords.count)")
+                print("hashtagID \(synonymID)")
+                linkedWords.append(synonym.uppercaseFirst())
+                foundRange = attributedString.mutableString.range(of: synonym)
+                attributedString.addAttribute(NSLinkAttributeName, value: synonymID, range: foundRange)
+            }
+            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.darkGray, NSParagraphStyleAttributeName: smallParagraphStyle], range: attributedString.mutableString.range(of: synonymsString))
+            attributedText.append(attributedString)
         }
         
         if word.hashtags != nil {
-            let hashtagsString = "\(word.hashtags!)\n"
-            attributedText.append(NSAttributedString(string: hashtagsString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.purple,
-                NSParagraphStyleAttributeName: hashParagraphStyle]))
+            let hashtagsString = "\(word.hashtags!)"
+            let hashtagsArray = hashtagsString.components(separatedBy: " ")
+            let attributedString = NSMutableAttributedString(string: hashtagsString)
+            var foundRange: NSRange
+            for hashtag in hashtagsArray {
+                guard hashtag != "", hashtag != " " else { continue }
+                let hashtagID = NSMutableString(string: "\(linkedWords.count)")
+                print("hashtagID \(hashtagID)")
+                linkedWords.append(hashtag)
+                foundRange = attributedString.mutableString.range(of: hashtag)
+                attributedString.addAttribute(NSLinkAttributeName, value: hashtagID, range: foundRange)
+            }
+            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.purple, NSParagraphStyleAttributeName: hashParagraphStyle], range: attributedString.mutableString.range(of: hashtagsString))
+            attributedText.append(attributedString)
         }
-
-        
-        //let spaceCoef: CGFloat = 3
-        //let font = UIFont.systemFont(ofSize: 20)
-        
-                /*
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.paragraphSpacing = spaceCoef * font.lineHeight
-        paragraphStyle.headIndent = 30*/
-        
-        //attributedText.append(NSAttributedString(string: "TEST string in case that this string will work perfect - then i will use this method in my project", attributes: [NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle]))
         wtv.attributedText = attributedText
         wtv.isSelectable = true
         wtv.dataDetectorTypes = UIDataDetectorTypes.link
         wtv.isUserInteractionEnabled = true
         wtv.isEditable = false
-        //wtv.text = word.name + word.definition
-        // wtv.backgroundColor = .yellow
-        
-        //name, definition, type, group, examples, hashtags, story, synonims
     }
-    
+
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        print(URL.absoluteString)
+        if let linkedWordID = Int(URL.absoluteString),
+            linkedWords.count > linkedWordID {
+            delegate1?.updateSearchResults(linkedWords[linkedWordID])
+        }
+        delegate?.pop()
+        return false
+    }
+
     let smallParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.headIndent = 20
