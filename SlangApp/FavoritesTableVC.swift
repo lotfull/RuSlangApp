@@ -22,6 +22,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
             if let wordDetailVC = segue.destination as? WordDetailVC {
                 wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
+                wordDetailVC.wordsTableVCRef = wordsTableVCRef
                 if trendsVC != nil {
                     wordDetailVC.delegate = trendsVC
                 } else {
@@ -125,6 +126,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     var dictWords = [String:String]()
     var arrayWords = NSMutableArray()
     var managedObjectContext: NSManagedObjectContext!
+    var wordsTableVCRef: WordsTableVC!
     var words = [Word]()
     var selectedWord: Word!
     var trendsVC: TrendsTableVC!

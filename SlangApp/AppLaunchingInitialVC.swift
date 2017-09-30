@@ -88,18 +88,21 @@ class AppLaunchingInitialVC: UIViewController {
                 let moreVC = VControllers[3].topViewController as? MoreVC else {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
             }
+            tabBarControl = tabBarVC
             wordsTableVC.managedObjectContext = managedObjectContext
             wordsTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
             trendsVC.managedObjectContext = managedObjectContext
             trendsVC.wordsTableVCRef = wordsTableVC
             favoritesTableVC.managedObjectContext = managedObjectContext
             favoritesTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
+            favoritesTableVC.wordsTableVCRef = wordsTableVC
             moreVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
             moreVC.wordsVC = VControllers[0].topViewController as? WordsTableVC
         }
     }
     
     var managedObjectContext: NSManagedObjectContext!
+    var tabBarControl: UITabBarController!
     let showMainVCID = "ShowMainVC"
     let isPreloadedKey = "isPreloaded"
     let teenslang = "teenslang_appwords"

@@ -135,6 +135,9 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
             linkedWords.count > linkedWordID {
             delegate1?.updateSearchResults(linkedWords[linkedWordID])
         }
+        if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
+            initialVC.tabBarControl.selectedIndex = 0
+        }
         delegate?.pop()
         return false
     }
