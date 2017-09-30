@@ -1,6 +1,6 @@
 RuSlang - РуСленг
 ---
-#####Russian slang dictionary - Словарь русского сленга
+####Russian slang dictionary - Словарь русского сленга
 Языки разработки: Swift, Python. <br>
 Средства разработки: Xcode, Jupyter Notebook, PyCharm.
 
