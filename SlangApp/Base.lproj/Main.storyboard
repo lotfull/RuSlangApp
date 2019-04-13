@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,7 +91,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zn2-tD-LkV">
                                                             <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="j22-pN-mNV"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="j22-pN-mNV"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -126,7 +127,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFx-OI-VvV">
                                                             <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="66S-X3-neF"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="66S-X3-neF"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -166,7 +167,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYR-XH-ABQ">
                                                             <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="EzS-lp-h8E"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="EzS-lp-h8E"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -202,7 +203,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Группа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dwx-0G-31W">
                                                             <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="ewr-M4-dVv"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="ewr-M4-dVv"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -460,7 +461,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Word" id="aen-Uj-hxZ">
                         <rightBarButtonItems>
-                            <barButtonItem image="sendIconSmall" id="SIt-cl-U9e">
+                            <barButtonItem image="sendIcon" id="SIt-cl-U9e">
                                 <connections>
                                     <action selector="shareWordButton:" destination="1C6-aZ-MHr" id="r59-iX-eDO"/>
                                 </connections>
@@ -813,7 +814,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fT-xZ-rfT">
                                                             <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="qjK-g5-77o"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="qjK-g5-77o"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -849,7 +850,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz3-9J-Ljv">
                                                             <rect key="frame" x="0.0" y="11.5" width="80" height="20.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="80" id="K4e-JV-9MS"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="K4e-JV-9MS"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -1144,7 +1145,7 @@ GitHub.com/Lotfull</string>
     </scenes>
     <resources>
         <image name="KamLotfull-98" width="98" height="98"/>
-        <image name="sendIconSmall" width="16" height="16"/>
+        <image name="sendIcon" width="715" height="657"/>
         <image name="star " width="29" height="29"/>
         <image name="русленг-512" width="512" height="512"/>
         <image name="русленг-98" width="98" height="98"/>

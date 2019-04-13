@@ -103,7 +103,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="sendIcon" width="16" height="16"/>
+        <image name="sendIcon" width="715" height="657"/>
         <image name="star" width="46.400001525878906" height="46.400001525878906"/>
     </resources>
 </document>

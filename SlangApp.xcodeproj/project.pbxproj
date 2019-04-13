@@ -20,7 +20,6 @@
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
 		917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */; };
-		919600FC1EE1E41C002BE3D6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 919600FB1EE1E41C002BE3D6 /* README.md */; };
 		919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */; };
 		91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
@@ -67,7 +66,6 @@
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditWordVC.swift; sourceTree = "<group>"; };
-		919600FB1EE1E41C002BE3D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 		91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 		91F97AF11E37BF1800796C1F = {
 			isa = PBXGroup;
 			children = (
-				919600FB1EE1E41C002BE3D6 /* README.md */,
 				916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */,
 				916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */,
 				91F97AFC1E37BF1900796C1F /* SlangApp */,
@@ -301,7 +298,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Kam Lotfull";
 				TargetAttributes = {
 					911127A91F68F9F200BA06F1 = {
@@ -432,7 +429,6 @@
 				9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
 				911127A51F67E9AC00BA06F1 /* TrendRatingTVC.swift in Sources */,
-				919600FC1EE1E41C002BE3D6 /* README.md in Sources */,
 				9126D2471F61F8720033E19D /* MoreVC.swift in Sources */,
 				917D38721ED18F0800EA315F /* Functions.swift in Sources */,
 				916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */,
@@ -525,6 +521,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -532,6 +529,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -583,6 +581,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -590,6 +589,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
