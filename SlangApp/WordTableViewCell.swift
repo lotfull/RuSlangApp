@@ -30,7 +30,7 @@ class WordTableViewCell: UITableViewCell {
         } else {
             wordDefinitionLabel.text = thisCellWord.definition
         }
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "second")
+        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "yellow star ") : #imageLiteral(resourceName: "star")
         
     }
     
@@ -47,8 +47,7 @@ class WordTableViewCell: UITableViewCell {
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         if !addNewWord {
             thisCellWord.favorite = !thisCellWord.favorite
-            let a = thisCellWord.favorite
-            favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "second")
+            favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "yellow star ") : #imageLiteral(resourceName: "star")
             delegate?.reloading(indexPath: thisCellIndexPath)
         }
     }
