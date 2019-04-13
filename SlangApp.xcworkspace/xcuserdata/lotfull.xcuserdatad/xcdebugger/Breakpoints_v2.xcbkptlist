@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordTableViewCell.swift"
-            timestampString = "520756925.724985"
+            timestampString = "576663607.659363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "528402203.508993"
+            timestampString = "576837607.828508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
-            landmarkName = "createEditWordVCDone(_:editing:)"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "reloading(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -54,31 +54,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.ratingSegmentControl.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISegmentedControl&gt;"
+                  symbolName = "SlangApp.FeedbackVC.feedbackTextView.getter : weak Swift.Optional&lt;__C.UITextView&gt;"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.539608"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.685765"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "92">
+                  offsetFromSymbolStart = "86">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.ratingSegmentControl.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISegmentedControl&gt;"
+                  symbolName = "SlangApp.FeedbackVC.feedbackTextView.setter : weak Swift.Optional&lt;__C.UITextView&gt;"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.545313"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.6872751"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "96">
+                  offsetFromSymbolStart = "106">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -87,43 +87,43 @@
                   symbolName = "SlangApp.FeedbackVC.init(style: __C.UITableViewStyle) -&gt; SlangApp.FeedbackVC"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.549728"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.68878"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "452">
+                  offsetFromSymbolStart = "440">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SlangApp.FeedbackVC"
+                  symbolName = "SlangApp.FeedbackVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; SlangApp.FeedbackVC"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.553452"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.6902241"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "496">
+                  offsetFromSymbolStart = "400">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;SlangApp.FeedbackVC&gt;"
+                  symbolName = "SlangApp.FeedbackVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SlangApp.FeedbackVC&gt;"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.557254"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.692296"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "452">
+                  offsetFromSymbolStart = "392">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -147,31 +147,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.sendButton.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIBarButtonItem&gt;"
+                  symbolName = "SlangApp.FeedbackVC.ratingSegmentControl.getter : weak Swift.Optional&lt;__C.UISegmentedControl&gt;"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.574563"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.6985151"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
                   endingLineNumber = "65"
-                  offsetFromSymbolStart = "92">
+                  offsetFromSymbolStart = "86">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.sendButton.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIBarButtonItem&gt;"
+                  symbolName = "SlangApp.FeedbackVC.ratingSegmentControl.setter : weak Swift.Optional&lt;__C.UISegmentedControl&gt;"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.578507"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.700617"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
                   endingLineNumber = "65"
-                  offsetFromSymbolStart = "96">
+                  offsetFromSymbolStart = "106">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -180,43 +180,43 @@
                   symbolName = "SlangApp.FeedbackVC.init(style: __C.UITableViewStyle) -&gt; SlangApp.FeedbackVC"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.582706"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.702152"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
                   endingLineNumber = "65"
-                  offsetFromSymbolStart = "540">
+                  offsetFromSymbolStart = "553">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SlangApp.FeedbackVC"
+                  symbolName = "SlangApp.FeedbackVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; SlangApp.FeedbackVC"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.586712"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.7036051"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
                   endingLineNumber = "65"
-                  offsetFromSymbolStart = "584">
+                  offsetFromSymbolStart = "497">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SlangApp.FeedbackVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;SlangApp.FeedbackVC&gt;"
+                  symbolName = "SlangApp.FeedbackVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;SlangApp.FeedbackVC&gt;"
                   moduleName = "SlangApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lotfull/Desktop/xcode/SlangApp/SlangApp/FeedbackVC.swift"
-                  timestampString = "528400496.589949"
+                  urlString = "file:///Users/lotfull/Desktop/RuSlangApp/SlangApp/FeedbackVC.swift"
+                  timestampString = "576837608.705043"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
                   endingLineNumber = "65"
-                  offsetFromSymbolStart = "540">
+                  offsetFromSymbolStart = "494">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -259,61 +259,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "528402203.534336"
+            filePath = "SlangApp/WordTableViewCell.swift"
+            timestampString = "576663607.659901"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "528402203.534693"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "updateSearchResults(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "528402203.534908"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "updateSearchResults(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SlangApp/WordsTableVC.swift"
-            timestampString = "528402203.535091"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "updateSearchResults(for:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "favoriteButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

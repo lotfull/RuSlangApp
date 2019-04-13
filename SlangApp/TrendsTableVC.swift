@@ -33,16 +33,16 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         selectedTabBarIndex = tappedTabBarIndex
     }
     
-    //
-    
     func scrollToHeader() {
         self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
+    
     func installTableView() {
         tableView.register(UINib.init(nibName: "WordTableViewCell", bundle: nil), forCellReuseIdentifier: "Word")
         tableView.dataSource = self
         tableView.delegate = self
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             if let wordDetailVC = segue.destination as? WordDetailVC {
@@ -57,9 +57,11 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return trendWords.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendsCell", for: indexPath)
         cell.textLabel?.text = trendWords[indexPath.row].name
@@ -67,6 +69,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedWord = trendWords[indexPath.row]
         //print("didSelectRowAt")
@@ -79,9 +82,8 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             self.trendWords = [Word]()
             for child in snapshot.children {
                 if let snap = child as? DataSnapshot,
-                    let dict = snap.value as? [String: String],
-                    dict.count > 1
-                {
+                   let dict = snap.value as? [String: String],
+                   dict.count > 1 {
                     let word = self.word(fromDict: dict)
                     self.trendWords.append(word)
                 }
@@ -129,19 +131,21 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     func shareWord(word: Word) {
         shareWordFunc()
         let text = word.textViewString()
-        let textToShare = [ text ]
+        let textToShare = [text]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
     func reloading(indexPath: IndexPath) {
         do {
             try managedObjectContext.save()
         } catch {
-            print ("There was managedObjectContext.save() error")
+            print("There was managedObjectContext.save() error")
         }
         tableView.reloadRows(at: [indexPath], with: .none)
     }
+    
     func saveManagedObjectContext() {
         do {
             try managedObjectContext.save()
@@ -159,6 +163,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
                 return str
             }
         }
+        
         if #available(iOS 10.0, *) {
             let word = Word(context: self.managedObjectContext)
             word.name = dictionary["name"]!
@@ -179,9 +184,11 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     @IBAction func reloadTrends(_ sender: Any) {
         observeTrends()
     }
+    
     @IBAction func titleTapped(_ sender: Any) {
         scrollToHeader()
     }
+    
     @IBOutlet weak var titleButton: UIButton!
     
     @IBAction func addTrends(_ sender: Any) {

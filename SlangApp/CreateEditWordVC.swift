@@ -49,13 +49,12 @@ class CreateEditWordVC: UITableViewController {
         do {
             try managedObjectContext.save()
         } catch {
-            print ("There was managedObjectContext.save() error")
+            print("There was managedObjectContext.save() error")
         }
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - @IBO and @IBA
-    
     
     
     // MARK: - VARS and LETS
@@ -80,6 +79,7 @@ class CreateEditWordVC: UITableViewController {
     @IBAction func cancel() {
         delegate?.createEditWordVCDidCancel(self)
     }
+    
     @IBAction func done() {
         //needToUpdate = true
         if let word = editingWord {
@@ -116,7 +116,7 @@ class CreateEditWordVC: UITableViewController {
     func returnNilIfEmpty(_ str: String) -> String? {
         return (str == "" || str == "_" || str == " ") ? nil : str
     }
-
+    
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.section == 1 {
@@ -133,5 +133,5 @@ class CreateEditWordVC: UITableViewController {
         return true
     }
     
-
+    
 }

@@ -9,11 +9,11 @@
 import UIKit
 
 class MoreVC: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowFeedbackView" {
             if let feedbackVC = segue.destination as? FeedbackVC {
@@ -21,8 +21,8 @@ class MoreVC: UITableViewController {
             }
         }
     }
-
+    
     var trendsVC: TrendsTableVC!
     var wordsVC: WordsTableVC!
-
+    
 }

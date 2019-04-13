@@ -13,7 +13,7 @@ protocol SendingFeedbackDelegate: class {
 }
 
 class FeedbackVC: UITableViewController, UITextViewDelegate {
-
+    
     weak var delegate: SendingFeedbackDelegate?
     
     override func viewDidLoad() {
@@ -27,41 +27,42 @@ class FeedbackVC: UITableViewController, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         guard
-            let name = nameField.text, let email = emailField.text,
-            !name.isEmpty || !email.isEmpty,
-            let feedback = feedbackTextView.text, !feedback.isEmpty
-            else {
-                sendButton.isEnabled = false
-                return
+                let name = nameField.text, let email = emailField.text,
+                !name.isEmpty || !email.isEmpty,
+                let feedback = feedbackTextView.text, !feedback.isEmpty
+                else {
+            sendButton.isEnabled = false
+            return
         }
         sendButton.isEnabled = true
     }
     
     func editingChanged(_ textField: UITextField) {
         guard
-            let name = nameField.text, let email = emailField.text,
-            !name.isEmpty || !email.isEmpty,
-            let feedback = feedbackTextView.text, !feedback.isEmpty
-            else {
-                sendButton.isEnabled = false
-                return
+                let name = nameField.text, let email = emailField.text,
+                !name.isEmpty || !email.isEmpty,
+                let feedback = feedbackTextView.text, !feedback.isEmpty
+                else {
+            sendButton.isEnabled = false
+            return
         }
         sendButton.isEnabled = true
     }
     
     @IBAction func feedbackSended(_ sender: Any) {
         let feedback = Feedback(name: nameField.text,
-                                email: emailField.text,
-                                feedback: feedbackTextView.text,
-                                rating: ratingSegmentControl.selectedSegmentIndex + 1)
+                email: emailField.text,
+                feedback: feedbackTextView.text,
+                rating: ratingSegmentControl.selectedSegmentIndex + 1)
         //print(feedback.text())
         delegate?.sendFeedback(self, feedback)
         _ = navigationController?.popViewController(animated: true)
     }
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var feedbackTextView: UITextView!
     @IBOutlet weak var ratingSegmentControl: UISegmentedControl!
     @IBOutlet weak var sendButton: UIBarButtonItem!
-
+    
 }

@@ -3,7 +3,7 @@ import Foundation
 extension String {
     func csvRows(firstRowIgnored ignored: Bool) -> [[String]] {
         var firstRowIgnored = ignored
-        var rows : [[String]] = []
+        var rows: [[String]] = []
         
         let newlineCharacterSet = CharacterSet.newlines
         let importantCharactersSet = CharacterSet(charactersIn: ",\"").union(newlineCharacterSet)
@@ -14,10 +14,10 @@ extension String {
         while !scanner.isAtEnd {
             var insideQuotes = false
             var finishedRow = false
-            var columns : [String] = []
+            var columns: [String] = []
             var currentColumn = ""
             while !finishedRow {
-                var tempString : NSString? = nil
+                var tempString: NSString? = nil
                 if scanner.scanUpToCharacters(from: importantCharactersSet, into: &tempString) {
                     currentColumn.append(tempString! as String)
                 }

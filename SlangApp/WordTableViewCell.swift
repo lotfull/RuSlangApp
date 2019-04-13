@@ -14,11 +14,10 @@ protocol WordTableViewCellDelegate: class {
 }
 
 
-
 class WordTableViewCell: UITableViewCell {
     
     weak var delegate: WordTableViewCellDelegate?
-
+    
     func configure(with word: Word, at indexPath: IndexPath) {
         addNewWord = false
         self.separatorInset = UIEdgeInsets.zero
@@ -31,9 +30,8 @@ class WordTableViewCell: UITableViewCell {
         } else {
             wordDefinitionLabel.text = thisCellWord.definition
         }
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
-
+        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "second")
+        
     }
     
     func configure(withName: String, withDefinition: String, at indexPath: IndexPath) {
@@ -43,16 +41,18 @@ class WordTableViewCell: UITableViewCell {
         thisCellIndexPath = indexPath
         wordNameLabel.text = withName
         wordDefinitionLabel.text = withDefinition
-        favoriteButton.imageView?.image = #imageLiteral(resourceName: "purpleStar")
+        favoriteButton.imageView?.image = #imageLiteral(resourceName: "big yellow star")
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         if !addNewWord {
             thisCellWord.favorite = !thisCellWord.favorite
-            favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "purpleStarFilled") : #imageLiteral(resourceName: "purpleStar")
+            let a = thisCellWord.favorite
+            favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "second")
             delegate?.reloading(indexPath: thisCellIndexPath)
         }
     }
+    
     @IBAction func shareWordButton(_ sender: Any) {
         if !addNewWord {
             delegate?.shareWord(word: thisCellWord)
@@ -62,7 +62,7 @@ class WordTableViewCell: UITableViewCell {
     @IBOutlet weak var wordNameLabel: UILabel!
     @IBOutlet weak var wordDefinitionLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-
+    
     var addNewWord = false
     var thisCellWord: Word!
     var thisCellIndexPath: IndexPath!

@@ -28,9 +28,11 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
     var thisCellWord: Word!
     var thisCellIndexPath: IndexPath!
     var linkedWords: [String] = []
@@ -44,7 +46,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         
         thisCellWord = word
         thisCellIndexPath = indexPath
-
+        
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"
         let attributedText = NSMutableAttributedString(string: nameString, attributes: [
@@ -95,7 +97,9 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
             let attributedString = NSMutableAttributedString(string: synonymsString)
             var foundRange: NSRange
             for synonym in synonymsArray {
-                guard synonym.rangeOfCharacter(from: seps) == nil else { continue }
+                guard synonym.rangeOfCharacter(from: seps) == nil else {
+                    continue
+                }
                 let synonymID = NSMutableString(string: "\(linkedWords.count)")
                 print("hashtagID \(synonymID)")
                 linkedWords.append(synonym.uppercaseFirst())
@@ -112,7 +116,9 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
             let attributedString = NSMutableAttributedString(string: hashtagsString)
             var foundRange: NSRange
             for hashtag in hashtagsArray {
-                guard hashtag != "", hashtag != " " else { continue }
+                guard hashtag != "", hashtag != " " else {
+                    continue
+                }
                 let hashtagID = NSMutableString(string: "\(linkedWords.count)")
                 print("hashtagID \(hashtagID)")
                 linkedWords.append(hashtag)
@@ -128,11 +134,11 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         wtv.isUserInteractionEnabled = true
         wtv.isEditable = false
     }
-
+    
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
         print(URL.absoluteString)
         if let linkedWordID = Int(URL.absoluteString),
-            linkedWords.count > linkedWordID {
+           linkedWords.count > linkedWordID {
             delegate1?.updateSearchResults(linkedWords[linkedWordID])
         }
         if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
@@ -141,7 +147,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         delegate?.pop()
         return false
     }
-
+    
     let smallParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.headIndent = 20

@@ -11,11 +11,11 @@ import CoreData
 import UIKit
 
 extension Word {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Word> {
         return NSFetchRequest<Word>(entityName: "Word")
     }
-
+    
     @NSManaged public var definition: String
     @NSManaged public var name: String
     @NSManaged public var group: String?
@@ -26,15 +26,27 @@ extension Word {
     @NSManaged public var synonyms: String?
     @NSManaged public var favorite: Bool
     @NSManaged public var id: Int
-
+    
     func textViewString() -> String {
         var answer = "\(name)\n\(definition)"
-        if group != nil { answer += "\nгруппа: \(group!)" }
-        if type != nil { answer += "\nтип: \(type!)" }
-        if hashtags != nil { answer += "\nтеги: \(hashtags!)" }
-        if examples != nil { answer += "\nпримеры: \(examples!)" }
-        if origin != nil { answer += "\nпроисх.: \(origin!)" }
-        if synonyms != nil { answer += "\nсин.: \(synonyms!)" }
+        if group != nil {
+            answer += "\nгруппа: \(group!)"
+        }
+        if type != nil {
+            answer += "\nтип: \(type!)"
+        }
+        if hashtags != nil {
+            answer += "\nтеги: \(hashtags!)"
+        }
+        if examples != nil {
+            answer += "\nпримеры: \(examples!)"
+        }
+        if origin != nil {
+            answer += "\nпроисх.: \(origin!)"
+        }
+        if synonyms != nil {
+            answer += "\nсин.: \(synonyms!)"
+        }
         return answer
     }
     

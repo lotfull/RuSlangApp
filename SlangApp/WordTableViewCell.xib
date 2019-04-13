@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cif-O5-8fQ" userLabel="Favorite Button">
@@ -24,7 +24,7 @@
                             <constraint firstAttribute="height" constant="83" id="8pr-4h-Tba"/>
                             <constraint firstAttribute="width" constant="83" id="EYu-Jq-2Lv"/>
                         </constraints>
-                        <state key="normal" image="purpleStar"/>
+                        <state key="normal" image="star"/>
                         <connections>
                             <action selector="favoriteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aSa-wO-lLU"/>
                         </connections>
@@ -37,7 +37,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxW-a2-gZH" userLabel="Words separator">
-                        <rect key="frame" x="0.0" y="161" width="375" height="1"/>
+                        <rect key="frame" x="0.0" y="160.5" width="375" height="1"/>
                         <color key="backgroundColor" red="0.56295669078826904" green="0.19187125563621521" blue="0.49553984403610229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="bkA-TA-xOh"/>
@@ -53,7 +53,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Значение слова, очень длинное и полноценное определение " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wD-ND-5Wz">
-                        <rect key="frame" x="8" y="70" width="284" height="91"/>
+                        <rect key="frame" x="8" y="70" width="284" height="91.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.13447507747933884" green="0.13447507747933884" blue="0.13447507747933884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="purpleStar" width="42" height="41"/>
-        <image name="sendIcon" width="38" height="43"/>
+        <image name="sendIcon" width="16" height="16"/>
+        <image name="star" width="46.400001525878906" height="46.400001525878906"/>
     </resources>
 </document>

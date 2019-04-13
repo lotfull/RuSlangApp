@@ -44,7 +44,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == editWordID {
             if let navigationController = segue.destination as? UINavigationController,
-            let createEditWordVC = navigationController.topViewController as? CreateEditWordVC {
+               let createEditWordVC = navigationController.topViewController as? CreateEditWordVC {
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.editingWord = word
                 createEditWordVC.delegate = self
@@ -85,9 +85,11 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WordDetailCell", for: indexPath) as! WordDetailTableViewCell
         cell.configurate(with: word, wordsTVCRef: wordsTableVCRef, at: indexPath)
@@ -103,7 +105,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         do {
             try managedObjectContext.save()
         } catch {
-            print ("There was managedObjectContext.save() error")
+            print("There was managedObjectContext.save() error")
         }
         tableView.reloadRows(at: [indexPath], with: .none)
     }
@@ -112,18 +114,20 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     @IBAction func setTrendRatingButtonAction() {
         self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
     }
+    
     @IBAction func shareWordButton(_ sender: Any) {
         let text = word.textViewString()
-        let textToShare = [ text ]
+        let textToShare = [text]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
-
+    
     @IBAction func cancel(_ sender: Any) {
         needToUpdate = false
         dismiss(animated: true, completion: nil)
     }
+    
     @IBOutlet var tblView: UITableView!
     
     // MARK: - VARS and LETS

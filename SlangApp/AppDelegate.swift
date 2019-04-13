@@ -45,12 +45,10 @@ extension UIFont {
                     fontName = AppFontName.regular
                 }
                 self.init(name: fontName, size: fontDescriptor.pointSize)!
-            }
-            else {
+            } else {
                 self.init(myCoder: aDecoder)
             }
-        }
-        else {
+        } else {
             self.init(myCoder: aDecoder)
         }
     }
@@ -83,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         super.init()
         UIFont.overrideInitialize()
     }
-
-
+    
+    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -104,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         listenForFatalCoreDataNotifications()
         return true
     }
-
+    
     // MARK: - Core Data stack
     
     @available(iOS 10.0, *)
@@ -123,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data Saving support
     
-    func saveContext () {
+    func saveContext() {
         if #available(iOS 10.0, *) {
             let context = persistentContainer.viewContext
             if context.hasChanges {
@@ -139,30 +137,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-
+    
     // MARK: - FatalCoreDataNotifications
     
     func listenForFatalCoreDataNotifications() {
         NotificationCenter.default.addObserver(
-            forName: MyManagedObjectContextSaveDidFailNotification,
-            object: nil,
-            queue: OperationQueue.main) { notification in
-                let alert = UIAlertController(
+                forName: MyManagedObjectContextSaveDidFailNotification,
+                object: nil,
+                queue: OperationQueue.main) { notification in
+            let alert = UIAlertController(
                     title: "Internal error",
                     message: "There was fatal error. Please contact us in app contact form.\nPress OK to terminate app. We will solve this problem asap",
                     preferredStyle: .alert)
-                let fatalErrorOKAction = UIAlertAction(
+            let fatalErrorOKAction = UIAlertAction(
                     title: "OK",
                     style: .default,
                     handler: { (_) in
                         let exception = NSException(
-                            name: NSExceptionName.internalInconsistencyException,
-                            reason: "Fatal Core Data error",
-                            userInfo: nil)
+                                name: NSExceptionName.internalInconsistencyException,
+                                reason: "Fatal Core Data error",
+                                userInfo: nil)
                         exception.raise()
-                })
-                alert.addAction(fatalErrorOKAction)
-                self.viewControllerForShowingAlert().present(alert, animated: true, completion: nil)
+                    })
+            alert.addAction(fatalErrorOKAction)
+            self.viewControllerForShowingAlert().present(alert, animated: true, completion: nil)
         }
     }
     
@@ -181,11 +179,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let path = "/Users/lotfull/Desktop/xcode/SlangApp/SlangApp/output.txt"
         var dump = ""
         if FileManager.default.fileExists(atPath: path) {
-            dump =  try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            dump = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         }
         do {
             // Write to the file
-            try  "\(dump)\n\(s)".write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
+            try "\(dump)\n\(s)".write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
         } catch let error as NSError {
             print("Failed writing to log file: \(path), Error: " + error.localizedDescription)
         }

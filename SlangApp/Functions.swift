@@ -23,9 +23,12 @@ func fatalCoreDataError(_ error: Error) {
 
 extension String {
     func uppercaseFirst() -> String {
-        if characters.count == 1 { return self.capitalized }
-        if String(characters.prefix(2)).lowercased() != String(characters.prefix(2)) { return self }
-        return String(characters.prefix(1)).capitalized + String(characters.dropFirst())
+        if self.count == 1 {
+            return self.capitalized
+        } else if self.prefix(2).lowercased() != self.prefix(2) {
+            return self
+        }
+        return self.prefix(1).capitalized + self.dropFirst()
     }
 }
 

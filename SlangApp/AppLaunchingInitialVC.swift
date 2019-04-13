@@ -12,7 +12,7 @@ import Dispatch
 import CoreData
 
 class AppLaunchingInitialVC: UIViewController {
-        
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -62,7 +62,7 @@ class AppLaunchingInitialVC: UIViewController {
         }
     }
     
-
+    
     func removeData() {
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
         let request = NSBatchDeleteRequest(fetchRequest: fetch)
@@ -70,10 +70,10 @@ class AppLaunchingInitialVC: UIViewController {
             try managedObjectContext.execute(request)
             try managedObjectContext.save()
         } catch {
-            print ("There was an error")
+            print("There was an error")
         }
     }
-
+    
     func returnNilIfEmpty(_ str: String) -> String? {
         return (str == "" || str == "_" || str == " ") ? nil : str
     }
@@ -81,12 +81,12 @@ class AppLaunchingInitialVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showMainVCID {
             guard let tabBarVC = segue.destination as? UITabBarController,
-                let VControllers = tabBarVC.viewControllers as? [UINavigationController],
-                let wordsTableVC = VControllers[0].topViewController as? WordsTableVC,
-                let trendsVC = VControllers[1].topViewController as? TrendsTableVC,
-                let favoritesTableVC = VControllers[2].topViewController as? FavoritesTableVC,
-                let moreVC = VControllers[3].topViewController as? MoreVC else {
-                    fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
+                  let VControllers = tabBarVC.viewControllers as? [UINavigationController],
+                  let wordsTableVC = VControllers[0].topViewController as? WordsTableVC,
+                  let trendsVC = VControllers[1].topViewController as? TrendsTableVC,
+                  let favoritesTableVC = VControllers[2].topViewController as? FavoritesTableVC,
+                  let moreVC = VControllers[3].topViewController as? MoreVC else {
+                fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
             }
             tabBarControl = tabBarVC
             wordsTableVC.managedObjectContext = managedObjectContext
