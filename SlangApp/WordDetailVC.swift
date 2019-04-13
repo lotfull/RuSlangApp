@@ -28,13 +28,13 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         tableView.isScrollEnabled = true
         title = word.name
         tblView.estimatedRowHeight = tableView.rowHeight
-        tblView.rowHeight = UITableViewAutomaticDimension
+        tblView.rowHeight = UITableView.automaticDimension
         definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func trendRating(_ rating: Int) {

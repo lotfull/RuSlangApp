@@ -49,45 +49,45 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"
-        let attributedText = NSMutableAttributedString(string: nameString, attributes: [
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: mainFontSize + 1),
-            NSForegroundColorAttributeName: UIColor.blue])
+        let attributedText = NSMutableAttributedString(string: nameString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: mainFontSize + 1),
+            convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]))
         
         if word.type != nil {
             let typeString = "\(word.type!) "
-            attributedText.append(NSAttributedString(string: typeString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.purple,
-                NSParagraphStyleAttributeName: typeParagraphStyle]))
+            attributedText.append(NSAttributedString(string: typeString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+                convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize),
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple,
+                convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): typeParagraphStyle])))
         }
         
         if word.group != nil {
             let groupString = "\(word.group!)"
-            attributedText.append(NSAttributedString(string: groupString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.purple]))
+            attributedText.append(NSAttributedString(string: groupString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+                convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize),
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple])))
         }
         
         let defString = "\n  1) \(word.definition)\n"
-        attributedText.append(NSAttributedString(string: defString, attributes: [
-            NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-            NSForegroundColorAttributeName: UIColor.black,
-            NSParagraphStyleAttributeName: defParagraphStyle]))
+        attributedText.append(NSAttributedString(string: defString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize),
+            convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.black,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): defParagraphStyle])))
         
         if word.examples != nil {
             let examplesString = "примеры: \(word.examples!)\n"
-            attributedText.append(NSMutableAttributedString(string: examplesString, attributes: [
-                NSFontAttributeName: UIFont.italicSystemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.gray,
-                NSParagraphStyleAttributeName: smallParagraphStyle]))
+            attributedText.append(NSMutableAttributedString(string: examplesString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+                convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.italicSystemFont(ofSize: mainFontSize),
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.gray,
+                convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): smallParagraphStyle])))
         }
         
         if word.origin != nil {
             let originString = "происх.: \(word.origin!)\n"
-            attributedText.append(NSAttributedString(string: originString, attributes: [
-                NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize),
-                NSForegroundColorAttributeName: UIColor.darkGray,
-                NSParagraphStyleAttributeName: smallParagraphStyle]))
+            attributedText.append(NSAttributedString(string: originString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
+                convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize),
+                convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.darkGray,
+                convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): smallParagraphStyle])))
         }
         
         if word.synonyms != nil {
@@ -104,9 +104,9 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                 print("hashtagID \(synonymID)")
                 linkedWords.append(synonym.uppercaseFirst())
                 foundRange = attributedString.mutableString.range(of: synonym)
-                attributedString.addAttribute(NSLinkAttributeName, value: synonymID, range: foundRange)
+                attributedString.addAttribute(NSAttributedString.Key.link, value: synonymID, range: foundRange)
             }
-            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.darkGray, NSParagraphStyleAttributeName: smallParagraphStyle], range: attributedString.mutableString.range(of: synonymsString))
+            attributedString.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.darkGray, convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): smallParagraphStyle]), range: attributedString.mutableString.range(of: synonymsString))
             attributedText.append(attributedString)
         }
         
@@ -123,9 +123,9 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                 print("hashtagID \(hashtagID)")
                 linkedWords.append(hashtag)
                 foundRange = attributedString.mutableString.range(of: hashtag)
-                attributedString.addAttribute(NSLinkAttributeName, value: hashtagID, range: foundRange)
+                attributedString.addAttribute(NSAttributedString.Key.link, value: hashtagID, range: foundRange)
             }
-            attributedString.addAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: mainFontSize), NSForegroundColorAttributeName: UIColor.purple, NSParagraphStyleAttributeName: hashParagraphStyle], range: attributedString.mutableString.range(of: hashtagsString))
+            attributedString.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple, convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): hashParagraphStyle]), range: attributedString.mutableString.range(of: hashtagsString))
             attributedText.append(attributedString)
         }
         wtv.attributedText = attributedText
@@ -183,3 +183,19 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     let mainFontSize: CGFloat = 18
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}

@@ -37,7 +37,7 @@ class FeedbackVC: UITableViewController, UITextViewDelegate {
         sendButton.isEnabled = true
     }
     
-    func editingChanged(_ textField: UITextField) {
+    @objc func editingChanged(_ textField: UITextField) {
         guard
                 let name = nameField.text, let email = emailField.text,
                 !name.isEmpty || !email.isEmpty,

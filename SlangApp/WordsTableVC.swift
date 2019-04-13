@@ -44,7 +44,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        indicator.style = UIActivityIndicatorView.Style.gray
         indicator.center = self.view.center
         self.view.addSubview(indicator)
     }
@@ -164,7 +164,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 cell.configure(with: sectionWords[indexPath.row], at: indexPath)
             }
         }
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.delegate = self
         return cell
     }
@@ -333,7 +333,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         dismiss(animated: true, completion: nil)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if tableView != resultsController.tableView && !isShuffled {
             let wordKey = sectionNames[indexPath.section]
             if var sectionWords = wordsBySection[wordKey] {

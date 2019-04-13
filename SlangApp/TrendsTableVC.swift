@@ -79,7 +79,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendsCell", for: indexPath)
         cell.textLabel?.text = trendWords[indexPath.row].name
         cell.detailTextLabel?.text = trendWords[indexPath.row].definition
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         return cell
     }
     

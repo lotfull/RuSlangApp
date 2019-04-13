@@ -66,7 +66,7 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath) as! WordTableViewCell
         let word = words[indexPath.row]
         cell.configure(with: word, at: indexPath)
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.delegate = self
         return cell
     }
