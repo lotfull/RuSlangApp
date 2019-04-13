@@ -23,6 +23,25 @@ extension MutableCollection where Indices.Iterator.Element == Index {
 
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, SearchWordByHashtagDelegate {
     
+    // MARK: - VARS and LETS
+    var sectionNames = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я", "#"]
+    var wordsBySection = [String: [Word]]()
+    var searchController = UISearchController()
+    var resultsController = UITableViewController()
+    var managedObjectContext: NSManagedObjectContext!
+    var words = [Word]()
+    var sortedWords = [Word]()
+    var filteredWords = [Word]()
+    var selectedWord: Word!
+    var selectedTabBarIndex: Int!
+    var isShuffled = true
+    var trendsVC: TrendsTableVC!
+    var hudNeeded = true
+    var indicator = UIActivityIndicatorView()
+    let showWordDetailID = "ShowWordDetail"
+    let createEditWordID = "CreateEditWord"
+    let ref = Database.database().reference()
+    
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
@@ -199,7 +218,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         if text == nil || text == "" {
             filteredWords = sortedWords
             titleButton.setTitle("Словарь сленг-слов", for: .normal)
-        } else if text?.characters.first! == "#" {
+        } else if text?.first! == "#" {
             filteredWords = sortedWords.filter({ (word: Word) -> Bool in
                 if let wordHashtags = word.hashtags {
                     let hashtag = wordHashtags.components(separatedBy: " ")[0]
@@ -363,23 +382,4 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     @IBOutlet weak var shuffleButton: UIBarButtonItem!
     @IBOutlet weak var titleButton: UIButton!
-    // MARK: - VARS and LETS
-    var sectionNames = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я", "#"]
-    var wordsBySection = [String: [Word]]()
-    var searchController = UISearchController()
-    var resultsController = UITableViewController()
-    var managedObjectContext: NSManagedObjectContext!
-    var words = [Word]()
-    var sortedWords = [Word]()
-    var filteredWords = [Word]()
-    var selectedWord: Word!
-    var selectedTabBarIndex: Int!
-    var isShuffled = true
-    var trendsVC: TrendsTableVC!
-    var hudNeeded = true
-    var indicator = UIActivityIndicatorView()
-    let showWordDetailID = "ShowWordDetail"
-    let createEditWordID = "CreateEditWord"
-    let ref = Database.database().reference()
-    
 }

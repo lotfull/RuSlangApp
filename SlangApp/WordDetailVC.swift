@@ -14,7 +14,12 @@ protocol AddingWordsToTrendsDelegate: class {
 }
 
 class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate, getTrendRatingDelegate {
-    
+    // MARK: - VARS and LETS
+    var managedObjectContext: NSManagedObjectContext!
+    var word: Word!
+    let editWordID = "EditWord"
+    let getTrendRatingID = "getTrendRating"
+    var wordsTableVCRef: WordsTableVC!
     weak var delegate: AddingWordsToTrendsDelegate?
     
     // MARK: - MAIN FUNCS
@@ -130,12 +135,6 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     
     @IBOutlet var tblView: UITableView!
     
-    // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
-    var word: Word!
-    let editWordID = "EditWord"
-    let getTrendRatingID = "getTrendRating"
-    var wordsTableVCRef: WordsTableVC!
 }
 
 

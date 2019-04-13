@@ -21,6 +21,10 @@ protocol AddingNewWordsToFirebase: class {
 }
 
 class CreateEditWordVC: UITableViewController {
+    // MARK: - VARS and LETS
+    var managedObjectContext: NSManagedObjectContext!
+    var editingWord: Word?
+    
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +60,6 @@ class CreateEditWordVC: UITableViewController {
     
     // MARK: - @IBO and @IBA
     
-    
-    // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
-    var editingWord: Word?
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var definitionField: UITextField!
@@ -94,22 +94,18 @@ class CreateEditWordVC: UITableViewController {
             word.favorite = favoriteSwitch.isOn
             delegate?.createEditWordVCDone(self, editing: word)
         } else {
-            if #available(iOS 10.0, *) {
-                let word = Word(context: managedObjectContext)
-                word.name = nameField.text!
-                word.definition = definitionField.text!
-                word.group = returnNilIfEmpty(groupField.text!)
-                word.type = returnNilIfEmpty(typeField.text!)
-                word.examples = returnNilIfEmpty(examplesTextView.text)
-                word.origin = returnNilIfEmpty(originTextView.text)
-                word.hashtags = returnNilIfEmpty(hashtagsField.text!)
-                word.synonyms = returnNilIfEmpty(synonymsField.text!)
-                word.favorite = favoriteSwitch.isOn
-                delegate?.createEditWordVCDone(self, adding: word)
-                delegate1?.addNewWord(word)
-            } else {
-                // Fallback on earlier versions
-            }
+            let word = Word(context: managedObjectContext)
+            word.name = nameField.text!
+            word.definition = definitionField.text!
+            word.group = returnNilIfEmpty(groupField.text!)
+            word.type = returnNilIfEmpty(typeField.text!)
+            word.examples = returnNilIfEmpty(examplesTextView.text)
+            word.origin = returnNilIfEmpty(originTextView.text)
+            word.hashtags = returnNilIfEmpty(hashtagsField.text!)
+            word.synonyms = returnNilIfEmpty(synonymsField.text!)
+            word.favorite = favoriteSwitch.isOn
+            delegate?.createEditWordVCDone(self, adding: word)
+            delegate1?.addNewWord(word)
         }
     }
     

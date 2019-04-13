@@ -15,7 +15,10 @@ protocol WordTableViewCellDelegate: class {
 
 
 class WordTableViewCell: UITableViewCell {
-    
+    // MARK: - VARS and LETS
+    var addNewWord = false
+    var thisCellWord: Word!
+    var thisCellIndexPath: IndexPath!
     weak var delegate: WordTableViewCellDelegate?
     
     func configure(with word: Word, at indexPath: IndexPath) {
@@ -61,8 +64,4 @@ class WordTableViewCell: UITableViewCell {
     @IBOutlet weak var wordNameLabel: UILabel!
     @IBOutlet weak var wordDefinitionLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    
-    var addNewWord = false
-    var thisCellWord: Word!
-    var thisCellIndexPath: IndexPath!
 }

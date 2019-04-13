@@ -13,6 +13,15 @@ import CoreData
 
 class AppLaunchingInitialVC: UIViewController {
     
+    // MARK: - VARS and LETS
+    var managedObjectContext: NSManagedObjectContext!
+    var tabBarControl: UITabBarController!
+    let showMainVCID = "ShowMainVC"
+    let isPreloadedKey = "isPreloaded"
+    let teenslang = "teenslang_appwords"
+    let vsekidki = "vsekidki_appwords"
+    let wordsVersion = "1"
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -36,7 +45,7 @@ class AppLaunchingInitialVC: UIViewController {
     func preloadDataFromCSVFile() {
         removeData()
         for appwordsFile in [teenslang, vsekidki] {
-            print("\(appwordsFile) Nigga!")
+            print("Processing \(appwordsFile)")
             if let contentsOfURL = Bundle.main.url(forResource: appwordsFile, withExtension: "csv") {
                 if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                     let items_arrays = content.csvRows(firstRowIgnored: true)
@@ -100,12 +109,4 @@ class AppLaunchingInitialVC: UIViewController {
             moreVC.wordsVC = VControllers[0].topViewController as? WordsTableVC
         }
     }
-    
-    var managedObjectContext: NSManagedObjectContext!
-    var tabBarControl: UITabBarController!
-    let showMainVCID = "ShowMainVC"
-    let isPreloadedKey = "isPreloaded"
-    let teenslang = "teenslang_appwords"
-    let vsekidki = "vsekidki_appwords"
-    let wordsVersion = "1"
 }

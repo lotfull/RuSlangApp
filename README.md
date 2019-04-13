@@ -14,6 +14,6 @@ Compilation instructions: <br>
 1. MacOS computer with Xcode v. 8.0 or higher <br>
 2. Download repository. <br>
 3. Open SlangApp.xcodeproj in /SlangApp folder <br>
-4. Run project in iOS simulator device or connecter iOS device with iOS 10.0 or higher.
+4. Run project in iOS simulator device or connected iOS device with iOS 10.0 or higher.
 
 

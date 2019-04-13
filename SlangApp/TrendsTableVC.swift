@@ -14,6 +14,19 @@ import FirebaseDatabase
 import Dispatch
 
 class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate, SendingFeedbackDelegate, AddingNewWordsToFirebase {
+    // MARK: - VARS and LETS
+    var managedObjectContext: NSManagedObjectContext!
+    var wordsTableVCRef: WordsTableVC!
+    var trends = [String: Int]()
+    var trendWords = [Word]()
+    var selectedWord: Word!
+    var selectedTabBarIndex: Int!
+    var handleAdding: DatabaseHandle?
+    var handleChanging: DatabaseHandle?
+    var handle: DatabaseHandle?
+    let showWordDetailID = "ShowWordDetail"
+    let ref = Database.database().reference()
+    let maxTrendsNum = 10
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -164,21 +177,16 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             }
         }
         
-        if #available(iOS 10.0, *) {
-            let word = Word(context: self.managedObjectContext)
-            word.name = dictionary["name"]!
-            word.definition = dictionary["definition"]!
-            word.origin = returnNilIfNonNone(dictionary["origin"])
-            word.group = returnNilIfNonNone(dictionary["group"])
-            word.examples = returnNilIfNonNone(dictionary["examples"])
-            word.synonyms = returnNilIfNonNone(dictionary["synonyms"])
-            word.type = returnNilIfNonNone(dictionary["type"])
-            word.hashtags = returnNilIfNonNone(dictionary["hashtags"])
-            return word
-        } else {
-            return Word()
-            // Fallback on earlier versions
-        }
+        let word = Word(context: self.managedObjectContext)
+        word.name = dictionary["name"]!
+        word.definition = dictionary["definition"]!
+        word.origin = returnNilIfNonNone(dictionary["origin"])
+        word.group = returnNilIfNonNone(dictionary["group"])
+        word.examples = returnNilIfNonNone(dictionary["examples"])
+        word.synonyms = returnNilIfNonNone(dictionary["synonyms"])
+        word.type = returnNilIfNonNone(dictionary["type"])
+        word.hashtags = returnNilIfNonNone(dictionary["hashtags"])
+        return word
     }
     
     @IBAction func reloadTrends(_ sender: Any) {
@@ -193,18 +201,4 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     @IBAction func addTrends(_ sender: Any) {
     }
-    
-    // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
-    var wordsTableVCRef: WordsTableVC!
-    var trends = [String: Int]()
-    var trendWords = [Word]()
-    var selectedWord: Word!
-    var selectedTabBarIndex: Int!
-    var handleAdding: DatabaseHandle?
-    var handleChanging: DatabaseHandle?
-    var handle: DatabaseHandle?
-    let showWordDetailID = "ShowWordDetail"
-    let ref = Database.database().reference()
-    let maxTrendsNum = 10
 }

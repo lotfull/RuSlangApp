@@ -91,11 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.tintColor = UIColor.purple
         if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
-            if #available(iOS 10.0, *) {
-                initialVC.managedObjectContext = managedObjectContext
-            } else {
-                // Fallback on earlier versions
-            }
+            initialVC.managedObjectContext = managedObjectContext
         } else {
             //print("Something went wrong with managedObjectContext assignment")
         }
@@ -105,10 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Core Data stack
     
-    @available(iOS 10.0, *)
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
     
-    @available(iOS 10.0, *)
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDefinition, error) in
@@ -122,20 +116,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
     
     func saveContext() {
-        if #available(iOS 10.0, *) {
-            let context = persistentContainer.viewContext
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
-        } else {
-            // Fallback on earlier versions
         }
-        
     }
     
     // MARK: - FatalCoreDataNotifications

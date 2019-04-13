@@ -29,23 +29,15 @@ extension Word {
     
     func textViewString() -> String {
         var answer = "\(name)\n\(definition)"
-        if group != nil {
-            answer += "\nгруппа: \(group!)"
-        }
-        if type != nil {
-            answer += "\nтип: \(type!)"
-        }
-        if hashtags != nil {
-            answer += "\nтеги: \(hashtags!)"
-        }
-        if examples != nil {
-            answer += "\nпримеры: \(examples!)"
-        }
-        if origin != nil {
-            answer += "\nпроисх.: \(origin!)"
-        }
-        if synonyms != nil {
-            answer += "\nсин.: \(synonyms!)"
+        for (a, b) in [("группа", group),
+                       ("тип", type),
+                       ("теги", hashtags),
+                       ("примеры", examples),
+                       ("происх", origin),
+                       ("син.", synonyms)] {
+            if b != nil {
+                answer += "\n\(a): \(b!)"
+            }
         }
         return answer
     }

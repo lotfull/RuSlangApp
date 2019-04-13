@@ -2,6 +2,24 @@ import UIKit
 import CoreData
 
 class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate {
+    // MARK: - VARS and LETS
+    
+    var dictWords = [String: String]()
+    var arrayWords = NSMutableArray()
+    var managedObjectContext: NSManagedObjectContext!
+    var wordsTableVCRef: WordsTableVC!
+    var words = [Word]()
+    var selectedWord: Word!
+    var trendsVC: TrendsTableVC!
+    var searchText: String? {
+        didSet {
+            //print("***didSet searchText")
+            words.removeAll()
+            searchingFavorites(searchText)
+        }
+    }
+    let showWordDetailID = "ShowWordDetail"
+    let showFavorites = "showFavorites"
     
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
@@ -102,14 +120,10 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     }
     
     func addWord(_ wordName: String) {
-        if #available(iOS 10.0, *) {
-            let word = Word(context: managedObjectContext)
-            word.name = wordName
-            word.definition = "Значение слова \(wordName)"
-            word.examples = "Сегодня я выучила \(wordName) на уроке английского"
-        } else {
-            // Fallback on earlier versions
-        }
+        let word = Word(context: managedObjectContext)
+        word.name = wordName
+        word.definition = "Значение слова \(wordName)"
+        word.examples = "Сегодня я выучила \(wordName) на уроке английского"
     }
     
     // MARK: - WordTableViewCellDelegate
@@ -130,23 +144,4 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
             searchTextField.delegate = self
         }
     }
-    
-    // MARK: - VARS and LETS
-    
-    var dictWords = [String: String]()
-    var arrayWords = NSMutableArray()
-    var managedObjectContext: NSManagedObjectContext!
-    var wordsTableVCRef: WordsTableVC!
-    var words = [Word]()
-    var selectedWord: Word!
-    var trendsVC: TrendsTableVC!
-    var searchText: String? {
-        didSet {
-            //print("***didSet searchText")
-            words.removeAll()
-            searchingFavorites(searchText)
-        }
-    }
-    let showWordDetailID = "ShowWordDetail"
-    let showFavorites = "showFavorites"
 }
