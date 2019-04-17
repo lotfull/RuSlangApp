@@ -6,5 +6,6 @@ use_frameworks!
 
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Firestore'
 
 end

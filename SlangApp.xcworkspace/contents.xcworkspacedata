@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SlangApp/../README.md">
-   </FileRef>
-   <FileRef
       location = "group:SlangApp.xcodeproj">
    </FileRef>
    <FileRef
