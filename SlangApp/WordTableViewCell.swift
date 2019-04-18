@@ -27,14 +27,15 @@ class WordTableViewCell: UITableViewCell {
         self.layoutMargins = UIEdgeInsets.zero
         thisCellWord = word
         thisCellIndexPath = indexPath
-        wordNameLabel.text = /*String(word.id) + " " + */thisCellWord.name
+        wordNameLabel.text = thisCellWord.name
         if thisCellWord.definition.isEmpty {
             wordDefinitionLabel.text = "Нет определения"
         } else {
             wordDefinitionLabel.text = thisCellWord.definition
         }
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "yellow star ") : #imageLiteral(resourceName: "star")
-        
+        shareButton.imageView?.image = shareButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        shareButton.tintColor = UIColor.purple
     }
     
     func configure(withName: String, withDefinition: String, at indexPath: IndexPath) {
@@ -45,6 +46,7 @@ class WordTableViewCell: UITableViewCell {
         wordNameLabel.text = withName
         wordDefinitionLabel.text = withDefinition
         favoriteButton.imageView?.image = #imageLiteral(resourceName: "big yellow star")
+        shareButton.tintColor = UIColor.purple
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
@@ -61,6 +63,7 @@ class WordTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var wordNameLabel: UILabel!
     @IBOutlet weak var wordDefinitionLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!

@@ -53,18 +53,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Значение слова, очень длинное и полноценное определение " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wD-ND-5Wz">
-                        <rect key="frame" x="8" y="70" width="284" height="91.5"/>
+                        <rect key="frame" x="8" y="70" width="307" height="91.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.13447507747933884" green="0.13447507747933884" blue="0.13447507747933884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSB-U6-aVh" userLabel="Share Button">
-                        <rect key="frame" x="292" y="78.5" width="83" height="83"/>
+                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSB-U6-aVh" userLabel="Share Button">
+                        <rect key="frame" x="315" y="101.5" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="83" id="BWQ-A0-pnL"/>
-                            <constraint firstAttribute="height" constant="83" id="M0m-PQ-SbV"/>
+                            <constraint firstAttribute="width" constant="40" id="BWQ-A0-pnL"/>
+                            <constraint firstAttribute="height" constant="40" id="M0m-PQ-SbV"/>
                         </constraints>
-                        <state key="normal" image="sendIcon">
+                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="send">
                             <color key="titleColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
@@ -76,7 +77,7 @@
                     <constraint firstAttribute="trailing" secondItem="IxW-a2-gZH" secondAttribute="trailing" id="BuW-0b-Yuq"/>
                     <constraint firstItem="QT2-1b-Wng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="C5x-s5-wRz"/>
                     <constraint firstAttribute="bottom" secondItem="IxW-a2-gZH" secondAttribute="bottom" id="DCD-7X-OkS"/>
-                    <constraint firstAttribute="bottom" secondItem="fSB-U6-aVh" secondAttribute="bottom" id="FGc-Qe-nfH"/>
+                    <constraint firstAttribute="bottom" secondItem="fSB-U6-aVh" secondAttribute="bottom" constant="20" id="FGc-Qe-nfH"/>
                     <constraint firstAttribute="bottom" secondItem="6wD-ND-5Wz" secondAttribute="bottom" id="GUu-cN-PpF"/>
                     <constraint firstItem="QT2-1b-Wng" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KTC-EP-0Kl"/>
                     <constraint firstItem="IxW-a2-gZH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KWr-7y-gJQ"/>
@@ -86,7 +87,7 @@
                     <constraint firstItem="cif-O5-8fQ" firstAttribute="leading" secondItem="QT2-1b-Wng" secondAttribute="trailing" id="bhz-tg-MCO"/>
                     <constraint firstItem="ECS-Cd-gNy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cht-mg-eLP"/>
                     <constraint firstAttribute="trailing" secondItem="ECS-Cd-gNy" secondAttribute="trailing" constant="80" id="g0m-PO-IDX"/>
-                    <constraint firstAttribute="trailing" secondItem="fSB-U6-aVh" secondAttribute="trailing" id="g8c-Ub-3mV"/>
+                    <constraint firstAttribute="trailing" secondItem="fSB-U6-aVh" secondAttribute="trailing" constant="20" id="g8c-Ub-3mV"/>
                     <constraint firstItem="6wD-ND-5Wz" firstAttribute="top" secondItem="QT2-1b-Wng" secondAttribute="bottom" id="mVQ-Ag-to1"/>
                     <constraint firstItem="cif-O5-8fQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sUh-aJ-UmP"/>
                     <constraint firstItem="6wD-ND-5Wz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="weK-Kx-Cu3"/>
@@ -96,6 +97,7 @@
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="favoriteButton" destination="cif-O5-8fQ" id="kVf-Va-FqH"/>
+                <outlet property="shareButton" destination="fSB-U6-aVh" id="IDH-dj-PGn"/>
                 <outlet property="wordDefinitionLabel" destination="6wD-ND-5Wz" id="HH8-Vo-gbY"/>
                 <outlet property="wordNameLabel" destination="QT2-1b-Wng" id="oI5-7W-Iir"/>
             </connections>
@@ -103,7 +105,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="sendIcon" width="715" height="657"/>
+        <image name="send" width="409.60000610351562" height="409.60000610351562"/>
         <image name="star" width="46.400001525878906" height="46.400001525878906"/>
     </resources>
 </document>

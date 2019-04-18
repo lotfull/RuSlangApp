@@ -213,7 +213,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     // MARK: - searching funcs
     func updateSearchResults(for searchController: UISearchController) {
-        print("-------update")
         let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
             filteredWords = sortedWords
@@ -287,15 +286,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     func updateSearchResults(_ wordName: String) {
-        print("----1----update")
         searchController.searchBar.text? = wordName
-        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
-        print("----3----update")
         searchController.isActive = true
-        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
-        print("----4----update")
         self.updateSearchResults(for: searchController)
-        print("\(filteredWords.count), \(filteredWords.count > 0 ? filteredWords[0].name : "")")
     }
     
     // MARK: - WordTableViewCellDelegate

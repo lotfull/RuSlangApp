@@ -18,8 +18,9 @@ class AppLaunchingInitialVC: UIViewController {
     var tabBarControl: UITabBarController!
     let showMainVCID = "ShowMainVC"
     let isPreloadedKey = "isPreloaded"
-    let teenslang = "teenslang_appwords"
-    let vsekidki = "vsekidki_appwords"
+    let teenslang = "teenslang-1"
+    let vsekidki = "vsekidki-1"
+    let vsekidki2 = "vsekidki-2"
     let wordsVersion = "1"
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -44,22 +45,28 @@ class AppLaunchingInitialVC: UIViewController {
     
     func preloadDataFromCSVFile() {
         removeData()
-        for appwordsFile in [teenslang, vsekidki] {
+        for appwordsFile in [teenslang, vsekidki, vsekidki2] {
             print("Processing \(appwordsFile)")
             if let contentsOfURL = Bundle.main.url(forResource: appwordsFile, withExtension: "csv") {
                 if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                     let items_arrays = content.csvRows(firstRowIgnored: true)
                     for item_array in items_arrays {
                         let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                        word.name = item_array[0].uppercaseFirst()
-                        word.definition = (returnNilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()
-                        word.type = returnNilIfEmpty(item_array[2])
-                        word.group = returnNilIfEmpty(item_array[3])
-                        word.examples = returnNilIfEmpty(item_array[4])
-                        word.hashtags = returnNilIfEmpty(item_array[5])
-                        word.origin = returnNilIfEmpty(item_array[6])
-                        word.synonyms = returnNilIfEmpty(item_array[7])
-                        word.id = Int(item_array[8])!
+                        if appwordsFile == vsekidki2 {
+                            word.name = item_array[2].uppercaseFirst()
+                            word.definition = (nilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()
+                            word.group = nilIfEmpty(item_array[3])
+                            word.origin = nilIfEmpty("http://vsekidki.ru/" + item_array[0])
+                        } else {
+                            word.name = item_array[0].uppercaseFirst()
+                            word.definition = (nilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()
+                            word.type = nilIfEmpty(item_array[2])
+                            word.group = nilIfEmpty(item_array[3])
+                            word.examples = nilIfEmpty(item_array[4])
+                            word.hashtags = nilIfEmpty(item_array[5])
+                            word.origin = nilIfEmpty(item_array[6])
+                            word.synonyms = nilIfEmpty(item_array[7])
+                        }
                     }
                     do {
                         try managedObjectContext.save()
@@ -83,7 +90,7 @@ class AppLaunchingInitialVC: UIViewController {
         }
     }
     
-    func returnNilIfEmpty(_ str: String) -> String? {
+    func nilIfEmpty(_ str: String) -> String? {
         return (str == "" || str == "_" || str == " ") ? nil : str
     }
     

@@ -25,11 +25,28 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpShareButton()
         tableView.isScrollEnabled = true
         title = word.name
         tblView.estimatedRowHeight = tableView.rowHeight
         tblView.rowHeight = UITableView.automaticDimension
         definesPresentationContext = true
+    }
+    
+    func setUpShareButton(){
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+        menuBtn.setImage(UIImage(named:"send"), for: .normal)
+        menuBtn.imageView?.image = menuBtn.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        menuBtn.setTitleColor(UIColor.purple, for: .normal)
+        menuBtn.addTarget(self, action: #selector(shareWordButton(_:)), for: UIControl.Event.touchUpInside)
+        
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+        self.navigationItem.rightBarButtonItem = menuBarItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,13 +137,15 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
     }
     
-    @IBAction func shareWordButton(_ sender: Any) {
+    @objc func shareWordButton(_ sender: Any) {
         let text = word.textViewString()
         let textToShare = [text]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
     }
+    
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     @IBAction func cancel(_ sender: Any) {
         needToUpdate = false

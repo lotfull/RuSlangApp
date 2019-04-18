@@ -461,11 +461,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Word" id="aen-Uj-hxZ">
                         <rightBarButtonItems>
-                            <barButtonItem image="sendIcon" id="SIt-cl-U9e">
-                                <connections>
-                                    <action selector="shareWordButton:" destination="1C6-aZ-MHr" id="r59-iX-eDO"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem title="изменить" id="kHG-ux-Ued">
                                 <connections>
                                     <segue destination="z6M-zH-SkY" kind="presentation" identifier="EditWord" id="UBp-CX-A8z"/>
@@ -485,7 +480,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144" y="59"/>
+            <point key="canvasLocation" x="3184" y="-17"/>
         </scene>
         <!--Trend RatingTVC-->
         <scene sceneID="OD0-Pr-0QX">
@@ -536,7 +531,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="русленг-512" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-dZ-wQy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="UOK-dZ-wQy">
                                 <rect key="frame" x="20" y="20" width="280" height="225.5"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-bG-d1U">
@@ -744,7 +739,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="русленг-98" translatesAutoresizingMaskIntoConstraints="NO" id="pHq-hG-33G">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="pHq-hG-33G">
                                 <rect key="frame" x="16" y="74" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Eib-gz-JU0"/>
@@ -1145,10 +1140,8 @@ GitHub.com/Lotfull</string>
     </scenes>
     <resources>
         <image name="KamLotfull-98" width="98" height="98"/>
-        <image name="sendIcon" width="715" height="657"/>
+        <image name="iTunesArtwork" width="512" height="512"/>
         <image name="star " width="29" height="29"/>
-        <image name="русленг-512" width="512" height="512"/>
-        <image name="русленг-98" width="98" height="98"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s96-ql-dpo"/>
