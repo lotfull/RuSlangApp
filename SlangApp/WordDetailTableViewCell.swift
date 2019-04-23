@@ -68,7 +68,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                 convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple])))
         }
         
-        let defString = "\n  1) \(word.definition)\n"
+        let defString = "\n\(word.definition)\n"
         attributedText.append(NSAttributedString(string: defString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
             convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize),
             convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.black,

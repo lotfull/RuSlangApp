@@ -18,10 +18,10 @@ class AppLaunchingInitialVC: UIViewController {
     var tabBarControl: UITabBarController!
     let showMainVCID = "ShowMainVC"
     let isPreloadedKey = "isPreloaded"
-    let teenslang = "teenslang-1"
-    let vsekidki = "vsekidki-1"
-    let vsekidki2 = "vsekidki-2"
     let wordsVersion = "1"
+    let teenslang = "teenslang-1"
+    let vsekidki = "vsekidki-2"
+    let modnyeslova = "modnyeslova"
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var progressView: UIProgressView!
@@ -45,18 +45,31 @@ class AppLaunchingInitialVC: UIViewController {
     
     func preloadDataFromCSVFile() {
         removeData()
-        for appwordsFile in [teenslang, vsekidki, vsekidki2] {
+        let dictionaryNameToId = [
+            "teenslang-1": 1,
+            "vsekidki-1": 2,
+            "vsekidki-2": 3,
+            "modnyeslova": 4
+        ]
+        for appwordsFile in ["teenslang-1", "vsekidki-1", "vsekidki-2", "modnyeslova"] {
             print("Processing \(appwordsFile)")
             if let contentsOfURL = Bundle.main.url(forResource: appwordsFile, withExtension: "csv") {
                 if let content = try? String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8) {
                     let items_arrays = content.csvRows(firstRowIgnored: true)
                     for item_array in items_arrays {
                         let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-                        if appwordsFile == vsekidki2 {
+                        if appwordsFile == "vsekidki-2" {
                             word.name = item_array[2].uppercaseFirst()
                             word.definition = (nilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()
                             word.group = nilIfEmpty(item_array[3])
                             word.origin = nilIfEmpty("http://vsekidki.ru/" + item_array[0])
+                        } else if appwordsFile == "modnyeslova" {
+                            // definition,link,name,video
+                            word.name = item_array[2].uppercaseFirst()
+                            word.definition = item_array[0]
+                            word.examples = nilIfEmpty(item_array[3])
+                            word.origin = nilIfEmpty(item_array[1])
+                            word.dictionaryId =
                         } else {
                             word.name = item_array[0].uppercaseFirst()
                             word.definition = (nilIfEmpty(item_array[1]) == nil ? "Нет определения" : item_array[1]).uppercaseFirst()

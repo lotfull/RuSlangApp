@@ -48,6 +48,7 @@
                             </state>
                             <connections>
                                 <action selector="titleTapped:" destination="mPO-jZ-NT8" eventType="touchUpInside" id="USJ-eL-rw9"/>
+                                <segue destination="ojU-1V-s5H" kind="show" identifier="setDictionary" id="L09-NF-3UH"/>
                             </connections>
                         </button>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="ozX-dg-Ura">
@@ -59,7 +60,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="shuffleButton" destination="zcW-ZB-3vM" id="wIR-FL-z7V"/>
-                        <outlet property="titleButton" destination="4MI-s5-OK5" id="VMp-uo-Tqf"/>
+                        <outlet property="titleButton" destination="4MI-s5-OK5" id="wlk-4I-eua"/>
                         <segue destination="1C6-aZ-MHr" kind="show" identifier="ShowWordDetail" id="oJz-hB-ms0"/>
                     </connections>
                 </tableViewController>
@@ -517,7 +518,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tze-YV-eS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3914" y="58"/>
+            <point key="canvasLocation" x="4024" y="58"/>
         </scene>
         <!--App Launching InitialVC-->
         <scene sceneID="l50-4y-TA5">
@@ -1137,6 +1138,43 @@ GitHub.com/Lotfull</string>
             </objects>
             <point key="canvasLocation" x="3143" y="1771"/>
         </scene>
+        <!--Set DictionaryVC-->
+        <scene sceneID="zxj-VE-Qc9">
+            <objects>
+                <tableViewController id="ojU-1V-s5H" customClass="SetDictionaryVC" customModule="SlangApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4cX-1P-1cN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RatingCell" textLabel="0j6-Ok-t4g" style="IBUITableViewCellStyleDefault" id="QIU-eP-wCh">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIU-eP-wCh" id="Gmn-an-YQP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0j6-Ok-t4g">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ojU-1V-s5H" id="fwY-xc-Psi"/>
+                            <outlet property="delegate" destination="ojU-1V-s5H" id="jNI-RR-bKM"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bh-Yd-Pax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3143" y="-1425"/>
+        </scene>
     </scenes>
     <resources>
         <image name="KamLotfull-98" width="98" height="98"/>
@@ -1145,7 +1183,7 @@ GitHub.com/Lotfull</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s96-ql-dpo"/>
-        <segue reference="ohW-bx-XNF"/>
-        <segue reference="UBp-CX-A8z"/>
+        <segue reference="oJz-hB-ms0"/>
+        <segue reference="NR0-LT-nVw"/>
     </inferredMetricsTieBreakers>
 </document>

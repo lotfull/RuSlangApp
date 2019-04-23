@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseDatabase
+import BTNavigationDropdownMenu
 
 extension MutableCollection where Indices.Iterator.Element == Index {
     /// Shuffles the contents of this collection.
@@ -21,7 +22,10 @@ extension MutableCollection where Indices.Iterator.Element == Index {
     }
 }
 
-class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, SearchWordByHashtagDelegate {
+let dictNames = ["Словарь сленг-слов", "Teenslang.su", "Vsekidki.ru", "Модные-слова.рф"]
+let dictionaryNameToId = ["Словарь сленг-слов": 0, "Teenslang.su": 1, "Vsekidki.ru": 2, "Модные-слова.рф": 3]
+
+class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, SearchWordByHashtagDelegate, setDictionaryDelegate {
     
     // MARK: - VARS and LETS
     var sectionNames = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я", "#"]
@@ -41,7 +45,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     let showWordDetailID = "ShowWordDetail"
     let createEditWordID = "CreateEditWord"
     let ref = Database.database().reference()
-    
+    var selectedDict = "Словарь сленг-слов"
+    @IBOutlet weak var titleButton: UIButton!
+
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.style = UIActivityIndicatorView.Style.gray
@@ -52,13 +58,23 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     // MARK: - MAIN FUNCS
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("viewDidLoad")
         installSearchController()
         installTableView()
         firstFetching()
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
         words.shuffle()
+    }
+    
+    func setDictionary(_ name: String) {
+        self.titleButton.setTitle(name, for: .normal)
+        self.changeActiveDictionary(name)
+        self.firstFetching()
+    }
+    
+    func changeActiveDictionary(_ dictName: String) {
+        self.selectedDict = dictName
+        print("Show words for selected dictionary")
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
@@ -112,6 +128,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.delegate = self
                 createEditWordVC.delegate1 = trendsVC
+            }
+        } else if segue.identifier == "setDictionary" {
+            if let setDictionaryVC = segue.destination as? SetDictionaryVC {
+                setDictionaryVC.delegate = self
+                setDictionaryVC.dictionaries = dictNames
             }
         }
     }
@@ -216,7 +237,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
             filteredWords = sortedWords
-            titleButton.setTitle("Словарь сленг-слов", for: .normal)
+            self.titleButton.setTitle(self.selectedDict, for: .normal)
         } else if text?.first! == "#" {
             filteredWords = sortedWords.filter({ (word: Word) -> Bool in
                 if let wordHashtags = word.hashtags {
@@ -249,8 +270,15 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         
     }
     
+    
+    
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        let dictionaryName = titleButton.title(for: .normal)!
+        let dictionaryId = dictionaryNameToId[dictionaryName]!
+        if dictionaryId != 0 {
+            nameBeginsFetch.predicate = NSPredicate(format: "dictionaryId == %@", dictionaryId)
+        }
         do {
             sortedWords = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
             sortedWords.sort(by: sorting)
@@ -374,5 +402,4 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     @IBOutlet weak var shuffleButton: UIBarButtonItem!
-    @IBOutlet weak var titleButton: UIButton!
 }
