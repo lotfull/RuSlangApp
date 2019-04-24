@@ -16,7 +16,8 @@ class SetDictionaryVC: UITableViewController {
     
     weak var delegate: setDictionaryDelegate?
     var dictionaries: [String]!
-    
+    var dictionaryNames: [String: String]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,7 +33,7 @@ class SetDictionaryVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell", for: indexPath)
-        cell.textLabel?.text = "\(self.dictionaries[indexPath.row])"
+        cell.textLabel?.text = "\(self.dictionaryNames[self.dictionaries[indexPath.row]]!)"
         return cell
     }
     

@@ -26,7 +26,8 @@ extension Word {
     @NSManaged public var synonyms: String?
     @NSManaged public var favorite: Bool
     @NSManaged public var id: Int
-    
+    @NSManaged public var dictionaryId: Int
+
     func textViewString() -> String {
         var answer = "\(name)\n\(definition)"
         for (a, b) in [("группа", group),
