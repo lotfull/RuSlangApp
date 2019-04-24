@@ -84,10 +84,10 @@ class AppLaunchingInitialVC: UIViewController {
                     case modnyeslova:
                         print(2, separator: "", terminator: "")
                         // definition,link,name,video
-                        word.name = item_array[2].uppercaseFirst()
-                        word.definition = item_array[0]
+                        word.name = item_array[0].uppercaseFirst()
+                        word.definition = item_array[1]
+                        word.origin = nilIfEmpty(item_array[2])
                         word.examples = item_array.count == 4 ? nilIfEmpty(item_array[3]) : nil
-                        word.origin = nilIfEmpty(item_array[1])
                     default: break
                     }
                 }
