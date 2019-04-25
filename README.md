@@ -1,7 +1,6 @@
 **RuSlang - РуСленг**
 ---
 #### Russian slang dictionary - Словарь русского сленга
-##### Link to the **App Store**: [RuSlang](https://itunes.apple.com/us/app/russian-slang-dictionary/id1280469135?mt=8)
 Development languages: Swift, Python. <br>
 Development Tools: Xcode, Jupyter Notebook, PyCharm.
 Development Technologies: CoreData, FireBase, UI, Pandas, BeautifulSoup, Selenium, Protocols, MVC.
