@@ -15,7 +15,10 @@ import Dispatch
 
 class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate, SendingFeedbackDelegate, AddingNewWordsToFirebase {
     // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        return (delegate?.managedObjectContext)!
+    }()
     var wordsTableVCRef: WordsTableVC!
     var trends = [String: Int]()
     var trendWords = [Word]()
@@ -59,7 +62,6 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             if let wordDetailVC = segue.destination as? WordDetailVC {
-                wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
                 wordDetailVC.wordsTableVCRef = wordsTableVCRef
             }

@@ -15,7 +15,10 @@ protocol AddingWordsToTrendsDelegate: class {
 
 class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, CreateWordVCDelegate, getTrendRatingDelegate {
     // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        return (delegate?.managedObjectContext)!
+    }()
     var word: Word!
     let editWordID = "EditWord"
     let getTrendRatingID = "getTrendRating"
@@ -67,7 +70,6 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         if segue.identifier == editWordID {
             if let navigationController = segue.destination as? UINavigationController,
                let createEditWordVC = navigationController.topViewController as? CreateEditWordVC {
-                createEditWordVC.managedObjectContext = managedObjectContext
                 createEditWordVC.editingWord = word
                 createEditWordVC.delegate = self
                 //wordDetailVC.word = selectedWord

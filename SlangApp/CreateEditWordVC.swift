@@ -22,7 +22,10 @@ protocol AddingNewWordsToFirebase: class {
 
 class CreateEditWordVC: UITableViewController {
     // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        return (delegate?.managedObjectContext)!
+    }()
     var editingWord: Word?
     
     // MARK: - MAIN FUNCS

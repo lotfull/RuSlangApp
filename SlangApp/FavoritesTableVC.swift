@@ -6,7 +6,10 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     
     var dictWords = [String: String]()
     var arrayWords = NSMutableArray()
-    var managedObjectContext: NSManagedObjectContext!
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        return (delegate?.managedObjectContext)!
+    }()
     var wordsTableVCRef: WordsTableVC!
     var words = [Word]()
     var selectedWord: Word!
@@ -37,7 +40,6 @@ class FavoritesTableVC: UITableViewController, UITextFieldDelegate, WordTableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWordDetailID {
             if let wordDetailVC = segue.destination as? WordDetailVC {
-                wordDetailVC.managedObjectContext = managedObjectContext
                 wordDetailVC.word = selectedWord
                 wordDetailVC.wordsTableVCRef = wordsTableVCRef
                 if trendsVC != nil {

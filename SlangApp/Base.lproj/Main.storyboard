@@ -47,7 +47,6 @@
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="titleTapped:" destination="mPO-jZ-NT8" eventType="touchUpInside" id="USJ-eL-rw9"/>
                                 <segue destination="ojU-1V-s5H" kind="show" identifier="setDictionary" id="L09-NF-3UH"/>
                             </connections>
                         </button>
@@ -1183,7 +1182,7 @@ GitHub.com/Lotfull</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s96-ql-dpo"/>
-        <segue reference="oJz-hB-ms0"/>
+        <segue reference="KuJ-46-Lh0"/>
         <segue reference="NR0-LT-nVw"/>
     </inferredMetricsTieBreakers>
 </document>

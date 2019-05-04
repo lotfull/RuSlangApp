@@ -90,11 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window?.tintColor = UIColor.purple
-        if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
-            initialVC.managedObjectContext = managedObjectContext
-        } else {
-            //print("Something went wrong with managedObjectContext assignment")
-        }
         listenForFatalCoreDataNotifications()
         return true
     }

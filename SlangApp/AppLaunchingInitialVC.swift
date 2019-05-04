@@ -14,7 +14,10 @@ import CoreData
 class AppLaunchingInitialVC: UIViewController {
     
     // MARK: - VARS and LETS
-    var managedObjectContext: NSManagedObjectContext!
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        return (delegate?.managedObjectContext)!
+    }()
     var tabBarControl: UITabBarController!
     let showMainVCID = "ShowMainVC"
     let isPreloadedKey = "isPreloaded"
@@ -39,7 +42,7 @@ class AppLaunchingInitialVC: UIViewController {
         activityIndicator.startAnimating()
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let defaults = UserDefaults.standard
-            defaults.set(false, forKey: "isPreloaded")
+//            defaults.set(false, forKey: "isPreloaded")
             let isPreloaded = defaults.bool(forKey: self.isPreloadedKey + self.wordsVersion)
             if !isPreloaded {
                 self.preloadDataFromCSVFile()
@@ -129,13 +132,10 @@ class AppLaunchingInitialVC: UIViewController {
                     fatalError("*****not correct window!.rootViewController as? UINavigationController unwrapping")
             }
             tabBarControl = tabBarVC
-            wordsTableVC.managedObjectContext = managedObjectContext
             wordsTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
             wordsTableVC.dictionaries = self.dictionaries
             wordsTableVC.dictionaryNames = self.dictionaryNames
-            trendsVC.managedObjectContext = managedObjectContext
             trendsVC.wordsTableVCRef = wordsTableVC
-            favoritesTableVC.managedObjectContext = managedObjectContext
             favoritesTableVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
             favoritesTableVC.wordsTableVCRef = wordsTableVC
             moreVC.trendsVC = VControllers[1].topViewController as? TrendsTableVC
