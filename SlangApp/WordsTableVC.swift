@@ -24,7 +24,6 @@ extension MutableCollection where Indices.Iterator.Element == Index {
 class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, CreateWordVCDelegate, UISearchResultsUpdating, UITabBarControllerDelegate, SearchWordByHashtagDelegate, setDictionaryDelegate {
     
     // MARK: - VARS and LETS
-    var russianLetts = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я"]
     var sectionNames = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ы", "Э", "Ю", "Я", "#"]
     var wordsBySection = [String: [Word]]()
     var searchController = UISearchController()
@@ -34,7 +33,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return (delegate?.managedObjectContext)!
     }()
     var words = [Word]()
-    var sortedWords = [Word]()
+    var dictWords = [Word]()
     var filteredWords = [Word]()
     var selectedWord: Word!
     var selectedTabBarIndex: Int!
@@ -50,6 +49,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     lazy var dictionaries = {
         return (delegate?.dictionaries)!
     }()
+    var shuffleIndex: [Int]!
 
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -66,7 +66,6 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         firstFetching()
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
-        words.shuffle()
     }
     
     func setDictionary(_ dictionary: Int) {
@@ -74,6 +73,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         if selectedDict != dictionary {
             self.selectedDict = dictionary
             updateSearchResults(for: searchController)
+            dictWords = words.filter({ (word: Word) -> Bool in
+                return (selectedDict == 0) || (word.dictionaryId == selectedDict)
+            })
+            shuffleIndex = Array(0...dictWords.count)
+            shuffleIndex.shuffle()
         }
     }
     
@@ -136,14 +140,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     // MARK: - TableView Funcs
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView == resultsController.tableView || isShuffled {
+        if tableView == resultsController.tableView || isShuffled || selectedDict != 0 {
             return 1
         } else {
             return sectionNames.count
         }
     }
-    
-    var firstLetterIndexes = [Int]()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == resultsController.tableView {
@@ -152,40 +154,15 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             } else {
                 return filteredWords.count + 1
             }
-        } else if isShuffled {
-            return words.count
+        } else if isShuffled || selectedDict != 0 {
+            return dictWords.count
         } else {
-    
-            if (section == sectionNames.count - 1) {
-                return firstLetterIndexes.last! - firstLetterIndexes[firstLetterIndexes.count - 2]
-            }
             let wordsKey = sectionNames[section]
-            return filteredWords.count
-            if selectedDict == 0 {
-                let filteredWordsBySection = filteredWords.firstIndex { (word: Word) -> Bool in
-                    return
-                }
-            }
-            
             if let sectionWords = wordsBySection[wordsKey] {
                 return sectionWords.count
             }
             return 0
         }
-    }
-    
-    func updateSectionIndexes() {
-        firstLetterIndexes = [Int]()
-        var i = 0, j = 0
-        for word in filteredWords {
-            let wordKey = "\(word.name[word.name.startIndex])"
-            if wordKey == russianLetts[j] {
-                print(russianLetts[j], i)
-                firstLetterIndexes.append(i)
-            }
-            i += 1
-        }
-        firstLetterIndexes.append(firstLetterIndexes.count - 1)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -202,7 +179,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 }
             }
         } else if isShuffled {
-            cell.configure(with: words[indexPath.row], at: indexPath)
+            cell.configure(with: dictWords[shuffleIndex[indexPath.row]], at: indexPath)
+        } else if selectedDict != 0 {
+            cell.configure(with: dictWords[indexPath.row], at: indexPath)
         } else if tableView == self.tableView {
             let wordKey = sectionNames[indexPath.section]
             if let sectionWords = wordsBySection[wordKey] {
@@ -244,7 +223,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if tableView == resultsController.tableView || isShuffled {
+        if tableView == resultsController.tableView || isShuffled || selectedDict != 0 {
             return nil
         } else {
             return sectionNames
@@ -260,12 +239,12 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     func updateSearchResults(for searchController: UISearchController) {
         let text = searchController.searchBar.text?.lowercased(with: NSLocale.current)
         if text == nil || text == "" {
-            filteredWords = sortedWords.filter({ (word: Word) -> Bool in
+            filteredWords = dictWords.filter({ (word: Word) -> Bool in
                 return (selectedDict == 0) || (word.dictionaryId == selectedDict)
             })
             self.titleButton.setTitle(self.dictionaries[self.selectedDict], for: .normal)
         } else if text?.first! == "#" {
-            filteredWords = sortedWords.filter({ (word: Word) -> Bool in
+            filteredWords = dictWords.filter({ (word: Word) -> Bool in
                 if (selectedDict == 0) || (word.dictionaryId == 1) {
                     if let wordHashtags = word.hashtags {
                         let hashtag = wordHashtags.components(separatedBy: " ")[0]
@@ -277,7 +256,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             titleButton.setTitle(text!, for: .normal)
         } else {
             var tempWords = [Word]()
-            filteredWords = sortedWords.filter({ (word: Word) -> Bool in
+            filteredWords = dictWords.filter({ (word: Word) -> Bool in
                 if (selectedDict == 0) || (word.dictionaryId == selectedDict) {
                     let wordName = word.name.lowercased(with: NSLocale.current)
                     if wordName.hasPrefix(text!) {
@@ -291,35 +270,45 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             filteredWords.append(contentsOf: tempWords)
             titleButton.setTitle("\(text!) (\(filteredWords.count) слов)", for: .normal)
         }
-        print(filteredWords.count)
         resultsController.tableView.reloadData()
         self.tableView.reloadData()
     }
     
     func firstFetching() {
         let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        nameBeginsFetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
         do {
-            sortedWords = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
-            var firstLet = sortedWords[0].name[sortedWords[0].name.startIndex]
-            print("firstLet:", firstLet)
-            for word in sortedWords {
-                if word.name[word.name.startIndex] != firstLet {
-                    firstLet = word.name[word.name.startIndex]
-                    print("firstLet:", firstLet)
-                }
+            words = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
+            let sliceStart = words.firstIndex { (word: Word) -> Bool in
+                return word.name[word.name.startIndex] == "А"
             }
-            sortedWords.sort(by: sorting)
+            let start = Int(sliceStart!), prev=start-1
+            words = words[start...] + Array(words[...prev])
+            dictWords = words
+            shuffleIndex = Array(0...dictWords.count)
+            shuffleIndex.shuffle()
         } catch {
             fatalError("Failed to fetch words: \(error)")
         }
-        words = sortedWords
-        filteredWords = words
-        updateSectionIndexes()
+        calculateWordsBySections()
+        filteredWords = dictWords
         tableView.reloadData()
     }
     
-    func sorting(word1: Word, word2: Word) -> Bool {
-        return word1.name.lowercased().localizedCaseInsensitiveCompare(word2.name.lowercased()) == .orderedAscending
+    func calculateWordsBySections() {
+        for index in 0..<sectionNames.count {
+            wordsBySection[sectionNames[index]] = [Word]()
+        }
+        for word in words {
+            let key = "\(word.name[word.name.startIndex])"
+            if wordsBySection[key] != nil {
+                wordsBySection[key]!.append(word)
+            } else if "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".contains(key) {
+                wordsBySection["F"]?.append(word)
+            } else {
+                wordsBySection["#"]?.append(word)
+            }
+        }
     }
     
     func updateSearch(_ wordName: String) {
@@ -392,14 +381,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     @IBAction func shufflePressed() {
         if isShuffled {
-            words = sortedWords.filter({ (word: Word) -> Bool in
-                return (selectedDict == 0) || (word.dictionaryId == selectedDict)
-            })
             isShuffled = false
             self.tableView.reloadData()
             shuffleButton.title = "Случайно"
         } else {
-            words.shuffle()
+            shuffleIndex.shuffle()
             isShuffled = true
             self.tableView.reloadData()
             shuffleButton.title = "А-Я"
