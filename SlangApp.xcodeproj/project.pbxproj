@@ -13,22 +13,20 @@
 		9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */; };
 		9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */; };
 		9126D2471F61F8720033E19D /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126D2461F61F8720033E19D /* MoreVC.swift */; };
-		912D6C25226FA1DC00259D15 /* modnyeslova.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912D6C23226FA1DC00259D15 /* modnyeslova.csv */; };
-		912D6C26226FA1DC00259D15 /* teenslang2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912D6C24226FA1DC00259D15 /* teenslang2.csv */; };
-		916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */; };
 		916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */; };
 		916AFF941EFF90BE00ADC371 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */; };
 		916AFF961EFF98C100ADC371 /* TrendsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */; };
 		917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */; };
 		917D38721ED18F0800EA315F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917D38711ED18F0800EA315F /* Functions.swift */; };
 		917F4A9A1EDE9005004AA818 /* CreateEditWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */; };
-		91963BC722671AE000A45E8D /* vsekidki2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91963BC422671AE000A45E8D /* vsekidki2.csv */; };
 		919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */; };
+		91B860D5227D9C1000739BBB /* full_dict.csv in Resources */ = {isa = PBXBuildFile; fileRef = 91B860D4227D9C1000739BBB /* full_dict.csv */; };
+		91B860D7227DACFE00739BBB /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B860D6227DACFE00739BBB /* Word+CoreDataClass.swift */; };
+		91B860D9227DE41000739BBB /* setDictionaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B860D8227DE41000739BBB /* setDictionaryVC.swift */; };
 		91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */; };
 		91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91E959341E4309930055F5B2 /* Model.xcdatamodeld */; };
 		91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E959581E430F540055F5B2 /* WordsTableVC.swift */; };
 		91EB3C231EFDD59B00F807EA /* AppLaunchingInitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */; };
-		91F2B1F9226E14AE00C17142 /* setDictionaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B1F8226E14AE00C17142 /* setDictionaryVC.swift */; };
 		91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */; };
 		91F97AFE1E37BF1900796C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F97AFD1E37BF1900796C1F /* AppDelegate.swift */; };
 		91F97B051E37BF1900796C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91F97B031E37BF1900796C1F /* Main.storyboard */; };
@@ -58,22 +56,20 @@
 		9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVtoArrayStringExtension.swift; sourceTree = "<group>"; };
 		9114F9D01ED48A62009A28BE /* WordDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9126D2461F61F8720033E19D /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
-		912D6C23226FA1DC00259D15 /* modnyeslova.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = modnyeslova.csv; sourceTree = "<group>"; };
-		912D6C24226FA1DC00259D15 /* teenslang2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = teenslang2.csv; sourceTree = "<group>"; };
-		916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataProperties.swift"; path = "SlangApp/Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		916AFF951EFF98C000ADC371 /* TrendsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendsTableVC.swift; sourceTree = "<group>"; };
 		917CA4FC1ED17A4F000EF897 /* WordDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordDetailVC.swift; sourceTree = "<group>"; };
 		917D38711ED18F0800EA315F /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		917F4A991EDE9005004AA818 /* CreateEditWordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditWordVC.swift; sourceTree = "<group>"; };
-		91963BC422671AE000A45E8D /* vsekidki2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vsekidki2.csv; sourceTree = "<group>"; };
 		919BEC7F1E85876500AF1644 /* WordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
+		91B860D4227D9C1000739BBB /* full_dict.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = full_dict.csv; sourceTree = "<group>"; };
+		91B860D6227DACFE00739BBB /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Word+CoreDataClass.swift"; path = "SlangApp/Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		91B860D8227DE41000739BBB /* setDictionaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setDictionaryVC.swift; sourceTree = "<group>"; };
 		91C455141EE6ECCC00E05DFD /* WordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
 		91E959351E4309930055F5B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		91E959581E430F540055F5B2 /* WordsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsTableVC.swift; sourceTree = "<group>"; };
 		91EB3C221EFDD59B00F807EA /* AppLaunchingInitialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchingInitialVC.swift; sourceTree = "<group>"; };
-		91F2B1F8226E14AE00C17142 /* setDictionaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setDictionaryVC.swift; sourceTree = "<group>"; };
 		91F3B12E1EDC12FD00E78466 /* FavoritesTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableVC.swift; sourceTree = "<group>"; };
 		91F97AFA1E37BF1900796C1F /* SlangApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlangApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F97AFD1E37BF1900796C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,12 +183,12 @@
 				9101F32B1F61EBF6005294F5 /* Feedback.swift */,
 				916AFF931EFF90BD00ADC371 /* GoogleService-Info.plist */,
 				91E959341E4309930055F5B2 /* Model.xcdatamodeld */,
+				91B860D8227DE41000739BBB /* setDictionaryVC.swift */,
 				917D38711ED18F0800EA315F /* Functions.swift */,
 				9114F98D1ED45089009A28BE /* CSVtoArrayStringExtension.swift */,
 				91F97B0B1E37BF1900796C1F /* Info.plist */,
 				91F97B061E37BF1900796C1F /* Assets.xcassets */,
 				91F97B081E37BF1900796C1F /* LaunchScreen.storyboard */,
-				91F2B1F8226E14AE00C17142 /* setDictionaryVC.swift */,
 			);
 			name = "Other Files";
 			sourceTree = "<group>";
@@ -200,9 +196,7 @@
 		91F2B1FC226F816C00C17142 /* Dictionaries */ = {
 			isa = PBXGroup;
 			children = (
-				91963BC422671AE000A45E8D /* vsekidki2.csv */,
-				912D6C23226FA1DC00259D15 /* modnyeslova.csv */,
-				912D6C24226FA1DC00259D15 /* teenslang2.csv */,
+				91B860D4227D9C1000739BBB /* full_dict.csv */,
 			);
 			name = Dictionaries;
 			sourceTree = "<group>";
@@ -210,8 +204,8 @@
 		91F97AF11E37BF1800796C1F = {
 			isa = PBXGroup;
 			children = (
-				916445551ED16FE300D701D3 /* Word+CoreDataClass.swift */,
 				916445561ED16FE300D701D3 /* Word+CoreDataProperties.swift */,
+				91B860D6227DACFE00739BBB /* Word+CoreDataClass.swift */,
 				91F97AFC1E37BF1900796C1F /* SlangApp */,
 				911127AB1F68F9F200BA06F1 /* SlangAppTests */,
 				91F97AFB1E37BF1900796C1F /* Products */,
@@ -322,7 +316,7 @@
 			};
 			buildConfigurationList = 91F97AF51E37BF1800796C1F /* Build configuration list for PBXProject "SlangApp" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -354,9 +348,7 @@
 				91F97B0A1E37BF1900796C1F /* LaunchScreen.storyboard in Resources */,
 				91F97B071E37BF1900796C1F /* Assets.xcassets in Resources */,
 				91F97B051E37BF1900796C1F /* Main.storyboard in Resources */,
-				912D6C26226FA1DC00259D15 /* teenslang2.csv in Resources */,
-				91963BC722671AE000A45E8D /* vsekidki2.csv in Resources */,
-				912D6C25226FA1DC00259D15 /* modnyeslova.csv in Resources */,
+				91B860D5227D9C1000739BBB /* full_dict.csv in Resources */,
 				916AFF941EFF90BE00ADC371 /* GoogleService-Info.plist in Resources */,
 				91C455151EE6ECCC00E05DFD /* WordTableViewCell.xib in Resources */,
 			);
@@ -432,11 +424,12 @@
 				9101F32C1F61EBF6005294F5 /* Feedback.swift in Sources */,
 				9114F9D11ED48A62009A28BE /* WordDetailTableViewCell.swift in Sources */,
 				9114F98E1ED45089009A28BE /* CSVtoArrayStringExtension.swift in Sources */,
+				91B860D7227DACFE00739BBB /* Word+CoreDataClass.swift in Sources */,
 				91E959591E430F540055F5B2 /* WordsTableVC.swift in Sources */,
 				911127A51F67E9AC00BA06F1 /* TrendRatingTVC.swift in Sources */,
 				9126D2471F61F8720033E19D /* MoreVC.swift in Sources */,
+				91B860D9227DE41000739BBB /* setDictionaryVC.swift in Sources */,
 				917D38721ED18F0800EA315F /* Functions.swift in Sources */,
-				91F2B1F9226E14AE00C17142 /* setDictionaryVC.swift in Sources */,
 				916445581ED16FE300D701D3 /* Word+CoreDataProperties.swift in Sources */,
 				91E959361E4309930055F5B2 /* Model.xcdatamodeld in Sources */,
 				917CA4FD1ED17A4F000EF897 /* WordDetailVC.swift in Sources */,
@@ -444,7 +437,6 @@
 				919BEC801E85876500AF1644 /* WordTableViewCell.swift in Sources */,
 				916AFF961EFF98C100ADC371 /* TrendsTableVC.swift in Sources */,
 				91F3B12F1EDC12FD00E78466 /* FavoritesTableVC.swift in Sources */,
-				916445571ED16FE300D701D3 /* Word+CoreDataClass.swift in Sources */,
 				91EB3C231EFDD59B00F807EA /* AppLaunchingInitialVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

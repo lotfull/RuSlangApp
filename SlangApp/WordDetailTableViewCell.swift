@@ -15,7 +15,7 @@ protocol WordDetailTableViewCellDelegate: class {
 }
 
 protocol SearchWordByHashtagDelegate: class {
-    func updateSearchResults(_ wordName: String)
+    func updateSearch(_ wordName: String)
 }
 
 class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
@@ -101,7 +101,6 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                     continue
                 }
                 let synonymID = NSMutableString(string: "\(linkedWords.count)")
-                print("hashtagID \(synonymID)")
                 linkedWords.append(synonym.uppercaseFirst())
                 foundRange = attributedString.mutableString.range(of: synonym)
                 attributedString.addAttribute(NSAttributedString.Key.link, value: synonymID, range: foundRange)
@@ -111,7 +110,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         }
         
         if word.hashtags != nil {
-            let hashtagsString = "\(word.hashtags!)"
+            let hashtagsString = "\(word.hashtags!)\n"
             let hashtagsArray = hashtagsString.components(separatedBy: " ")
             let attributedString = NSMutableAttributedString(string: hashtagsString)
             var foundRange: NSRange
@@ -120,7 +119,6 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
                     continue
                 }
                 let hashtagID = NSMutableString(string: "\(linkedWords.count)")
-                print("hashtagID \(hashtagID)")
                 linkedWords.append(hashtag)
                 foundRange = attributedString.mutableString.range(of: hashtag)
                 attributedString.addAttribute(NSAttributedString.Key.link, value: hashtagID, range: foundRange)
@@ -128,6 +126,23 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
             attributedString.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple, convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): hashParagraphStyle]), range: attributedString.mutableString.range(of: hashtagsString))
             attributedText.append(attributedString)
         }
+        
+        if word.link != nil {
+            let linkString = "\(word.link!)\n"
+            let url = URL(string: linkString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!)!
+            let attributedString = NSMutableAttributedString(string: linkString, attributes:[NSAttributedString.Key.link: url])
+            attributedString.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple, convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): hashParagraphStyle]), range: attributedString.mutableString.range(of: linkString))
+            attributedText.append(attributedString)
+        }
+        
+        if word.video != nil {
+            let linkString = "\(word.video!)"
+            let url = URL(string: linkString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!)!
+            let attributedString = NSMutableAttributedString(string: linkString, attributes:[NSAttributedString.Key.link: url])
+            attributedString.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.red, convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): hashParagraphStyle]), range: attributedString.mutableString.range(of: linkString))
+            attributedText.append(attributedString)
+        }
+        
         wtv.attributedText = attributedText
         wtv.isSelectable = true
         wtv.dataDetectorTypes = UIDataDetectorTypes.link
@@ -135,17 +150,24 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         wtv.isEditable = false
     }
     
-    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-        print(URL.absoluteString)
-        if let linkedWordID = Int(URL.absoluteString),
+    func textView(_ textView: UITextView, shouldInteractWith url: URL, in characterRange: NSRange) -> Bool {
+        print(url.absoluteString)
+        if let linkedWordID = Int(url.absoluteString),
            linkedWords.count > linkedWordID {
-            delegate1?.updateSearchResults(linkedWords[linkedWordID])
+            delegate1?.updateSearch(linkedWords[linkedWordID])
+            if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
+                initialVC.tabBarControl.selectedIndex = 0
+            }
+            delegate?.pop()
+            return false
+        } else {
+            if !(url.absoluteString.starts(with: "http")) {
+                UIApplication.shared.open(URL(string: "http://" + url.absoluteString)!)
+            } else {
+                UIApplication.shared.open(url)
+            }
+            return true
         }
-        if let initialVC = window!.rootViewController as? AppLaunchingInitialVC {
-            initialVC.tabBarControl.selectedIndex = 0
-        }
-        delegate?.pop()
-        return false
     }
     
     let smallParagraphStyle: NSMutableParagraphStyle = {

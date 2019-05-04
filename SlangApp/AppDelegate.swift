@@ -77,6 +77,8 @@ extension UIFont {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    let dictionaries = ["Словарь сленга", "Teenslang.su", "Vsekidki.ru", "Модные-слова.рф"]
+    
     override init() {
         super.init()
         UIFont.overrideInitialize()
@@ -173,22 +175,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Helper function inserted by Swift 4.2 migrator.
