@@ -727,23 +727,20 @@
                                     <constraint firstAttribute="width" constant="75" id="KF2-Vn-uL5"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="РуСленг 2017 by Kam Lotfull." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joR-C2-jGZ">
-                                <rect key="frame" x="101" y="74" width="209" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" layoutMarginsFollowReadableWidth="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joR-C2-jGZ">
+                                <rect key="frame" x="101" y="74" width="209" height="75"/>
+                                <string key="text">РуСленг by Kam Lotfull
+2017-2019</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-OH-qaX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Слова взяты с сайтов Teenslang.su, Vsekidki.ru и Модные-слова.рф" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jCq-OH-qaX">
                                 <rect key="frame" x="16" y="157" width="280" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="tsG-9t-Obs"/>
                                 </constraints>
-                                <string key="text">All rights reserved.
-Все права защищены.
-Слова взяты с сайта teenslang.su.
-Также слова взяты с сайта vsekidki.ru
-Тренды составлены исходя из популярности слов в Твиттере и в открытой сети интернет.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -764,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgh-c0-aMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3906" y="1500"/>
+            <point key="canvasLocation" x="3905.625" y="1500"/>
         </scene>
         <!--Отзыв-->
         <scene sceneID="KUD-yR-x9t">
@@ -1066,15 +1063,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KamLotfull-98" translatesAutoresizingMaskIntoConstraints="NO" id="wie-3C-0cY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cheetah" translatesAutoresizingMaskIntoConstraints="NO" id="wie-3C-0cY">
                                 <rect key="frame" x="16" y="74" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="gAl-yU-vE5"/>
                                     <constraint firstAttribute="width" constant="75" id="hv7-Ua-xkv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kam Lotfull, Russia, Moscow." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t66-M2-H9V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t66-M2-H9V">
                                 <rect key="frame" x="101" y="74" width="213" height="41"/>
+                                <string key="text">Kamil Lotfullin
+Russia, Moscow.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1089,10 +1088,12 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F83-s0-oH4">
                                 <rect key="frame" x="16" y="157" width="288" height="302"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">iOS-Developer. 
+                                <string key="text">Full stack developer. 
 Education: HSE, CS, Applied Maths and Informatics, 2019
 E-mail: kamlotfull@gmail.com
-GitHub.com/Lotfull</string>
+GitHub.com/lotfull
+Instagram: @lotfull
+Telegram: @lotfull</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1157,7 +1158,7 @@ GitHub.com/Lotfull</string>
         </scene>
     </scenes>
     <resources>
-        <image name="KamLotfull-98" width="98" height="98"/>
+        <image name="Cheetah" width="367" height="367"/>
         <image name="iTunesArtwork" width="1024" height="1024"/>
         <image name="star " width="29" height="29"/>
     </resources>
