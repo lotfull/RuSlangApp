@@ -11,9 +11,9 @@ import CoreData
 import Firebase
 
 struct AppFontName {
-    static let regular = "Georgia"//"CourierNewPSMT"
-    static let bold = "Georgia-Bold"//"CourierNewPS-BoldMT"
-    static let italic = "Georgia-Italic"//"CourierNewPS-ItalicMT"
+    static let regular = "HelveticaNeue"//"CourierNewPSMT"
+    static let bold = "HelveticaNeue-Bold"//"CourierNewPS-BoldMT"
+    static let italic = "HelveticaNeue-Italic"//"CourierNewPS-ItalicMT"
 }
 
 extension UIFont {
@@ -78,6 +78,7 @@ extension UIFont {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let dictionaries = ["Словарь сленга", "Teenslang.su", "Vsekidki.ru", "Модные-слова.рф"]
+    let appColor = UIColor.purple//UIColor(red: 0, green: 57, blue: 166, alpha: 1)
     
     override init() {
         super.init()
@@ -91,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        window?.tintColor = UIColor.purple
+        window?.tintColor = appColor
         listenForFatalCoreDataNotifications()
         return true
     }

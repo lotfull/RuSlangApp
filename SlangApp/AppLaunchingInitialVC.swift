@@ -32,7 +32,7 @@ class AppLaunchingInitialVC: UIViewController {
         activityIndicator.startAnimating()
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let defaults = UserDefaults.standard
-            defaults.set(false, forKey: "isPreloaded")
+//            defaults.set(false, forKey: "isPreloaded")
             let isPreloaded = defaults.bool(forKey: self.isPreloadedKey + self.wordsVersion)
             if !isPreloaded {
                 self.preloadDataFromCSVFile()

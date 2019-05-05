@@ -395,7 +395,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meW-vI-mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4038.75" y="-717.25352112676057"/>
+            <point key="canvasLocation" x="4956" y="-688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rij-WX-arD">
@@ -411,7 +411,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpK-db-AVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144" y="-717"/>
+            <point key="canvasLocation" x="4059" y="-688"/>
         </scene>
         <!--Word-->
         <scene sceneID="Gjt-Rc-L7f">
@@ -470,7 +470,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifA-Jv-Orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3184" y="-17"/>
+            <point key="canvasLocation" x="3143" y="86"/>
         </scene>
         <!--Trend RatingTVC-->
         <scene sceneID="OD0-Pr-0QX">
@@ -621,7 +621,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zO-rR-77A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="718"/>
+            <point key="canvasLocation" x="2284" y="783"/>
         </scene>
         <!--Другое-->
         <scene sceneID="pcU-8a-tV3">
@@ -706,7 +706,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-TI-Wzw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="1437"/>
+            <point key="canvasLocation" x="2284" y="1502"/>
         </scene>
         <!--О программе-->
         <scene sceneID="kGm-Ux-OXx">
@@ -764,7 +764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgh-c0-aMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144" y="1100"/>
+            <point key="canvasLocation" x="3906" y="1500"/>
         </scene>
         <!--Отзыв-->
         <scene sceneID="KUD-yR-x9t">
@@ -932,7 +932,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XU-fX-Owb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4024" y="1437"/>
+            <point key="canvasLocation" x="3143" y="783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Gp-y7-xhb">
@@ -949,7 +949,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpi-It-V3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375" y="1435"/>
+            <point key="canvasLocation" x="1374" y="1500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HJ4-Jg-0YI">
@@ -966,7 +966,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HNJ-sO-RoK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1375" y="718"/>
+            <point key="canvasLocation" x="1374" y="783"/>
         </scene>
         <!--Trends TableVC-->
         <scene sceneID="Mt5-6g-soa">
@@ -1116,7 +1116,7 @@ GitHub.com/Lotfull</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vs-LJ-sQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="1771"/>
+            <point key="canvasLocation" x="3143" y="1502"/>
         </scene>
         <!--Set DictionaryVC-->
         <scene sceneID="zxj-VE-Qc9">
@@ -1153,7 +1153,7 @@ GitHub.com/Lotfull</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bh-Yd-Pax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3143" y="-1425"/>
+            <point key="canvasLocation" x="3182" y="-717"/>
         </scene>
     </scenes>
     <resources>
@@ -1163,7 +1163,7 @@ GitHub.com/Lotfull</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s96-ql-dpo"/>
-        <segue reference="oJz-hB-ms0"/>
-        <segue reference="NR0-LT-nVw"/>
+        <segue reference="KuJ-46-Lh0"/>
+        <segue reference="UBp-CX-A8z"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +24,7 @@
                             <constraint firstAttribute="height" constant="83" id="8pr-4h-Tba"/>
                             <constraint firstAttribute="width" constant="83" id="EYu-Jq-2Lv"/>
                         </constraints>
-                        <state key="normal" image="star"/>
+                        <state key="normal" image="big star "/>
                         <connections>
                             <action selector="favoriteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aSa-wO-lLU"/>
                         </connections>
@@ -38,7 +38,6 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxW-a2-gZH" userLabel="Words separator">
                         <rect key="frame" x="0.0" y="160.5" width="375" height="1"/>
-                        <color key="backgroundColor" red="0.56295669078826904" green="0.19187125563621521" blue="0.49553984403610229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="bkA-TA-xOh"/>
                         </constraints>
@@ -65,9 +64,7 @@
                             <constraint firstAttribute="height" constant="40" id="M0m-PQ-SbV"/>
                         </constraints>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" image="send">
-                            <color key="titleColor" red="0.99107247590000003" green="0.86738711599999996" blue="0.27233126759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
+                        <state key="normal" image="big share arrow "/>
                         <connections>
                             <action selector="shareWordButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IAY-wM-XrE"/>
                         </connections>
@@ -105,7 +102,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="send" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="star" width="46.400001525878906" height="46.400001525878906"/>
+        <image name="big share arrow " width="42.5" height="42.5"/>
+        <image name="big star " width="42.5" height="42.5"/>
     </resources>
 </document>

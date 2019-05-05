@@ -35,7 +35,7 @@ class WordTableViewCell: UITableViewCell {
         }
         favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "yellow star ") : #imageLiteral(resourceName: "star")
         shareButton.imageView?.image = shareButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
-        shareButton.tintColor = UIColor.purple
+        shareButton.tintColor = (UIApplication.shared.delegate as? AppDelegate)!.appColor
     }
     
     func configure(withName: String, withDefinition: String, at indexPath: IndexPath) {
@@ -46,7 +46,7 @@ class WordTableViewCell: UITableViewCell {
         wordNameLabel.text = withName
         wordDefinitionLabel.text = withDefinition
         favoriteButton.imageView?.image = #imageLiteral(resourceName: "big yellow star")
-        shareButton.tintColor = UIColor.purple
+        shareButton.tintColor = (UIApplication.shared.delegate as? AppDelegate)!.appColor
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {

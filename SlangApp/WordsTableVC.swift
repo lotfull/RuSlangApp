@@ -50,7 +50,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         return (delegate?.dictionaries)!
     }()
     var shuffleIndex: [Int]!
-
+    var focusSearchBar = false
+    
     func activityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.style = UIActivityIndicatorView.Style.gray
@@ -69,6 +70,16 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         selectedTabBarIndex = self.tabBarController?.selectedIndex
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if focusSearchBar {
+            focusSearchBar = false
+            searchController.searchBar.becomeFirstResponder()
+            searchController.isActive = true
+            updateSearchResults(for: searchController)
+        }
+    }
+
     func setBarTitle(_ name: String) {
         let name = NSMutableAttributedString(string: name)//, attributes: [NSAttributedString.Key.font: UIFont(name: "Verdana", size: 14)!])
         let arrow = NSMutableAttributedString(string: "\u{2304}", attributes: [NSAttributedString.Key.font: UIFont(name: "Georgia", size: 20)!])
@@ -83,10 +94,10 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         setBarTitle(self.dictionaries[dictionary])
         if selectedDict != dictionary {
             self.selectedDict = dictionary
-            updateSearchResults(for: searchController)
             dictWords = words.filter({ (word: Word) -> Bool in
                 return (selectedDict == 0) || (word.dictionaryId == selectedDict)
             })
+            updateSearchResults(for: searchController)
             shuffleIndex = Array(0...dictWords.count)
             shuffleIndex.shuffle()
         }
@@ -186,7 +197,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                     cell.configure(withName: "Нет желаемого слова?", withDefinition: "Добавьте его сами и помогите найти его другим, нажав на эту ячейку.", at: indexPath)
                 } else {
                     cell.configure(with: filteredWords[indexPath.row], at: indexPath)
-                    cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "second")
+                    cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "big star ")
                 }
             }
         } else if isShuffled {
@@ -219,6 +230,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             }
         } else if isShuffled {
             selectedWord = words[indexPath.row]
+        } else if selectedDict != 0 {
+            selectedWord = dictWords[indexPath.row]
         } else {
             let wordsKey = sectionNames[indexPath.section]
             if let sectionWords = wordsBySection[wordsKey] {
@@ -254,6 +267,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 return (selectedDict == 0) || (word.dictionaryId == selectedDict)
             })
             self.titleButton.setTitle(self.dictionaries[self.selectedDict], for: .normal)
+            self.tableView.reloadData()
         } else if text?.first! == "#" {
             filteredWords = dictWords.filter({ (word: Word) -> Bool in
                 if (selectedDict == 0) || (word.dictionaryId == 1) {
@@ -265,6 +279,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 return false
             })
             titleButton.setTitle(text!, for: .normal)
+            resultsController.tableView.reloadData()
         } else {
             var tempWords = [Word]()
             filteredWords = dictWords.filter({ (word: Word) -> Bool in
@@ -280,9 +295,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             })
             filteredWords.append(contentsOf: tempWords)
             titleButton.setTitle("\(text!) (\(filteredWords.count) слов)", for: .normal)
+            resultsController.tableView.reloadData()
         }
-        resultsController.tableView.reloadData()
-        self.tableView.reloadData()
     }
     
     func firstFetching() {
@@ -324,8 +338,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     
     func updateSearch(_ wordName: String) {
         searchController.searchBar.text? = wordName
-        searchController.isActive = true
-        self.updateSearchResults(for: searchController)
+        focusSearchBar = true
     }
     
     // MARK: - WordTableViewCellDelegate
