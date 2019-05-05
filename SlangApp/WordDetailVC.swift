@@ -49,7 +49,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         currWidth?.isActive = true
         let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24)
         currHeight?.isActive = true
-        self.navigationItem.rightBarButtonItem = menuBarItem
+        self.navigationItem.rightBarButtonItems?.insert(menuBarItem, at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,10 +135,10 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     }
     
     // MARK: - @IBO and @IBA
-    @IBAction func setTrendRatingButtonAction() {
-        self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
-    }
-    
+//    @IBAction func setTrendRatingButtonAction() {
+//        self.performSegue(withIdentifier: getTrendRatingID, sender: nil)
+//    }
+
     @objc func shareWordButton(_ sender: Any) {
         let text = word.textViewString()
         let textToShare = [text]
@@ -154,6 +154,9 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func editWordPressed(_ sender: UIBarButtonItem) {
+        
+    }
     @IBOutlet var tblView: UITableView!
     
 }

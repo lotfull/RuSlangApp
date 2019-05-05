@@ -41,6 +41,14 @@ extension Word {
                 answer += "\n\(a): \(b!)"
             }
         }
+        if group == nil { print("group is NIL") }
+        if type == nil { print("type is NIL") }
+        if examples == nil { print("examples is NIL") }
+        if hashtags == nil { print("hashtags is NIL") }
+        if origin == nil { print("origin is NIL") }
+        if synonyms == nil { print("synonyms is NIL") }
+        if link == nil { print("link is NIL") }
+        if video == nil { print("video is NIL") }
         return answer
     }
     

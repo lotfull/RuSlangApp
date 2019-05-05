@@ -45,6 +45,8 @@ class AppLaunchingInitialVC: UIViewController {
     }
     
     func preloadDataFromCSVFile() {
+        var methodStart = Date()
+        
         removeData()
         
         if let contentsOfURL = Bundle.main.url(forResource: dictionaryFile, withExtension: "csv"),
@@ -57,20 +59,24 @@ class AppLaunchingInitialVC: UIViewController {
                 let values = item_array.map(nilIfEmpty)
                 word.name = values[0]!
                 word.definition = values[1] == nil ? "Нет определения" : values[1]!
-                word.type = item_array[2]
-                word.group = item_array[3]
-                word.examples = item_array[4]
-                word.hashtags = item_array[5]
-                word.origin = item_array[6]
-                word.synonyms = item_array[7]
-                word.link = item_array[8]
+                word.type = values[2]
+                word.group = values[3]
+                word.examples = values[4]
+                word.hashtags = values[5]
+                word.origin = values[6]
+                word.synonyms = values[7]
+                word.link = values[8]
                 word.dictionaryId = Int(item_array[9])!
-                word.video = item_array.count == 11 ? item_array[10] : nil
+                word.video = values.count == 11 ? values[10] : nil
             }
         } else {
             print("\(dictionaryFile) not exists")
         }
+        print("1 Execution time: \(Date().timeIntervalSince(methodStart))")
+        
+        methodStart = Date()
         saveData()
+        print("2 Execution time: \(Date().timeIntervalSince(methodStart))")
     }
     
     func saveData() {

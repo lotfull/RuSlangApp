@@ -33,8 +33,9 @@ class CreateEditWordVC: UITableViewController {
         super.viewDidLoad()
         if let word = editingWord {
             title = "Edit \(word.name)"
+            print(word.textViewString())
             nameField.text = word.name
-            definitionField.text = word.definition
+            definitionTextView.text = word.definition
             groupField.text = word.group
             typeField.text = word.type
             examplesTextView.text = word.examples
@@ -65,7 +66,7 @@ class CreateEditWordVC: UITableViewController {
     
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var definitionField: UITextField!
+    @IBOutlet weak var definitionTextView: UITextView!
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var groupField: UITextField!
     @IBOutlet weak var synonymsField: UITextField!
@@ -87,7 +88,7 @@ class CreateEditWordVC: UITableViewController {
         //needToUpdate = true
         if let word = editingWord {
             word.name = nameField.text!
-            word.definition = definitionField.text!
+            word.definition = definitionTextView.text!
             word.group = returnNilIfEmpty(groupField.text!)
             word.type = returnNilIfEmpty(typeField.text!)
             word.examples = returnNilIfEmpty(examplesTextView.text)
@@ -99,7 +100,7 @@ class CreateEditWordVC: UITableViewController {
         } else {
             let word = Word(context: managedObjectContext)
             word.name = nameField.text!
-            word.definition = definitionField.text!
+            word.definition = definitionTextView.text!
             word.group = returnNilIfEmpty(groupField.text!)
             word.type = returnNilIfEmpty(typeField.text!)
             word.examples = returnNilIfEmpty(examplesTextView.text)

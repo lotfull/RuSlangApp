@@ -64,12 +64,23 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         installSearchController()
         installTableView()
         firstFetching()
+        setBarTitle(self.dictionaries[selectedDict])
         self.tabBarController?.delegate = self
         selectedTabBarIndex = self.tabBarController?.selectedIndex
     }
     
+    func setBarTitle(_ name: String) {
+        let name = NSMutableAttributedString(string: name)//, attributes: [NSAttributedString.Key.font: UIFont(name: "Verdana", size: 14)!])
+        let arrow = NSMutableAttributedString(string: "\u{2304}", attributes: [NSAttributedString.Key.font: UIFont(name: "Georgia", size: 20)!])
+        
+        let combination = NSMutableAttributedString(attributedString: name)
+        combination.append(arrow)
+        
+        self.titleButton.setAttributedTitle(combination, for: .normal)
+    }
+    
     func setDictionary(_ dictionary: Int) {
-        self.titleButton.setTitle(self.dictionaries[dictionary], for: .normal)
+        setBarTitle(self.dictionaries[dictionary])
         if selectedDict != dictionary {
             self.selectedDict = dictionary
             updateSearchResults(for: searchController)

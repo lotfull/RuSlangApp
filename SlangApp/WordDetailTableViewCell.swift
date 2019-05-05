@@ -50,7 +50,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         let wtv = wordTextView!
         let nameString = "\(word.name)\n"
         let attributedText = NSMutableAttributedString(string: nameString, attributes: convertToOptionalNSAttributedStringKeyDictionary([
-            convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: mainFontSize + 1),
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: mainFontSize + 2),
             convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.blue]))
         
         if word.type != nil {
@@ -129,7 +129,7 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
         
         if word.link != nil {
             let linkString = "\(word.link!)\n"
-            let url = URL(string: linkString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!)!
+            let url = URL(string: word.link!.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!)!
             let attributedString = NSMutableAttributedString(string: linkString, attributes:[NSAttributedString.Key.link: url])
             attributedString.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: mainFontSize), convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.purple, convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): hashParagraphStyle]), range: attributedString.mutableString.range(of: linkString))
             attributedText.append(attributedString)
@@ -173,31 +173,31 @@ class WordDetailTableViewCell: UITableViewCell, UITextViewDelegate {
     let smallParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.headIndent = 20
-        paragraphStyle.firstLineHeadIndent = 20
+        paragraphStyle.firstLineHeadIndent = 30
         paragraphStyle.paragraphSpacingBefore = 3
         return paragraphStyle
     }()
     
     let defParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.headIndent = 10
-        paragraphStyle.firstLineHeadIndent = 0
+//        paragraphStyle.headIndent = 0
+        paragraphStyle.firstLineHeadIndent = 20
         paragraphStyle.paragraphSpacingBefore = 3
         return paragraphStyle
     }()
     
     let hashParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.headIndent = 20
-        paragraphStyle.firstLineHeadIndent = 0
+//        paragraphStyle.headIndent = 0
+        paragraphStyle.firstLineHeadIndent = 20
         paragraphStyle.paragraphSpacingBefore = 3
         return paragraphStyle
     }()
     
     let typeParagraphStyle: NSMutableParagraphStyle = {
         let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-        paragraphStyle.headIndent = 0
-        paragraphStyle.firstLineHeadIndent = 0
+//        paragraphStyle.headIndent = 0
+        paragraphStyle.firstLineHeadIndent = 15
         paragraphStyle.paragraphSpacingBefore = 15
         return paragraphStyle
     }()
