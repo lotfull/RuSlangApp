@@ -16,6 +16,12 @@ extension Word {
         return NSFetchRequest<Word>(entityName: "Word")
     }
     
+    @nonobjc public class func newWordId() -> String {
+        let wordId = UserDefaults.standard.string(forKey: "newWordId") ?? "100000"
+        UserDefaults.standard.set(String(Int(wordId)! + 1), forKey: "newWordId")
+        return wordId
+    }
+    
     @NSManaged public var name: String
     @NSManaged public var definition: String
     @NSManaged public var group: String?
@@ -26,6 +32,7 @@ extension Word {
     @NSManaged public var synonyms: String?
     @NSManaged public var favorite: Bool
     @NSManaged public var dictionaryId: Int
+    @NSManaged public var wordId: String
     @NSManaged public var link: String?
     @NSManaged public var video: String?
 
@@ -36,19 +43,13 @@ extension Word {
                        ("теги", hashtags),
                        ("примеры", examples),
                        ("происх", origin),
-                       ("син.", synonyms)] {
+                       ("син.", synonyms),
+                       ("ссылка", link),
+            ] {
             if b != nil {
                 answer += "\n\(a): \(b!)"
             }
         }
-        if group == nil { print("group is NIL") }
-        if type == nil { print("type is NIL") }
-        if examples == nil { print("examples is NIL") }
-        if hashtags == nil { print("hashtags is NIL") }
-        if origin == nil { print("origin is NIL") }
-        if synonyms == nil { print("synonyms is NIL") }
-        if link == nil { print("link is NIL") }
-        if video == nil { print("video is NIL") }
         return answer
     }
     

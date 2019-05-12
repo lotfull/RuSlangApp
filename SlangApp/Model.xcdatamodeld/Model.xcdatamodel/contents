@@ -13,8 +13,9 @@
         <attribute name="synonyms" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="video" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wordId" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="238"/>
     </elements>
 </model>

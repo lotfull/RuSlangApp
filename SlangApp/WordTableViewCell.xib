@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,20 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="161.66666666666666"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cif-O5-8fQ" userLabel="Favorite Button">
-                        <rect key="frame" x="292" y="0.0" width="83" height="83"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="83" id="8pr-4h-Tba"/>
-                            <constraint firstAttribute="width" constant="83" id="EYu-Jq-2Lv"/>
-                        </constraints>
-                        <state key="normal" image="big star "/>
-                        <connections>
-                            <action selector="favoriteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aSa-wO-lLU"/>
-                        </connections>
-                    </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECS-Cd-gNy" userLabel="Name-definition separator">
                         <rect key="frame" x="8" y="60" width="287" height="1"/>
                         <color key="backgroundColor" red="0.85307980371900827" green="0.85307980371900827" blue="0.85307980371900827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,7 +26,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxW-a2-gZH" userLabel="Words separator">
-                        <rect key="frame" x="0.0" y="160.5" width="375" height="1"/>
+                        <rect key="frame" x="0.0" y="160.66666666666666" width="375" height="1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="bkA-TA-xOh"/>
                         </constraints>
@@ -51,42 +40,77 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Значение слова, очень длинное и полноценное определение " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wD-ND-5Wz">
-                        <rect key="frame" x="8" y="70" width="307" height="91.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="300" text="Значение слова, очень длинное и полноценное определение которое перелезает через ограничение размеров 3 строки" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wD-ND-5Wz">
+                        <rect key="frame" x="8" y="70" width="284" height="91.666666666666686"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.13447507747933884" green="0.13447507747933884" blue="0.13447507747933884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSB-U6-aVh" userLabel="Share Button">
-                        <rect key="frame" x="315" y="101.5" width="40" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UK-F4-1xz">
+                        <rect key="frame" x="292" y="77.666666666666671" width="83" height="83.000000000000014"/>
+                        <subviews>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSB-U6-aVh" userLabel="Share Button">
+                                <rect key="frame" x="25.666666666666686" y="24" width="32" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="SaG-So-1f7"/>
+                                    <constraint firstAttribute="width" constant="32" id="dQe-Ms-1Xn"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="share"/>
+                                <connections>
+                                    <action selector="shareWordButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IAY-wM-XrE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="BWQ-A0-pnL"/>
-                            <constraint firstAttribute="height" constant="40" id="M0m-PQ-SbV"/>
+                            <constraint firstAttribute="width" constant="83" id="03O-WN-FJy"/>
+                            <constraint firstItem="fSB-U6-aVh" firstAttribute="centerX" secondItem="9UK-F4-1xz" secondAttribute="centerX" id="9Xd-ZE-17J"/>
+                            <constraint firstAttribute="height" constant="83" id="Ibf-jV-S1N"/>
+                            <constraint firstItem="fSB-U6-aVh" firstAttribute="centerY" secondItem="9UK-F4-1xz" secondAttribute="centerY" id="pDX-Cv-Hnd"/>
                         </constraints>
-                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" image="big share arrow "/>
-                        <connections>
-                            <action selector="shareWordButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IAY-wM-XrE"/>
-                        </connections>
-                    </button>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BmI-3B-5Ik">
+                        <rect key="frame" x="292" y="0.0" width="83" height="83"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cif-O5-8fQ" userLabel="Favorite Button">
+                                <rect key="frame" x="21.666666666666686" y="21.666666666666671" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="eDd-l7-bhy"/>
+                                    <constraint firstAttribute="height" constant="40" id="twW-Bl-SYm"/>
+                                </constraints>
+                                <state key="normal" image="star-3"/>
+                                <connections>
+                                    <action selector="favoriteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aSa-wO-lLU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cif-O5-8fQ" firstAttribute="centerY" secondItem="BmI-3B-5Ik" secondAttribute="centerY" id="e5e-zT-5gl"/>
+                            <constraint firstAttribute="width" constant="83" id="fhI-Md-jWe"/>
+                            <constraint firstItem="cif-O5-8fQ" firstAttribute="centerX" secondItem="BmI-3B-5Ik" secondAttribute="centerX" id="kDN-cT-aX5"/>
+                            <constraint firstAttribute="height" constant="83" id="xB3-Je-JPf"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="9UK-F4-1xz" secondAttribute="trailing" id="33a-dd-OkW"/>
                     <constraint firstAttribute="trailing" secondItem="IxW-a2-gZH" secondAttribute="trailing" id="BuW-0b-Yuq"/>
                     <constraint firstItem="QT2-1b-Wng" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="C5x-s5-wRz"/>
                     <constraint firstAttribute="bottom" secondItem="IxW-a2-gZH" secondAttribute="bottom" id="DCD-7X-OkS"/>
-                    <constraint firstAttribute="bottom" secondItem="fSB-U6-aVh" secondAttribute="bottom" constant="20" id="FGc-Qe-nfH"/>
                     <constraint firstAttribute="bottom" secondItem="6wD-ND-5Wz" secondAttribute="bottom" id="GUu-cN-PpF"/>
+                    <constraint firstAttribute="trailing" secondItem="BmI-3B-5Ik" secondAttribute="trailing" id="Hl9-5I-rrE"/>
                     <constraint firstItem="QT2-1b-Wng" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KTC-EP-0Kl"/>
                     <constraint firstItem="IxW-a2-gZH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KWr-7y-gJQ"/>
+                    <constraint firstItem="BmI-3B-5Ik" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KrF-Xo-c8K"/>
                     <constraint firstItem="ECS-Cd-gNy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="60" id="MUU-vP-XxX"/>
-                    <constraint firstAttribute="trailing" secondItem="cif-O5-8fQ" secondAttribute="trailing" id="YPX-i7-2Dq"/>
-                    <constraint firstItem="fSB-U6-aVh" firstAttribute="leading" secondItem="6wD-ND-5Wz" secondAttribute="trailing" id="bGO-JF-l0Z"/>
-                    <constraint firstItem="cif-O5-8fQ" firstAttribute="leading" secondItem="QT2-1b-Wng" secondAttribute="trailing" id="bhz-tg-MCO"/>
+                    <constraint firstItem="9UK-F4-1xz" firstAttribute="leading" secondItem="6wD-ND-5Wz" secondAttribute="trailing" id="Vba-C2-ElU"/>
+                    <constraint firstItem="IxW-a2-gZH" firstAttribute="top" secondItem="9UK-F4-1xz" secondAttribute="bottom" id="ZFz-Zb-4Fw"/>
                     <constraint firstItem="ECS-Cd-gNy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cht-mg-eLP"/>
                     <constraint firstAttribute="trailing" secondItem="ECS-Cd-gNy" secondAttribute="trailing" constant="80" id="g0m-PO-IDX"/>
-                    <constraint firstAttribute="trailing" secondItem="fSB-U6-aVh" secondAttribute="trailing" constant="20" id="g8c-Ub-3mV"/>
+                    <constraint firstItem="BmI-3B-5Ik" firstAttribute="leading" secondItem="QT2-1b-Wng" secondAttribute="trailing" id="gFl-DO-zin"/>
                     <constraint firstItem="6wD-ND-5Wz" firstAttribute="top" secondItem="QT2-1b-Wng" secondAttribute="bottom" id="mVQ-Ag-to1"/>
-                    <constraint firstItem="cif-O5-8fQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sUh-aJ-UmP"/>
                     <constraint firstItem="6wD-ND-5Wz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="weK-Kx-Cu3"/>
                 </constraints>
             </tableViewCellContentView>
@@ -98,11 +122,11 @@
                 <outlet property="wordDefinitionLabel" destination="6wD-ND-5Wz" id="HH8-Vo-gbY"/>
                 <outlet property="wordNameLabel" destination="QT2-1b-Wng" id="oI5-7W-Iir"/>
             </connections>
-            <point key="canvasLocation" x="149.5" y="128"/>
+            <point key="canvasLocation" x="147.10144927536234" y="127.17391304347827"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="big share arrow " width="42.5" height="42.5"/>
-        <image name="big star " width="42.5" height="42.5"/>
+        <image name="share" width="38" height="53"/>
+        <image name="star-3" width="100" height="100"/>
     </resources>
 </document>

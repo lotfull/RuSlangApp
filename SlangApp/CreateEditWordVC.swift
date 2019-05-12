@@ -108,6 +108,7 @@ class CreateEditWordVC: UITableViewController {
             word.hashtags = returnNilIfEmpty(hashtagsField.text!)
             word.synonyms = returnNilIfEmpty(synonymsField.text!)
             word.favorite = favoriteSwitch.isOn
+            word.wordId = Word.newWordId()
             delegate?.createEditWordVCDone(self, adding: word)
             delegate1?.addNewWord(word)
         }

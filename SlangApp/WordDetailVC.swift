@@ -29,6 +29,7 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpShareButton()
+        setUpTrendButton() // Uncomment to
         tableView.isScrollEnabled = true
         title = word.name
         tblView.estimatedRowHeight = tableView.rowHeight
@@ -39,11 +40,33 @@ class WordDetailVC: UITableViewController, WordDetailTableViewCellDelegate, Crea
     func setUpShareButton(){
         let menuBtn = UIButton(type: .custom)
         menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
-        let tintedImage = #imageLiteral(resourceName: "share arrow").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        let tintedImage = #imageLiteral(resourceName: "share").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
         menuBtn.setImage(tintedImage, for: .normal)
+        menuBtn.setImage(tintedImage, for: .highlighted)
         menuBtn.imageView?.image = menuBtn.imageView?.image?.withRenderingMode(.alwaysTemplate)
         menuBtn.setTitleColor((UIApplication.shared.delegate as? AppDelegate)!.appColor, for: .normal)
         menuBtn.addTarget(self, action: #selector(shareWordButton(_:)), for: UIControl.Event.touchUpInside)
+        
+        let menuBarItem = UIBarButtonItem(customView: menuBtn)
+        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24)
+        currWidth?.isActive = true
+        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24)
+        currHeight?.isActive = true
+        self.navigationItem.rightBarButtonItems?.insert(menuBarItem, at: 0)
+    }
+    
+    @objc func goSetTrendSegue() {
+        self.performSegue(withIdentifier: "getTrendRating", sender: self)
+    }
+    
+    func setUpTrendButton(){
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+        let tintedImage = #imageLiteral(resourceName: "bar_chart").withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        menuBtn.setImage(tintedImage, for: .normal)
+        menuBtn.imageView?.image = menuBtn.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        menuBtn.setTitleColor((UIApplication.shared.delegate as? AppDelegate)!.appColor, for: .normal)
+        menuBtn.addTarget(self, action: #selector(goSetTrendSegue), for: UIControl.Event.touchUpInside)
         
         let menuBarItem = UIBarButtonItem(customView: menuBtn)
         let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24)

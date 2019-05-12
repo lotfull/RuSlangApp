@@ -32,7 +32,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     lazy var managedObjectContext: NSManagedObjectContext = {
         return (delegate?.managedObjectContext)!
     }()
-    var words = [Word]()
+    lazy var words: [Word] = {
+        return (delegate?.words)!
+    }()
     var dictWords = [Word]()
     var filteredWords = [Word]()
     var selectedWord: Word!
@@ -49,7 +51,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     lazy var dictionaries = {
         return (delegate?.dictionaries)!
     }()
-    var shuffleIndex: [Int]!
+    var shuffledIndexes: [Int]!
     var focusSearchBar = false
     
     func activityIndicator() {
@@ -98,8 +100,8 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 return (selectedDict == 0) || (word.dictionaryId == selectedDict)
             })
             updateSearchResults(for: searchController)
-            shuffleIndex = Array(0...dictWords.count)
-            shuffleIndex.shuffle()
+            shuffledIndexes = Array(0...dictWords.count)
+            shuffledIndexes.shuffle()
         }
     }
     
@@ -197,11 +199,11 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                     cell.configure(withName: "Нет желаемого слова?", withDefinition: "Добавьте его сами и помогите найти его другим, нажав на эту ячейку.", at: indexPath)
                 } else {
                     cell.configure(with: filteredWords[indexPath.row], at: indexPath)
-                    cell.favoriteButton.imageView?.image = filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "big yellow star") : #imageLiteral(resourceName: "big star ")
+                    cell.favoriteButton.imageView?.image = (filteredWords[indexPath.row].favorite ? #imageLiteral(resourceName: "star-4") : #imageLiteral(resourceName: "star-3")).withRenderingMode(.alwaysTemplate)
                 }
             }
         } else if isShuffled {
-            cell.configure(with: dictWords[shuffleIndex[indexPath.row]], at: indexPath)
+            cell.configure(with: dictWords[shuffledIndexes[indexPath.row]], at: indexPath)
         } else if selectedDict != 0 {
             cell.configure(with: dictWords[indexPath.row], at: indexPath)
         } else if tableView == self.tableView {
@@ -229,7 +231,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
                 selectedWord = filteredWords[indexPath.row]
             }
         } else if isShuffled {
-            selectedWord = words[indexPath.row]
+            selectedWord = words[shuffledIndexes[indexPath.row]]
         } else if selectedDict != 0 {
             selectedWord = dictWords[indexPath.row]
         } else {
@@ -300,21 +302,9 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
     }
     
     func firstFetching() {
-        let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
-        nameBeginsFetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
-        do {
-            words = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
-            let sliceStart = words.firstIndex { (word: Word) -> Bool in
-                return word.name[word.name.startIndex] == "А"
-            }
-            let start = Int(sliceStart!), prev=start-1
-            words = words[start...] + Array(words[...prev])
-            dictWords = words
-            shuffleIndex = Array(0...dictWords.count)
-            shuffleIndex.shuffle()
-        } catch {
-            fatalError("Failed to fetch words: \(error)")
-        }
+        dictWords = words
+        shuffledIndexes = Array(0...dictWords.count)
+        shuffledIndexes.shuffle()
         calculateWordsBySections()
         filteredWords = dictWords
         tableView.reloadData()
@@ -409,7 +399,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
             self.tableView.reloadData()
             shuffleButton.title = "Случайно"
         } else {
-            shuffleIndex.shuffle()
+            shuffledIndexes.shuffle()
             isShuffled = true
             self.tableView.reloadData()
             shuffleButton.title = "А-Я"

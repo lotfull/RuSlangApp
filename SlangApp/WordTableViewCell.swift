@@ -13,7 +13,6 @@ protocol WordTableViewCellDelegate: class {
     func reloading(indexPath: IndexPath)
 }
 
-
 class WordTableViewCell: UITableViewCell {
     // MARK: - VARS and LETS
     var addNewWord = false
@@ -33,8 +32,9 @@ class WordTableViewCell: UITableViewCell {
         } else {
             wordDefinitionLabel.text = thisCellWord.definition
         }
-        favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "yellow star ") : #imageLiteral(resourceName: "star")
+        favoriteButton.imageView?.image = (thisCellWord.favorite ? #imageLiteral(resourceName: "star-4") : #imageLiteral(resourceName: "star-3")).withRenderingMode(.alwaysTemplate)
         shareButton.imageView?.image = shareButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+        shareButton.adjustsImageWhenHighlighted = false
         shareButton.tintColor = (UIApplication.shared.delegate as? AppDelegate)!.appColor
     }
     
@@ -45,14 +45,13 @@ class WordTableViewCell: UITableViewCell {
         thisCellIndexPath = indexPath
         wordNameLabel.text = withName
         wordDefinitionLabel.text = withDefinition
-        favoriteButton.imageView?.image = #imageLiteral(resourceName: "big yellow star")
         shareButton.tintColor = (UIApplication.shared.delegate as? AppDelegate)!.appColor
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         if !addNewWord {
             thisCellWord.favorite = !thisCellWord.favorite
-            favoriteButton.imageView?.image = thisCellWord.favorite ? #imageLiteral(resourceName: "yellow star ") : #imageLiteral(resourceName: "star")
+            favoriteButton.imageView?.image = (thisCellWord.favorite ? #imageLiteral(resourceName: "star-4") : #imageLiteral(resourceName: "star-3")).withRenderingMode(.alwaysTemplate)
             delegate?.reloading(indexPath: thisCellIndexPath)
         }
     }

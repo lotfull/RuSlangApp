@@ -286,7 +286,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="слово2, слово3" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8GC-h3-J2n">
-                                                    <rect key="frame" x="15" y="11" width="290" height="25"/>
+                                                    <rect key="frame" x="15" y="8" width="290" height="30.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
@@ -558,7 +558,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukR-g3-crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-347" y="449"/>
+            <point key="canvasLocation" x="444" y="-461"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AuP-CR-mH1">
@@ -580,11 +580,11 @@
             </objects>
             <point key="canvasLocation" x="446" y="449"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Поиск-->
         <scene sceneID="QG4-cS-vWH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dma-0F-Smm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="mul-ic-Fvx"/>
+                    <tabBarItem key="tabBarItem" title="Поиск" image="search-1" selectedImage="search-1" id="mul-ic-Fvx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mna-vR-UXN">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -931,11 +931,11 @@
             </objects>
             <point key="canvasLocation" x="3143" y="783"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Инфо-->
         <scene sceneID="6Gp-y7-xhb">
             <objects>
                 <navigationController id="mrs-cS-hmM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="rcn-2w-GpE"/>
+                    <tabBarItem key="tabBarItem" title="Инфо" image="about" selectedImage="about" id="rcn-2w-GpE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MbW-CL-GDW">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -948,11 +948,11 @@
             </objects>
             <point key="canvasLocation" x="1374" y="1500"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Избранное-->
         <scene sceneID="HJ4-Jg-0YI">
             <objects>
                 <navigationController id="nfL-Lc-rdr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="star " systemItem="favorites" id="5lj-Sz-gGd"/>
+                    <tabBarItem key="tabBarItem" title="Избранное" image="star-1" selectedImage="star-1" id="5lj-Sz-gGd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zpx-ED-ZU3">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1032,11 +1032,11 @@
             </objects>
             <point key="canvasLocation" x="2284" y="61"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Тренды-->
         <scene sceneID="8Ad-7X-R5y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YTm-jh-uIX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="i2C-Of-Ljo"/>
+                    <tabBarItem key="tabBarItem" title="Тренды" image="bar_chart" selectedImage="bar_chart" id="i2C-Of-Ljo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6c4-dN-h7f">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -1159,12 +1159,15 @@ Telegram: @lotfull</string>
     </scenes>
     <resources>
         <image name="Cheetah" width="367" height="367"/>
+        <image name="about" width="30" height="30"/>
+        <image name="bar_chart" width="30" height="30"/>
         <image name="iTunesArtwork" width="1024" height="1024"/>
-        <image name="star " width="29" height="29"/>
+        <image name="search-1" width="30" height="30"/>
+        <image name="star-1" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="s96-ql-dpo"/>
-        <segue reference="KuJ-46-Lh0"/>
-        <segue reference="UBp-CX-A8z"/>
+        <segue reference="oJz-hB-ms0"/>
+        <segue reference="NR0-LT-nVw"/>
     </inferredMetricsTieBreakers>
 </document>

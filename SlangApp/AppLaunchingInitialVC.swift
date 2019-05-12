@@ -14,8 +14,8 @@ import CoreData
 class AppLaunchingInitialVC: UIViewController {
     
     // MARK: - VARS and LETS
+    let delegate = UIApplication.shared.delegate as? AppDelegate
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let delegate = UIApplication.shared.delegate as? AppDelegate
         return (delegate?.managedObjectContext)!
     }()
     var tabBarControl: UITabBarController!
@@ -38,9 +38,25 @@ class AppLaunchingInitialVC: UIViewController {
                 self.preloadDataFromCSVFile()
                 defaults.set(true, forKey: self.isPreloadedKey + self.wordsVersion)
             }
+            self.fetchWords()
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: self.showMainVCID, sender: nil)
             }
+        }
+    }
+    
+    func fetchWords() {
+        let nameBeginsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+        nameBeginsFetch.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
+        do {
+            delegate!.words = (try managedObjectContext.fetch(nameBeginsFetch) as! [Word])
+            let sliceStart = delegate!.words.firstIndex { (word: Word) -> Bool in
+                return word.name[word.name.startIndex] == "А"
+            }
+            let start = Int(sliceStart!), prev=start-1
+            delegate!.words = delegate!.words[start...] + Array(delegate!.words[...prev])
+        } catch {
+            fatalError("Failed to fetch words: \(error)")
         }
     }
     
@@ -55,19 +71,20 @@ class AppLaunchingInitialVC: UIViewController {
             print("items_arrays.count:", items_arrays.count)
             for item_array in items_arrays {
                 let word = NSEntityDescription.insertNewObject(forEntityName: "Word", into: managedObjectContext) as! Word
-//                 name,definition,type,group,examples,hashtags,origin,synonyms,link,dict_id,video
+//              'name', 'definition', 'link', 'id', 'group', 'examples', 'hashtags', 'origin', 'synonyms', 'type', 'dict_id', 'video'
                 let values = item_array.map(nilIfEmpty)
                 word.name = values[0]!
                 word.definition = values[1] == nil ? "Нет определения" : values[1]!
-                word.type = values[2]
-                word.group = values[3]
-                word.examples = values[4]
-                word.hashtags = values[5]
-                word.origin = values[6]
-                word.synonyms = values[7]
-                word.link = values[8]
-                word.dictionaryId = Int(item_array[9])!
-                word.video = values.count == 11 ? values[10] : nil
+                word.link = values[2]
+                word.wordId = values[3]!
+                word.group = values[4]
+                word.examples = values[5]
+                word.hashtags = values[6]
+                word.origin = values[7]
+                word.synonyms = values[8]
+                word.type = values[9]
+                word.dictionaryId = Int(item_array[10])!
+                word.video = values.count == 12 ? values[11] : nil
             }
         } else {
             print("\(dictionaryFile) not exists")

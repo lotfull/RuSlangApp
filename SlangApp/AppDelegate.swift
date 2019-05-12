@@ -78,13 +78,14 @@ extension UIFont {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let dictionaries = ["Словарь сленга", "Teenslang.su", "Vsekidki.ru", "Модные-слова.рф"]
-    let appColor = UIColor.purple//UIColor(red: 0, green: 57, blue: 166, alpha: 1)
+    let appColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
     
     override init() {
         super.init()
         UIFont.overrideInitialize()
     }
     
+    var words: [Word]!
     
     var window: UIWindow?
     

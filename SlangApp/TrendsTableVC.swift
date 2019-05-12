@@ -15,8 +15,8 @@ import Dispatch
 
 class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCellDelegate, UITabBarControllerDelegate, AddingWordsToTrendsDelegate, SendingFeedbackDelegate, AddingNewWordsToFirebase {
     // MARK: - VARS and LETS
+    let delegate = UIApplication.shared.delegate as? AppDelegate
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let delegate = UIApplication.shared.delegate as? AppDelegate
         return (delegate?.managedObjectContext)!
     }()
     var wordsTableVCRef: WordsTableVC!
@@ -97,8 +97,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             self.trendWords = [Word]()
             for child in snapshot.children {
                 if let snap = child as? DataSnapshot,
-                   let dict = snap.value as? [String: String],
-                   dict.count > 1 {
+                   let dict = snap.value as? [String: String] {
                     let word = self.word(fromDict: dict)
                     self.trendWords.append(word)
                 }
@@ -125,11 +124,13 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             "examples": word.examples,
             "synonyms": word.synonyms,
             "type": word.type,
-            "hashtags": word.hashtags])
+            "hashtags": word.hashtags,
+            "wordId": word.wordId])
     }
     
-    func addToTrends(_ controller: WordDetailVC, word: Word, rating: Int) {
-        ref.child("trend words").child("\(rating)").setValue([
+    func editWord(_ word: Word) {
+        ref.child("edit words").childByAutoId().setValue([
+            "id": String(word.wordId),
             "name": word.name,
             "definition": word.definition,
             "origin": word.origin,
@@ -138,7 +139,34 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
             "synonyms": word.synonyms,
             "type": word.type,
             "hashtags": word.hashtags])
-        observeTrends()
+    }
+    
+    func addToTrends(_ controller: WordDetailVC, word: Word, rating: Int) {
+        if Int(word.wordId)! > 100000 {
+            ref.child("trend words").child("\(rating)").setValue([
+                "name": word.name,
+                "definition": word.definition,
+                "origin": word.origin,
+                "group": word.group,
+                "examples": word.examples,
+                "synonyms": word.synonyms,
+                "type": word.type,
+                "hashtags": word.hashtags])
+            observeTrends()
+        } else {
+            ref.child("trend words").child("\(rating)").setValue([
+                "wordId": word.wordId,
+                "name": word.name,
+                "definition": word.definition,
+                "origin": word.origin,
+                "group": word.group,
+                "examples": word.examples,
+                "synonyms": word.synonyms,
+                "type": word.type,
+                "hashtags": word.hashtags
+                ])
+            observeTrends()
+        }
     }
     
     // MARK: - WordTableViewCellDelegate
@@ -171,6 +199,14 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     
     func word(fromDict dictionary: [String: String]) -> Word {
+        print(dictionary)
+        if let wordId = dictionary["wordId"],
+            let word = delegate!.words.first(where: { (word) -> Bool in
+                return word.wordId == wordId
+            }) {
+            return word
+        }
+        
         func returnNilIfNonNone(_ str: String?) -> String? {
             if str == "NonNone" || str == "" || str == "_" || str == " " {
                 return nil
@@ -188,8 +224,25 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
         word.synonyms = returnNilIfNonNone(dictionary["synonyms"])
         word.type = returnNilIfNonNone(dictionary["type"])
         word.hashtags = returnNilIfNonNone(dictionary["hashtags"])
+        word.wordId = Word.newWordId()
         return word
     }
+    
+//    func word(fromWordId wordId: Int) -> Word? {
+//        let delegate = UIApplication.shared.delegate as? AppDelegate
+//        let managedObjectContext = (delegate?.managedObjectContext)!
+//        let searchFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Word")
+//        searchFetch.predicate = NSPredicate(format: "wordId == %i", wordId)
+//        do {
+//            let words = try managedObjectContext.fetch(searchFetch) as! [Word]
+//            if words.count == 1 {
+//                return words[0]
+//            }
+//        } catch {
+//            fatalError("Failed to fetch words: \(error)")
+//        }
+//        return nil
+//    }
     
     @IBAction func reloadTrends(_ sender: Any) {
         observeTrends()
