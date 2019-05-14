@@ -77,7 +77,7 @@ extension UIFont {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let dictionaries = ["Словарь сленга", "Teenslang.su", "Vsekidki.ru", "Модные-слова.рф"]
+    let dictionaries = ["РуСленг", "Teenslang.su", "Vsekidki.ru", "Модные-слова.рф"]
     let appColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
     
     override init() {

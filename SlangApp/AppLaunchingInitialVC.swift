@@ -25,16 +25,17 @@ class AppLaunchingInitialVC: UIViewController {
     let dictionaryFile = "full_dict"
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var firstInstallLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let defaults = UserDefaults.standard
-//            defaults.set(false, forKey: "isPreloaded")
             let isPreloaded = defaults.bool(forKey: self.isPreloadedKey + self.wordsVersion)
             if !isPreloaded {
+                self.activityIndicator.isHidden = false
+                self.firstInstallLabel.isHidden = false
                 self.preloadDataFromCSVFile()
                 defaults.set(true, forKey: self.isPreloadedKey + self.wordsVersion)
             }

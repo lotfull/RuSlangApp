@@ -130,7 +130,7 @@ class TrendsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCe
     
     func editWord(_ word: Word) {
         ref.child("edit words").childByAutoId().setValue([
-            "id": String(word.wordId),
+            "wordId": String(word.wordId),
             "name": word.name,
             "definition": word.definition,
             "origin": word.origin,

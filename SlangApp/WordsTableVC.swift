@@ -346,8 +346,7 @@ class WordsTableVC: UITableViewController, UITextFieldDelegate, WordTableViewCel
         } catch {
             print("There was managedObjectContext.save() error")
         }
-        //resultsController.tableView.reloadRows(at: [indexPath], with: .none)
-        self.tableView.reloadRows(at: [indexPath], with: .none)
+        (searchController.isActive && searchController.searchBar.text!.count > 0 ? resultsController : self).tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - CreateWordVCDelegate
